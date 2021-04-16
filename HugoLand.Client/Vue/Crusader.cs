@@ -6,7 +6,7 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 using System.Diagnostics;
-using HugoWorld.Vue;
+using Hugo_LAND.Client.Vue;
 
 namespace Hugo_LAND.Client
 {
