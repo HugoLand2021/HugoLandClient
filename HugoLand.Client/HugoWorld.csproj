@@ -191,6 +191,7 @@
     <Content Include="GameData\Tiles.bmp">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Images\chevalier.jpg" />
     <Content Include="small.ico" />
   </ItemGroup>
   <ItemGroup>
@@ -211,6 +212,10 @@
       <Name>Hugo_LAND.Core</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

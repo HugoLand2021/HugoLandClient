@@ -17,6 +17,7 @@ namespace HugoWorld.Vue
         internal void ConnectionReussie()
         {
             loginForm.Dispose();
+            lblUsername.Text = loginForm.name;
             this.Enabled = true;
         }
 

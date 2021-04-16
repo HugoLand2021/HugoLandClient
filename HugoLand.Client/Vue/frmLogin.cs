@@ -15,6 +15,7 @@ namespace HugoWorld.Vue
     {
         private bool EstConnecte = false;
         private readonly frmMain mainForm;
+        public string name = "";
 
         public frmLogin(frmMain mainForm)
         {
@@ -28,6 +29,7 @@ namespace HugoWorld.Vue
             if (CompteJoueursCRUD.ValideJoueur(txtUserName.Text, txtPwd.Text) == "SUCCESS")
             {
                 EstConnecte = true;
+                name = txtUserName.Text;
                 mainForm.ConnectionReussie();
                 this.Close();
             }
