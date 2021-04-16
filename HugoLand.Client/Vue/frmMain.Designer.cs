@@ -46,6 +46,7 @@ namespace HugoWorld.Vue
             this.btnStart.TabIndex = 0;
             this.btnStart.Text = "Game Start";
             this.btnStart.UseVisualStyleBackColor = false;
+            this.btnStart.Click += new System.EventHandler(this.btnStart_Click);
             // 
             // btnHero
             // 

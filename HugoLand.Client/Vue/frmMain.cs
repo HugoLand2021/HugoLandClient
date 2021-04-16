@@ -32,5 +32,13 @@ namespace HugoWorld.Vue
             this.Enabled = false;
             loginForm.ShowDialog();
         }
+
+        private void btnStart_Click(object sender, EventArgs e)
+        {
+            this.Enabled = false;
+            HugoWorld hugoWorld = new HugoWorld(this);
+            hugoWorld.ShowDialog();
+
+        }
     }
 }

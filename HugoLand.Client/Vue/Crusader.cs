@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 using System.Diagnostics;
+using HugoWorld.Vue;
 
 namespace HugoWorld
 {
@@ -15,13 +16,14 @@ namespace HugoWorld
         private double _lastTime;
         private long _frameCounter;
         private GameState _gameState;
+        private readonly frmMain main;
 
-        public HugoWorld()
+        public HugoWorld(frmMain main)
         {
             //Setup the form
             InitializeComponent();
             SetStyle(ControlStyles.AllPaintingInWmPaint | ControlStyles.UserPaint | ControlStyles.OptimizedDoubleBuffer, true);
-
+            this.main = main;
             //Startup the game state
             _gameState = new GameState(ClientSize);
 
@@ -72,6 +74,11 @@ namespace HugoWorld
             Form help = new helpform();
             help.Show();
             help.Focus();
+        }
+
+        private void HugoWorld_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            main.ConnectionReussie();
         }
     }
 }
