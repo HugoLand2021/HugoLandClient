@@ -5,7 +5,7 @@ using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
 
-namespace HugoWorld
+namespace Hugo_LAND.Client
 {
     //Textpop up used to display damage when monsters and players are hit
     struct textPopup

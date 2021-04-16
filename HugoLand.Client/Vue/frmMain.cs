@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace HugoWorld.Vue
+namespace Hugo_LAND.Client.Vue
 {
     public partial class frmMain : Form
     {

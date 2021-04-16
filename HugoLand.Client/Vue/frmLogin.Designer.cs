@@ -1,5 +1,5 @@
 ﻿
-namespace HugoWorld.Vue
+namespace Hugo_LAND.Client.Vue
 {
     partial class frmLogin
     {

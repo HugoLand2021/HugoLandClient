@@ -8,7 +8,7 @@ using System.Windows.Forms;
 using System.Diagnostics;
 using HugoWorld.Vue;
 
-namespace HugoWorld
+namespace Hugo_LAND.Client
 {
     public partial class HugoWorld : Form
     {

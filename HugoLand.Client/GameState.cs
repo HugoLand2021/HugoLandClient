@@ -6,7 +6,7 @@ using System.Windows.Forms;
 using System.Media;
 using System.IO;
 
-namespace HugoWorld
+namespace Hugo_LAND.Client
 {
     public class GameState
     {

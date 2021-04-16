@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Drawing;
 
-namespace HugoWorld
+namespace Hugo_LAND.Client
 {
     /// <summary>
     /// A MapTile is a reference to the original tile and the sprite that represents it. Note that they have to be different

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Media;
 
-namespace HugoWorld
+namespace Hugo_LAND.Client
 {
     /// <summary>
     /// Sounds is a static class for any other part of the program to use to play the sounds.

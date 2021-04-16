@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hugo_LAND.Console", "Hugo L
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hugo_LAND.Core", "Hugo LAND.Core\Hugo_LAND.Core.csproj", "{4B9A1C87-90F3-43AF-953F-0C74E408955C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HugoWorld", "HugoLand.Client\HugoWorld.csproj", "{306074A2-7150-43EB-8A5A-84E8ED210502}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hugo_LAND.Client", "HugoLand.Client\Hugo_LAND.Client.csproj", "{306074A2-7150-43EB-8A5A-84E8ED210502}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -54,7 +54,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Models\ClassesCRUD.cs" />
-    <Compile Include="Models\CompteJoueursCRUD.cs" />
+    <Compile Include="Models\CompteJoueurCRUD.cs" />
     <Compile Include="Models\CreateUser.cs" />
     <Compile Include="Models\EffetItemCRUD.cs" />
     <Compile Include="Models\HeroCRUD.cs" />

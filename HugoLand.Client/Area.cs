@@ -5,7 +5,7 @@ using System.Drawing;
 using System.IO;
 using System.Diagnostics;
 
-namespace HugoWorld
+namespace Hugo_LAND.Client
 {
 
     /// <summary>

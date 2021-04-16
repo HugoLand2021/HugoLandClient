@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Hugo_LAND.Core.Models
 {
-    public static class CompteJoueursCRUD
+    public static class CompteJoueurCRUD
     {
         public static string CreerJoueur(string nomJoueur, string courriel, string prenom, string nom, int typeUtilisateur, string mdp)
         {
@@ -53,7 +53,14 @@ namespace Hugo_LAND.Core.Models
             ObjectParameter message = new ObjectParameter("message", typeof(string));
             using (HugoLANDContext context = new HugoLANDContext())
             {
-                context.Connexion(nomJoueur, mdp, message);
+                try
+                {
+                    context.Connexion(nomJoueur, mdp, message);
+                }
+                catch
+                {
+                    message.Value = "NETWORKERROR";
+                }
                 return (string)message.Value;
             }
         }

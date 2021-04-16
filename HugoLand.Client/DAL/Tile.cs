@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Drawing;
 
-namespace HugoWorld
+namespace Hugo_LAND.Client
 {
     public class Tile 
     {

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Hugo_LAND.Client.Services;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,15 +8,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Hugo_LAND.Core.Models;
 
-namespace HugoWorld.Vue
+namespace Hugo_LAND.Client.Vue
 {
     public partial class frmLogin : Form
     {
         private bool EstConnecte = false;
         private readonly frmMain mainForm;
         public string name = "";
+        private readonly CompteJoueurServiceClient compteJoueurService = new CompteJoueurServiceClient();
+
 
         public frmLogin(frmMain mainForm)
         {
@@ -26,13 +28,16 @@ namespace HugoWorld.Vue
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            if (CompteJoueursCRUD.ValideJoueur(txtUserName.Text, txtPwd.Text) == "SUCCESS")
+            string Resultat = compteJoueurService.ConnexionUtilisateur(txtUserName.Text, txtPwd.Text);
+            if (Resultat == "SUCCESS")
             {
                 EstConnecte = true;
                 name = txtUserName.Text;
                 mainForm.ConnectionReussie();
                 this.Close();
             }
+            else if (Resultat == "NETWORKERROR")
+                MessageBox.Show("A network error has occured!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             else
                 MessageBox.Show("The username or password is incorrect!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 

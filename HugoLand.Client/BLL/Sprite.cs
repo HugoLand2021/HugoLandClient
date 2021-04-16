@@ -5,7 +5,7 @@ using System.Drawing;
 using System.Drawing.Imaging;
 
 
-namespace HugoWorld
+namespace Hugo_LAND.Client
 {
     public class Sprite : GameObject
     {

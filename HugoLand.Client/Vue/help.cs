@@ -6,7 +6,7 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 
-namespace HugoWorld
+namespace Hugo_LAND.Client
 {
     public partial class helpform : Form
     {

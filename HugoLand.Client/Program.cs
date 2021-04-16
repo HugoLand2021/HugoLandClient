@@ -1,9 +1,9 @@
-using HugoWorld.Vue;
+using Hugo_LAND.Client.Vue;
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
 
-namespace HugoWorld
+namespace Hugo_LAND.Client
 {
     static class Program
     {

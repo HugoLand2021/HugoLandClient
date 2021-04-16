@@ -1,4 +1,4 @@
-namespace HugoWorld
+namespace Hugo_LAND.Client
 {
     partial class helpform
     {

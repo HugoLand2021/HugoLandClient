@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Drawing;
 
-namespace HugoWorld
+namespace Hugo_LAND.Client
 {
     /// <summary>
     /// Provides a cache of bitmaps. Will return the existing reference if it exists or load a new one
