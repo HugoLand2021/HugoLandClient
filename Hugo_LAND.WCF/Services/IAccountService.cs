@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 namespace Hugo_LAND.WCF.Services
 {
     [ServiceContract]
-    public interface ICompteJoueurService
+    public interface IAccountService
     {
         [OperationContract]
-        string ConnexionUtilisateur(string NomUtilisateur, string MotDePasse);
+        string Authentification(string Username, string Password);
     }
 }

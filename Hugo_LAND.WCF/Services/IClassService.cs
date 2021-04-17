@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace TP3Hugo_Land.WCF.DTOs
 {
     [ServiceContract]
-    public interface IClasseService
+    public interface IClassService
     {
         //[OperationContract]
         

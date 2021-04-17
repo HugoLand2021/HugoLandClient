@@ -1,4 +1,4 @@
-﻿using Hugo_LAND.Client.Services;
+﻿using Hugo_LAND.Client.HugoLandServices;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,7 +16,7 @@ namespace Hugo_LAND.Client.Vue
         private bool EstConnecte = false;
         private readonly frmMain mainForm;
         public string name = "";
-        private readonly CompteJoueurServiceClient compteJoueurService = new CompteJoueurServiceClient();
+        private readonly AccountServiceClient compteJoueurService = new AccountServiceClient();
 
 
         public frmLogin(frmMain mainForm)
@@ -24,11 +24,12 @@ namespace Hugo_LAND.Client.Vue
             InitializeComponent();
             this.mainForm = mainForm;
             txtPwd.PasswordChar = '*';
+            btnLogin.Enabled = false;
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            string Resultat = compteJoueurService.ConnexionUtilisateur(txtUserName.Text, txtPwd.Text);
+            string Resultat = compteJoueurService.Authentification(txtUserName.Text, txtPwd.Text);
             if (Resultat == "SUCCESS")
             {
                 EstConnecte = true;
@@ -50,6 +51,22 @@ namespace Hugo_LAND.Client.Vue
         {
             if (!EstConnecte)
                 Application.Exit();
+        }
+
+        private void txtPwd_TextChanged(object sender, EventArgs e)
+        {
+            if (txtPwd.Text != "" && txtUserName.Text != "")
+                btnLogin.Enabled = true;
+            else
+                btnLogin.Enabled = false;
+        }
+
+        private void txtUserName_TextChanged(object sender, EventArgs e)
+        {
+            if (txtPwd.Text != "" && txtUserName.Text != "")
+                btnLogin.Enabled = true;
+            else
+                btnLogin.Enabled = false;
         }
     }
 }

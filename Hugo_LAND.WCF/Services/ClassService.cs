@@ -8,7 +8,7 @@ using TP3Hugo_Land.WCF.DTOs;
 
 namespace TP3Hugo_Land.WCF.Services
 {
-    public partial class ClasseService: IClasseService
+    public partial class HugoLandService : IClassService
     {
         
     }

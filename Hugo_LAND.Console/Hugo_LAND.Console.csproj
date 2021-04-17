@@ -11,7 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Hugo LAND.Core\Hugo_LAND.Core.csproj" />
+    <ProjectReference Include="..\Hugo_LAND.Core\Hugo_LAND.Core.csproj" />
   </ItemGroup>
 
 </Project>

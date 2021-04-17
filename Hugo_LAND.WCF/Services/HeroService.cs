@@ -10,7 +10,7 @@ using TP3Hugo_Land.WCF.DTOs;
 
 namespace TP3Hugo_Land.WCF.Services
 {
-    public partial class HeroService : IHeroService
+    public partial class HugoLandService : IHeroService
     {
         public async void CreeHero(int newNiveau, long newExperience, int newX, int newY, int newStatStr, int newStatDex,
             int newStatInt, int newStatVitalite, string newNomHero, bool newConnection, int idClasse, int idCompteJoueur,

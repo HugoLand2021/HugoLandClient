@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:element name="ConnexionUtilisateur">
+  <xs:element name="Authentification">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="NomUtilisateur" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="MotDePasse" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Username" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Password" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="ConnexionUtilisateurResponse">
+  <xs:element name="AuthentificationResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="ConnexionUtilisateurResult" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="AuthentificationResult" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
