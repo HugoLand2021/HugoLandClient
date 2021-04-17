@@ -1,4 +1,4 @@
-﻿// La génération de code T4 est activée pour le modèle 'C:\Users\ant33\Desktop\TOUT\École\Session 7-8\DÉVELOPPEMENT AVEC LES BASES DE DONNÉES\TP2\HugoLand2.0\Hugo LAND.Core\Models\HugoLANDModel.edmx'. 
+﻿// La génération de code T4 est activée pour le modèle 'C:\Users\ant33\Desktop\TOUT\École\Session 7-8\DÉVELOPPEMENT AVEC LES BASES DE DONNÉES\TP3\Hugo_Land.Client\HugoLandClient\Hugo LAND.Core\Models\HugoLANDModel.edmx'. 
 // Pour activer la génération de code héritée, définissez la valeur de la propriété
 // du concepteur 'Stratégie de génération de code' sur 'ObjectContext hérité'. Cette propriété est disponible dans la fenêtre Propriétés lorsque le modèle
 //  est ouvert dans le concepteur.
