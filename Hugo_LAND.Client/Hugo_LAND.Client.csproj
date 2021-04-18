@@ -146,6 +146,9 @@
     <EmbeddedResource Include="Vue\frmCreateHero.resx">
       <DependentUpon>frmCreateHero.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Vue\frmDeleteHero.resx">
+      <DependentUpon>frmDeleteHero.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Vue\frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </EmbeddedResource>
