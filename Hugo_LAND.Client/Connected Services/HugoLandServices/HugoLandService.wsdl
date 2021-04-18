@@ -5,6 +5,7 @@
       <xsd:import schemaLocation="http://localhost:8733/Design_Time_Adresses/Hugo_LAND.WCF/HugoLandService?xsd=xsd0" namespace="http://tempuri.org/" />
       <xsd:import schemaLocation="http://localhost:8733/Design_Time_Adresses/Hugo_LAND.WCF/HugoLandService?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
       <xsd:import schemaLocation="http://localhost:8733/Design_Time_Adresses/Hugo_LAND.WCF/HugoLandService?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Hugo_Land.WCF.DTOs" />
+      <xsd:import schemaLocation="http://localhost:8733/Design_Time_Adresses/Hugo_LAND.WCF/HugoLandService?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/Hugo_LAND.Core.Models" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="IAccountService_Authentification_InputMessage">

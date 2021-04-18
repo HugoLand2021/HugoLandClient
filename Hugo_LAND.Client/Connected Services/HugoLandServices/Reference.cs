@@ -164,6 +164,9 @@ namespace Hugo_LAND.Client.HugoLandServices {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private Hugo_LAND.Core.Models.Classe ClasseField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private bool EstConnecteField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -171,6 +174,9 @@ namespace Hugo_LAND.Client.HugoLandServices {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int IdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private Hugo_LAND.Core.Models.Monde MondeField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int NiveauField;
@@ -203,6 +209,19 @@ namespace Hugo_LAND.Client.HugoLandServices {
             }
             set {
                 this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public Hugo_LAND.Core.Models.Classe Classe {
+            get {
+                return this.ClasseField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ClasseField, value) != true)) {
+                    this.ClasseField = value;
+                    this.RaisePropertyChanged("Classe");
+                }
             }
         }
         
@@ -241,6 +260,19 @@ namespace Hugo_LAND.Client.HugoLandServices {
                 if ((this.IdField.Equals(value) != true)) {
                     this.IdField = value;
                     this.RaisePropertyChanged("Id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public Hugo_LAND.Core.Models.Monde Monde {
+            get {
+                return this.MondeField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.MondeField, value) != true)) {
+                    this.MondeField = value;
+                    this.RaisePropertyChanged("Monde");
                 }
             }
         }

@@ -40,7 +40,7 @@ namespace Hugo_LAND.Client.Vue
             // 
             this.btnStart.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.btnStart.Font = new System.Drawing.Font("Old English Text MT", 16F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnStart.Location = new System.Drawing.Point(72, 315);
+            this.btnStart.Location = new System.Drawing.Point(72, 202);
             this.btnStart.Name = "btnStart";
             this.btnStart.Size = new System.Drawing.Size(149, 82);
             this.btnStart.TabIndex = 0;
@@ -52,7 +52,7 @@ namespace Hugo_LAND.Client.Vue
             // 
             this.btnHero.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.btnHero.Font = new System.Drawing.Font("Old English Text MT", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnHero.Location = new System.Drawing.Point(504, 315);
+            this.btnHero.Location = new System.Drawing.Point(490, 202);
             this.btnHero.Name = "btnHero";
             this.btnHero.Size = new System.Drawing.Size(149, 82);
             this.btnHero.TabIndex = 1;
@@ -63,7 +63,7 @@ namespace Hugo_LAND.Client.Vue
             // 
             this.button2.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.button2.Font = new System.Drawing.Font("Old English Text MT", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(289, 315);
+            this.button2.Location = new System.Drawing.Point(281, 202);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(149, 82);
             this.button2.TabIndex = 2;

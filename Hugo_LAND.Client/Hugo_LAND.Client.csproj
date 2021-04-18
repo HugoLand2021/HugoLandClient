@@ -80,6 +80,11 @@
   <ItemGroup>
     <Compile Include="Area.cs" />
     <Compile Include="BitmapCache.cs" />
+    <Compile Include="Connected Services\HugoLandServices\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Vue\Crusader.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -88,6 +93,18 @@
     </Compile>
     <Compile Include="GameObject.cs" />
     <Compile Include="GameState.cs" />
+    <Compile Include="Vue\frmCreateHero.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vue\frmCreateHero.Designer.cs">
+      <DependentUpon>frmCreateHero.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vue\frmDeleteHero.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vue\frmDeleteHero.Designer.cs">
+      <DependentUpon>frmDeleteHero.cs</DependentUpon>
+    </Compile>
     <Compile Include="Vue\frmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -99,6 +116,18 @@
     </Compile>
     <Compile Include="Vue\frmMain.Designer.cs">
       <DependentUpon>frmMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vue\frmManageHero.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vue\frmManageHero.Designer.cs">
+      <DependentUpon>frmManageHero.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vue\frmModifHero.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vue\frmModifHero.Designer.cs">
+      <DependentUpon>frmModifHero.cs</DependentUpon>
     </Compile>
     <Compile Include="Vue\help.cs">
       <SubType>Form</SubType>
@@ -114,11 +143,17 @@
       <SubType>Designer</SubType>
       <DependentUpon>Crusader.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Vue\frmCreateHero.resx">
+      <DependentUpon>frmCreateHero.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Vue\frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Vue\frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vue\frmManageHero.resx">
+      <DependentUpon>frmManageHero.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Vue\help.resx">
       <SubType>Designer</SubType>
@@ -135,6 +170,25 @@
       <DesignTime>True</DesignTime>
     </Compile>
     <None Include="app.config" />
+    <None Include="Connected Services\HugoLandServices\HugoLandService.wsdl" />
+    <None Include="Connected Services\HugoLandServices\HugoLandService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\HugoLandServices\HugoLandService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\HugoLandServices\HugoLandService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\HugoLandServices\HugoLandService3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\HugoLandServices\Hugo_LAND.Client.HugoLandServices.ClassDetailsDTO.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\HugoLandServices\Hugo_LAND.Client.HugoLandServices.HeroDetailsDTO.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Eula.rtf" />
     <None Include="GameData\TileLookups.csv">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -156,6 +210,13 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="app.ico" />
+    <None Include="Connected Services\HugoLandServices\HugoLandService.disco" />
+    <None Include="Connected Services\HugoLandServices\configuration91.svcinfo" />
+    <None Include="Connected Services\HugoLandServices\configuration.svcinfo" />
+    <None Include="Connected Services\HugoLandServices\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
     <Content Include="Documentation\2dprimer_cs.htm" />
     <Content Include="Documentation\Crusaders_cs.htm" />
     <Content Include="Documentation\images\Crusader.png" />
@@ -193,6 +254,7 @@
     <Content Include="GameData\Tiles.bmp">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <None Include="Images\1920x1080 Might &amp; Magic_ Heroes VI game wallpaper.jpg" />
     <Content Include="Images\chevalier.jpg" />
     <Content Include="small.ico" />
   </ItemGroup>
@@ -216,6 +278,9 @@
       <Project>{4b9a1c87-90f3-43af-953f-0c74e408955c}</Project>
       <Name>Hugo_LAND.Core</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Connected Services\HugoLandServices\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
