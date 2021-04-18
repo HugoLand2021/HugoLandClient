@@ -59,9 +59,10 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DTOs\AuthentificationDetailsDto.cs" />
+    <Compile Include="DTOs\AuthentificationDetailsDTO.cs" />
     <Compile Include="DTOs\ClassDetailsDTO.cs" />
     <Compile Include="DTOs\HeroDetailsDTO.cs" />
+    <Compile Include="DTOs\WorldItemDTO.cs" />
     <Compile Include="Services\ClassService.cs" />
     <Compile Include="Services\HeroService.cs" />
     <Compile Include="Services\IClassService.cs" />
@@ -69,6 +70,8 @@
     <Compile Include="Services\AccountService.cs" />
     <Compile Include="Services\IAccountService.cs" />
     <Compile Include="Services\IHeroService.cs" />
+    <Compile Include="Services\IWorldService.cs" />
+    <Compile Include="Services\WorldService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

@@ -6,7 +6,7 @@ using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Hugo_Land.WCF.DTOs;
+using Hugo_LAND.WCF.DTOs;
 
 namespace Hugo_LAND.WCF.Services
 {

@@ -8,11 +8,11 @@ using System.Threading.Tasks;
 namespace Hugo_LAND.WCF.DTOs
 {
     [DataContract]
-    public class AuthentificationDetailsDTO
+    public class WorldItemDTO
     {
         [DataMember]
-        public string Username { get; set; }
+        public int ID { get; set; }
         [DataMember]
-        public string Password { get; set; }
+        public string Description { get; set; }
     }
 }

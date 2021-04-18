@@ -4,7 +4,7 @@
     <xsd:schema targetNamespace="http://tempuri.org/Imports">
       <xsd:import schemaLocation="http://localhost:8733/Design_Time_Adresses/Hugo_LAND.WCF/HugoLandService?xsd=xsd0" namespace="http://tempuri.org/" />
       <xsd:import schemaLocation="http://localhost:8733/Design_Time_Adresses/Hugo_LAND.WCF/HugoLandService?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
-      <xsd:import schemaLocation="http://localhost:8733/Design_Time_Adresses/Hugo_LAND.WCF/HugoLandService?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Hugo_Land.WCF.DTOs" />
+      <xsd:import schemaLocation="http://localhost:8733/Design_Time_Adresses/Hugo_LAND.WCF/HugoLandService?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Hugo_LAND.WCF.DTOs" />
       <xsd:import schemaLocation="http://localhost:8733/Design_Time_Adresses/Hugo_LAND.WCF/HugoLandService?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/Hugo_LAND.Core.Models" />
     </xsd:schema>
   </wsdl:types>
@@ -56,6 +56,12 @@
   <wsdl:message name="IHeroService_DeplaceHero_OutputMessage">
     <wsdl:part name="parameters" element="tns:DeplaceHeroResponse" />
   </wsdl:message>
+  <wsdl:message name="IWorldService_GetAllWorldNames_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllWorldNames" />
+  </wsdl:message>
+  <wsdl:message name="IWorldService_GetAllWorldNames_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllWorldNamesResponse" />
+  </wsdl:message>
   <wsdl:portType name="IAccountService">
     <wsdl:operation name="Authentification">
       <wsdl:input wsaw:Action="http://tempuri.org/IAccountService/Authentification" message="tns:IAccountService_Authentification_InputMessage" />
@@ -92,6 +98,12 @@
     <wsdl:operation name="DeplaceHero">
       <wsdl:input wsaw:Action="http://tempuri.org/IHeroService/DeplaceHero" message="tns:IHeroService_DeplaceHero_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IHeroService/DeplaceHeroResponse" message="tns:IHeroService_DeplaceHero_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="IWorldService">
+    <wsdl:operation name="GetAllWorldNames">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWorldService/GetAllWorldNames" message="tns:IWorldService_GetAllWorldNames_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWorldService/GetAllWorldNamesResponse" message="tns:IWorldService_GetAllWorldNames_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IAccountService" type="tns:IAccountService">
@@ -175,6 +187,18 @@
       </wsdl:output>
     </wsdl:operation>
   </wsdl:binding>
+  <wsdl:binding name="BasicHttpBinding_IWorldService" type="tns:IWorldService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetAllWorldNames">
+      <soap:operation soapAction="http://tempuri.org/IWorldService/GetAllWorldNames" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
   <wsdl:service name="HugoLandService">
     <wsdl:port name="BasicHttpBinding_IAccountService" binding="tns:BasicHttpBinding_IAccountService">
       <soap:address location="http://localhost:8733/Design_Time_Adresses/Hugo_LAND.WCF/HugoLandService" />
@@ -183,6 +207,9 @@
       <soap:address location="http://localhost:8733/Design_Time_Adresses/Hugo_LAND.WCF/HugoLandService" />
     </wsdl:port>
     <wsdl:port name="BasicHttpBinding_IHeroService" binding="tns:BasicHttpBinding_IHeroService">
+      <soap:address location="http://localhost:8733/Design_Time_Adresses/Hugo_LAND.WCF/HugoLandService" />
+    </wsdl:port>
+    <wsdl:port name="BasicHttpBinding_IWorldService" binding="tns:BasicHttpBinding_IWorldService">
       <soap:address location="http://localhost:8733/Design_Time_Adresses/Hugo_LAND.WCF/HugoLandService" />
     </wsdl:port>
   </wsdl:service>

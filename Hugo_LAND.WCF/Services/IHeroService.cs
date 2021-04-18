@@ -6,7 +6,6 @@ using System.ServiceModel;
 using System.Text;
 using System.Threading.Tasks;
 using Hugo_LAND.Core.Models;
-using Hugo_Land.WCF.DTOs;
 
 namespace Hugo_LAND.WCF.Services
 {

@@ -5,7 +5,7 @@ using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Hugo_Land.WCF.DTOs
+namespace Hugo_LAND.WCF.DTOs
 {
     [DataContract]
     public class ClassDetailsDTO

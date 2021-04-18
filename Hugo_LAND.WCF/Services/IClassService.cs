@@ -1,4 +1,4 @@
-﻿using Hugo_Land.WCF.DTOs;
+﻿using Hugo_LAND.WCF.DTOs;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,7 +15,7 @@ namespace Hugo_LAND.WCF.Services
         List<ClassDetailsDTO> GetClasse();
 
         [OperationContract]
-        void CreerClasse(string nom, string description, int str, int dex, int ints, int vit, int idMonde);
+        void CreerClasse(ClassDetailsDTO newClass, WorldItemDTO world);
         [OperationContract]
         void SupprimeClasse(ClassDetailsDTO dto);
     }

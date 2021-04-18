@@ -1,30 +1,30 @@
 ﻿using Hugo_LAND.Core.Models;
+using Hugo_LAND.WCF.DTOs;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Hugo_Land.WCF.DTOs;
 
 namespace Hugo_LAND.WCF.Services
 {
     public partial class HugoLandService : IClassService
     {
-        public async void CreerClasse(string nom, string description, int str, int dex, int ints, int vit, int idMonde)
+        public async void CreerClasse(ClassDetailsDTO newClass, WorldItemDTO world)
         {
             using (HugoLANDContext context = new HugoLANDContext())
             {
-                Monde monde = context.Mondes.Find(idMonde);
+                Monde monde = context.Mondes.Find(world.ID);
                 var classe = new Classe()
                 {
-                    NomClasse = nom,
-                    Description = description,
-                    StatBaseStr = str,
-                    StatBaseDex = dex,
-                    StatBaseInt = ints,
-                    StatBaseVitalite = vit,
-                    Monde = monde
+                    NomClasse = newClass.NomClasse,
+                    Description = newClass.Description,
+                    StatBaseStr = newClass.StatBaseStr,
+                    StatBaseDex = newClass.StatBaseDex,
+                    StatBaseInt = newClass.StatBaseInt,
+                    StatBaseVitalite = newClass.StatBaseVitalite,
+                    Monde = monde,
                 };
                 context.Entry(classe).State = EntityState.Added;
                 await context.SaveChangesAsync();

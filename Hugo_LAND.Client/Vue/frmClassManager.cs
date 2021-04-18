@@ -24,7 +24,8 @@ namespace Hugo_LAND.Client.Vue
 
         private void btnCreateClass_Click(object sender, EventArgs e)
         {
-
+            frmCreateClass f = new frmCreateClass();
+            f.Show(this);
         }
 
         private void btnModifyDeleteClass_Click(object sender, EventArgs e)
