@@ -80,11 +80,6 @@
   <ItemGroup>
     <Compile Include="Area.cs" />
     <Compile Include="BitmapCache.cs" />
-    <Compile Include="Connected Services\HugoLandServices\Reference.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Compile>
     <Compile Include="Vue\Crusader.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -140,13 +135,6 @@
       <DesignTime>True</DesignTime>
     </Compile>
     <None Include="app.config" />
-    <None Include="Connected Services\HugoLandServices\HugoLandService.wsdl" />
-    <None Include="Connected Services\HugoLandServices\HugoLandService.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Connected Services\HugoLandServices\HugoLandService1.xsd">
-      <SubType>Designer</SubType>
-    </None>
     <None Include="Eula.rtf" />
     <None Include="GameData\TileLookups.csv">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -168,13 +156,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="app.ico" />
-    <None Include="Connected Services\HugoLandServices\HugoLandService.disco" />
-    <None Include="Connected Services\HugoLandServices\configuration91.svcinfo" />
-    <None Include="Connected Services\HugoLandServices\configuration.svcinfo" />
-    <None Include="Connected Services\HugoLandServices\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
     <Content Include="Documentation\2dprimer_cs.htm" />
     <Content Include="Documentation\Crusaders_cs.htm" />
     <Content Include="Documentation\images\Crusader.png" />
@@ -235,9 +216,6 @@
       <Project>{4b9a1c87-90f3-43af-953f-0c74e408955c}</Project>
       <Name>Hugo_LAND.Core</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <WCFMetadataStorage Include="Connected Services\HugoLandServices\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

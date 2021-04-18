@@ -1,4 +1,4 @@
-﻿using TP3Hugo_Land.WCF.DTOs;
+﻿using Hugo_LAND.WCF.DTOs;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,16 +6,19 @@ using System.ServiceModel;
 using System.Text;
 using System.Threading.Tasks;
 using Hugo_LAND.Core.Models;
+using Hugo_Land.WCF.DTOs;
 
-namespace TP3Hugo_Land.WCF.Services
+namespace Hugo_LAND.WCF.Services
 {
     [ServiceContract]
     public interface IHeroService
     {
         [OperationContract]
-        void CreeHero(int newNiveau, long newExperience, int newX, int newY, int newStatStr, int newStatDex,
-            int newStatInt, int newStatVitalite, string newNomHero, bool newConnection, int idClasse, int idCompteJoueur,
-              int idMonde);
+        List<HeroDetailsDTO> RetourneHerosCompte(int idCompteJoueur);
+
+
+        [OperationContract]
+        void CreeHero(string newNomHero, bool newConnection, int idClasse, int idCompteJoueur, int idMonde);
 
         [OperationContract]
         void SupprimeHero(HeroDetailsDTO dto);

@@ -5,7 +5,7 @@ using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TP3Hugo_Land.WCF.DTOs
+namespace Hugo_Land.WCF.DTOs
 {
     [DataContract]
     public class HeroDetailsDTO
@@ -15,7 +15,7 @@ namespace TP3Hugo_Land.WCF.DTOs
         [DataMember]
         public int Niveau { get; set; }
         [DataMember]
-        public int Experience { get; set; }
+        public long Experience { get; set; }
         [DataMember]
         public int x { get; set; }
         [DataMember]

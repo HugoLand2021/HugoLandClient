@@ -6,14 +6,14 @@ using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using TP3Hugo_Land.WCF.DTOs;
+using Hugo_Land.WCF.DTOs;
 
-namespace TP3Hugo_Land.WCF.Services
+namespace Hugo_LAND.WCF.Services
 {
     public partial class HugoLandService : IHeroService
     {
-        public async void CreeHero(int newNiveau, long newExperience, int newX, int newY, int newStatStr, int newStatDex,
-            int newStatInt, int newStatVitalite, string newNomHero, bool newConnection, int idClasse, int idCompteJoueur,
+        private readonly Random _random = new Random();
+        public async void CreeHero(string newNomHero, bool newConnection, int idClasse, int idCompteJoueur,
               int idMonde)
         {
             using (var context = new HugoLANDContext())
@@ -23,14 +23,14 @@ namespace TP3Hugo_Land.WCF.Services
                 CompteJoueur compteJoueur = context.CompteJoueurs.Find(idCompteJoueur);
                 var hero = new Hero
                 {
-                    Niveau = newNiveau,
-                    Experience = newExperience,
-                    x = newX,
-                    y = newY,
-                    StatStr = newStatStr,
-                    StatDex = newStatDex,
-                    StatInt = newStatInt,
-                    StatVitalite = newStatVitalite,
+                    Niveau = 1,
+                    Experience = 0,
+                    x = 0,
+                    y = 0,
+                    StatStr = classe.StatBaseStr + _random.Next(0, 10),
+                    StatDex = classe.StatBaseDex + _random.Next(0, 10),
+                    StatInt = classe.StatBaseInt + _random.Next(0, 10),
+                    StatVitalite = classe.StatBaseVitalite + _random.Next(0, 10),
                     NomHero = newNomHero,
                     EstConnecte = newConnection,
                     Classe = classe,
@@ -76,6 +76,29 @@ namespace TP3Hugo_Land.WCF.Services
                 await context.SaveChangesAsync();
 
 
+            }
+        }
+        public List<HeroDetailsDTO> RetourneHerosCompte(int idCompteJoueur)
+        {
+            using (var context = new HugoLANDContext())
+            {
+                return context.CompteJoueurs
+                .Where(p => p.Id == idCompteJoueur)
+                .First().Heros
+                .Select(m => new HeroDetailsDTO
+                {
+                    Id = m.Id,
+                    Niveau = m.Niveau,
+                    Experience = m.Experience,
+                    x = m.x,
+                    y = m.y,
+                    StatStr = m.StatStr,
+                    StatDex = m.StatDex,
+                    StatInt = m.StatInt,
+                    StatVitalite = m.StatVitalite,
+                    NomHero = m.NomHero,
+                    EstConnecte = m.EstConnecte
+                }).ToList();
             }
         }
     }
