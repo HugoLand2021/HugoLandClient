@@ -154,6 +154,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Vue\frmHeroSelect.resx">
       <DependentUpon>frmHeroSelect.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Vue\frmDeleteHero.resx">
       <DependentUpon>frmDeleteHero.cs</DependentUpon>
     </EmbeddedResource>
