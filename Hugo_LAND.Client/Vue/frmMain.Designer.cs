@@ -31,7 +31,7 @@ namespace Hugo_LAND.Client.Vue
         {
             this.btnStart = new System.Windows.Forms.Button();
             this.btnHero = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnClassManagement = new System.Windows.Forms.Button();
             this.lblUsername = new System.Windows.Forms.Label();
             this.lblWelcome = new System.Windows.Forms.Label();
             this.SuspendLayout();
@@ -59,16 +59,17 @@ namespace Hugo_LAND.Client.Vue
             this.btnHero.Text = "Hero Management";
             this.btnHero.UseVisualStyleBackColor = false;
             // 
-            // button2
+            // btnClassManagement
             // 
-            this.button2.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.button2.Font = new System.Drawing.Font("Old English Text MT", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(281, 202);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(149, 82);
-            this.button2.TabIndex = 2;
-            this.button2.Text = "Class Management";
-            this.button2.UseVisualStyleBackColor = false;
+            this.btnClassManagement.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.btnClassManagement.Font = new System.Drawing.Font("Old English Text MT", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClassManagement.Location = new System.Drawing.Point(281, 202);
+            this.btnClassManagement.Name = "btnClassManagement";
+            this.btnClassManagement.Size = new System.Drawing.Size(149, 82);
+            this.btnClassManagement.TabIndex = 2;
+            this.btnClassManagement.Text = "Class Management";
+            this.btnClassManagement.UseVisualStyleBackColor = false;
+            this.btnClassManagement.Click += new System.EventHandler(this.btnClassManagement_Click);
             // 
             // lblUsername
             // 
@@ -102,7 +103,7 @@ namespace Hugo_LAND.Client.Vue
             this.ClientSize = new System.Drawing.Size(731, 433);
             this.Controls.Add(this.lblWelcome);
             this.Controls.Add(this.lblUsername);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.btnClassManagement);
             this.Controls.Add(this.btnHero);
             this.Controls.Add(this.btnStart);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
@@ -118,7 +119,7 @@ namespace Hugo_LAND.Client.Vue
 
         private System.Windows.Forms.Button btnStart;
         private System.Windows.Forms.Button btnHero;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnClassManagement;
         private System.Windows.Forms.Label lblUsername;
         private System.Windows.Forms.Label lblWelcome;
     }

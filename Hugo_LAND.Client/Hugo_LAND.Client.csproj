@@ -93,6 +93,12 @@
     </Compile>
     <Compile Include="GameObject.cs" />
     <Compile Include="GameState.cs" />
+    <Compile Include="Vue\frmClassManager.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vue\frmClassManager.Designer.cs">
+      <DependentUpon>frmClassManager.cs</DependentUpon>
+    </Compile>
     <Compile Include="Vue\frmCreateHero.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -148,6 +154,9 @@
     <EmbeddedResource Include="Vue\Crusader.resx">
       <SubType>Designer</SubType>
       <DependentUpon>Crusader.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vue\frmClassManager.resx">
+      <DependentUpon>frmClassManager.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Vue\frmCreateHero.resx">
       <DependentUpon>frmCreateHero.cs</DependentUpon>
@@ -268,6 +277,7 @@
     </Content>
     <None Include="Images\1920x1080 Might &amp; Magic_ Heroes VI game wallpaper.jpg" />
     <Content Include="Images\chevalier.jpg" />
+    <Content Include="Images\raoni-barcelos-desenho-octavio.jpg" />
     <Content Include="small.ico" />
   </ItemGroup>
   <ItemGroup>

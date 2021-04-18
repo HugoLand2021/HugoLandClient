@@ -40,5 +40,11 @@ namespace Hugo_LAND.Client.Vue
             hugoWorld.ShowDialog();
 
         }
+
+        private void btnClassManagement_Click(object sender, EventArgs e)
+        {
+            frmClassManager f = new frmClassManager();
+            f.ShowDialog(this);
+        }
     }
 }
