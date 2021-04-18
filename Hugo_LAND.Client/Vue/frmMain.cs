@@ -13,11 +13,13 @@ namespace Hugo_LAND.Client.Vue
     public partial class frmMain : Form
     {
         private readonly frmLogin loginForm;
+        public string nom = "";
 
         internal void ConnectionReussie()
         {
             loginForm.Dispose();
             lblUsername.Text = loginForm.name;
+            nom = loginForm.name;
             this.Enabled = true;
         }
 

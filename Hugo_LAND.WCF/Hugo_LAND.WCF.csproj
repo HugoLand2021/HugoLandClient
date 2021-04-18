@@ -63,6 +63,7 @@
     <Compile Include="DTOs\ClassDetailsDTO.cs" />
     <Compile Include="DTOs\HeroDetailsDTO.cs" />
     <Compile Include="DTOs\WorldItemDTO.cs" />
+    <Compile Include="DTOs\UserDetailsDTO.cs" />
     <Compile Include="Services\ClassService.cs" />
     <Compile Include="Services\HeroService.cs" />
     <Compile Include="Services\IClassService.cs" />

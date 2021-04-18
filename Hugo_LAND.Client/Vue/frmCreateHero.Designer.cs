@@ -31,216 +31,212 @@ namespace Hugo_LAND.Client.Vue
         {
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.Label nomHeroLabel;
-            System.Windows.Forms.Label idLabel1;
-            System.Windows.Forms.Label nomClasseLabel;
             System.Windows.Forms.Label statBaseDexLabel;
             System.Windows.Forms.Label statBaseIntLabel;
             System.Windows.Forms.Label statBaseStrLabel;
             System.Windows.Forms.Label statBaseVitaliteLabel;
-            System.Windows.Forms.Label idLabel2;
+            System.Windows.Forms.Label lblMonde;
+            System.Windows.Forms.Label lblNomClasse;
             this.heroDetailsDTOBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.nomHeroTextBox = new System.Windows.Forms.TextBox();
-            this.idTextBox1 = new System.Windows.Forms.TextBox();
-            this.nomClasseTextBox = new System.Windows.Forms.TextBox();
-            this.statBaseDexTextBox = new System.Windows.Forms.TextBox();
-            this.statBaseIntTextBox = new System.Windows.Forms.TextBox();
-            this.statBaseStrTextBox = new System.Windows.Forms.TextBox();
-            this.statBaseVitaliteTextBox = new System.Windows.Forms.TextBox();
-            this.idTextBox2 = new System.Windows.Forms.TextBox();
+            this.txtnomHero = new System.Windows.Forms.TextBox();
+            this.txtstatBaseDex = new System.Windows.Forms.TextBox();
+            this.txtstatBaseInt = new System.Windows.Forms.TextBox();
+            this.txtstatBaseStr = new System.Windows.Forms.TextBox();
+            this.txtstatBaseVitalite = new System.Windows.Forms.TextBox();
             this.btnCreateHeroFrm = new System.Windows.Forms.Button();
             this.btnCancelHeroFrm = new System.Windows.Forms.Button();
+            this.lblCreate = new System.Windows.Forms.Label();
+            this.cmbDescription = new System.Windows.Forms.ComboBox();
+            this.cmbNomClass = new System.Windows.Forms.ComboBox();
             nomHeroLabel = new System.Windows.Forms.Label();
-            idLabel1 = new System.Windows.Forms.Label();
-            nomClasseLabel = new System.Windows.Forms.Label();
             statBaseDexLabel = new System.Windows.Forms.Label();
             statBaseIntLabel = new System.Windows.Forms.Label();
             statBaseStrLabel = new System.Windows.Forms.Label();
             statBaseVitaliteLabel = new System.Windows.Forms.Label();
-            idLabel2 = new System.Windows.Forms.Label();
+            lblMonde = new System.Windows.Forms.Label();
+            lblNomClasse = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.heroDetailsDTOBindingSource)).BeginInit();
             this.SuspendLayout();
-            // 
-            // heroDetailsDTOBindingSource
-            // 
-            this.heroDetailsDTOBindingSource.DataSource = typeof(Hugo_LAND.Client.HugoLandServices.HeroDetailsDTO);
             // 
             // nomHeroLabel
             // 
             nomHeroLabel.AutoSize = true;
-            nomHeroLabel.Location = new System.Drawing.Point(12, 18);
+            nomHeroLabel.Location = new System.Drawing.Point(12, 70);
             nomHeroLabel.Name = "nomHeroLabel";
-            nomHeroLabel.Size = new System.Drawing.Size(58, 13);
+            nomHeroLabel.Size = new System.Drawing.Size(62, 13);
             nomHeroLabel.TabIndex = 9;
-            nomHeroLabel.Text = "Nom Hero:";
-            // 
-            // nomHeroTextBox
-            // 
-            this.nomHeroTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.heroDetailsDTOBindingSource, "NomHero", true));
-            this.nomHeroTextBox.Location = new System.Drawing.Point(108, 15);
-            this.nomHeroTextBox.Name = "nomHeroTextBox";
-            this.nomHeroTextBox.Size = new System.Drawing.Size(100, 20);
-            this.nomHeroTextBox.TabIndex = 10;
-            // 
-            // idLabel1
-            // 
-            idLabel1.AutoSize = true;
-            idLabel1.Location = new System.Drawing.Point(12, 44);
-            idLabel1.Name = "idLabel1";
-            idLabel1.Size = new System.Drawing.Size(53, 13);
-            idLabel1.TabIndex = 25;
-            idLabel1.Text = "Id Classe:";
-            // 
-            // idTextBox1
-            // 
-            this.idTextBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.heroDetailsDTOBindingSource, "Classe.Id", true));
-            this.idTextBox1.Location = new System.Drawing.Point(108, 41);
-            this.idTextBox1.Name = "idTextBox1";
-            this.idTextBox1.Size = new System.Drawing.Size(100, 20);
-            this.idTextBox1.TabIndex = 26;
-            // 
-            // nomClasseLabel
-            // 
-            nomClasseLabel.AutoSize = true;
-            nomClasseLabel.Location = new System.Drawing.Point(12, 70);
-            nomClasseLabel.Name = "nomClasseLabel";
-            nomClasseLabel.Size = new System.Drawing.Size(66, 13);
-            nomClasseLabel.TabIndex = 27;
-            nomClasseLabel.Text = "Nom Classe:";
-            // 
-            // nomClasseTextBox
-            // 
-            this.nomClasseTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.heroDetailsDTOBindingSource, "Classe.NomClasse", true));
-            this.nomClasseTextBox.Location = new System.Drawing.Point(108, 67);
-            this.nomClasseTextBox.Name = "nomClasseTextBox";
-            this.nomClasseTextBox.Size = new System.Drawing.Size(100, 20);
-            this.nomClasseTextBox.TabIndex = 28;
+            nomHeroLabel.Text = "Hero name:";
             // 
             // statBaseDexLabel
             // 
             statBaseDexLabel.AutoSize = true;
-            statBaseDexLabel.Location = new System.Drawing.Point(12, 96);
+            statBaseDexLabel.Location = new System.Drawing.Point(12, 122);
             statBaseDexLabel.Name = "statBaseDexLabel";
             statBaseDexLabel.Size = new System.Drawing.Size(78, 13);
             statBaseDexLabel.TabIndex = 29;
             statBaseDexLabel.Text = "Stat Base Dex:";
             // 
-            // statBaseDexTextBox
-            // 
-            this.statBaseDexTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.heroDetailsDTOBindingSource, "Classe.StatBaseDex", true));
-            this.statBaseDexTextBox.Location = new System.Drawing.Point(108, 93);
-            this.statBaseDexTextBox.Name = "statBaseDexTextBox";
-            this.statBaseDexTextBox.Size = new System.Drawing.Size(100, 20);
-            this.statBaseDexTextBox.TabIndex = 30;
-            // 
             // statBaseIntLabel
             // 
             statBaseIntLabel.AutoSize = true;
-            statBaseIntLabel.Location = new System.Drawing.Point(12, 122);
+            statBaseIntLabel.Location = new System.Drawing.Point(12, 148);
             statBaseIntLabel.Name = "statBaseIntLabel";
             statBaseIntLabel.Size = new System.Drawing.Size(71, 13);
             statBaseIntLabel.TabIndex = 31;
             statBaseIntLabel.Text = "Stat Base Int:";
             // 
-            // statBaseIntTextBox
-            // 
-            this.statBaseIntTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.heroDetailsDTOBindingSource, "Classe.StatBaseInt", true));
-            this.statBaseIntTextBox.Location = new System.Drawing.Point(108, 119);
-            this.statBaseIntTextBox.Name = "statBaseIntTextBox";
-            this.statBaseIntTextBox.Size = new System.Drawing.Size(100, 20);
-            this.statBaseIntTextBox.TabIndex = 32;
-            // 
             // statBaseStrLabel
             // 
             statBaseStrLabel.AutoSize = true;
-            statBaseStrLabel.Location = new System.Drawing.Point(12, 148);
+            statBaseStrLabel.Location = new System.Drawing.Point(12, 174);
             statBaseStrLabel.Name = "statBaseStrLabel";
             statBaseStrLabel.Size = new System.Drawing.Size(72, 13);
             statBaseStrLabel.TabIndex = 33;
             statBaseStrLabel.Text = "Stat Base Str:";
             // 
-            // statBaseStrTextBox
-            // 
-            this.statBaseStrTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.heroDetailsDTOBindingSource, "Classe.StatBaseStr", true));
-            this.statBaseStrTextBox.Location = new System.Drawing.Point(108, 145);
-            this.statBaseStrTextBox.Name = "statBaseStrTextBox";
-            this.statBaseStrTextBox.Size = new System.Drawing.Size(100, 20);
-            this.statBaseStrTextBox.TabIndex = 34;
-            // 
             // statBaseVitaliteLabel
             // 
             statBaseVitaliteLabel.AutoSize = true;
-            statBaseVitaliteLabel.Location = new System.Drawing.Point(12, 174);
+            statBaseVitaliteLabel.Location = new System.Drawing.Point(12, 200);
             statBaseVitaliteLabel.Name = "statBaseVitaliteLabel";
             statBaseVitaliteLabel.Size = new System.Drawing.Size(90, 13);
             statBaseVitaliteLabel.TabIndex = 35;
             statBaseVitaliteLabel.Text = "Stat Base Vitalite:";
             // 
-            // statBaseVitaliteTextBox
+            // lblMonde
             // 
-            this.statBaseVitaliteTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.heroDetailsDTOBindingSource, "Classe.StatBaseVitalite", true));
-            this.statBaseVitaliteTextBox.Location = new System.Drawing.Point(108, 171);
-            this.statBaseVitaliteTextBox.Name = "statBaseVitaliteTextBox";
-            this.statBaseVitaliteTextBox.Size = new System.Drawing.Size(100, 20);
-            this.statBaseVitaliteTextBox.TabIndex = 36;
+            lblMonde.AutoSize = true;
+            lblMonde.Location = new System.Drawing.Point(12, 226);
+            lblMonde.Name = "lblMonde";
+            lblMonde.Size = new System.Drawing.Size(38, 13);
+            lblMonde.TabIndex = 43;
+            lblMonde.Text = "World:";
             // 
-            // idTextBox2
+            // heroDetailsDTOBindingSource
             // 
-            this.idTextBox2.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.heroDetailsDTOBindingSource, "Monde.Id", true));
-            this.idTextBox2.Location = new System.Drawing.Point(108, 197);
-            this.idTextBox2.Name = "idTextBox2";
-            this.idTextBox2.Size = new System.Drawing.Size(100, 20);
-            this.idTextBox2.TabIndex = 40;
+            this.heroDetailsDTOBindingSource.DataSource = typeof(Hugo_LAND.Client.HugoLandServices.HeroDetailsDTO);
             // 
-            // idLabel2
+            // txtnomHero
             // 
-            idLabel2.AutoSize = true;
-            idLabel2.Location = new System.Drawing.Point(12, 200);
-            idLabel2.Name = "idLabel2";
-            idLabel2.Size = new System.Drawing.Size(55, 13);
-            idLabel2.TabIndex = 39;
-            idLabel2.Text = "Id Monde:";
+            this.txtnomHero.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.heroDetailsDTOBindingSource, "NomHero", true));
+            this.txtnomHero.Location = new System.Drawing.Point(108, 67);
+            this.txtnomHero.Name = "txtnomHero";
+            this.txtnomHero.Size = new System.Drawing.Size(264, 20);
+            this.txtnomHero.TabIndex = 10;
+            // 
+            // txtstatBaseDex
+            // 
+            this.txtstatBaseDex.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.heroDetailsDTOBindingSource, "Classe.StatBaseDex", true));
+            this.txtstatBaseDex.Location = new System.Drawing.Point(108, 119);
+            this.txtstatBaseDex.Name = "txtstatBaseDex";
+            this.txtstatBaseDex.Size = new System.Drawing.Size(264, 20);
+            this.txtstatBaseDex.TabIndex = 30;
+            // 
+            // txtstatBaseInt
+            // 
+            this.txtstatBaseInt.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.heroDetailsDTOBindingSource, "Classe.StatBaseInt", true));
+            this.txtstatBaseInt.Location = new System.Drawing.Point(108, 145);
+            this.txtstatBaseInt.Name = "txtstatBaseInt";
+            this.txtstatBaseInt.Size = new System.Drawing.Size(264, 20);
+            this.txtstatBaseInt.TabIndex = 32;
+            // 
+            // txtstatBaseStr
+            // 
+            this.txtstatBaseStr.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.heroDetailsDTOBindingSource, "Classe.StatBaseStr", true));
+            this.txtstatBaseStr.Location = new System.Drawing.Point(108, 171);
+            this.txtstatBaseStr.Name = "txtstatBaseStr";
+            this.txtstatBaseStr.Size = new System.Drawing.Size(264, 20);
+            this.txtstatBaseStr.TabIndex = 34;
+            // 
+            // txtstatBaseVitalite
+            // 
+            this.txtstatBaseVitalite.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.heroDetailsDTOBindingSource, "Classe.StatBaseVitalite", true));
+            this.txtstatBaseVitalite.Location = new System.Drawing.Point(108, 197);
+            this.txtstatBaseVitalite.Name = "txtstatBaseVitalite";
+            this.txtstatBaseVitalite.Size = new System.Drawing.Size(264, 20);
+            this.txtstatBaseVitalite.TabIndex = 36;
             // 
             // btnCreateHeroFrm
             // 
-            this.btnCreateHeroFrm.Location = new System.Drawing.Point(15, 229);
+            this.btnCreateHeroFrm.Font = new System.Drawing.Font("Old English Text MT", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCreateHeroFrm.Location = new System.Drawing.Point(15, 281);
             this.btnCreateHeroFrm.Name = "btnCreateHeroFrm";
-            this.btnCreateHeroFrm.Size = new System.Drawing.Size(75, 23);
+            this.btnCreateHeroFrm.Size = new System.Drawing.Size(112, 37);
             this.btnCreateHeroFrm.TabIndex = 41;
             this.btnCreateHeroFrm.Text = "Create";
             this.btnCreateHeroFrm.UseVisualStyleBackColor = true;
+            this.btnCreateHeroFrm.Click += new System.EventHandler(this.btnCreateHeroFrm_Click);
             // 
             // btnCancelHeroFrm
             // 
-            this.btnCancelHeroFrm.Location = new System.Drawing.Point(133, 229);
+            this.btnCancelHeroFrm.Font = new System.Drawing.Font("Old English Text MT", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelHeroFrm.Location = new System.Drawing.Point(260, 281);
             this.btnCancelHeroFrm.Name = "btnCancelHeroFrm";
-            this.btnCancelHeroFrm.Size = new System.Drawing.Size(75, 23);
+            this.btnCancelHeroFrm.Size = new System.Drawing.Size(112, 37);
             this.btnCancelHeroFrm.TabIndex = 42;
             this.btnCancelHeroFrm.Text = "Cancel";
             this.btnCancelHeroFrm.UseVisualStyleBackColor = true;
+            this.btnCancelHeroFrm.Click += new System.EventHandler(this.btnCancelHeroFrm_Click);
+            // 
+            // lblCreate
+            // 
+            this.lblCreate.AutoSize = true;
+            this.lblCreate.Font = new System.Drawing.Font("Old English Text MT", 26.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCreate.Location = new System.Drawing.Point(89, 9);
+            this.lblCreate.Name = "lblCreate";
+            this.lblCreate.Size = new System.Drawing.Size(234, 42);
+            this.lblCreate.TabIndex = 43;
+            this.lblCreate.Text = "Create a Hero";
+            // 
+            // cmbDescription
+            // 
+            this.cmbDescription.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.heroDetailsDTOBindingSource, "Monde.Description", true));
+            this.cmbDescription.FormattingEnabled = true;
+            this.cmbDescription.Location = new System.Drawing.Point(108, 223);
+            this.cmbDescription.Name = "cmbDescription";
+            this.cmbDescription.Size = new System.Drawing.Size(264, 21);
+            this.cmbDescription.TabIndex = 44;
+            // 
+            // lblNomClasse
+            // 
+            lblNomClasse.AutoSize = true;
+            lblNomClasse.Location = new System.Drawing.Point(12, 95);
+            lblNomClasse.Name = "lblNomClasse";
+            lblNomClasse.Size = new System.Drawing.Size(66, 13);
+            lblNomClasse.TabIndex = 44;
+            lblNomClasse.Text = "Nom Classe:";
+            // 
+            // cmbNomClass
+            // 
+            this.cmbNomClass.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.heroDetailsDTOBindingSource, "Classe.NomClasse", true));
+            this.cmbNomClass.FormattingEnabled = true;
+            this.cmbNomClass.Location = new System.Drawing.Point(108, 92);
+            this.cmbNomClass.Name = "cmbNomClass";
+            this.cmbNomClass.Size = new System.Drawing.Size(264, 21);
+            this.cmbNomClass.TabIndex = 45;
             // 
             // frmCreateHero
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(225, 265);
+            this.ClientSize = new System.Drawing.Size(392, 338);
+            this.Controls.Add(lblNomClasse);
+            this.Controls.Add(this.cmbNomClass);
+            this.Controls.Add(lblMonde);
+            this.Controls.Add(this.cmbDescription);
+            this.Controls.Add(this.lblCreate);
             this.Controls.Add(this.btnCancelHeroFrm);
             this.Controls.Add(this.btnCreateHeroFrm);
-            this.Controls.Add(idLabel2);
-            this.Controls.Add(this.idTextBox2);
-            this.Controls.Add(idLabel1);
-            this.Controls.Add(this.idTextBox1);
-            this.Controls.Add(nomClasseLabel);
-            this.Controls.Add(this.nomClasseTextBox);
             this.Controls.Add(statBaseDexLabel);
-            this.Controls.Add(this.statBaseDexTextBox);
+            this.Controls.Add(this.txtstatBaseDex);
             this.Controls.Add(statBaseIntLabel);
-            this.Controls.Add(this.statBaseIntTextBox);
+            this.Controls.Add(this.txtstatBaseInt);
             this.Controls.Add(statBaseStrLabel);
-            this.Controls.Add(this.statBaseStrTextBox);
+            this.Controls.Add(this.txtstatBaseStr);
             this.Controls.Add(statBaseVitaliteLabel);
-            this.Controls.Add(this.statBaseVitaliteTextBox);
+            this.Controls.Add(this.txtstatBaseVitalite);
             this.Controls.Add(nomHeroLabel);
-            this.Controls.Add(this.nomHeroTextBox);
+            this.Controls.Add(this.txtnomHero);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "frmCreateHero";
             this.Text = "Create Hero";
@@ -253,15 +249,15 @@ namespace Hugo_LAND.Client.Vue
         #endregion
 
         private System.Windows.Forms.BindingSource heroDetailsDTOBindingSource;
-        private System.Windows.Forms.TextBox nomHeroTextBox;
-        private System.Windows.Forms.TextBox idTextBox1;
-        private System.Windows.Forms.TextBox nomClasseTextBox;
-        private System.Windows.Forms.TextBox statBaseDexTextBox;
-        private System.Windows.Forms.TextBox statBaseIntTextBox;
-        private System.Windows.Forms.TextBox statBaseStrTextBox;
-        private System.Windows.Forms.TextBox statBaseVitaliteTextBox;
-        private System.Windows.Forms.TextBox idTextBox2;
+        private System.Windows.Forms.TextBox txtnomHero;
+        private System.Windows.Forms.TextBox txtstatBaseDex;
+        private System.Windows.Forms.TextBox txtstatBaseInt;
+        private System.Windows.Forms.TextBox txtstatBaseStr;
+        private System.Windows.Forms.TextBox txtstatBaseVitalite;
         private System.Windows.Forms.Button btnCreateHeroFrm;
         private System.Windows.Forms.Button btnCancelHeroFrm;
+        private System.Windows.Forms.Label lblCreate;
+        private System.Windows.Forms.ComboBox cmbDescription;
+        private System.Windows.Forms.ComboBox cmbNomClass;
     }
 }

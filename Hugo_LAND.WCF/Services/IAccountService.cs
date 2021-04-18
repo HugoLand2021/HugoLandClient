@@ -12,5 +12,7 @@ namespace Hugo_LAND.WCF.Services
     {
         [OperationContract]
         string Authentification(string Username, string Password);
+        [OperationContract]
+        int RetourneIdCompteParNom(string username);
     }
 }

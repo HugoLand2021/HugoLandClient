@@ -12,9 +12,16 @@ namespace Hugo_LAND.Client.Vue
 {
     public partial class frmManageHero : Form
     {
-        public frmManageHero()
+        private readonly frmMain mainForm;
+        //private readonly frmCreateHero createHeroForm;
+        private readonly frmDeleteHero deleteHeroForm;
+
+
+        public frmManageHero(frmMain mainForm)
         {
             InitializeComponent();
+            this.mainForm = mainForm;
+            //lblHeroManagement.Text = mainForm.nom;
         }
 
         private void btnCancelManagement_Click(object sender, EventArgs e)
@@ -24,15 +31,12 @@ namespace Hugo_LAND.Client.Vue
 
         private void bntCreateHero_Click(object sender, EventArgs e)
         {
+            frmCreateHero createHeroForm = new frmCreateHero(mainForm);
+            createHeroForm.ShowDialog();
 
         }
 
         private void btnDeleteHero_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnModifHero_Click(object sender, EventArgs e)
         {
 
         }
