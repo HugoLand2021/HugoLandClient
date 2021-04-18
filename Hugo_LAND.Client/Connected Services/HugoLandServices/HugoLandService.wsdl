@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="HugoLandService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:8733/Design_Time_Adresses/Hugo_LAND.WCF/HugoLandService?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:8733/Design_Time_Adresses/Hugo_LAND.WCF/HugoLandService?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:8733/Design_Time_Adresses/Hugo_LAND.WCF/HugoLandService?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Hugo_Land.WCF.DTOs" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IAccountService_Authentification_InputMessage">
+    <wsdl:part name="parameters" element="tns:Authentification" />
+  </wsdl:message>
+  <wsdl:message name="IAccountService_Authentification_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AuthentificationResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClassService_GetClasse_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetClasse" />
+  </wsdl:message>
+  <wsdl:message name="IClassService_GetClasse_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetClasseResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClassService_CreerClasse_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreerClasse" />
+  </wsdl:message>
+  <wsdl:message name="IClassService_CreerClasse_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreerClasseResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClassService_SupprimeClasse_InputMessage">
+    <wsdl:part name="parameters" element="tns:SupprimeClasse" />
+  </wsdl:message>
+  <wsdl:message name="IClassService_SupprimeClasse_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SupprimeClasseResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHeroService_RetourneHerosCompte_InputMessage">
+    <wsdl:part name="parameters" element="tns:RetourneHerosCompte" />
+  </wsdl:message>
+  <wsdl:message name="IHeroService_RetourneHerosCompte_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RetourneHerosCompteResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHeroService_CreeHero_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreeHero" />
+  </wsdl:message>
+  <wsdl:message name="IHeroService_CreeHero_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreeHeroResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHeroService_SupprimeHero_InputMessage">
+    <wsdl:part name="parameters" element="tns:SupprimeHero" />
+  </wsdl:message>
+  <wsdl:message name="IHeroService_SupprimeHero_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SupprimeHeroResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHeroService_DeplaceHero_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeplaceHero" />
+  </wsdl:message>
+  <wsdl:message name="IHeroService_DeplaceHero_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeplaceHeroResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IAccountService">
+    <wsdl:operation name="Authentification">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAccountService/Authentification" message="tns:IAccountService_Authentification_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAccountService/AuthentificationResponse" message="tns:IAccountService_Authentification_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="IClassService">
+    <wsdl:operation name="GetClasse">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClassService/GetClasse" message="tns:IClassService_GetClasse_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClassService/GetClasseResponse" message="tns:IClassService_GetClasse_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreerClasse">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClassService/CreerClasse" message="tns:IClassService_CreerClasse_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClassService/CreerClasseResponse" message="tns:IClassService_CreerClasse_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SupprimeClasse">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClassService/SupprimeClasse" message="tns:IClassService_SupprimeClasse_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClassService/SupprimeClasseResponse" message="tns:IClassService_SupprimeClasse_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="IHeroService">
+    <wsdl:operation name="RetourneHerosCompte">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHeroService/RetourneHerosCompte" message="tns:IHeroService_RetourneHerosCompte_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHeroService/RetourneHerosCompteResponse" message="tns:IHeroService_RetourneHerosCompte_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreeHero">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHeroService/CreeHero" message="tns:IHeroService_CreeHero_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHeroService/CreeHeroResponse" message="tns:IHeroService_CreeHero_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SupprimeHero">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHeroService/SupprimeHero" message="tns:IHeroService_SupprimeHero_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHeroService/SupprimeHeroResponse" message="tns:IHeroService_SupprimeHero_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeplaceHero">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHeroService/DeplaceHero" message="tns:IHeroService_DeplaceHero_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHeroService/DeplaceHeroResponse" message="tns:IHeroService_DeplaceHero_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IAccountService" type="tns:IAccountService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Authentification">
+      <soap:operation soapAction="http://tempuri.org/IAccountService/Authentification" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="BasicHttpBinding_IClassService" type="tns:IClassService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetClasse">
+      <soap:operation soapAction="http://tempuri.org/IClassService/GetClasse" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreerClasse">
+      <soap:operation soapAction="http://tempuri.org/IClassService/CreerClasse" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SupprimeClasse">
+      <soap:operation soapAction="http://tempuri.org/IClassService/SupprimeClasse" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="BasicHttpBinding_IHeroService" type="tns:IHeroService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="RetourneHerosCompte">
+      <soap:operation soapAction="http://tempuri.org/IHeroService/RetourneHerosCompte" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreeHero">
+      <soap:operation soapAction="http://tempuri.org/IHeroService/CreeHero" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SupprimeHero">
+      <soap:operation soapAction="http://tempuri.org/IHeroService/SupprimeHero" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeplaceHero">
+      <soap:operation soapAction="http://tempuri.org/IHeroService/DeplaceHero" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="HugoLandService">
+    <wsdl:port name="BasicHttpBinding_IAccountService" binding="tns:BasicHttpBinding_IAccountService">
+      <soap:address location="http://localhost:8733/Design_Time_Adresses/Hugo_LAND.WCF/HugoLandService" />
+    </wsdl:port>
+    <wsdl:port name="BasicHttpBinding_IClassService" binding="tns:BasicHttpBinding_IClassService">
+      <soap:address location="http://localhost:8733/Design_Time_Adresses/Hugo_LAND.WCF/HugoLandService" />
+    </wsdl:port>
+    <wsdl:port name="BasicHttpBinding_IHeroService" binding="tns:BasicHttpBinding_IHeroService">
+      <soap:address location="http://localhost:8733/Design_Time_Adresses/Hugo_LAND.WCF/HugoLandService" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
