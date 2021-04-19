@@ -133,10 +133,6 @@ namespace Hugo_LAND.Client.Vue
             if (string.IsNullOrEmpty(comboWorlds.Text) || w == null)
                 errors.Add("Please select a valid world.");
 
-            ////Class name PAS OBLIGÉ
-            //ClassDetailsDTO c = classServiceClient.GetClasseByName(txtName.Text);
-            //if (c != null)
-            //    errors.Add("A class using this name already exists!");
             return errors;
         }
     }

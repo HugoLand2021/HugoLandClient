@@ -151,6 +151,12 @@
     <Compile Include="Vue\frmModifHero.Designer.cs">
       <DependentUpon>frmModifHero.cs</DependentUpon>
     </Compile>
+    <Compile Include="Vue\frmModifyDeleteClass.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vue\frmModifyDeleteClass.Designer.cs">
+      <DependentUpon>frmModifyDeleteClass.cs</DependentUpon>
+    </Compile>
     <Compile Include="Vue\frmSelectHero.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -194,6 +200,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Vue\frmManageHero.resx">
       <DependentUpon>frmManageHero.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vue\frmModifyDeleteClass.resx">
+      <DependentUpon>frmModifyDeleteClass.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Vue\frmSelectHero.resx">
       <DependentUpon>frmSelectHero.cs</DependentUpon>
@@ -240,6 +249,7 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\Hugo_LAND.Core.Models.Classe.datasource" />
     <None Include="Properties\DataSources\Hugo_LAND.Core.Models.Monde1.datasource" />
     <None Include="Properties\DataSources\Hugo_LAND.WCF.DTOs.ClassDetailsDTO.datasource" />
     <None Include="Properties\DataSources\Hugo_LAND.WCF.DTOs.HeroDetailsDTO.datasource" />
