@@ -39,6 +39,15 @@ namespace Hugo_LAND.Client.Vue
             ((System.ComponentModel.ISupportInitialize)(this.heroDetailsDTOBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
+            // nomHeroLabel
+            // 
+            nomHeroLabel.AutoSize = true;
+            nomHeroLabel.Location = new System.Drawing.Point(13, 64);
+            nomHeroLabel.Name = "nomHeroLabel";
+            nomHeroLabel.Size = new System.Drawing.Size(58, 13);
+            nomHeroLabel.TabIndex = 46;
+            nomHeroLabel.Text = "Nom Hero:";
+            // 
             // heroDetailsDTOBindingSource
             // 
             this.heroDetailsDTOBindingSource.DataSource = typeof(Hugo_LAND.Client.HugoLandServices.HeroDetailsDTO);
@@ -63,20 +72,11 @@ namespace Hugo_LAND.Client.Vue
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
-            // nomHeroLabel
-            // 
-            nomHeroLabel.AutoSize = true;
-            nomHeroLabel.Location = new System.Drawing.Point(13, 55);
-            nomHeroLabel.Name = "nomHeroLabel";
-            nomHeroLabel.Size = new System.Drawing.Size(58, 13);
-            nomHeroLabel.TabIndex = 46;
-            nomHeroLabel.Text = "Nom Hero:";
-            // 
             // nomHeroComboBox
             // 
             this.nomHeroComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.heroDetailsDTOBindingSource, "NomHero", true));
             this.nomHeroComboBox.FormattingEnabled = true;
-            this.nomHeroComboBox.Location = new System.Drawing.Point(77, 52);
+            this.nomHeroComboBox.Location = new System.Drawing.Point(77, 61);
             this.nomHeroComboBox.Name = "nomHeroComboBox";
             this.nomHeroComboBox.Size = new System.Drawing.Size(121, 21);
             this.nomHeroComboBox.TabIndex = 47;
