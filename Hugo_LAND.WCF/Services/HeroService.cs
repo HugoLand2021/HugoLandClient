@@ -102,5 +102,17 @@ namespace Hugo_LAND.WCF.Services
             }
         }
 
+        public HeroDetailsDTO RetourneHerosActuel(string idhero)
+        {
+            using (var context = new HugoLANDContext())
+            {
+                return context.Heros
+                    .Where(p => p.Id == Int32.Parse(idhero))
+                    .Select(e=> new HeroDetailsDTO { 
+                        Id = e.Id
+                    }).First();
+                    
+            }
+        }
     }
 }

@@ -18,5 +18,7 @@ namespace Hugo_LAND.WCF.Services
         void CreerClasse(ClassDetailsDTO newClass, WorldItemDTO world);
         [OperationContract]
         void SupprimeClasse(ClassDetailsDTO dto);
+        [OperationContract]
+        ClassDetailsDTO GetClasseByName(string name);
     }
 }

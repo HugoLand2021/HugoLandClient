@@ -534,6 +534,12 @@ namespace Hugo_LAND.Client.HugoLandServices {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IClassService/SupprimeClasse", ReplyAction="http://tempuri.org/IClassService/SupprimeClasseResponse")]
         System.Threading.Tasks.Task SupprimeClasseAsync(Hugo_LAND.Client.HugoLandServices.ClassDetailsDTO dto);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IClassService/GetClasseByName", ReplyAction="http://tempuri.org/IClassService/GetClasseByNameResponse")]
+        Hugo_LAND.Client.HugoLandServices.ClassDetailsDTO GetClasseByName(string name);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IClassService/GetClasseByName", ReplyAction="http://tempuri.org/IClassService/GetClasseByNameResponse")]
+        System.Threading.Tasks.Task<Hugo_LAND.Client.HugoLandServices.ClassDetailsDTO> GetClasseByNameAsync(string name);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -586,6 +592,14 @@ namespace Hugo_LAND.Client.HugoLandServices {
         public System.Threading.Tasks.Task SupprimeClasseAsync(Hugo_LAND.Client.HugoLandServices.ClassDetailsDTO dto) {
             return base.Channel.SupprimeClasseAsync(dto);
         }
+        
+        public Hugo_LAND.Client.HugoLandServices.ClassDetailsDTO GetClasseByName(string name) {
+            return base.Channel.GetClasseByName(name);
+        }
+        
+        public System.Threading.Tasks.Task<Hugo_LAND.Client.HugoLandServices.ClassDetailsDTO> GetClasseByNameAsync(string name) {
+            return base.Channel.GetClasseByNameAsync(name);
+        }
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -615,6 +629,12 @@ namespace Hugo_LAND.Client.HugoLandServices {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IHeroService/DeplaceHero", ReplyAction="http://tempuri.org/IHeroService/DeplaceHeroResponse")]
         System.Threading.Tasks.Task DeplaceHeroAsync(Hugo_LAND.Client.HugoLandServices.HeroDetailsDTO dto, int newX, int newY);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IHeroService/RetourneHerosActuel", ReplyAction="http://tempuri.org/IHeroService/RetourneHerosActuelResponse")]
+        Hugo_LAND.Client.HugoLandServices.HeroDetailsDTO RetourneHerosActuel(string idhero);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IHeroService/RetourneHerosActuel", ReplyAction="http://tempuri.org/IHeroService/RetourneHerosActuelResponse")]
+        System.Threading.Tasks.Task<Hugo_LAND.Client.HugoLandServices.HeroDetailsDTO> RetourneHerosActuelAsync(string idhero);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -675,6 +695,14 @@ namespace Hugo_LAND.Client.HugoLandServices {
         public System.Threading.Tasks.Task DeplaceHeroAsync(Hugo_LAND.Client.HugoLandServices.HeroDetailsDTO dto, int newX, int newY) {
             return base.Channel.DeplaceHeroAsync(dto, newX, newY);
         }
+        
+        public Hugo_LAND.Client.HugoLandServices.HeroDetailsDTO RetourneHerosActuel(string idhero) {
+            return base.Channel.RetourneHerosActuel(idhero);
+        }
+        
+        public System.Threading.Tasks.Task<Hugo_LAND.Client.HugoLandServices.HeroDetailsDTO> RetourneHerosActuelAsync(string idhero) {
+            return base.Channel.RetourneHerosActuelAsync(idhero);
+        }
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -686,6 +714,12 @@ namespace Hugo_LAND.Client.HugoLandServices {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWorldService/GetAllWorldNames", ReplyAction="http://tempuri.org/IWorldService/GetAllWorldNamesResponse")]
         System.Threading.Tasks.Task<Hugo_LAND.Client.HugoLandServices.WorldItemDTO[]> GetAllWorldNamesAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWorldService/GetWorldByName", ReplyAction="http://tempuri.org/IWorldService/GetWorldByNameResponse")]
+        Hugo_LAND.Core.Models.Monde GetWorldByName(string worldName);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWorldService/GetWorldByName", ReplyAction="http://tempuri.org/IWorldService/GetWorldByNameResponse")]
+        System.Threading.Tasks.Task<Hugo_LAND.Core.Models.Monde> GetWorldByNameAsync(string worldName);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -721,6 +755,14 @@ namespace Hugo_LAND.Client.HugoLandServices {
         
         public System.Threading.Tasks.Task<Hugo_LAND.Client.HugoLandServices.WorldItemDTO[]> GetAllWorldNamesAsync() {
             return base.Channel.GetAllWorldNamesAsync();
+        }
+        
+        public Hugo_LAND.Core.Models.Monde GetWorldByName(string worldName) {
+            return base.Channel.GetWorldByName(worldName);
+        }
+        
+        public System.Threading.Tasks.Task<Hugo_LAND.Core.Models.Monde> GetWorldByNameAsync(string worldName) {
+            return base.Channel.GetWorldByNameAsync(worldName);
         }
     }
 }

@@ -24,5 +24,10 @@ namespace Hugo_LAND.WCF.Services
 
         [OperationContract]
         void DeplaceHero(HeroDetailsDTO dto, int newX, int newY);
+
+        [OperationContract]
+        HeroDetailsDTO RetourneHerosActuel(string idhero);
+
+
     }
 }

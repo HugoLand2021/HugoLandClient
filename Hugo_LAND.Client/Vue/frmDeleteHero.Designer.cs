@@ -30,7 +30,6 @@ namespace Hugo_LAND.Client.Vue
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmDeleteHero));
             System.Windows.Forms.Label experienceLabel;
             System.Windows.Forms.Label idLabel;
             System.Windows.Forms.Label niveauLabel;
@@ -46,19 +45,19 @@ namespace Hugo_LAND.Client.Vue
             System.Windows.Forms.Label idLabel2;
             System.Windows.Forms.Label limiteXLabel;
             System.Windows.Forms.Label limiteYLabel;
-            this.heroDetailsDTOBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmDeleteHero));
             this.heroDetailsDTOBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
+            this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
             this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMovePreviousItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator = new System.Windows.Forms.ToolStripSeparator();
             this.bindingNavigatorPositionItem = new System.Windows.Forms.ToolStripTextBox();
-            this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
             this.bindingNavigatorSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.bindingNavigatorMoveNextItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.experienceTextBox = new System.Windows.Forms.TextBox();
-            this.idTextBox = new System.Windows.Forms.TextBox();
+            this.txtidHero = new System.Windows.Forms.TextBox();
             this.niveauTextBox = new System.Windows.Forms.TextBox();
             this.nomHeroTextBox = new System.Windows.Forms.TextBox();
             this.statDexTextBox = new System.Windows.Forms.TextBox();
@@ -74,6 +73,7 @@ namespace Hugo_LAND.Client.Vue
             this.limiteYTextBox = new System.Windows.Forms.TextBox();
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
+            this.heroDetailsDTOBindingSource = new System.Windows.Forms.BindingSource(this.components);
             experienceLabel = new System.Windows.Forms.Label();
             idLabel = new System.Windows.Forms.Label();
             niveauLabel = new System.Windows.Forms.Label();
@@ -89,14 +89,145 @@ namespace Hugo_LAND.Client.Vue
             idLabel2 = new System.Windows.Forms.Label();
             limiteXLabel = new System.Windows.Forms.Label();
             limiteYLabel = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.heroDetailsDTOBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.heroDetailsDTOBindingNavigator)).BeginInit();
             this.heroDetailsDTOBindingNavigator.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.heroDetailsDTOBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
-            // heroDetailsDTOBindingSource
+            // experienceLabel
             // 
-            this.heroDetailsDTOBindingSource.DataSource = typeof(Hugo_LAND.Client.HugoLandServices.HeroDetailsDTO);
+            experienceLabel.AutoSize = true;
+            experienceLabel.Location = new System.Drawing.Point(12, 46);
+            experienceLabel.Name = "experienceLabel";
+            experienceLabel.Size = new System.Drawing.Size(63, 13);
+            experienceLabel.TabIndex = 3;
+            experienceLabel.Text = "Experience:";
+            // 
+            // idLabel
+            // 
+            idLabel.AutoSize = true;
+            idLabel.Location = new System.Drawing.Point(12, 72);
+            idLabel.Name = "idLabel";
+            idLabel.Size = new System.Drawing.Size(19, 13);
+            idLabel.TabIndex = 5;
+            idLabel.Text = "Id:";
+            // 
+            // niveauLabel
+            // 
+            niveauLabel.AutoSize = true;
+            niveauLabel.Location = new System.Drawing.Point(12, 98);
+            niveauLabel.Name = "niveauLabel";
+            niveauLabel.Size = new System.Drawing.Size(44, 13);
+            niveauLabel.TabIndex = 7;
+            niveauLabel.Text = "Niveau:";
+            // 
+            // nomHeroLabel
+            // 
+            nomHeroLabel.AutoSize = true;
+            nomHeroLabel.Location = new System.Drawing.Point(12, 124);
+            nomHeroLabel.Name = "nomHeroLabel";
+            nomHeroLabel.Size = new System.Drawing.Size(58, 13);
+            nomHeroLabel.TabIndex = 9;
+            nomHeroLabel.Text = "Nom Hero:";
+            // 
+            // statDexLabel
+            // 
+            statDexLabel.AutoSize = true;
+            statDexLabel.Location = new System.Drawing.Point(12, 150);
+            statDexLabel.Name = "statDexLabel";
+            statDexLabel.Size = new System.Drawing.Size(51, 13);
+            statDexLabel.TabIndex = 11;
+            statDexLabel.Text = "Stat Dex:";
+            // 
+            // statIntLabel
+            // 
+            statIntLabel.AutoSize = true;
+            statIntLabel.Location = new System.Drawing.Point(12, 176);
+            statIntLabel.Name = "statIntLabel";
+            statIntLabel.Size = new System.Drawing.Size(44, 13);
+            statIntLabel.TabIndex = 13;
+            statIntLabel.Text = "Stat Int:";
+            // 
+            // statStrLabel
+            // 
+            statStrLabel.AutoSize = true;
+            statStrLabel.Location = new System.Drawing.Point(12, 202);
+            statStrLabel.Name = "statStrLabel";
+            statStrLabel.Size = new System.Drawing.Size(45, 13);
+            statStrLabel.TabIndex = 15;
+            statStrLabel.Text = "Stat Str:";
+            // 
+            // statVitaliteLabel
+            // 
+            statVitaliteLabel.AutoSize = true;
+            statVitaliteLabel.Location = new System.Drawing.Point(12, 228);
+            statVitaliteLabel.Name = "statVitaliteLabel";
+            statVitaliteLabel.Size = new System.Drawing.Size(63, 13);
+            statVitaliteLabel.TabIndex = 17;
+            statVitaliteLabel.Text = "Stat Vitalite:";
+            // 
+            // xLabel
+            // 
+            xLabel.AutoSize = true;
+            xLabel.Location = new System.Drawing.Point(12, 254);
+            xLabel.Name = "xLabel";
+            xLabel.Size = new System.Drawing.Size(15, 13);
+            xLabel.TabIndex = 19;
+            xLabel.Text = "x:";
+            // 
+            // yLabel
+            // 
+            yLabel.AutoSize = true;
+            yLabel.Location = new System.Drawing.Point(12, 280);
+            yLabel.Name = "yLabel";
+            yLabel.Size = new System.Drawing.Size(15, 13);
+            yLabel.TabIndex = 21;
+            yLabel.Text = "y:";
+            // 
+            // nomClasseLabel
+            // 
+            nomClasseLabel.AutoSize = true;
+            nomClasseLabel.Location = new System.Drawing.Point(12, 305);
+            nomClasseLabel.Name = "nomClasseLabel";
+            nomClasseLabel.Size = new System.Drawing.Size(66, 13);
+            nomClasseLabel.TabIndex = 27;
+            nomClasseLabel.Text = "Nom Classe:";
+            // 
+            // descriptionLabel1
+            // 
+            descriptionLabel1.AutoSize = true;
+            descriptionLabel1.Location = new System.Drawing.Point(12, 331);
+            descriptionLabel1.Name = "descriptionLabel1";
+            descriptionLabel1.Size = new System.Drawing.Size(63, 13);
+            descriptionLabel1.TabIndex = 37;
+            descriptionLabel1.Text = "Description:";
+            // 
+            // idLabel2
+            // 
+            idLabel2.AutoSize = true;
+            idLabel2.Location = new System.Drawing.Point(12, 357);
+            idLabel2.Name = "idLabel2";
+            idLabel2.Size = new System.Drawing.Size(19, 13);
+            idLabel2.TabIndex = 39;
+            idLabel2.Text = "Id:";
+            // 
+            // limiteXLabel
+            // 
+            limiteXLabel.AutoSize = true;
+            limiteXLabel.Location = new System.Drawing.Point(12, 383);
+            limiteXLabel.Name = "limiteXLabel";
+            limiteXLabel.Size = new System.Drawing.Size(47, 13);
+            limiteXLabel.TabIndex = 41;
+            limiteXLabel.Text = "Limite X:";
+            // 
+            // limiteYLabel
+            // 
+            limiteYLabel.AutoSize = true;
+            limiteYLabel.Location = new System.Drawing.Point(12, 409);
+            limiteYLabel.Name = "limiteYLabel";
+            limiteYLabel.Size = new System.Drawing.Size(47, 13);
+            limiteYLabel.TabIndex = 43;
+            limiteYLabel.Text = "Limite Y:";
             // 
             // heroDetailsDTOBindingNavigator
             // 
@@ -121,9 +252,16 @@ namespace Hugo_LAND.Client.Vue
             this.heroDetailsDTOBindingNavigator.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
             this.heroDetailsDTOBindingNavigator.Name = "heroDetailsDTOBindingNavigator";
             this.heroDetailsDTOBindingNavigator.PositionItem = this.bindingNavigatorPositionItem;
-            this.heroDetailsDTOBindingNavigator.Size = new System.Drawing.Size(219, 25);
+            this.heroDetailsDTOBindingNavigator.Size = new System.Drawing.Size(1004, 25);
             this.heroDetailsDTOBindingNavigator.TabIndex = 0;
             this.heroDetailsDTOBindingNavigator.Text = "bindingNavigator1";
+            // 
+            // bindingNavigatorCountItem
+            // 
+            this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
+            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(37, 22);
+            this.bindingNavigatorCountItem.Text = "de {0}";
+            this.bindingNavigatorCountItem.ToolTipText = "Nombre total d\'éléments";
             // 
             // bindingNavigatorMoveFirstItem
             // 
@@ -158,16 +296,9 @@ namespace Hugo_LAND.Client.Vue
             this.bindingNavigatorPositionItem.Text = "0";
             this.bindingNavigatorPositionItem.ToolTipText = "Position actuelle";
             // 
-            // bindingNavigatorCountItem
-            // 
-            this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
-            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(37, 22);
-            this.bindingNavigatorCountItem.Text = "de {0}";
-            this.bindingNavigatorCountItem.ToolTipText = "Nombre total d\'éléments";
-            // 
             // bindingNavigatorSeparator1
             // 
-            this.bindingNavigatorSeparator1.Name = "bindingNavigatorSeparator";
+            this.bindingNavigatorSeparator1.Name = "bindingNavigatorSeparator1";
             this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 25);
             // 
             // bindingNavigatorMoveNextItem
@@ -190,17 +321,8 @@ namespace Hugo_LAND.Client.Vue
             // 
             // bindingNavigatorSeparator2
             // 
-            this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator";
+            this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
             this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 25);
-            // 
-            // experienceLabel
-            // 
-            experienceLabel.AutoSize = true;
-            experienceLabel.Location = new System.Drawing.Point(12, 46);
-            experienceLabel.Name = "experienceLabel";
-            experienceLabel.Size = new System.Drawing.Size(63, 13);
-            experienceLabel.TabIndex = 3;
-            experienceLabel.Text = "Experience:";
             // 
             // experienceTextBox
             // 
@@ -210,31 +332,13 @@ namespace Hugo_LAND.Client.Vue
             this.experienceTextBox.Size = new System.Drawing.Size(104, 20);
             this.experienceTextBox.TabIndex = 4;
             // 
-            // idLabel
+            // txtidHero
             // 
-            idLabel.AutoSize = true;
-            idLabel.Location = new System.Drawing.Point(12, 72);
-            idLabel.Name = "idLabel";
-            idLabel.Size = new System.Drawing.Size(19, 13);
-            idLabel.TabIndex = 5;
-            idLabel.Text = "Id:";
-            // 
-            // idTextBox
-            // 
-            this.idTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.heroDetailsDTOBindingSource, "Id", true));
-            this.idTextBox.Location = new System.Drawing.Point(92, 69);
-            this.idTextBox.Name = "idTextBox";
-            this.idTextBox.Size = new System.Drawing.Size(104, 20);
-            this.idTextBox.TabIndex = 6;
-            // 
-            // niveauLabel
-            // 
-            niveauLabel.AutoSize = true;
-            niveauLabel.Location = new System.Drawing.Point(12, 98);
-            niveauLabel.Name = "niveauLabel";
-            niveauLabel.Size = new System.Drawing.Size(44, 13);
-            niveauLabel.TabIndex = 7;
-            niveauLabel.Text = "Niveau:";
+            this.txtidHero.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.heroDetailsDTOBindingSource, "Id", true));
+            this.txtidHero.Location = new System.Drawing.Point(92, 69);
+            this.txtidHero.Name = "txtidHero";
+            this.txtidHero.Size = new System.Drawing.Size(104, 20);
+            this.txtidHero.TabIndex = 6;
             // 
             // niveauTextBox
             // 
@@ -244,15 +348,6 @@ namespace Hugo_LAND.Client.Vue
             this.niveauTextBox.Size = new System.Drawing.Size(104, 20);
             this.niveauTextBox.TabIndex = 8;
             // 
-            // nomHeroLabel
-            // 
-            nomHeroLabel.AutoSize = true;
-            nomHeroLabel.Location = new System.Drawing.Point(12, 124);
-            nomHeroLabel.Name = "nomHeroLabel";
-            nomHeroLabel.Size = new System.Drawing.Size(58, 13);
-            nomHeroLabel.TabIndex = 9;
-            nomHeroLabel.Text = "Nom Hero:";
-            // 
             // nomHeroTextBox
             // 
             this.nomHeroTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.heroDetailsDTOBindingSource, "NomHero", true));
@@ -260,15 +355,6 @@ namespace Hugo_LAND.Client.Vue
             this.nomHeroTextBox.Name = "nomHeroTextBox";
             this.nomHeroTextBox.Size = new System.Drawing.Size(104, 20);
             this.nomHeroTextBox.TabIndex = 10;
-            // 
-            // statDexLabel
-            // 
-            statDexLabel.AutoSize = true;
-            statDexLabel.Location = new System.Drawing.Point(12, 150);
-            statDexLabel.Name = "statDexLabel";
-            statDexLabel.Size = new System.Drawing.Size(51, 13);
-            statDexLabel.TabIndex = 11;
-            statDexLabel.Text = "Stat Dex:";
             // 
             // statDexTextBox
             // 
@@ -278,15 +364,6 @@ namespace Hugo_LAND.Client.Vue
             this.statDexTextBox.Size = new System.Drawing.Size(104, 20);
             this.statDexTextBox.TabIndex = 12;
             // 
-            // statIntLabel
-            // 
-            statIntLabel.AutoSize = true;
-            statIntLabel.Location = new System.Drawing.Point(12, 176);
-            statIntLabel.Name = "statIntLabel";
-            statIntLabel.Size = new System.Drawing.Size(44, 13);
-            statIntLabel.TabIndex = 13;
-            statIntLabel.Text = "Stat Int:";
-            // 
             // statIntTextBox
             // 
             this.statIntTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.heroDetailsDTOBindingSource, "StatInt", true));
@@ -294,15 +371,6 @@ namespace Hugo_LAND.Client.Vue
             this.statIntTextBox.Name = "statIntTextBox";
             this.statIntTextBox.Size = new System.Drawing.Size(104, 20);
             this.statIntTextBox.TabIndex = 14;
-            // 
-            // statStrLabel
-            // 
-            statStrLabel.AutoSize = true;
-            statStrLabel.Location = new System.Drawing.Point(12, 202);
-            statStrLabel.Name = "statStrLabel";
-            statStrLabel.Size = new System.Drawing.Size(45, 13);
-            statStrLabel.TabIndex = 15;
-            statStrLabel.Text = "Stat Str:";
             // 
             // statStrTextBox
             // 
@@ -312,15 +380,6 @@ namespace Hugo_LAND.Client.Vue
             this.statStrTextBox.Size = new System.Drawing.Size(104, 20);
             this.statStrTextBox.TabIndex = 16;
             // 
-            // statVitaliteLabel
-            // 
-            statVitaliteLabel.AutoSize = true;
-            statVitaliteLabel.Location = new System.Drawing.Point(12, 228);
-            statVitaliteLabel.Name = "statVitaliteLabel";
-            statVitaliteLabel.Size = new System.Drawing.Size(63, 13);
-            statVitaliteLabel.TabIndex = 17;
-            statVitaliteLabel.Text = "Stat Vitalite:";
-            // 
             // statVitaliteTextBox
             // 
             this.statVitaliteTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.heroDetailsDTOBindingSource, "StatVitalite", true));
@@ -328,15 +387,6 @@ namespace Hugo_LAND.Client.Vue
             this.statVitaliteTextBox.Name = "statVitaliteTextBox";
             this.statVitaliteTextBox.Size = new System.Drawing.Size(104, 20);
             this.statVitaliteTextBox.TabIndex = 18;
-            // 
-            // xLabel
-            // 
-            xLabel.AutoSize = true;
-            xLabel.Location = new System.Drawing.Point(12, 254);
-            xLabel.Name = "xLabel";
-            xLabel.Size = new System.Drawing.Size(15, 13);
-            xLabel.TabIndex = 19;
-            xLabel.Text = "x:";
             // 
             // xTextBox
             // 
@@ -346,15 +396,6 @@ namespace Hugo_LAND.Client.Vue
             this.xTextBox.Size = new System.Drawing.Size(104, 20);
             this.xTextBox.TabIndex = 20;
             // 
-            // yLabel
-            // 
-            yLabel.AutoSize = true;
-            yLabel.Location = new System.Drawing.Point(12, 280);
-            yLabel.Name = "yLabel";
-            yLabel.Size = new System.Drawing.Size(15, 13);
-            yLabel.TabIndex = 21;
-            yLabel.Text = "y:";
-            // 
             // yTextBox
             // 
             this.yTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.heroDetailsDTOBindingSource, "y", true));
@@ -362,15 +403,6 @@ namespace Hugo_LAND.Client.Vue
             this.yTextBox.Name = "yTextBox";
             this.yTextBox.Size = new System.Drawing.Size(104, 20);
             this.yTextBox.TabIndex = 22;
-            // 
-            // nomClasseLabel
-            // 
-            nomClasseLabel.AutoSize = true;
-            nomClasseLabel.Location = new System.Drawing.Point(12, 305);
-            nomClasseLabel.Name = "nomClasseLabel";
-            nomClasseLabel.Size = new System.Drawing.Size(66, 13);
-            nomClasseLabel.TabIndex = 27;
-            nomClasseLabel.Text = "Nom Classe:";
             // 
             // nomClasseTextBox
             // 
@@ -380,15 +412,6 @@ namespace Hugo_LAND.Client.Vue
             this.nomClasseTextBox.Size = new System.Drawing.Size(104, 20);
             this.nomClasseTextBox.TabIndex = 28;
             // 
-            // descriptionLabel1
-            // 
-            descriptionLabel1.AutoSize = true;
-            descriptionLabel1.Location = new System.Drawing.Point(12, 331);
-            descriptionLabel1.Name = "descriptionLabel1";
-            descriptionLabel1.Size = new System.Drawing.Size(63, 13);
-            descriptionLabel1.TabIndex = 37;
-            descriptionLabel1.Text = "Description:";
-            // 
             // descriptionTextBox1
             // 
             this.descriptionTextBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.heroDetailsDTOBindingSource, "Monde.Description", true));
@@ -396,15 +419,6 @@ namespace Hugo_LAND.Client.Vue
             this.descriptionTextBox1.Name = "descriptionTextBox1";
             this.descriptionTextBox1.Size = new System.Drawing.Size(104, 20);
             this.descriptionTextBox1.TabIndex = 38;
-            // 
-            // idLabel2
-            // 
-            idLabel2.AutoSize = true;
-            idLabel2.Location = new System.Drawing.Point(12, 357);
-            idLabel2.Name = "idLabel2";
-            idLabel2.Size = new System.Drawing.Size(19, 13);
-            idLabel2.TabIndex = 39;
-            idLabel2.Text = "Id:";
             // 
             // idTextBox2
             // 
@@ -414,15 +428,6 @@ namespace Hugo_LAND.Client.Vue
             this.idTextBox2.Size = new System.Drawing.Size(104, 20);
             this.idTextBox2.TabIndex = 40;
             // 
-            // limiteXLabel
-            // 
-            limiteXLabel.AutoSize = true;
-            limiteXLabel.Location = new System.Drawing.Point(12, 383);
-            limiteXLabel.Name = "limiteXLabel";
-            limiteXLabel.Size = new System.Drawing.Size(47, 13);
-            limiteXLabel.TabIndex = 41;
-            limiteXLabel.Text = "Limite X:";
-            // 
             // limiteXTextBox
             // 
             this.limiteXTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.heroDetailsDTOBindingSource, "Monde.LimiteX", true));
@@ -430,15 +435,6 @@ namespace Hugo_LAND.Client.Vue
             this.limiteXTextBox.Name = "limiteXTextBox";
             this.limiteXTextBox.Size = new System.Drawing.Size(104, 20);
             this.limiteXTextBox.TabIndex = 42;
-            // 
-            // limiteYLabel
-            // 
-            limiteYLabel.AutoSize = true;
-            limiteYLabel.Location = new System.Drawing.Point(12, 409);
-            limiteYLabel.Name = "limiteYLabel";
-            limiteYLabel.Size = new System.Drawing.Size(47, 13);
-            limiteYLabel.TabIndex = 43;
-            limiteYLabel.Text = "Limite Y:";
             // 
             // limiteYTextBox
             // 
@@ -456,6 +452,7 @@ namespace Hugo_LAND.Client.Vue
             this.btnDelete.TabIndex = 45;
             this.btnDelete.Text = "Delete";
             this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // btnCancel
             // 
@@ -465,12 +462,17 @@ namespace Hugo_LAND.Client.Vue
             this.btnCancel.TabIndex = 46;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            // 
+            // heroDetailsDTOBindingSource
+            // 
+            this.heroDetailsDTOBindingSource.DataSource = typeof(Hugo_LAND.Client.HugoLandServices.HeroDetailsDTO);
             // 
             // frmDeleteHero
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(219, 505);
+            this.ClientSize = new System.Drawing.Size(1004, 505);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(descriptionLabel1);
@@ -486,7 +488,7 @@ namespace Hugo_LAND.Client.Vue
             this.Controls.Add(experienceLabel);
             this.Controls.Add(this.experienceTextBox);
             this.Controls.Add(idLabel);
-            this.Controls.Add(this.idTextBox);
+            this.Controls.Add(this.txtidHero);
             this.Controls.Add(niveauLabel);
             this.Controls.Add(this.niveauTextBox);
             this.Controls.Add(nomHeroLabel);
@@ -507,10 +509,10 @@ namespace Hugo_LAND.Client.Vue
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "frmDeleteHero";
             this.Text = "Delete Hero";
-            ((System.ComponentModel.ISupportInitialize)(this.heroDetailsDTOBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.heroDetailsDTOBindingNavigator)).EndInit();
             this.heroDetailsDTOBindingNavigator.ResumeLayout(false);
             this.heroDetailsDTOBindingNavigator.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.heroDetailsDTOBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -530,7 +532,7 @@ namespace Hugo_LAND.Client.Vue
         private System.Windows.Forms.ToolStripButton bindingNavigatorMoveLastItem;
         private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator2;
         private System.Windows.Forms.TextBox experienceTextBox;
-        private System.Windows.Forms.TextBox idTextBox;
+        private System.Windows.Forms.TextBox txtidHero;
         private System.Windows.Forms.TextBox niveauTextBox;
         private System.Windows.Forms.TextBox nomHeroTextBox;
         private System.Windows.Forms.TextBox statDexTextBox;

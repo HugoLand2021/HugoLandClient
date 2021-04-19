@@ -84,6 +84,16 @@ namespace Hugo_LAND.WCF.Services
 
             }
         }
-        
+        public ClassDetailsDTO GetClasseByName(string name) 
+        {
+            using (var context = new HugoLANDContext())
+            {
+                return (ClassDetailsDTO)context.Classes
+                    .Where(p => p.NomClasse == name);
+
+            }
+
+        }
+
     }
 }
