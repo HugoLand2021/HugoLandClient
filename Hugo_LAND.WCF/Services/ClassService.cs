@@ -69,7 +69,9 @@ namespace Hugo_LAND.WCF.Services
         {
             using (var context = new HugoLANDContext())
             {
-                return context.Classes
+                try
+                {
+                    return context.Classes
                     .Select(p => new ClassDetailsDTO
                     {
                         Id = p.Id,
@@ -81,6 +83,12 @@ namespace Hugo_LAND.WCF.Services
                         StatBaseVitalite = p.StatBaseVitalite
 
                     }).ToList();
+                }
+                catch 
+                {
+                    return null;
+                }
+                
 
             }
         }
@@ -88,9 +96,15 @@ namespace Hugo_LAND.WCF.Services
         {
             using (var context = new HugoLANDContext())
             {
-                return (ClassDetailsDTO)context.Classes
-                    .Where(p => p.NomClasse == name);
-
+                try
+                {
+                    return (ClassDetailsDTO)context.Classes
+                       .Where(p => p.NomClasse == name);
+                }
+                catch
+                {
+                    return null;
+                }
             }
 
         }
