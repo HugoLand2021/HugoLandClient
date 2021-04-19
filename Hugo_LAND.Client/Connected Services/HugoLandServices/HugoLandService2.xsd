@@ -45,13 +45,14 @@
   <xs:element name="ArrayOfHeroDetailsDTO" nillable="true" type="tns:ArrayOfHeroDetailsDTO" />
   <xs:complexType name="HeroDetailsDTO">
     <xs:sequence>
-      <xs:element minOccurs="0" name="Classe" type="xs:int" />
+      <xs:element minOccurs="0" name="Classe" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="EstConnecte" type="xs:boolean" />
       <xs:element minOccurs="0" name="Experience" type="xs:long" />
       <xs:element minOccurs="0" name="Id" type="xs:int" />
-      <xs:element minOccurs="0" name="Monde" type="xs:int" />
+      <xs:element minOccurs="0" name="Monde" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Niveau" type="xs:int" />
       <xs:element minOccurs="0" name="NomHero" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NomJoueur" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="StatDex" type="xs:int" />
       <xs:element minOccurs="0" name="StatInt" type="xs:int" />
       <xs:element minOccurs="0" name="StatStr" type="xs:int" />

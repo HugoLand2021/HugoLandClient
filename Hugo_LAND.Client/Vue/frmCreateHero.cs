@@ -36,12 +36,18 @@ namespace Hugo_LAND.Client.Vue
 
         private void btnCreateHeroFrm_Click(object sender, EventArgs e)
         {
-            var user = compteJoueurService.RetourneIdCompteParNom(nomCompte);
-            var classe = classServiceClient.GetClasseByName(cmbNomClass.Text);
-            var monde = worldServiceClient.GetWorldByName(cmbDescription.Text);
-
-
-            HeroService.CreeHero(txtnomHero.Text, false, classe.Id, user, monde.ID);
+            HeroDetailsDTO hero = new HeroDetailsDTO()
+            {
+                NomHero = txtnomHero.Text,
+                StatDex = int.Parse(txtstatBaseDex.Text),
+                StatInt = int.Parse(txtstatBaseInt.Text),
+                StatStr = int.Parse(txtstatBaseStr.Text),
+                StatVitalite = int.Parse(txtstatBaseVitalite.Text),
+                Classe = cmbNomClass.Text,
+                Monde = cmbDescription.Text,
+                NomJoueur = nomCompte
+            };
+            HeroService.CreateHero(hero);
         }
 
         private void btnCancelHeroFrm_Click(object sender, EventArgs e)
@@ -53,7 +59,7 @@ namespace Hugo_LAND.Client.Vue
         {
             var currClass = classList[cmbNomClass.SelectedIndex];
 
-            txtstatBaseDex.Text = (currClass.StatBaseDex + _random.Next(0,11)).ToString();
+            txtstatBaseDex.Text = (currClass.StatBaseDex + _random.Next(0, 11)).ToString();
             txtstatBaseInt.Text = (currClass.StatBaseInt + _random.Next(0, 11)).ToString(); ;
             txtstatBaseStr.Text = (currClass.StatBaseStr + _random.Next(0, 11)).ToString(); ;
             txtstatBaseVitalite.Text = (currClass.StatBaseVitalite + _random.Next(0, 11)).ToString(); ;

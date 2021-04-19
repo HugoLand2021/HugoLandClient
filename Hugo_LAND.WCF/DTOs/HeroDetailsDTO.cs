@@ -34,9 +34,11 @@ namespace Hugo_LAND.WCF.DTOs
         [DataMember]
         public bool EstConnecte { get; set; }
         [DataMember]
-        public int Monde { get; set; }//Doit être monde détail ?????
+        public string Monde { get; set; }
         [DataMember]
-        public int Classe { get; set; }
+        public string Classe { get; set; }
+        [DataMember]
+        public string NomJoueur { get; set; }
 
     }
 }

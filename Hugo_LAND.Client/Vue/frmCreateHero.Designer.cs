@@ -133,6 +133,7 @@ namespace Hugo_LAND.Client.Vue
             // 
             this.txtstatBaseDex.Location = new System.Drawing.Point(108, 119);
             this.txtstatBaseDex.Name = "txtstatBaseDex";
+            this.txtstatBaseDex.ReadOnly = true;
             this.txtstatBaseDex.Size = new System.Drawing.Size(264, 20);
             this.txtstatBaseDex.TabIndex = 30;
             // 
@@ -140,6 +141,7 @@ namespace Hugo_LAND.Client.Vue
             // 
             this.txtstatBaseInt.Location = new System.Drawing.Point(108, 145);
             this.txtstatBaseInt.Name = "txtstatBaseInt";
+            this.txtstatBaseInt.ReadOnly = true;
             this.txtstatBaseInt.Size = new System.Drawing.Size(264, 20);
             this.txtstatBaseInt.TabIndex = 32;
             // 
@@ -147,6 +149,7 @@ namespace Hugo_LAND.Client.Vue
             // 
             this.txtstatBaseStr.Location = new System.Drawing.Point(108, 171);
             this.txtstatBaseStr.Name = "txtstatBaseStr";
+            this.txtstatBaseStr.ReadOnly = true;
             this.txtstatBaseStr.Size = new System.Drawing.Size(264, 20);
             this.txtstatBaseStr.TabIndex = 34;
             // 
@@ -154,6 +157,7 @@ namespace Hugo_LAND.Client.Vue
             // 
             this.txtstatBaseVitalite.Location = new System.Drawing.Point(108, 197);
             this.txtstatBaseVitalite.Name = "txtstatBaseVitalite";
+            this.txtstatBaseVitalite.ReadOnly = true;
             this.txtstatBaseVitalite.Size = new System.Drawing.Size(264, 20);
             this.txtstatBaseVitalite.TabIndex = 36;
             // 

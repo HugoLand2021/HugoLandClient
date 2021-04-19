@@ -62,11 +62,11 @@
   <wsdl:message name="IHeroService_RetourneHerosCompte_OutputMessage">
     <wsdl:part name="parameters" element="tns:RetourneHerosCompteResponse" />
   </wsdl:message>
-  <wsdl:message name="IHeroService_CreeHero_InputMessage">
-    <wsdl:part name="parameters" element="tns:CreeHero" />
+  <wsdl:message name="IHeroService_CreateHero_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateHero" />
   </wsdl:message>
-  <wsdl:message name="IHeroService_CreeHero_OutputMessage">
-    <wsdl:part name="parameters" element="tns:CreeHeroResponse" />
+  <wsdl:message name="IHeroService_CreateHero_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateHeroResponse" />
   </wsdl:message>
   <wsdl:message name="IHeroService_SupprimeHero_InputMessage">
     <wsdl:part name="parameters" element="tns:SupprimeHero" />
@@ -139,9 +139,9 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IHeroService/RetourneHerosCompte" message="tns:IHeroService_RetourneHerosCompte_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IHeroService/RetourneHerosCompteResponse" message="tns:IHeroService_RetourneHerosCompte_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="CreeHero">
-      <wsdl:input wsaw:Action="http://tempuri.org/IHeroService/CreeHero" message="tns:IHeroService_CreeHero_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IHeroService/CreeHeroResponse" message="tns:IHeroService_CreeHero_OutputMessage" />
+    <wsdl:operation name="CreateHero">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHeroService/CreateHero" message="tns:IHeroService_CreateHero_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHeroService/CreateHeroResponse" message="tns:IHeroService_CreateHero_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="SupprimeHero">
       <wsdl:input wsaw:Action="http://tempuri.org/IHeroService/SupprimeHero" message="tns:IHeroService_SupprimeHero_InputMessage" />
@@ -255,8 +255,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="CreeHero">
-      <soap:operation soapAction="http://tempuri.org/IHeroService/CreeHero" style="document" />
+    <wsdl:operation name="CreateHero">
+      <soap:operation soapAction="http://tempuri.org/IHeroService/CreateHero" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
