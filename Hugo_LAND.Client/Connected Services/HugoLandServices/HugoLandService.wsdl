@@ -14,12 +14,6 @@
   <wsdl:message name="IAccountService_Authentification_OutputMessage">
     <wsdl:part name="parameters" element="tns:AuthentificationResponse" />
   </wsdl:message>
-  <wsdl:message name="IAccountService_RetourneIdCompteParNom_InputMessage">
-    <wsdl:part name="parameters" element="tns:RetourneIdCompteParNom" />
-  </wsdl:message>
-  <wsdl:message name="IAccountService_RetourneIdCompteParNom_OutputMessage">
-    <wsdl:part name="parameters" element="tns:RetourneIdCompteParNomResponse" />
-  </wsdl:message>
   <wsdl:message name="IAccountService_GetAccountInfoByUsername_InputMessage">
     <wsdl:part name="parameters" element="tns:GetAccountInfoByUsername" />
   </wsdl:message>
@@ -103,10 +97,6 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IAccountService/Authentification" message="tns:IAccountService_Authentification_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IAccountService/AuthentificationResponse" message="tns:IAccountService_Authentification_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="RetourneIdCompteParNom">
-      <wsdl:input wsaw:Action="http://tempuri.org/IAccountService/RetourneIdCompteParNom" message="tns:IAccountService_RetourneIdCompteParNom_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IAccountService/RetourneIdCompteParNomResponse" message="tns:IAccountService_RetourneIdCompteParNom_OutputMessage" />
-    </wsdl:operation>
     <wsdl:operation name="GetAccountInfoByUsername">
       <wsdl:input wsaw:Action="http://tempuri.org/IAccountService/GetAccountInfoByUsername" message="tns:IAccountService_GetAccountInfoByUsername_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IAccountService/GetAccountInfoByUsernameResponse" message="tns:IAccountService_GetAccountInfoByUsername_OutputMessage" />
@@ -170,15 +160,6 @@
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
     <wsdl:operation name="Authentification">
       <soap:operation soapAction="http://tempuri.org/IAccountService/Authentification" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="RetourneIdCompteParNom">
-      <soap:operation soapAction="http://tempuri.org/IAccountService/RetourneIdCompteParNom" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

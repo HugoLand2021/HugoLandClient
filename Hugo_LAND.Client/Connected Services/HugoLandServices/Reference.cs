@@ -603,12 +603,6 @@ namespace Hugo_LAND.Client.HugoLandServices {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAccountService/Authentification", ReplyAction="http://tempuri.org/IAccountService/AuthentificationResponse")]
         System.Threading.Tasks.Task<string> AuthentificationAsync(string Username, string Password);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAccountService/RetourneIdCompteParNom", ReplyAction="http://tempuri.org/IAccountService/RetourneIdCompteParNomResponse")]
-        int RetourneIdCompteParNom(string username);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAccountService/RetourneIdCompteParNom", ReplyAction="http://tempuri.org/IAccountService/RetourneIdCompteParNomResponse")]
-        System.Threading.Tasks.Task<int> RetourneIdCompteParNomAsync(string username);
-        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAccountService/GetAccountInfoByUsername", ReplyAction="http://tempuri.org/IAccountService/GetAccountInfoByUsernameResponse")]
         Hugo_LAND.Client.HugoLandServices.AccountDetailsDTO GetAccountInfoByUsername(string username);
         
@@ -649,14 +643,6 @@ namespace Hugo_LAND.Client.HugoLandServices {
         
         public System.Threading.Tasks.Task<string> AuthentificationAsync(string Username, string Password) {
             return base.Channel.AuthentificationAsync(Username, Password);
-        }
-        
-        public int RetourneIdCompteParNom(string username) {
-            return base.Channel.RetourneIdCompteParNom(username);
-        }
-        
-        public System.Threading.Tasks.Task<int> RetourneIdCompteParNomAsync(string username) {
-            return base.Channel.RetourneIdCompteParNomAsync(username);
         }
         
         public Hugo_LAND.Client.HugoLandServices.AccountDetailsDTO GetAccountInfoByUsername(string username) {

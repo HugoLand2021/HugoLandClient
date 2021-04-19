@@ -27,15 +27,6 @@ namespace Hugo_LAND.WCF.Services
                 return (string)message.Value;
             }
         }
-        public int RetourneIdCompteParNom(string username)
-        {
-            using (var context = new HugoLANDContext())
-            {
-                return context.CompteJoueurs
-                    .Where(p => p.NomJoueur == username)
-                    .First().Id;
-            }
-        }
         public AccountDetailsDTO GetAccountInfoByUsername(string username) {
             using (var context = new HugoLANDContext())
             {
