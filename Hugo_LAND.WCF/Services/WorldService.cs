@@ -26,7 +26,15 @@ namespace Hugo_LAND.WCF.Services
         {
             using (HugoLANDContext context = new HugoLANDContext())
             {
-                return context.Mondes.FirstOrDefault(p => p.Description == worldName);
+                try
+                {
+                    Monde monde = context.Mondes.FirstOrDefault(p => p.Description == worldName);
+                    return monde;
+                }
+                catch 
+                {
+                    return null;
+                }
             }
         }
 

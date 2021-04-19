@@ -67,6 +67,9 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="FluentValidation, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7de548da2fbae0f0, processorArchitecture=MSIL">
+      <HintPath>..\packages\FluentValidation.10.0.3\lib\netstandard2.0\FluentValidation.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
@@ -85,6 +88,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="Validators\CreateClassValidator.cs" />
     <Compile Include="Vue\Crusader.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -236,6 +240,10 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\Hugo_LAND.Core.Models.Monde1.datasource" />
+    <None Include="Properties\DataSources\Hugo_LAND.WCF.DTOs.ClassDetailsDTO.datasource" />
+    <None Include="Properties\DataSources\Hugo_LAND.WCF.DTOs.HeroDetailsDTO.datasource" />
+    <None Include="Properties\DataSources\Hugo_LAND.WCF.DTOs.WorldItemDTO.datasource" />
     <None Include="Properties\DataSources\Hugo_LAND.Core.Models.Hero.datasource" />
     <None Include="Properties\DataSources\Hugo_LAND.Core.Models.Monde.datasource" />
     <None Include="Properties\Settings.settings">
