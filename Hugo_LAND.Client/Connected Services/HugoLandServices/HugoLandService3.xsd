@@ -1,6 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/Hugo_LAND.Core.Models" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Hugo_LAND.Core.Models" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:import schemaLocation="http://localhost:8733/Design_Time_Adresses/Hugo_LAND.WCF/HugoLandService?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:complexType name="Monde">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Classes" nillable="true" type="tns:ArrayOfClasse" />
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Heros" nillable="true" type="tns:ArrayOfHero" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Items" nillable="true" type="tns:ArrayOfItem" />
+      <xs:element minOccurs="0" name="LimiteX" type="xs:int" />
+      <xs:element minOccurs="0" name="LimiteY" type="xs:int" />
+      <xs:element minOccurs="0" name="Monstres" nillable="true" type="tns:ArrayOfMonstre" />
+      <xs:element minOccurs="0" name="ObjetMondes" nillable="true" type="tns:ArrayOfObjetMonde" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Monde" nillable="true" type="tns:Monde" />
+  <xs:complexType name="ArrayOfClasse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Classe" nillable="true" type="tns:Classe" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfClasse" nillable="true" type="tns:ArrayOfClasse" />
   <xs:complexType name="Classe">
     <xs:sequence>
       <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
@@ -119,26 +139,6 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="EffetItem" nillable="true" type="tns:EffetItem" />
-  <xs:complexType name="Monde">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="Classes" nillable="true" type="tns:ArrayOfClasse" />
-      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Heros" nillable="true" type="tns:ArrayOfHero" />
-      <xs:element minOccurs="0" name="Id" type="xs:int" />
-      <xs:element minOccurs="0" name="Items" nillable="true" type="tns:ArrayOfItem" />
-      <xs:element minOccurs="0" name="LimiteX" type="xs:int" />
-      <xs:element minOccurs="0" name="LimiteY" type="xs:int" />
-      <xs:element minOccurs="0" name="Monstres" nillable="true" type="tns:ArrayOfMonstre" />
-      <xs:element minOccurs="0" name="ObjetMondes" nillable="true" type="tns:ArrayOfObjetMonde" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="Monde" nillable="true" type="tns:Monde" />
-  <xs:complexType name="ArrayOfClasse">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="Classe" nillable="true" type="tns:Classe" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ArrayOfClasse" nillable="true" type="tns:ArrayOfClasse" />
   <xs:complexType name="ArrayOfItem">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="Item" nillable="true" type="tns:Item" />

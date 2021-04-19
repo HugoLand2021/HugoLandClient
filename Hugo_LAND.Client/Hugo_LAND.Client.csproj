@@ -244,6 +244,8 @@
     <None Include="Properties\DataSources\Hugo_LAND.WCF.DTOs.ClassDetailsDTO.datasource" />
     <None Include="Properties\DataSources\Hugo_LAND.WCF.DTOs.HeroDetailsDTO.datasource" />
     <None Include="Properties\DataSources\Hugo_LAND.WCF.DTOs.WorldItemDTO.datasource" />
+    <None Include="Properties\DataSources\Hugo_LAND.Core.Models.Hero.datasource" />
+    <None Include="Properties\DataSources\Hugo_LAND.Core.Models.Monde.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

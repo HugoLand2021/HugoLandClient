@@ -82,23 +82,52 @@ namespace Hugo_LAND.WCF.Services
         {
             using (var context = new HugoLANDContext())
             {
-                return context.CompteJoueurs
-                .Where(p => p.Id == idCompteJoueur)
-                .First().Heros
-                .Select(m => new HeroDetailsDTO
+                try
                 {
-                    Id = m.Id,
-                    Niveau = m.Niveau,
-                    Experience = m.Experience,
-                    x = m.x,
-                    y = m.y,
-                    StatStr = m.StatStr,
-                    StatDex = m.StatDex,
-                    StatInt = m.StatInt,
-                    StatVitalite = m.StatVitalite,
-                    NomHero = m.NomHero,
-                    EstConnecte = m.EstConnecte
-                }).ToList();
+                    //    return context.Heros
+                    //.Where(p => p.CompteJoueur.Id == idCompteJoueur)
+                    //.Select(m => new HeroDetailsDTO
+                    //{
+                    //    Id = m.Id,
+                    //    Niveau = m.Niveau,
+                    //    Experience = m.Experience,
+                    //    x = m.x,
+                    //    y = m.y,
+                    //    StatStr = m.StatStr,
+                    //    StatDex = m.StatDex,
+                    //    StatInt = m.StatInt,
+                    //    StatVitalite = m.StatVitalite,
+                    //    NomHero = m.NomHero,
+                    //    EstConnecte = m.EstConnecte,
+                    //    Monde = m.Monde.Id,
+                    //    Classe = m.Classe.Id
+                    //}).ToList() ?? new List<HeroDetailsDTO>();
+                    return context.CompteJoueurs.Find(idCompteJoueur)?.Heros
+                        .Select(p => new HeroDetailsDTO
+                        {
+                              Id = p.Id,
+                              Niveau = p.Niveau,
+                              Experience = p.Experience,
+                              x = p.x,
+                              y = p.y,
+                              StatStr = p.StatStr,
+                              StatDex = p.StatDex,
+                              StatInt = p.StatInt,
+                              StatVitalite = p.StatVitalite,
+                              NomHero = p.NomHero,
+                              EstConnecte = p.EstConnecte,
+                              Monde = p.Monde.Id,
+                              Classe = p.Classe.Id
+                        }).ToList();
+
+
+                }
+                catch
+                {
+                    return null;
+
+                }
+
             }
         }
 
@@ -108,10 +137,11 @@ namespace Hugo_LAND.WCF.Services
             {
                 return context.Heros
                     .Where(p => p.Id == Int32.Parse(idhero))
-                    .Select(e=> new HeroDetailsDTO { 
+                    .Select(e => new HeroDetailsDTO
+                    {
                         Id = e.Id
                     }).First();
-                    
+
             }
         }
     }
