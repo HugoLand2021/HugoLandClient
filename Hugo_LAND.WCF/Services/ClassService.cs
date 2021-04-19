@@ -37,7 +37,14 @@ namespace Hugo_LAND.WCF.Services
             {
                 using (HugoLANDContext context = new HugoLANDContext())
                 {
+
                     var delClass = context.Classes.Find(dto.Id);
+                    List<int> listDelHero = new List<int>();
+                    foreach (Hero hero in delClass.Heros)
+                        listDelHero.Add(hero.Id);
+                    foreach (int id in listDelHero)
+                        context.Entry(context.Heros.Find(id)).State = EntityState.Deleted;
+
                     context.Entry(delClass).State = EntityState.Deleted;
                     context.SaveChanges();
                 }
