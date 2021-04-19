@@ -32,16 +32,12 @@ namespace Hugo_LAND.Client.Vue
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.Label nomHeroLabel;
             this.heroDetailsDTOBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.nomHeroComboBox = new System.Windows.Forms.ComboBox();
+            this.cmbNomhero = new System.Windows.Forms.ComboBox();
             this.lblnomCompte = new System.Windows.Forms.Label();
             this.btnJouerSelectHero = new System.Windows.Forms.Button();
             nomHeroLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.heroDetailsDTOBindingSource)).BeginInit();
             this.SuspendLayout();
-            // 
-            // heroDetailsDTOBindingSource
-            // 
-            this.heroDetailsDTOBindingSource.DataSource = typeof(Hugo_LAND.Client.HugoLandServices.HeroDetailsDTO);
             // 
             // nomHeroLabel
             // 
@@ -52,14 +48,18 @@ namespace Hugo_LAND.Client.Vue
             nomHeroLabel.TabIndex = 1;
             nomHeroLabel.Text = "Nom Hero:";
             // 
-            // nomHeroComboBox
+            // heroDetailsDTOBindingSource
             // 
-            this.nomHeroComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.heroDetailsDTOBindingSource, "NomHero", true));
-            this.nomHeroComboBox.FormattingEnabled = true;
-            this.nomHeroComboBox.Location = new System.Drawing.Point(116, 59);
-            this.nomHeroComboBox.Name = "nomHeroComboBox";
-            this.nomHeroComboBox.Size = new System.Drawing.Size(121, 21);
-            this.nomHeroComboBox.TabIndex = 2;
+            this.heroDetailsDTOBindingSource.DataSource = typeof(Hugo_LAND.Client.HugoLandServices.HeroDetailsDTO);
+            // 
+            // cmbNomhero
+            // 
+            this.cmbNomhero.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.heroDetailsDTOBindingSource, "NomHero", true));
+            this.cmbNomhero.FormattingEnabled = true;
+            this.cmbNomhero.Location = new System.Drawing.Point(116, 59);
+            this.cmbNomhero.Name = "cmbNomhero";
+            this.cmbNomhero.Size = new System.Drawing.Size(121, 21);
+            this.cmbNomhero.TabIndex = 2;
             // 
             // lblnomCompte
             // 
@@ -74,12 +74,13 @@ namespace Hugo_LAND.Client.Vue
             // 
             // btnJouerSelectHero
             // 
-            this.btnJouerSelectHero.Location = new System.Drawing.Point(98, 102);
+            this.btnJouerSelectHero.Location = new System.Drawing.Point(105, 102);
             this.btnJouerSelectHero.Name = "btnJouerSelectHero";
             this.btnJouerSelectHero.Size = new System.Drawing.Size(86, 23);
             this.btnJouerSelectHero.TabIndex = 4;
             this.btnJouerSelectHero.Text = "Play";
             this.btnJouerSelectHero.UseVisualStyleBackColor = true;
+            this.btnJouerSelectHero.Click += new System.EventHandler(this.btnJouerSelectHero_Click);
             // 
             // frmSelectHero
             // 
@@ -89,7 +90,7 @@ namespace Hugo_LAND.Client.Vue
             this.Controls.Add(this.btnJouerSelectHero);
             this.Controls.Add(this.lblnomCompte);
             this.Controls.Add(nomHeroLabel);
-            this.Controls.Add(this.nomHeroComboBox);
+            this.Controls.Add(this.cmbNomhero);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "frmSelectHero";
             this.Text = "Select Hero";
@@ -102,7 +103,7 @@ namespace Hugo_LAND.Client.Vue
         #endregion
 
         private System.Windows.Forms.BindingSource heroDetailsDTOBindingSource;
-        private System.Windows.Forms.ComboBox nomHeroComboBox;
+        private System.Windows.Forms.ComboBox cmbNomhero;
         private System.Windows.Forms.Label lblnomCompte;
         private System.Windows.Forms.Button btnJouerSelectHero;
     }

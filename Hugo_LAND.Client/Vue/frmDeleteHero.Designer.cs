@@ -252,7 +252,7 @@ namespace Hugo_LAND.Client.Vue
             this.heroDetailsDTOBindingNavigator.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
             this.heroDetailsDTOBindingNavigator.Name = "heroDetailsDTOBindingNavigator";
             this.heroDetailsDTOBindingNavigator.PositionItem = this.bindingNavigatorPositionItem;
-            this.heroDetailsDTOBindingNavigator.Size = new System.Drawing.Size(287, 25);
+            this.heroDetailsDTOBindingNavigator.Size = new System.Drawing.Size(243, 25);
             this.heroDetailsDTOBindingNavigator.TabIndex = 0;
             this.heroDetailsDTOBindingNavigator.Text = "bindingNavigator1";
             // 
@@ -472,7 +472,7 @@ namespace Hugo_LAND.Client.Vue
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(287, 505);
+            this.ClientSize = new System.Drawing.Size(243, 505);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(descriptionLabel1);

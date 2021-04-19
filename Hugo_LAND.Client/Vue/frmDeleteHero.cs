@@ -25,6 +25,8 @@ namespace Hugo_LAND.Client.Vue
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
+
+
             var user = compteJoueurService.RetourneIdCompteParNom(nomCompte);
             var currhero = HeroService.RetourneHerosActuel(txtidHero.Text);
             HeroService.SupprimeHero(currhero);

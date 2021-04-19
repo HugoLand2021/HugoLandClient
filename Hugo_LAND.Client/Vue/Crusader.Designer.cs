@@ -44,7 +44,6 @@ namespace Hugo_LAND.Client
             this.MaximizeBox = false;
             this.Name = "HugoWorld";
             this.Text = "HugoWorld";
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.HugoWorld_FormClosed);
             this.Shown += new System.EventHandler(this.Crusader_Shown);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.Crusader_Paint);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Crusader_KeyDown);
