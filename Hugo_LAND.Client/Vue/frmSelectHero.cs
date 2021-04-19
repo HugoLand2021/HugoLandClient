@@ -20,8 +20,8 @@ namespace Hugo_LAND.Client.Vue
         public frmSelectHero(frmMain main)
         {
             InitializeComponent();
-            nom = main.nom;
-            id = main.id;
+            nom = main.accountDetails.NomJoueur;
+            id = main.accountDetails.Id;
             lblnomCompte.Text = nom;
             var list = HeroService.RetourneHerosCompte(id);
 

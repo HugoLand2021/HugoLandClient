@@ -15,16 +15,12 @@ namespace Hugo_LAND.Client.Vue
     {
         private readonly AccountServiceClient accountService = new AccountServiceClient();
         private readonly frmLogin loginForm;
-        public string nom = "";
-        public int id = 0;
-       //UserDetailsDTO herosList = new UserDetailsDTO();
+        public  AccountDetailsDTO accountDetails = new AccountDetailsDTO();
 
         internal void ConnectionReussie()
         {
             loginForm.Dispose();
-            lblUsername.Text = loginForm.name;
-            nom = loginForm.name;
-            id = accountService.RetourneIdCompteParNom(nom);
+            lblUsername.Text = accountDetails.NomJoueur;
             this.Enabled = true;
         }
 

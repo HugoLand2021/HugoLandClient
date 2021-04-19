@@ -25,7 +25,7 @@ namespace Hugo_LAND.Client.Vue
         public frmCreateHero(frmMain main)
         {
             InitializeComponent();
-            nomCompte = main.nom;
+            nomCompte = main.accountDetails.NomJoueur;
             worldsList = worldServiceClient.GetAllWorldNames().ToList();
             classList = classServiceClient.GetAllClasses().ToList();
             cmbDescription.DataSource = worldsList.Select(w => w.Description).ToList();

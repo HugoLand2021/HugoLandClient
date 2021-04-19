@@ -15,7 +15,6 @@ namespace Hugo_LAND.Client.Vue
     {
         private bool EstConnecte = false;
         private readonly frmMain mainForm;
-        public string name = "";
         private readonly AccountServiceClient compteJoueurService = new AccountServiceClient();
 
 
@@ -32,8 +31,8 @@ namespace Hugo_LAND.Client.Vue
             string Resultat = compteJoueurService.Authentification(txtUserName.Text, txtPwd.Text);
             if (Resultat == "SUCCESS")
             {
+                mainForm.accountDetails = compteJoueurService.GetAccountInfoByUsername(txtUserName.Text);
                 EstConnecte = true;
-                name = txtUserName.Text;
                 mainForm.ConnectionReussie();
                 this.Close();
             }
