@@ -7,6 +7,7 @@ using System.Text;
 using System.Windows.Forms;
 using System.Diagnostics;
 using Hugo_LAND.Client.Vue;
+using Hugo_LAND.Client.HugoLandServices;
 
 namespace Hugo_LAND.Client
 {
@@ -16,9 +17,9 @@ namespace Hugo_LAND.Client
         private double _lastTime;
         private long _frameCounter;
         private GameState _gameState;
-        private readonly frmSelectHero hero;
+        private  HeroDetailsDTO hero;
 
-        public HugoWorld(frmSelectHero hero)
+        public HugoWorld(HeroDetailsDTO hero)
         {
             //Setup the form
             InitializeComponent();

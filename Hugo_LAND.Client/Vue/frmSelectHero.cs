@@ -16,6 +16,7 @@ namespace Hugo_LAND.Client.Vue
         private string nom;
         private int id;
         private List<HeroDetailsDTO> herosList = new List<HeroDetailsDTO>();
+        private HeroDetailsDTO selectedHero = new HeroDetailsDTO();
         private readonly HeroServiceClient HeroService = new HeroServiceClient();
         public frmSelectHero(frmMain main)
         {
@@ -44,7 +45,8 @@ namespace Hugo_LAND.Client.Vue
         {
             if (cmbNomhero != null)
             {
-                HugoWorld hugoWorld = new HugoWorld(this);
+                selectedHero = herosList[cmbNomhero.SelectedIndex];
+                HugoWorld hugoWorld = new HugoWorld(selectedHero);
                 hugoWorld.ShowDialog();
             }
 

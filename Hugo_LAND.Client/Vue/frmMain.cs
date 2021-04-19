@@ -28,12 +28,18 @@ namespace Hugo_LAND.Client.Vue
         {
             InitializeComponent();
             loginForm = new frmLogin(this);
+
         }
 
         private void frmMain_Shown(object sender, EventArgs e)
         {
             this.Enabled = false;
             loginForm.ShowDialog();
+            if (accountDetails.TypeUtilisateur.ToString() == "Admin")
+            {
+                btnClassManagement.Enabled = true;
+                btnClassManagement.Visible = true;
+            }
         }
 
         private void btnStart_Click(object sender, EventArgs e)

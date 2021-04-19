@@ -5,6 +5,7 @@ using System.Drawing;
 using System.Windows.Forms;
 using System.Media;
 using System.IO;
+using Hugo_LAND.Client.HugoLandServices;
 
 namespace Hugo_LAND.Client
 {
@@ -12,6 +13,7 @@ namespace Hugo_LAND.Client
     {
         public SizeF GameArea;
         public World World;
+        public HeroDetailsDTO Hero;
         public int Attack;
         public int Armour;
         public int Level;
@@ -34,6 +36,7 @@ namespace Hugo_LAND.Client
         private Sprite _brownKeySprite;
         private Sprite _greenKeySprite;
         private Sprite _redKeySprite;
+
         private Dictionary<string, Tile> _tiles = new Dictionary<string, Tile>();
 
         private static Font _font = new Font("Arial", 24);
@@ -42,9 +45,10 @@ namespace Hugo_LAND.Client
 
 
 
-        public GameState(SizeF gameArea)
+        public GameState(SizeF gameArea, HeroDetailsDTO hero)
         {
             GameArea = gameArea;
+            Hero = hero;
 
             //Load in all the tile definitions
             readTileDefinitions(@"gamedata\tilelookups.csv");
