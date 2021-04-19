@@ -225,7 +225,7 @@ namespace Hugo_LAND.Client.HugoLandServices {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private Hugo_LAND.Core.Models.Classe ClasseField;
+        private int ClasseField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private bool EstConnecteField;
@@ -237,7 +237,7 @@ namespace Hugo_LAND.Client.HugoLandServices {
         private int IdField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private Hugo_LAND.Core.Models.Monde MondeField;
+        private int MondeField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int NiveauField;
@@ -274,12 +274,12 @@ namespace Hugo_LAND.Client.HugoLandServices {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public Hugo_LAND.Core.Models.Classe Classe {
+        public int Classe {
             get {
                 return this.ClasseField;
             }
             set {
-                if ((object.ReferenceEquals(this.ClasseField, value) != true)) {
+                if ((this.ClasseField.Equals(value) != true)) {
                     this.ClasseField = value;
                     this.RaisePropertyChanged("Classe");
                 }
@@ -326,12 +326,12 @@ namespace Hugo_LAND.Client.HugoLandServices {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public Hugo_LAND.Core.Models.Monde Monde {
+        public int Monde {
             get {
                 return this.MondeField;
             }
             set {
-                if ((object.ReferenceEquals(this.MondeField, value) != true)) {
+                if ((this.MondeField.Equals(value) != true)) {
                     this.MondeField = value;
                     this.RaisePropertyChanged("Monde");
                 }

@@ -15,16 +15,28 @@ namespace Hugo_LAND.Client.Vue
     {
         private string nom;
         private int id;
-        private readonly List<HeroDetailsDTO> herosList = new List<HeroDetailsDTO>();
+        private List<HeroDetailsDTO> herosList = new List<HeroDetailsDTO>();
         private readonly HeroServiceClient HeroService = new HeroServiceClient();
         public frmSelectHero(frmMain main)
         {
             InitializeComponent();
             nom = main.nom;
             id = main.id;
-            herosList = HeroService.RetourneHerosCompte(id).ToList();
-            cmbNomhero.DataSource = herosList.Select(e => e.NomHero).ToList();
-            lblnomCompte.Text = nom;
+            var list = HeroService.RetourneHerosCompte(id);
+
+
+
+            if (herosList == null)
+            {
+                MessageBox.Show("This account dosn't have any hero.", "ERREUR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.Close();
+            }
+            else
+            {
+                herosList = HeroService.RetourneHerosCompte(id).ToList();
+                cmbNomhero.DataSource = herosList.Select(e => e.NomHero).ToList();
+                lblnomCompte.Text = nom;
+            }
         }
 
         private void btnJouerSelectHero_Click(object sender, EventArgs e)
