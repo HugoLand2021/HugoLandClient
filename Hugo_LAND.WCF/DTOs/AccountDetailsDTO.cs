@@ -1,15 +1,10 @@
 ﻿using Hugo_LAND.Core.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Runtime.Serialization;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Hugo_LAND.WCF.DTOs
 {
     [DataContract]
-    public class UserDetailsDTO
+    public class AccountDetailsDTO
     {
         [DataMember]
         public int Id { get; set; }

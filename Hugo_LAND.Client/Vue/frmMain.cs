@@ -13,18 +13,18 @@ namespace Hugo_LAND.Client.Vue
 {
     public partial class frmMain : Form
     {
-        private readonly AccountServiceClient compteJoueurService = new AccountServiceClient();
+        private readonly AccountServiceClient accountService = new AccountServiceClient();
         private readonly frmLogin loginForm;
         public string nom = "";
         public int id = 0;
-        //private UserDetailsDTO herosList = new UserDetailsDTO();
+       //UserDetailsDTO herosList = new UserDetailsDTO();
 
         internal void ConnectionReussie()
         {
             loginForm.Dispose();
             lblUsername.Text = loginForm.name;
             nom = loginForm.name;
-            id = compteJoueurService.RetourneIdCompteParNom(nom);
+            id = accountService.RetourneIdCompteParNom(nom);
             this.Enabled = true;
         }
 
@@ -42,7 +42,6 @@ namespace Hugo_LAND.Client.Vue
 
         private void btnStart_Click(object sender, EventArgs e)
         {
-            
             frmSelectHero selecthero = new frmSelectHero(this);
             selecthero.ShowDialog();
             //HugoWorld hugoWorld = new HugoWorld(this);

@@ -121,12 +121,6 @@
     <Compile Include="Vue\frmDeleteHero.Designer.cs">
       <DependentUpon>frmDeleteHero.cs</DependentUpon>
     </Compile>
-    <Compile Include="Vue\frmHeroSelect.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Vue\frmHeroSelect.Designer.cs">
-      <DependentUpon>frmHeroSelect.cs</DependentUpon>
-    </Compile>
     <Compile Include="Vue\frmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -186,9 +180,6 @@
     <EmbeddedResource Include="Vue\frmCreateHero.resx">
       <DependentUpon>frmCreateHero.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Vue\frmHeroSelect.resx">
-      <DependentUpon>frmHeroSelect.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Vue\frmDeleteHero.resx">
       <DependentUpon>frmDeleteHero.cs</DependentUpon>
     </EmbeddedResource>
@@ -234,6 +225,9 @@
     </None>
     <None Include="Connected Services\HugoLandServices\HugoLandService3.xsd">
       <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\HugoLandServices\Hugo_LAND.Client.HugoLandServices.AccountDetailsDTO.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\HugoLandServices\Hugo_LAND.Client.HugoLandServices.ClassDetailsDTO.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>

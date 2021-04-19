@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Hugo_LAND.WCF.DTOs;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.ServiceModel;
@@ -14,5 +15,7 @@ namespace Hugo_LAND.WCF.Services
         string Authentification(string Username, string Password);
         [OperationContract]
         int RetourneIdCompteParNom(string username);
+        [OperationContract]
+        AccountDetailsDTO GetAccountInfoByUsername(string username);
     }
 }

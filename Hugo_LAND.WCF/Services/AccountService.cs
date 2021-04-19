@@ -1,4 +1,5 @@
 ﻿using Hugo_LAND.Core.Models;
+using Hugo_LAND.WCF.DTOs;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity.Core.Objects;
@@ -33,6 +34,32 @@ namespace Hugo_LAND.WCF.Services
                 return context.CompteJoueurs
                     .Where(p => p.NomJoueur == username)
                     .First().Id;
+            }
+        }
+        public AccountDetailsDTO GetAccountInfoByUsername(string username) {
+            using (var context = new HugoLANDContext())
+            {
+                try
+                {
+                    CompteJoueur account = context.CompteJoueurs
+                   .Where(p => p.NomJoueur == username)
+                   .First();
+                    AccountDetailsDTO a = new AccountDetailsDTO {
+                    Id = account.Id,
+                    Courriel = account.Courriel,
+                    Nom = account.Nom,
+                    NomJoueur = account.NomJoueur,
+                    Prenom = account.Prenom,
+                    TypeUtilisateur = account.TypeUtilisateur
+                    };
+
+                    return a;
+                }
+                catch 
+                {
+                    return null;
+                }
+               
             }
         }
     }

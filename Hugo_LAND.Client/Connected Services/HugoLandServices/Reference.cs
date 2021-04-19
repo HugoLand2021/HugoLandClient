@@ -15,6 +15,131 @@ namespace Hugo_LAND.Client.HugoLandServices {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="AccountDetailsDTO", Namespace="http://schemas.datacontract.org/2004/07/Hugo_LAND.WCF.DTOs")]
+    [System.SerializableAttribute()]
+    public partial class AccountDetailsDTO : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string CourrielField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NomField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NomJoueurField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string PrenomField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private Hugo_LAND.Core.Models.TypeUtilisateur TypeUtilisateurField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Courriel {
+            get {
+                return this.CourrielField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CourrielField, value) != true)) {
+                    this.CourrielField = value;
+                    this.RaisePropertyChanged("Courriel");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Id {
+            get {
+                return this.IdField;
+            }
+            set {
+                if ((this.IdField.Equals(value) != true)) {
+                    this.IdField = value;
+                    this.RaisePropertyChanged("Id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Nom {
+            get {
+                return this.NomField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NomField, value) != true)) {
+                    this.NomField = value;
+                    this.RaisePropertyChanged("Nom");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string NomJoueur {
+            get {
+                return this.NomJoueurField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NomJoueurField, value) != true)) {
+                    this.NomJoueurField = value;
+                    this.RaisePropertyChanged("NomJoueur");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Prenom {
+            get {
+                return this.PrenomField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PrenomField, value) != true)) {
+                    this.PrenomField = value;
+                    this.RaisePropertyChanged("Prenom");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public Hugo_LAND.Core.Models.TypeUtilisateur TypeUtilisateur {
+            get {
+                return this.TypeUtilisateurField;
+            }
+            set {
+                if ((this.TypeUtilisateurField.Equals(value) != true)) {
+                    this.TypeUtilisateurField = value;
+                    this.RaisePropertyChanged("TypeUtilisateur");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="ClassDetailsDTO", Namespace="http://schemas.datacontract.org/2004/07/Hugo_LAND.WCF.DTOs")]
     [System.SerializableAttribute()]
     public partial class ClassDetailsDTO : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
@@ -467,6 +592,12 @@ namespace Hugo_LAND.Client.HugoLandServices {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAccountService/RetourneIdCompteParNom", ReplyAction="http://tempuri.org/IAccountService/RetourneIdCompteParNomResponse")]
         System.Threading.Tasks.Task<int> RetourneIdCompteParNomAsync(string username);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAccountService/GetAccountInfoByUsername", ReplyAction="http://tempuri.org/IAccountService/GetAccountInfoByUsernameResponse")]
+        Hugo_LAND.Client.HugoLandServices.AccountDetailsDTO GetAccountInfoByUsername(string username);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAccountService/GetAccountInfoByUsername", ReplyAction="http://tempuri.org/IAccountService/GetAccountInfoByUsernameResponse")]
+        System.Threading.Tasks.Task<Hugo_LAND.Client.HugoLandServices.AccountDetailsDTO> GetAccountInfoByUsernameAsync(string username);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -510,6 +641,14 @@ namespace Hugo_LAND.Client.HugoLandServices {
         
         public System.Threading.Tasks.Task<int> RetourneIdCompteParNomAsync(string username) {
             return base.Channel.RetourneIdCompteParNomAsync(username);
+        }
+        
+        public Hugo_LAND.Client.HugoLandServices.AccountDetailsDTO GetAccountInfoByUsername(string username) {
+            return base.Channel.GetAccountInfoByUsername(username);
+        }
+        
+        public System.Threading.Tasks.Task<Hugo_LAND.Client.HugoLandServices.AccountDetailsDTO> GetAccountInfoByUsernameAsync(string username) {
+            return base.Channel.GetAccountInfoByUsernameAsync(username);
         }
     }
     
