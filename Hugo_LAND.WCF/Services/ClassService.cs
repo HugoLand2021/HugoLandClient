@@ -108,8 +108,14 @@ namespace Hugo_LAND.WCF.Services
             {
                 try
                 {
-                    return (ClassDetailsDTO)context.Classes
-                       .Where(p => p.NomClasse == name);
+                    return context.Classes
+                   .Where(p => p.NomClasse.StartsWith(name))
+                   .Select(p => new ClassDetailsDTO
+                   {
+                       Id = p.Id,
+                       NomClasse = p.NomClasse
+                   }).FirstOrDefault();
+
                 }
                 catch
                 {

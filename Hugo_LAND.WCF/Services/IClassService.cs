@@ -1,4 +1,5 @@
-﻿using Hugo_LAND.WCF.DTOs;
+﻿using Hugo_LAND.Core.Models;
+using Hugo_LAND.WCF.DTOs;
 using System;
 using System.Collections.Generic;
 using System.Linq;

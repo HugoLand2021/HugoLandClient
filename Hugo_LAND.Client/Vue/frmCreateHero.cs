@@ -41,7 +41,7 @@ namespace Hugo_LAND.Client.Vue
             var monde = worldServiceClient.GetWorldByName(cmbDescription.Text);
 
 
-            HeroService.CreeHero(txtnomHero.Text, false, classe.Id, user, monde.Id);
+            HeroService.CreeHero(txtnomHero.Text, false, classe.Id, user, monde.ID);
         }
 
         private void btnCancelHeroFrm_Click(object sender, EventArgs e)

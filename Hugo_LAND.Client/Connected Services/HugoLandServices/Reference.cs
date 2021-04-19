@@ -869,10 +869,10 @@ namespace Hugo_LAND.Client.HugoLandServices {
         System.Threading.Tasks.Task<Hugo_LAND.Client.HugoLandServices.WorldItemDTO[]> GetAllWorldNamesAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWorldService/GetWorldByName", ReplyAction="http://tempuri.org/IWorldService/GetWorldByNameResponse")]
-        Hugo_LAND.Core.Models.Monde GetWorldByName(string worldName);
+        Hugo_LAND.Client.HugoLandServices.WorldItemDTO GetWorldByName(string worldName);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWorldService/GetWorldByName", ReplyAction="http://tempuri.org/IWorldService/GetWorldByNameResponse")]
-        System.Threading.Tasks.Task<Hugo_LAND.Core.Models.Monde> GetWorldByNameAsync(string worldName);
+        System.Threading.Tasks.Task<Hugo_LAND.Client.HugoLandServices.WorldItemDTO> GetWorldByNameAsync(string worldName);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -910,11 +910,11 @@ namespace Hugo_LAND.Client.HugoLandServices {
             return base.Channel.GetAllWorldNamesAsync();
         }
         
-        public Hugo_LAND.Core.Models.Monde GetWorldByName(string worldName) {
+        public Hugo_LAND.Client.HugoLandServices.WorldItemDTO GetWorldByName(string worldName) {
             return base.Channel.GetWorldByName(worldName);
         }
         
-        public System.Threading.Tasks.Task<Hugo_LAND.Core.Models.Monde> GetWorldByNameAsync(string worldName) {
+        public System.Threading.Tasks.Task<Hugo_LAND.Client.HugoLandServices.WorldItemDTO> GetWorldByNameAsync(string worldName) {
             return base.Channel.GetWorldByNameAsync(worldName);
         }
     }

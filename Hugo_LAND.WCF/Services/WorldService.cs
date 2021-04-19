@@ -22,14 +22,23 @@ namespace Hugo_LAND.WCF.Services
                     }).ToList();
             }
         }
-        public Monde GetWorldByName(string worldName)
+        public WorldItemDTO GetWorldByName(string worldName)
         {
-            using (HugoLANDContext context = new HugoLANDContext())
+            using (var context = new HugoLANDContext())
             {
                 try
                 {
-                    Monde monde = context.Mondes.FirstOrDefault(p => p.Description == worldName);
-                    return monde;
+                    //Monde monde = context.Mondes.FirstOrDefault(p => p.Description == worldName);
+                    //return monde;
+                    return context.Mondes
+                   .Where(p => p.Description.StartsWith(worldName))
+                   .Select(p => new WorldItemDTO
+                   {
+                       ID = p.Id,
+                       Description = p.Description
+                   }).FirstOrDefault();
+
+
                 }
                 catch 
                 {

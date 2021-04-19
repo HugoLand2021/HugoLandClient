@@ -15,6 +15,6 @@ namespace Hugo_LAND.WCF.Services
         [OperationContract]
         List<WorldItemDTO> GetAllWorldNames();
         [OperationContract]
-        Monde GetWorldByName(string worldName);
+        WorldItemDTO GetWorldByName(string worldName);
     }
 }
