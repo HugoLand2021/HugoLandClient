@@ -41,7 +41,7 @@ namespace Hugo_LAND.Client.Vue
 
         private void btnStart_Click(object sender, EventArgs e)
         {
-            this.Enabled = false;
+            
             frmSelectHero selecthero = new frmSelectHero(this);
             selecthero.ShowDialog();
             //HugoWorld hugoWorld = new HugoWorld(this);

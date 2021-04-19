@@ -22,20 +22,21 @@ namespace Hugo_LAND.Client.Vue
             InitializeComponent();
             nom = main.nom;
             id = main.id;
+            lblnomCompte.Text = nom;
             var list = HeroService.RetourneHerosCompte(id);
 
 
-
-            if (herosList == null)
+            herosList = HeroService.RetourneHerosCompte(id).ToList();
+            if (herosList.Count() == 0)
             {
                 MessageBox.Show("This account dosn't have any hero.", "ERREUR", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                this.Close();
+                cmbNomhero.Enabled = false;
+                btnJouerSelectHero.Enabled = false;
             }
             else
             {
-                herosList = HeroService.RetourneHerosCompte(id).ToList();
+                
                 cmbNomhero.DataSource = herosList.Select(e => e.NomHero).ToList();
-                lblnomCompte.Text = nom;
             }
         }
 

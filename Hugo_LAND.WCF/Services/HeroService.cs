@@ -84,24 +84,6 @@ namespace Hugo_LAND.WCF.Services
             {
                 try
                 {
-                    //    return context.Heros
-                    //.Where(p => p.CompteJoueur.Id == idCompteJoueur)
-                    //.Select(m => new HeroDetailsDTO
-                    //{
-                    //    Id = m.Id,
-                    //    Niveau = m.Niveau,
-                    //    Experience = m.Experience,
-                    //    x = m.x,
-                    //    y = m.y,
-                    //    StatStr = m.StatStr,
-                    //    StatDex = m.StatDex,
-                    //    StatInt = m.StatInt,
-                    //    StatVitalite = m.StatVitalite,
-                    //    NomHero = m.NomHero,
-                    //    EstConnecte = m.EstConnecte,
-                    //    Monde = m.Monde.Id,
-                    //    Classe = m.Classe.Id
-                    //}).ToList() ?? new List<HeroDetailsDTO>();
                     return context.CompteJoueurs.Find(idCompteJoueur)?.Heros
                         .Select(p => new HeroDetailsDTO
                         {
@@ -119,8 +101,6 @@ namespace Hugo_LAND.WCF.Services
                               Monde = p.Monde.Id,
                               Classe = p.Classe.Id
                         }).ToList();
-
-
                 }
                 catch
                 {
