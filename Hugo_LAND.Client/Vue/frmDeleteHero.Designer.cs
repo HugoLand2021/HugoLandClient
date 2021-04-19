@@ -47,6 +47,7 @@ namespace Hugo_LAND.Client.Vue
             System.Windows.Forms.Label limiteYLabel;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmDeleteHero));
             this.heroDetailsDTOBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
+            this.heroDetailsDTOBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
             this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMovePreviousItem = new System.Windows.Forms.ToolStripButton();
@@ -73,7 +74,6 @@ namespace Hugo_LAND.Client.Vue
             this.limiteYTextBox = new System.Windows.Forms.TextBox();
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
-            this.heroDetailsDTOBindingSource = new System.Windows.Forms.BindingSource(this.components);
             experienceLabel = new System.Windows.Forms.Label();
             idLabel = new System.Windows.Forms.Label();
             niveauLabel = new System.Windows.Forms.Label();
@@ -252,9 +252,13 @@ namespace Hugo_LAND.Client.Vue
             this.heroDetailsDTOBindingNavigator.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
             this.heroDetailsDTOBindingNavigator.Name = "heroDetailsDTOBindingNavigator";
             this.heroDetailsDTOBindingNavigator.PositionItem = this.bindingNavigatorPositionItem;
-            this.heroDetailsDTOBindingNavigator.Size = new System.Drawing.Size(1004, 25);
+            this.heroDetailsDTOBindingNavigator.Size = new System.Drawing.Size(287, 25);
             this.heroDetailsDTOBindingNavigator.TabIndex = 0;
             this.heroDetailsDTOBindingNavigator.Text = "bindingNavigator1";
+            // 
+            // heroDetailsDTOBindingSource
+            // 
+            this.heroDetailsDTOBindingSource.DataSource = typeof(Hugo_LAND.Client.HugoLandServices.HeroDetailsDTO);
             // 
             // bindingNavigatorCountItem
             // 
@@ -464,15 +468,11 @@ namespace Hugo_LAND.Client.Vue
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
-            // heroDetailsDTOBindingSource
-            // 
-            this.heroDetailsDTOBindingSource.DataSource = typeof(Hugo_LAND.Client.HugoLandServices.HeroDetailsDTO);
-            // 
             // frmDeleteHero
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1004, 505);
+            this.ClientSize = new System.Drawing.Size(287, 505);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(descriptionLabel1);
