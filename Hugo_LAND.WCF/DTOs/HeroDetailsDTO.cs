@@ -14,7 +14,7 @@ namespace Hugo_LAND.WCF.DTOs
         [DataMember]
         public int Id { get; set; }
         [DataMember]
-        public int Niveau { get; set; }
+        public int Level { get; set; }
         [DataMember]
         public long Experience { get; set; }
         [DataMember]
@@ -28,17 +28,17 @@ namespace Hugo_LAND.WCF.DTOs
         [DataMember]
         public int StatInt { get; set; }
         [DataMember]
-        public int StatVitalite { get; set; }
+        public int StatVitality { get; set; }
         [DataMember]
-        public string NomHero { get; set; }
+        public string HeroName { get; set; }
         [DataMember]
-        public bool EstConnecte { get; set; }
+        public bool isConnected { get; set; }
         [DataMember]
-        public string Monde { get; set; }
+        public string World { get; set; }
         [DataMember]
-        public string Classe { get; set; }
+        public string Class { get; set; }
         [DataMember]
-        public string NomJoueur { get; set; }
+        public string UserName { get; set; }
 
     }
 }

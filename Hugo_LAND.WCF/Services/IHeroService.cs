@@ -13,20 +13,20 @@ namespace Hugo_LAND.WCF.Services
     public interface IHeroService
     {
         [OperationContract]
-        List<HeroDetailsDTO> RetourneHerosCompte(int idCompteJoueur);
+        List<HeroDetailsDTO> ReturnHerosFromAccount(int idCompteJoueur);
 
 
         [OperationContract]
         void CreateHero(HeroDetailsDTO dto);
 
         [OperationContract]
-        void SupprimeHero(HeroDetailsDTO dto);
+        void DeleteHero(HeroDetailsDTO dto);
 
         [OperationContract]
-        void DeplaceHero(HeroDetailsDTO dto, int newX, int newY);
+        void MoveHero(HeroDetailsDTO dto, int newX, int newY);
 
         [OperationContract]
-        HeroDetailsDTO RetourneHerosActuel(string idhero);
+        HeroDetailsDTO ReturnHero(string idhero);
 
 
     }

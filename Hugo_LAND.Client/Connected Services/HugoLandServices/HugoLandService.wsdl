@@ -56,11 +56,11 @@
   <wsdl:message name="IClassService_GetClassByName_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetClassByNameResponse" />
   </wsdl:message>
-  <wsdl:message name="IHeroService_RetourneHerosCompte_InputMessage">
-    <wsdl:part name="parameters" element="tns:RetourneHerosCompte" />
+  <wsdl:message name="IHeroService_ReturnHerosFromAccount_InputMessage">
+    <wsdl:part name="parameters" element="tns:ReturnHerosFromAccount" />
   </wsdl:message>
-  <wsdl:message name="IHeroService_RetourneHerosCompte_OutputMessage">
-    <wsdl:part name="parameters" element="tns:RetourneHerosCompteResponse" />
+  <wsdl:message name="IHeroService_ReturnHerosFromAccount_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ReturnHerosFromAccountResponse" />
   </wsdl:message>
   <wsdl:message name="IHeroService_CreateHero_InputMessage">
     <wsdl:part name="parameters" element="tns:CreateHero" />
@@ -68,23 +68,23 @@
   <wsdl:message name="IHeroService_CreateHero_OutputMessage">
     <wsdl:part name="parameters" element="tns:CreateHeroResponse" />
   </wsdl:message>
-  <wsdl:message name="IHeroService_SupprimeHero_InputMessage">
-    <wsdl:part name="parameters" element="tns:SupprimeHero" />
+  <wsdl:message name="IHeroService_DeleteHero_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteHero" />
   </wsdl:message>
-  <wsdl:message name="IHeroService_SupprimeHero_OutputMessage">
-    <wsdl:part name="parameters" element="tns:SupprimeHeroResponse" />
+  <wsdl:message name="IHeroService_DeleteHero_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteHeroResponse" />
   </wsdl:message>
-  <wsdl:message name="IHeroService_DeplaceHero_InputMessage">
-    <wsdl:part name="parameters" element="tns:DeplaceHero" />
+  <wsdl:message name="IHeroService_MoveHero_InputMessage">
+    <wsdl:part name="parameters" element="tns:MoveHero" />
   </wsdl:message>
-  <wsdl:message name="IHeroService_DeplaceHero_OutputMessage">
-    <wsdl:part name="parameters" element="tns:DeplaceHeroResponse" />
+  <wsdl:message name="IHeroService_MoveHero_OutputMessage">
+    <wsdl:part name="parameters" element="tns:MoveHeroResponse" />
   </wsdl:message>
-  <wsdl:message name="IHeroService_RetourneHerosActuel_InputMessage">
-    <wsdl:part name="parameters" element="tns:RetourneHerosActuel" />
+  <wsdl:message name="IHeroService_ReturnHero_InputMessage">
+    <wsdl:part name="parameters" element="tns:ReturnHero" />
   </wsdl:message>
-  <wsdl:message name="IHeroService_RetourneHerosActuel_OutputMessage">
-    <wsdl:part name="parameters" element="tns:RetourneHerosActuelResponse" />
+  <wsdl:message name="IHeroService_ReturnHero_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ReturnHeroResponse" />
   </wsdl:message>
   <wsdl:message name="IWorldService_GetAllWorldNames_InputMessage">
     <wsdl:part name="parameters" element="tns:GetAllWorldNames" />
@@ -135,25 +135,25 @@
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:portType name="IHeroService">
-    <wsdl:operation name="RetourneHerosCompte">
-      <wsdl:input wsaw:Action="http://tempuri.org/IHeroService/RetourneHerosCompte" message="tns:IHeroService_RetourneHerosCompte_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IHeroService/RetourneHerosCompteResponse" message="tns:IHeroService_RetourneHerosCompte_OutputMessage" />
+    <wsdl:operation name="ReturnHerosFromAccount">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHeroService/ReturnHerosFromAccount" message="tns:IHeroService_ReturnHerosFromAccount_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHeroService/ReturnHerosFromAccountResponse" message="tns:IHeroService_ReturnHerosFromAccount_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="CreateHero">
       <wsdl:input wsaw:Action="http://tempuri.org/IHeroService/CreateHero" message="tns:IHeroService_CreateHero_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IHeroService/CreateHeroResponse" message="tns:IHeroService_CreateHero_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="SupprimeHero">
-      <wsdl:input wsaw:Action="http://tempuri.org/IHeroService/SupprimeHero" message="tns:IHeroService_SupprimeHero_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IHeroService/SupprimeHeroResponse" message="tns:IHeroService_SupprimeHero_OutputMessage" />
+    <wsdl:operation name="DeleteHero">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHeroService/DeleteHero" message="tns:IHeroService_DeleteHero_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHeroService/DeleteHeroResponse" message="tns:IHeroService_DeleteHero_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="DeplaceHero">
-      <wsdl:input wsaw:Action="http://tempuri.org/IHeroService/DeplaceHero" message="tns:IHeroService_DeplaceHero_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IHeroService/DeplaceHeroResponse" message="tns:IHeroService_DeplaceHero_OutputMessage" />
+    <wsdl:operation name="MoveHero">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHeroService/MoveHero" message="tns:IHeroService_MoveHero_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHeroService/MoveHeroResponse" message="tns:IHeroService_MoveHero_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="RetourneHerosActuel">
-      <wsdl:input wsaw:Action="http://tempuri.org/IHeroService/RetourneHerosActuel" message="tns:IHeroService_RetourneHerosActuel_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IHeroService/RetourneHerosActuelResponse" message="tns:IHeroService_RetourneHerosActuel_OutputMessage" />
+    <wsdl:operation name="ReturnHero">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHeroService/ReturnHero" message="tns:IHeroService_ReturnHero_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHeroService/ReturnHeroResponse" message="tns:IHeroService_ReturnHero_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:portType name="IWorldService">
@@ -246,8 +246,8 @@
   </wsdl:binding>
   <wsdl:binding name="BasicHttpBinding_IHeroService" type="tns:IHeroService">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
-    <wsdl:operation name="RetourneHerosCompte">
-      <soap:operation soapAction="http://tempuri.org/IHeroService/RetourneHerosCompte" style="document" />
+    <wsdl:operation name="ReturnHerosFromAccount">
+      <soap:operation soapAction="http://tempuri.org/IHeroService/ReturnHerosFromAccount" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -264,8 +264,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="SupprimeHero">
-      <soap:operation soapAction="http://tempuri.org/IHeroService/SupprimeHero" style="document" />
+    <wsdl:operation name="DeleteHero">
+      <soap:operation soapAction="http://tempuri.org/IHeroService/DeleteHero" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -273,8 +273,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="DeplaceHero">
-      <soap:operation soapAction="http://tempuri.org/IHeroService/DeplaceHero" style="document" />
+    <wsdl:operation name="MoveHero">
+      <soap:operation soapAction="http://tempuri.org/IHeroService/MoveHero" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -282,8 +282,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="RetourneHerosActuel">
-      <soap:operation soapAction="http://tempuri.org/IHeroService/RetourneHerosActuel" style="document" />
+    <wsdl:operation name="ReturnHero">
+      <soap:operation soapAction="http://tempuri.org/IHeroService/ReturnHero" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

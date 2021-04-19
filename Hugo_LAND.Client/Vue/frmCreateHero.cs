@@ -38,14 +38,14 @@ namespace Hugo_LAND.Client.Vue
         {
             HeroDetailsDTO hero = new HeroDetailsDTO()
             {
-                NomHero = txtnomHero.Text,
+                HeroName = txtnomHero.Text,
                 StatDex = int.Parse(txtstatBaseDex.Text),
                 StatInt = int.Parse(txtstatBaseInt.Text),
                 StatStr = int.Parse(txtstatBaseStr.Text),
-                StatVitalite = int.Parse(txtstatBaseVitalite.Text),
-                Classe = cmbNomClass.Text,
-                Monde = cmbDescription.Text,
-                NomJoueur = nomCompte
+                StatVitality = int.Parse(txtstatBaseVitalite.Text),
+                Class = cmbNomClass.Text,
+                World = cmbDescription.Text,
+                UserName = nomCompte
             };
             HeroService.CreateHero(hero);
         }

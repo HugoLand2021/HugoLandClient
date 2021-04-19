@@ -107,17 +107,17 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="RetourneHerosCompte">
+  <xs:element name="ReturnHerosFromAccount">
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="idCompteJoueur" type="xs:int" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="RetourneHerosCompteResponse">
+  <xs:element name="ReturnHerosFromAccountResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/Hugo_LAND.WCF.DTOs" minOccurs="0" name="RetourneHerosCompteResult" nillable="true" type="q8:ArrayOfHeroDetailsDTO" />
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/Hugo_LAND.WCF.DTOs" minOccurs="0" name="ReturnHerosFromAccountResult" nillable="true" type="q8:ArrayOfHeroDetailsDTO" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -133,19 +133,19 @@
       <xs:sequence />
     </xs:complexType>
   </xs:element>
-  <xs:element name="SupprimeHero">
+  <xs:element name="DeleteHero">
     <xs:complexType>
       <xs:sequence>
         <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/Hugo_LAND.WCF.DTOs" minOccurs="0" name="dto" nillable="true" type="q10:HeroDetailsDTO" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="SupprimeHeroResponse">
+  <xs:element name="DeleteHeroResponse">
     <xs:complexType>
       <xs:sequence />
     </xs:complexType>
   </xs:element>
-  <xs:element name="DeplaceHero">
+  <xs:element name="MoveHero">
     <xs:complexType>
       <xs:sequence>
         <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/Hugo_LAND.WCF.DTOs" minOccurs="0" name="dto" nillable="true" type="q11:HeroDetailsDTO" />
@@ -154,22 +154,22 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="DeplaceHeroResponse">
+  <xs:element name="MoveHeroResponse">
     <xs:complexType>
       <xs:sequence />
     </xs:complexType>
   </xs:element>
-  <xs:element name="RetourneHerosActuel">
+  <xs:element name="ReturnHero">
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="idhero" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="RetourneHerosActuelResponse">
+  <xs:element name="ReturnHeroResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/Hugo_LAND.WCF.DTOs" minOccurs="0" name="RetourneHerosActuelResult" nillable="true" type="q12:HeroDetailsDTO" />
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/Hugo_LAND.WCF.DTOs" minOccurs="0" name="ReturnHeroResult" nillable="true" type="q12:HeroDetailsDTO" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

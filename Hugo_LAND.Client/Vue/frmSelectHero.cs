@@ -24,10 +24,10 @@ namespace Hugo_LAND.Client.Vue
             nom = main.accountDetails.NomJoueur;
             id = main.accountDetails.Id;
             lblnomCompte.Text = nom;
-            var list = HeroService.RetourneHerosCompte(id);
+            var list = HeroService.ReturnHerosFromAccount(id);
 
 
-            herosList = HeroService.RetourneHerosCompte(id).ToList();
+            herosList = HeroService.ReturnHerosFromAccount(id).ToList();
             if (herosList.Count() == 0)
             {
                 MessageBox.Show("This account dosn't have any hero.", "ERREUR", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -37,7 +37,7 @@ namespace Hugo_LAND.Client.Vue
             else
             {
                 
-                cmbNomhero.DataSource = herosList.Select(e => e.NomHero).ToList();
+                cmbNomhero.DataSource = herosList.Select(e => e.HeroName).ToList();
             }
         }
 

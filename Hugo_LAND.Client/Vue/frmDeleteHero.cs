@@ -23,7 +23,7 @@ namespace Hugo_LAND.Client.Vue
             InitializeComponent();
             nomCompte = main.accountDetails.NomJoueur;
             id = main.accountDetails.Id;
-            herosList = HeroService.RetourneHerosCompte(id).ToList();
+            herosList = HeroService.ReturnHerosFromAccount(id).ToList();
 
             if (herosList.Count() == 0)
             {
@@ -33,7 +33,7 @@ namespace Hugo_LAND.Client.Vue
             }
             else
             {
-                cmbNomHero.DataSource = herosList.Select(e => e.NomHero).ToList();
+                cmbNomHero.DataSource = herosList.Select(e => e.HeroName).ToList();
             }
 
         }
@@ -49,7 +49,7 @@ namespace Hugo_LAND.Client.Vue
                 switch (dir)
                 {
                     case DialogResult.Yes:
-                        HeroService.SupprimeHero(herosList[cmbNomHero.SelectedIndex]);
+                        HeroService.DeleteHero(herosList[cmbNomHero.SelectedIndex]);
                         break;
                     case DialogResult.No:
                         break;

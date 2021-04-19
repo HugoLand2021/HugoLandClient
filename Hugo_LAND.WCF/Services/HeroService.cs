@@ -17,9 +17,9 @@ namespace Hugo_LAND.WCF.Services
         {
             using (var context = new HugoLANDContext())
             {
-                Monde monde = context.Mondes.First(m => m.Description == dto.Monde);
-                Classe classe = context.Classes.First(c => c.NomClasse == dto.Classe);
-                CompteJoueur compteJoueur = context.CompteJoueurs.First(a => a.NomJoueur == dto.NomJoueur);
+                Monde monde = context.Mondes.First(m => m.Description == dto.World);
+                Classe classe = context.Classes.First(c => c.NomClasse == dto.Class);
+                CompteJoueur compteJoueur = context.CompteJoueurs.First(a => a.NomJoueur == dto.UserName);
                 var hero = new Hero
                 {
                     Niveau = 1,
@@ -29,8 +29,8 @@ namespace Hugo_LAND.WCF.Services
                     StatStr = dto.StatStr,
                     StatDex = dto.StatDex,
                     StatInt = dto.StatInt,
-                    StatVitalite = dto.StatVitalite,
-                    NomHero = dto.NomHero,
+                    StatVitalite = dto.StatVitality,
+                    NomHero = dto.HeroName,
                     EstConnecte = false,
                     Classe = classe,
                     CompteJoueur = compteJoueur,
@@ -43,7 +43,7 @@ namespace Hugo_LAND.WCF.Services
         }
 
 
-        public async void SupprimeHero(HeroDetailsDTO dto)
+        public async void DeleteHero(HeroDetailsDTO dto)
         {
             using (var context = new HugoLANDContext())
             {
@@ -57,7 +57,7 @@ namespace Hugo_LAND.WCF.Services
                 await context.SaveChangesAsync();
             }
         }
-        public async void DeplaceHero(HeroDetailsDTO dto, int newX, int newY)
+        public async void MoveHero(HeroDetailsDTO dto, int newX, int newY)
         {
             using (var context = new HugoLANDContext())
             {
@@ -78,7 +78,7 @@ namespace Hugo_LAND.WCF.Services
 
             }
         }
-        public List<HeroDetailsDTO> RetourneHerosCompte(int idCompteJoueur)
+        public List<HeroDetailsDTO> ReturnHerosFromAccount(int idCompteJoueur)
         {
             using (var context = new HugoLANDContext())
             {
@@ -88,18 +88,18 @@ namespace Hugo_LAND.WCF.Services
                         .Select(p => new HeroDetailsDTO
                         {
                             Id = p.Id,
-                            Niveau = p.Niveau,
+                            Level = p.Niveau,
                             Experience = p.Experience,
                             x = p.x,
                             y = p.y,
                             StatStr = p.StatStr,
                             StatDex = p.StatDex,
                             StatInt = p.StatInt,
-                            StatVitalite = p.StatVitalite,
-                            NomHero = p.NomHero,
-                            EstConnecte = p.EstConnecte,
-                            Monde = p.Monde.Description,
-                            Classe = p.Classe.NomClasse
+                            StatVitality = p.StatVitalite,
+                            HeroName = p.NomHero,
+                            isConnected = p.EstConnecte,
+                            World = p.Monde.Description,
+                            Class = p.Classe.NomClasse
                         }).ToList();
                 }
                 catch
@@ -111,7 +111,7 @@ namespace Hugo_LAND.WCF.Services
             }
         }
 
-        public HeroDetailsDTO RetourneHerosActuel(string idhero)
+        public HeroDetailsDTO ReturnHero(string idhero)
         {
             using (var context = new HugoLANDContext())
             {

@@ -350,28 +350,19 @@ namespace Hugo_LAND.Client.HugoLandServices {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string ClasseField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private bool EstConnecteField;
+        private string ClassField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private long ExperienceField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string HeroNameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int IdField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string MondeField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int NiveauField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string NomHeroField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string NomJoueurField;
+        private int LevelField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int StatDexField;
@@ -383,7 +374,16 @@ namespace Hugo_LAND.Client.HugoLandServices {
         private int StatStrField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int StatVitaliteField;
+        private int StatVitalityField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string UserNameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string WorldField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private bool isConnectedField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int xField;
@@ -402,27 +402,14 @@ namespace Hugo_LAND.Client.HugoLandServices {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Classe {
+        public string Class {
             get {
-                return this.ClasseField;
+                return this.ClassField;
             }
             set {
-                if ((object.ReferenceEquals(this.ClasseField, value) != true)) {
-                    this.ClasseField = value;
-                    this.RaisePropertyChanged("Classe");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public bool EstConnecte {
-            get {
-                return this.EstConnecteField;
-            }
-            set {
-                if ((this.EstConnecteField.Equals(value) != true)) {
-                    this.EstConnecteField = value;
-                    this.RaisePropertyChanged("EstConnecte");
+                if ((object.ReferenceEquals(this.ClassField, value) != true)) {
+                    this.ClassField = value;
+                    this.RaisePropertyChanged("Class");
                 }
             }
         }
@@ -441,6 +428,19 @@ namespace Hugo_LAND.Client.HugoLandServices {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public string HeroName {
+            get {
+                return this.HeroNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.HeroNameField, value) != true)) {
+                    this.HeroNameField = value;
+                    this.RaisePropertyChanged("HeroName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public int Id {
             get {
                 return this.IdField;
@@ -454,53 +454,14 @@ namespace Hugo_LAND.Client.HugoLandServices {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Monde {
+        public int Level {
             get {
-                return this.MondeField;
+                return this.LevelField;
             }
             set {
-                if ((object.ReferenceEquals(this.MondeField, value) != true)) {
-                    this.MondeField = value;
-                    this.RaisePropertyChanged("Monde");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Niveau {
-            get {
-                return this.NiveauField;
-            }
-            set {
-                if ((this.NiveauField.Equals(value) != true)) {
-                    this.NiveauField = value;
-                    this.RaisePropertyChanged("Niveau");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string NomHero {
-            get {
-                return this.NomHeroField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.NomHeroField, value) != true)) {
-                    this.NomHeroField = value;
-                    this.RaisePropertyChanged("NomHero");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string NomJoueur {
-            get {
-                return this.NomJoueurField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.NomJoueurField, value) != true)) {
-                    this.NomJoueurField = value;
-                    this.RaisePropertyChanged("NomJoueur");
+                if ((this.LevelField.Equals(value) != true)) {
+                    this.LevelField = value;
+                    this.RaisePropertyChanged("Level");
                 }
             }
         }
@@ -545,14 +506,53 @@ namespace Hugo_LAND.Client.HugoLandServices {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public int StatVitalite {
+        public int StatVitality {
             get {
-                return this.StatVitaliteField;
+                return this.StatVitalityField;
             }
             set {
-                if ((this.StatVitaliteField.Equals(value) != true)) {
-                    this.StatVitaliteField = value;
-                    this.RaisePropertyChanged("StatVitalite");
+                if ((this.StatVitalityField.Equals(value) != true)) {
+                    this.StatVitalityField = value;
+                    this.RaisePropertyChanged("StatVitality");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string UserName {
+            get {
+                return this.UserNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.UserNameField, value) != true)) {
+                    this.UserNameField = value;
+                    this.RaisePropertyChanged("UserName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string World {
+            get {
+                return this.WorldField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.WorldField, value) != true)) {
+                    this.WorldField = value;
+                    this.RaisePropertyChanged("World");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool isConnected {
+            get {
+                return this.isConnectedField;
+            }
+            set {
+                if ((this.isConnectedField.Equals(value) != true)) {
+                    this.isConnectedField = value;
+                    this.RaisePropertyChanged("isConnected");
                 }
             }
         }
@@ -775,11 +775,11 @@ namespace Hugo_LAND.Client.HugoLandServices {
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="HugoLandServices.IHeroService")]
     public interface IHeroService {
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IHeroService/RetourneHerosCompte", ReplyAction="http://tempuri.org/IHeroService/RetourneHerosCompteResponse")]
-        Hugo_LAND.Client.HugoLandServices.HeroDetailsDTO[] RetourneHerosCompte(int idCompteJoueur);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IHeroService/ReturnHerosFromAccount", ReplyAction="http://tempuri.org/IHeroService/ReturnHerosFromAccountResponse")]
+        Hugo_LAND.Client.HugoLandServices.HeroDetailsDTO[] ReturnHerosFromAccount(int idCompteJoueur);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IHeroService/RetourneHerosCompte", ReplyAction="http://tempuri.org/IHeroService/RetourneHerosCompteResponse")]
-        System.Threading.Tasks.Task<Hugo_LAND.Client.HugoLandServices.HeroDetailsDTO[]> RetourneHerosCompteAsync(int idCompteJoueur);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IHeroService/ReturnHerosFromAccount", ReplyAction="http://tempuri.org/IHeroService/ReturnHerosFromAccountResponse")]
+        System.Threading.Tasks.Task<Hugo_LAND.Client.HugoLandServices.HeroDetailsDTO[]> ReturnHerosFromAccountAsync(int idCompteJoueur);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IHeroService/CreateHero", ReplyAction="http://tempuri.org/IHeroService/CreateHeroResponse")]
         void CreateHero(Hugo_LAND.Client.HugoLandServices.HeroDetailsDTO dto);
@@ -787,23 +787,23 @@ namespace Hugo_LAND.Client.HugoLandServices {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IHeroService/CreateHero", ReplyAction="http://tempuri.org/IHeroService/CreateHeroResponse")]
         System.Threading.Tasks.Task CreateHeroAsync(Hugo_LAND.Client.HugoLandServices.HeroDetailsDTO dto);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IHeroService/SupprimeHero", ReplyAction="http://tempuri.org/IHeroService/SupprimeHeroResponse")]
-        void SupprimeHero(Hugo_LAND.Client.HugoLandServices.HeroDetailsDTO dto);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IHeroService/DeleteHero", ReplyAction="http://tempuri.org/IHeroService/DeleteHeroResponse")]
+        void DeleteHero(Hugo_LAND.Client.HugoLandServices.HeroDetailsDTO dto);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IHeroService/SupprimeHero", ReplyAction="http://tempuri.org/IHeroService/SupprimeHeroResponse")]
-        System.Threading.Tasks.Task SupprimeHeroAsync(Hugo_LAND.Client.HugoLandServices.HeroDetailsDTO dto);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IHeroService/DeleteHero", ReplyAction="http://tempuri.org/IHeroService/DeleteHeroResponse")]
+        System.Threading.Tasks.Task DeleteHeroAsync(Hugo_LAND.Client.HugoLandServices.HeroDetailsDTO dto);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IHeroService/DeplaceHero", ReplyAction="http://tempuri.org/IHeroService/DeplaceHeroResponse")]
-        void DeplaceHero(Hugo_LAND.Client.HugoLandServices.HeroDetailsDTO dto, int newX, int newY);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IHeroService/MoveHero", ReplyAction="http://tempuri.org/IHeroService/MoveHeroResponse")]
+        void MoveHero(Hugo_LAND.Client.HugoLandServices.HeroDetailsDTO dto, int newX, int newY);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IHeroService/DeplaceHero", ReplyAction="http://tempuri.org/IHeroService/DeplaceHeroResponse")]
-        System.Threading.Tasks.Task DeplaceHeroAsync(Hugo_LAND.Client.HugoLandServices.HeroDetailsDTO dto, int newX, int newY);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IHeroService/MoveHero", ReplyAction="http://tempuri.org/IHeroService/MoveHeroResponse")]
+        System.Threading.Tasks.Task MoveHeroAsync(Hugo_LAND.Client.HugoLandServices.HeroDetailsDTO dto, int newX, int newY);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IHeroService/RetourneHerosActuel", ReplyAction="http://tempuri.org/IHeroService/RetourneHerosActuelResponse")]
-        Hugo_LAND.Client.HugoLandServices.HeroDetailsDTO RetourneHerosActuel(string idhero);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IHeroService/ReturnHero", ReplyAction="http://tempuri.org/IHeroService/ReturnHeroResponse")]
+        Hugo_LAND.Client.HugoLandServices.HeroDetailsDTO ReturnHero(string idhero);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IHeroService/RetourneHerosActuel", ReplyAction="http://tempuri.org/IHeroService/RetourneHerosActuelResponse")]
-        System.Threading.Tasks.Task<Hugo_LAND.Client.HugoLandServices.HeroDetailsDTO> RetourneHerosActuelAsync(string idhero);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IHeroService/ReturnHero", ReplyAction="http://tempuri.org/IHeroService/ReturnHeroResponse")]
+        System.Threading.Tasks.Task<Hugo_LAND.Client.HugoLandServices.HeroDetailsDTO> ReturnHeroAsync(string idhero);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -833,12 +833,12 @@ namespace Hugo_LAND.Client.HugoLandServices {
                 base(binding, remoteAddress) {
         }
         
-        public Hugo_LAND.Client.HugoLandServices.HeroDetailsDTO[] RetourneHerosCompte(int idCompteJoueur) {
-            return base.Channel.RetourneHerosCompte(idCompteJoueur);
+        public Hugo_LAND.Client.HugoLandServices.HeroDetailsDTO[] ReturnHerosFromAccount(int idCompteJoueur) {
+            return base.Channel.ReturnHerosFromAccount(idCompteJoueur);
         }
         
-        public System.Threading.Tasks.Task<Hugo_LAND.Client.HugoLandServices.HeroDetailsDTO[]> RetourneHerosCompteAsync(int idCompteJoueur) {
-            return base.Channel.RetourneHerosCompteAsync(idCompteJoueur);
+        public System.Threading.Tasks.Task<Hugo_LAND.Client.HugoLandServices.HeroDetailsDTO[]> ReturnHerosFromAccountAsync(int idCompteJoueur) {
+            return base.Channel.ReturnHerosFromAccountAsync(idCompteJoueur);
         }
         
         public void CreateHero(Hugo_LAND.Client.HugoLandServices.HeroDetailsDTO dto) {
@@ -849,28 +849,28 @@ namespace Hugo_LAND.Client.HugoLandServices {
             return base.Channel.CreateHeroAsync(dto);
         }
         
-        public void SupprimeHero(Hugo_LAND.Client.HugoLandServices.HeroDetailsDTO dto) {
-            base.Channel.SupprimeHero(dto);
+        public void DeleteHero(Hugo_LAND.Client.HugoLandServices.HeroDetailsDTO dto) {
+            base.Channel.DeleteHero(dto);
         }
         
-        public System.Threading.Tasks.Task SupprimeHeroAsync(Hugo_LAND.Client.HugoLandServices.HeroDetailsDTO dto) {
-            return base.Channel.SupprimeHeroAsync(dto);
+        public System.Threading.Tasks.Task DeleteHeroAsync(Hugo_LAND.Client.HugoLandServices.HeroDetailsDTO dto) {
+            return base.Channel.DeleteHeroAsync(dto);
         }
         
-        public void DeplaceHero(Hugo_LAND.Client.HugoLandServices.HeroDetailsDTO dto, int newX, int newY) {
-            base.Channel.DeplaceHero(dto, newX, newY);
+        public void MoveHero(Hugo_LAND.Client.HugoLandServices.HeroDetailsDTO dto, int newX, int newY) {
+            base.Channel.MoveHero(dto, newX, newY);
         }
         
-        public System.Threading.Tasks.Task DeplaceHeroAsync(Hugo_LAND.Client.HugoLandServices.HeroDetailsDTO dto, int newX, int newY) {
-            return base.Channel.DeplaceHeroAsync(dto, newX, newY);
+        public System.Threading.Tasks.Task MoveHeroAsync(Hugo_LAND.Client.HugoLandServices.HeroDetailsDTO dto, int newX, int newY) {
+            return base.Channel.MoveHeroAsync(dto, newX, newY);
         }
         
-        public Hugo_LAND.Client.HugoLandServices.HeroDetailsDTO RetourneHerosActuel(string idhero) {
-            return base.Channel.RetourneHerosActuel(idhero);
+        public Hugo_LAND.Client.HugoLandServices.HeroDetailsDTO ReturnHero(string idhero) {
+            return base.Channel.ReturnHero(idhero);
         }
         
-        public System.Threading.Tasks.Task<Hugo_LAND.Client.HugoLandServices.HeroDetailsDTO> RetourneHerosActuelAsync(string idhero) {
-            return base.Channel.RetourneHerosActuelAsync(idhero);
+        public System.Threading.Tasks.Task<Hugo_LAND.Client.HugoLandServices.HeroDetailsDTO> ReturnHeroAsync(string idhero) {
+            return base.Channel.ReturnHeroAsync(idhero);
         }
     }
     
