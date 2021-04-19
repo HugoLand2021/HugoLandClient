@@ -17,16 +17,14 @@ namespace Hugo_LAND.Client
         private double _lastTime;
         private long _frameCounter;
         private GameState _gameState;
-        private  HeroDetailsDTO hero;
 
         public HugoWorld(HeroDetailsDTO hero)
         {
             //Setup the form
             InitializeComponent();
             SetStyle(ControlStyles.AllPaintingInWmPaint | ControlStyles.UserPaint | ControlStyles.OptimizedDoubleBuffer, true);
-            this.hero = hero;
             //Startup the game state
-            _gameState = new GameState(ClientSize);
+            _gameState = new GameState(ClientSize, hero);
 
             initialize();
         }
