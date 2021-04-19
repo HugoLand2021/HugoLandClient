@@ -64,5 +64,10 @@ namespace Hugo_LAND.Client.Vue
         {
             UpdateStats();
         }
+
+        private void btnGenerate_Click(object sender, EventArgs e)
+        {
+            UpdateStats();
+        }
     }
 }
