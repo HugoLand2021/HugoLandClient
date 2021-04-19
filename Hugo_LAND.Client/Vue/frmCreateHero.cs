@@ -26,7 +26,7 @@ namespace Hugo_LAND.Client.Vue
             InitializeComponent();
             nomCompte = main.nom;
             worldsList = worldServiceClient.GetAllWorldNames().ToList();
-            classList = classServiceClient.GetClasse().ToList();
+            classList = classServiceClient.GetAllClasses().ToList();
             cmbDescription.DataSource = worldsList.Select(w => w.Description).ToList();
             cmbNomClass.DataSource = classList.Select(c => c.NomClasse).ToList();
         }

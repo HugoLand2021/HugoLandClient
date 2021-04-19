@@ -52,7 +52,7 @@ namespace Hugo_LAND.Client.Vue
             // 
             // txtName
             // 
-            this.txtName.Location = new System.Drawing.Point(100, 107);
+            this.txtName.Location = new System.Drawing.Point(111, 107);
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(316, 20);
             this.txtName.TabIndex = 3;
@@ -62,13 +62,13 @@ namespace Hugo_LAND.Client.Vue
             this.lblName.AutoSize = true;
             this.lblName.Location = new System.Drawing.Point(18, 110);
             this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(35, 13);
+            this.lblName.Size = new System.Drawing.Size(64, 13);
             this.lblName.TabIndex = 2;
-            this.lblName.Text = "Name";
+            this.lblName.Text = "Class name:";
             // 
             // txtDescription
             // 
-            this.txtDescription.Location = new System.Drawing.Point(100, 150);
+            this.txtDescription.Location = new System.Drawing.Point(111, 150);
             this.txtDescription.Multiline = true;
             this.txtDescription.Name = "txtDescription";
             this.txtDescription.Size = new System.Drawing.Size(316, 70);
@@ -79,13 +79,13 @@ namespace Hugo_LAND.Client.Vue
             this.lblDescription.AutoSize = true;
             this.lblDescription.Location = new System.Drawing.Point(18, 153);
             this.lblDescription.Name = "lblDescription";
-            this.lblDescription.Size = new System.Drawing.Size(60, 13);
+            this.lblDescription.Size = new System.Drawing.Size(63, 13);
             this.lblDescription.TabIndex = 4;
-            this.lblDescription.Text = "Description";
+            this.lblDescription.Text = "Description:";
             // 
             // txtStr
             // 
-            this.txtStr.Location = new System.Drawing.Point(100, 236);
+            this.txtStr.Location = new System.Drawing.Point(111, 236);
             this.txtStr.Name = "txtStr";
             this.txtStr.Size = new System.Drawing.Size(316, 20);
             this.txtStr.TabIndex = 7;
@@ -95,13 +95,13 @@ namespace Hugo_LAND.Client.Vue
             this.lblStr.AutoSize = true;
             this.lblStr.Location = new System.Drawing.Point(18, 239);
             this.lblStr.Name = "lblStr";
-            this.lblStr.Size = new System.Drawing.Size(45, 13);
+            this.lblStr.Size = new System.Drawing.Size(72, 13);
             this.lblStr.TabIndex = 6;
-            this.lblStr.Text = "Base str";
+            this.lblStr.Text = "Base Stat Str:";
             // 
             // txtDex
             // 
-            this.txtDex.Location = new System.Drawing.Point(100, 274);
+            this.txtDex.Location = new System.Drawing.Point(111, 274);
             this.txtDex.Name = "txtDex";
             this.txtDex.Size = new System.Drawing.Size(316, 20);
             this.txtDex.TabIndex = 9;
@@ -111,13 +111,13 @@ namespace Hugo_LAND.Client.Vue
             this.lblDex.AutoSize = true;
             this.lblDex.Location = new System.Drawing.Point(18, 277);
             this.lblDex.Name = "lblDex";
-            this.lblDex.Size = new System.Drawing.Size(51, 13);
+            this.lblDex.Size = new System.Drawing.Size(78, 13);
             this.lblDex.TabIndex = 8;
-            this.lblDex.Text = "Base dex";
+            this.lblDex.Text = "Base Stat Dex:";
             // 
             // txtInt
             // 
-            this.txtInt.Location = new System.Drawing.Point(100, 314);
+            this.txtInt.Location = new System.Drawing.Point(111, 314);
             this.txtInt.Name = "txtInt";
             this.txtInt.Size = new System.Drawing.Size(316, 20);
             this.txtInt.TabIndex = 11;
@@ -127,13 +127,13 @@ namespace Hugo_LAND.Client.Vue
             this.lblInt.AutoSize = true;
             this.lblInt.Location = new System.Drawing.Point(18, 317);
             this.lblInt.Name = "lblInt";
-            this.lblInt.Size = new System.Drawing.Size(45, 13);
+            this.lblInt.Size = new System.Drawing.Size(71, 13);
             this.lblInt.TabIndex = 10;
-            this.lblInt.Text = "Base int";
+            this.lblInt.Text = "Base Stat Int:";
             // 
             // txtVitality
             // 
-            this.txtVitality.Location = new System.Drawing.Point(100, 352);
+            this.txtVitality.Location = new System.Drawing.Point(111, 352);
             this.txtVitality.Name = "txtVitality";
             this.txtVitality.Size = new System.Drawing.Size(316, 20);
             this.txtVitality.TabIndex = 13;
@@ -143,15 +143,15 @@ namespace Hugo_LAND.Client.Vue
             this.lblVitality.AutoSize = true;
             this.lblVitality.Location = new System.Drawing.Point(18, 355);
             this.lblVitality.Name = "lblVitality";
-            this.lblVitality.Size = new System.Drawing.Size(63, 13);
+            this.lblVitality.Size = new System.Drawing.Size(89, 13);
             this.lblVitality.TabIndex = 12;
-            this.lblVitality.Text = "Base vitality";
+            this.lblVitality.Text = "Base Stat Vitality:";
             // 
             // lblTitle
             // 
             this.lblTitle.AutoSize = true;
             this.lblTitle.Font = new System.Drawing.Font("Old English Text MT", 40F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitle.Location = new System.Drawing.Point(89, 9);
+            this.lblTitle.Location = new System.Drawing.Point(100, 9);
             this.lblTitle.Name = "lblTitle";
             this.lblTitle.Size = new System.Drawing.Size(327, 65);
             this.lblTitle.TabIndex = 14;
@@ -162,14 +162,14 @@ namespace Hugo_LAND.Client.Vue
             this.lblWorld.AutoSize = true;
             this.lblWorld.Location = new System.Drawing.Point(18, 395);
             this.lblWorld.Name = "lblWorld";
-            this.lblWorld.Size = new System.Drawing.Size(35, 13);
+            this.lblWorld.Size = new System.Drawing.Size(38, 13);
             this.lblWorld.TabIndex = 15;
-            this.lblWorld.Text = "World";
+            this.lblWorld.Text = "World:";
             // 
             // comboWorlds
             // 
             this.comboWorlds.FormattingEnabled = true;
-            this.comboWorlds.Location = new System.Drawing.Point(100, 392);
+            this.comboWorlds.Location = new System.Drawing.Point(111, 392);
             this.comboWorlds.Name = "comboWorlds";
             this.comboWorlds.Size = new System.Drawing.Size(316, 21);
             this.comboWorlds.TabIndex = 17;
@@ -200,10 +200,10 @@ namespace Hugo_LAND.Client.Vue
             // btnCreate
             // 
             this.btnCreate.Font = new System.Drawing.Font("Old English Text MT", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCreate.Location = new System.Drawing.Point(111, 434);
+            this.btnCreate.Location = new System.Drawing.Point(145, 438);
             this.btnCreate.Name = "btnCreate";
             this.btnCreate.Size = new System.Drawing.Size(248, 83);
-            this.btnCreate.TabIndex = 22;
+            this.btnCreate.TabIndex = 19;
             this.btnCreate.Text = "Create class";
             this.btnCreate.UseVisualStyleBackColor = true;
             this.btnCreate.Click += new System.EventHandler(this.btnCreate_Click);

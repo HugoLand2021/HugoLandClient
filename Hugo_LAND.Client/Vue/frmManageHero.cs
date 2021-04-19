@@ -32,7 +32,7 @@ namespace Hugo_LAND.Client.Vue
         private void bntCreateHero_Click(object sender, EventArgs e)
         {
             frmCreateHero createHeroForm = new frmCreateHero(mainForm);
-            createHeroForm.ShowDialog();
+            createHeroForm.ShowDialog(this);
 
         }
 

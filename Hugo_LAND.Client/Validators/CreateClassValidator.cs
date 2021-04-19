@@ -10,10 +10,8 @@ namespace Hugo_LAND.Client.Validators
 {
     public class CreateClassValidator : AbstractValidator<ClassDetailsDTO>
     {
-        private const string NAME_REGEX = @"^([a-zA-Z]){2,20}$";
+        private const string NAME_REGEX = @"^([a-zA-Z -]){2,20}$";
         private const string DESCRIPTION_REGEX = @"^([a-zA-Z0-9. ]){2,250}$";
-        private const int STATS_MIN = 0;
-        private const int STATS_MAX = 10;
 
         public CreateClassValidator()
         {

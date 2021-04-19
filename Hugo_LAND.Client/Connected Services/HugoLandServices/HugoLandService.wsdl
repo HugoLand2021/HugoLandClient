@@ -26,11 +26,11 @@
   <wsdl:message name="IAccountService_GetAccountInfoByUsername_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetAccountInfoByUsernameResponse" />
   </wsdl:message>
-  <wsdl:message name="IClassService_GetClasse_InputMessage">
-    <wsdl:part name="parameters" element="tns:GetClasse" />
+  <wsdl:message name="IClassService_GetAllClasses_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllClasses" />
   </wsdl:message>
-  <wsdl:message name="IClassService_GetClasse_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GetClasseResponse" />
+  <wsdl:message name="IClassService_GetAllClasses_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllClassesResponse" />
   </wsdl:message>
   <wsdl:message name="IClassService_CreerClasse_InputMessage">
     <wsdl:part name="parameters" element="tns:CreerClasse" />
@@ -38,11 +38,17 @@
   <wsdl:message name="IClassService_CreerClasse_OutputMessage">
     <wsdl:part name="parameters" element="tns:CreerClasseResponse" />
   </wsdl:message>
-  <wsdl:message name="IClassService_SupprimeClasse_InputMessage">
-    <wsdl:part name="parameters" element="tns:SupprimeClasse" />
+  <wsdl:message name="IClassService_DeleteClass_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteClass" />
   </wsdl:message>
-  <wsdl:message name="IClassService_SupprimeClasse_OutputMessage">
-    <wsdl:part name="parameters" element="tns:SupprimeClasseResponse" />
+  <wsdl:message name="IClassService_DeleteClass_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteClassResponse" />
+  </wsdl:message>
+  <wsdl:message name="IClassService_SaveClass_InputMessage">
+    <wsdl:part name="parameters" element="tns:SaveClass" />
+  </wsdl:message>
+  <wsdl:message name="IClassService_SaveClass_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SaveClassResponse" />
   </wsdl:message>
   <wsdl:message name="IClassService_GetClasseByName_InputMessage">
     <wsdl:part name="parameters" element="tns:GetClasseByName" />
@@ -107,17 +113,21 @@
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:portType name="IClassService">
-    <wsdl:operation name="GetClasse">
-      <wsdl:input wsaw:Action="http://tempuri.org/IClassService/GetClasse" message="tns:IClassService_GetClasse_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IClassService/GetClasseResponse" message="tns:IClassService_GetClasse_OutputMessage" />
+    <wsdl:operation name="GetAllClasses">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClassService/GetAllClasses" message="tns:IClassService_GetAllClasses_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClassService/GetAllClassesResponse" message="tns:IClassService_GetAllClasses_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="CreerClasse">
       <wsdl:input wsaw:Action="http://tempuri.org/IClassService/CreerClasse" message="tns:IClassService_CreerClasse_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IClassService/CreerClasseResponse" message="tns:IClassService_CreerClasse_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="SupprimeClasse">
-      <wsdl:input wsaw:Action="http://tempuri.org/IClassService/SupprimeClasse" message="tns:IClassService_SupprimeClasse_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IClassService/SupprimeClasseResponse" message="tns:IClassService_SupprimeClasse_OutputMessage" />
+    <wsdl:operation name="DeleteClass">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClassService/DeleteClass" message="tns:IClassService_DeleteClass_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClassService/DeleteClassResponse" message="tns:IClassService_DeleteClass_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveClass">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClassService/SaveClass" message="tns:IClassService_SaveClass_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClassService/SaveClassResponse" message="tns:IClassService_SaveClass_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="GetClasseByName">
       <wsdl:input wsaw:Action="http://tempuri.org/IClassService/GetClasseByName" message="tns:IClassService_GetClasseByName_InputMessage" />
@@ -188,8 +198,8 @@
   </wsdl:binding>
   <wsdl:binding name="BasicHttpBinding_IClassService" type="tns:IClassService">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
-    <wsdl:operation name="GetClasse">
-      <soap:operation soapAction="http://tempuri.org/IClassService/GetClasse" style="document" />
+    <wsdl:operation name="GetAllClasses">
+      <soap:operation soapAction="http://tempuri.org/IClassService/GetAllClasses" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -206,8 +216,17 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="SupprimeClasse">
-      <soap:operation soapAction="http://tempuri.org/IClassService/SupprimeClasse" style="document" />
+    <wsdl:operation name="DeleteClass">
+      <soap:operation soapAction="http://tempuri.org/IClassService/DeleteClass" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveClass">
+      <soap:operation soapAction="http://tempuri.org/IClassService/SaveClass" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

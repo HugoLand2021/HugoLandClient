@@ -58,6 +58,7 @@ namespace Hugo_LAND.Client.Vue
             this.btnHero.TabIndex = 1;
             this.btnHero.Text = "Hero Management";
             this.btnHero.UseVisualStyleBackColor = false;
+            this.btnHero.Click += new System.EventHandler(this.btnHero_Click);
             // 
             // btnClassManagement
             // 

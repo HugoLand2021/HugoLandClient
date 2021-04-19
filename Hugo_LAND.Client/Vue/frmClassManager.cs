@@ -30,7 +30,8 @@ namespace Hugo_LAND.Client.Vue
 
         private void btnModifyDeleteClass_Click(object sender, EventArgs e)
         {
-
+            frmModifyDeleteClass f = new frmModifyDeleteClass();
+            f.Show(this);
         }
     }
 }

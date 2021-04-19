@@ -32,40 +32,50 @@ namespace Hugo_LAND.WCF.Services
             }
         }
 
-        public async void SupprimeClasse(ClassDetailsDTO dto)
+        public void DeleteClass(ClassDetailsDTO dto)
         {
-            using (HugoLANDContext context = new HugoLANDContext())
+            try
             {
-                var classe = new Classe()
+                using (HugoLANDContext context = new HugoLANDContext())
                 {
-                    Id = dto.Id,
-                    NomClasse = dto.NomClasse
-                };
-
-                context.Entry(classe).State = EntityState.Deleted;
-                await context.SaveChangesAsync();
-                //context.Classes.Remove(context.Classes.Find(id));
-                //context.SaveChanges();
+                    var delClass = context.Classes.Find(dto.Id);
+                    context.Entry(delClass).State = EntityState.Deleted;
+                    context.SaveChanges();
+                }
+            }
+            catch
+            {
+                //METTRREEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE UNE EEEEEEEEEEEEEEEEEEEEEEEEEERRRRRRRRRRREEEEEEEEEEUUUUUUUUURRRRRRRR
             }
         }
 
-        public static void ModifClasse(int id, string nom, string description, int str, int dex, int ints, int vit, int idMonde)
+        public void SaveClass(ClassDetailsDTO dto)
         {
             using (HugoLANDContext context = new HugoLANDContext())
             {
-                Classe result = context.Classes.Find(id);
-                Monde monde = context.Mondes.Find(idMonde);
-                result.NomClasse = nom;
-                result.Description = description;
-                result.StatBaseStr = str;
-                result.StatBaseDex = dex;
-                result.StatBaseInt = ints;
-                result.StatBaseVitalite = vit;
-                result.Monde = monde;
-                context.SaveChanges();
+                try
+                {
+                    var currClass = new Classe()
+                    {
+                        Id = dto.Id,
+                        NomClasse = dto.NomClasse,
+                        Description = dto.Description,
+                        StatBaseStr = dto.StatBaseStr,
+                        StatBaseDex = dto.StatBaseDex,
+                        StatBaseInt = dto.StatBaseInt,
+                        StatBaseVitalite = dto.StatBaseVitalite,
+                    };
+                    context.Entry(currClass).State = EntityState.Modified;
+                    context.SaveChanges();
+                }
+                catch
+                {
+                    //METTRREEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE UNE EEEEEEEEEEEEEEEEEEEEEEEEEERRRRRRRRRRREEEEEEEEEEUUUUUUUUURRRRRRRR
+                }
+
             }
         }
-        public List<ClassDetailsDTO> GetClasse()
+        public List<ClassDetailsDTO> GetAllClasses()
         {
             using (var context = new HugoLANDContext())
             {
@@ -84,15 +94,15 @@ namespace Hugo_LAND.WCF.Services
 
                     }).ToList();
                 }
-                catch 
+                catch
                 {
                     return null;
                 }
-                
+
 
             }
         }
-        public ClassDetailsDTO GetClasseByName(string name) 
+        public ClassDetailsDTO GetClasseByName(string name)
         {
             using (var context = new HugoLANDContext())
             {

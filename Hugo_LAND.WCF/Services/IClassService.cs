@@ -12,12 +12,14 @@ namespace Hugo_LAND.WCF.Services
     public interface IClassService
     {
         [OperationContract]
-        List<ClassDetailsDTO> GetClasse();
+        List<ClassDetailsDTO> GetAllClasses();
 
         [OperationContract]
         void CreerClasse(ClassDetailsDTO newClass, WorldItemDTO world);
         [OperationContract]
-        void SupprimeClasse(ClassDetailsDTO dto);
+        void DeleteClass(ClassDetailsDTO dto);
+        [OperationContract]
+        void SaveClass(ClassDetailsDTO dto);
         [OperationContract]
         ClassDetailsDTO GetClasseByName(string name);
     }

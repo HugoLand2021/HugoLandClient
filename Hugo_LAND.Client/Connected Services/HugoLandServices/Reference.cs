@@ -656,11 +656,11 @@ namespace Hugo_LAND.Client.HugoLandServices {
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="HugoLandServices.IClassService")]
     public interface IClassService {
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IClassService/GetClasse", ReplyAction="http://tempuri.org/IClassService/GetClasseResponse")]
-        Hugo_LAND.Client.HugoLandServices.ClassDetailsDTO[] GetClasse();
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IClassService/GetAllClasses", ReplyAction="http://tempuri.org/IClassService/GetAllClassesResponse")]
+        Hugo_LAND.Client.HugoLandServices.ClassDetailsDTO[] GetAllClasses();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IClassService/GetClasse", ReplyAction="http://tempuri.org/IClassService/GetClasseResponse")]
-        System.Threading.Tasks.Task<Hugo_LAND.Client.HugoLandServices.ClassDetailsDTO[]> GetClasseAsync();
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IClassService/GetAllClasses", ReplyAction="http://tempuri.org/IClassService/GetAllClassesResponse")]
+        System.Threading.Tasks.Task<Hugo_LAND.Client.HugoLandServices.ClassDetailsDTO[]> GetAllClassesAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IClassService/CreerClasse", ReplyAction="http://tempuri.org/IClassService/CreerClasseResponse")]
         void CreerClasse(Hugo_LAND.Client.HugoLandServices.ClassDetailsDTO newClass, Hugo_LAND.Client.HugoLandServices.WorldItemDTO world);
@@ -668,11 +668,17 @@ namespace Hugo_LAND.Client.HugoLandServices {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IClassService/CreerClasse", ReplyAction="http://tempuri.org/IClassService/CreerClasseResponse")]
         System.Threading.Tasks.Task CreerClasseAsync(Hugo_LAND.Client.HugoLandServices.ClassDetailsDTO newClass, Hugo_LAND.Client.HugoLandServices.WorldItemDTO world);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IClassService/SupprimeClasse", ReplyAction="http://tempuri.org/IClassService/SupprimeClasseResponse")]
-        void SupprimeClasse(Hugo_LAND.Client.HugoLandServices.ClassDetailsDTO dto);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IClassService/DeleteClass", ReplyAction="http://tempuri.org/IClassService/DeleteClassResponse")]
+        void DeleteClass(Hugo_LAND.Client.HugoLandServices.ClassDetailsDTO dto);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IClassService/SupprimeClasse", ReplyAction="http://tempuri.org/IClassService/SupprimeClasseResponse")]
-        System.Threading.Tasks.Task SupprimeClasseAsync(Hugo_LAND.Client.HugoLandServices.ClassDetailsDTO dto);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IClassService/DeleteClass", ReplyAction="http://tempuri.org/IClassService/DeleteClassResponse")]
+        System.Threading.Tasks.Task DeleteClassAsync(Hugo_LAND.Client.HugoLandServices.ClassDetailsDTO dto);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IClassService/SaveClass", ReplyAction="http://tempuri.org/IClassService/SaveClassResponse")]
+        void SaveClass(Hugo_LAND.Client.HugoLandServices.ClassDetailsDTO dto);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IClassService/SaveClass", ReplyAction="http://tempuri.org/IClassService/SaveClassResponse")]
+        System.Threading.Tasks.Task SaveClassAsync(Hugo_LAND.Client.HugoLandServices.ClassDetailsDTO dto);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IClassService/GetClasseByName", ReplyAction="http://tempuri.org/IClassService/GetClasseByNameResponse")]
         Hugo_LAND.Client.HugoLandServices.ClassDetailsDTO GetClasseByName(string name);
@@ -708,12 +714,12 @@ namespace Hugo_LAND.Client.HugoLandServices {
                 base(binding, remoteAddress) {
         }
         
-        public Hugo_LAND.Client.HugoLandServices.ClassDetailsDTO[] GetClasse() {
-            return base.Channel.GetClasse();
+        public Hugo_LAND.Client.HugoLandServices.ClassDetailsDTO[] GetAllClasses() {
+            return base.Channel.GetAllClasses();
         }
         
-        public System.Threading.Tasks.Task<Hugo_LAND.Client.HugoLandServices.ClassDetailsDTO[]> GetClasseAsync() {
-            return base.Channel.GetClasseAsync();
+        public System.Threading.Tasks.Task<Hugo_LAND.Client.HugoLandServices.ClassDetailsDTO[]> GetAllClassesAsync() {
+            return base.Channel.GetAllClassesAsync();
         }
         
         public void CreerClasse(Hugo_LAND.Client.HugoLandServices.ClassDetailsDTO newClass, Hugo_LAND.Client.HugoLandServices.WorldItemDTO world) {
@@ -724,12 +730,20 @@ namespace Hugo_LAND.Client.HugoLandServices {
             return base.Channel.CreerClasseAsync(newClass, world);
         }
         
-        public void SupprimeClasse(Hugo_LAND.Client.HugoLandServices.ClassDetailsDTO dto) {
-            base.Channel.SupprimeClasse(dto);
+        public void DeleteClass(Hugo_LAND.Client.HugoLandServices.ClassDetailsDTO dto) {
+            base.Channel.DeleteClass(dto);
         }
         
-        public System.Threading.Tasks.Task SupprimeClasseAsync(Hugo_LAND.Client.HugoLandServices.ClassDetailsDTO dto) {
-            return base.Channel.SupprimeClasseAsync(dto);
+        public System.Threading.Tasks.Task DeleteClassAsync(Hugo_LAND.Client.HugoLandServices.ClassDetailsDTO dto) {
+            return base.Channel.DeleteClassAsync(dto);
+        }
+        
+        public void SaveClass(Hugo_LAND.Client.HugoLandServices.ClassDetailsDTO dto) {
+            base.Channel.SaveClass(dto);
+        }
+        
+        public System.Threading.Tasks.Task SaveClassAsync(Hugo_LAND.Client.HugoLandServices.ClassDetailsDTO dto) {
+            return base.Channel.SaveClassAsync(dto);
         }
         
         public Hugo_LAND.Client.HugoLandServices.ClassDetailsDTO GetClasseByName(string name) {
