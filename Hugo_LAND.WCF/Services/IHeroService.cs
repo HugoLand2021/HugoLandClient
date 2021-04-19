@@ -17,7 +17,7 @@ namespace Hugo_LAND.WCF.Services
 
 
         [OperationContract]
-        void CreeHero(string newNomHero, bool newConnection, int idClasse, int idCompteJoueur, int idMonde);
+        void CreateHero(HeroDetailsDTO dto);
 
         [OperationContract]
         void SupprimeHero(HeroDetailsDTO dto);

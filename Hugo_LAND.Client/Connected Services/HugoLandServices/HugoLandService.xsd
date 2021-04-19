@@ -121,18 +121,14 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="CreeHero">
+  <xs:element name="CreateHero">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="newNomHero" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="newConnection" type="xs:boolean" />
-        <xs:element minOccurs="0" name="idClasse" type="xs:int" />
-        <xs:element minOccurs="0" name="idCompteJoueur" type="xs:int" />
-        <xs:element minOccurs="0" name="idMonde" type="xs:int" />
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/Hugo_LAND.WCF.DTOs" minOccurs="0" name="dto" nillable="true" type="q9:HeroDetailsDTO" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="CreeHeroResponse">
+  <xs:element name="CreateHeroResponse">
     <xs:complexType>
       <xs:sequence />
     </xs:complexType>
@@ -140,7 +136,7 @@
   <xs:element name="SupprimeHero">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/Hugo_LAND.WCF.DTOs" minOccurs="0" name="dto" nillable="true" type="q9:HeroDetailsDTO" />
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/Hugo_LAND.WCF.DTOs" minOccurs="0" name="dto" nillable="true" type="q10:HeroDetailsDTO" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -152,7 +148,7 @@
   <xs:element name="DeplaceHero">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/Hugo_LAND.WCF.DTOs" minOccurs="0" name="dto" nillable="true" type="q10:HeroDetailsDTO" />
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/Hugo_LAND.WCF.DTOs" minOccurs="0" name="dto" nillable="true" type="q11:HeroDetailsDTO" />
         <xs:element minOccurs="0" name="newX" type="xs:int" />
         <xs:element minOccurs="0" name="newY" type="xs:int" />
       </xs:sequence>
@@ -173,7 +169,7 @@
   <xs:element name="RetourneHerosActuelResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/Hugo_LAND.WCF.DTOs" minOccurs="0" name="RetourneHerosActuelResult" nillable="true" type="q11:HeroDetailsDTO" />
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/Hugo_LAND.WCF.DTOs" minOccurs="0" name="RetourneHerosActuelResult" nillable="true" type="q12:HeroDetailsDTO" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -185,7 +181,7 @@
   <xs:element name="GetAllWorldNamesResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/Hugo_LAND.WCF.DTOs" minOccurs="0" name="GetAllWorldNamesResult" nillable="true" type="q12:ArrayOfWorldItemDTO" />
+        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/Hugo_LAND.WCF.DTOs" minOccurs="0" name="GetAllWorldNamesResult" nillable="true" type="q13:ArrayOfWorldItemDTO" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -199,7 +195,7 @@
   <xs:element name="GetWorldByNameResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/Hugo_LAND.WCF.DTOs" minOccurs="0" name="GetWorldByNameResult" nillable="true" type="q13:WorldItemDTO" />
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/Hugo_LAND.WCF.DTOs" minOccurs="0" name="GetWorldByNameResult" nillable="true" type="q14:WorldItemDTO" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

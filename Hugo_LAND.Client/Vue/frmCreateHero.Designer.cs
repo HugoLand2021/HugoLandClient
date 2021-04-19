@@ -48,6 +48,7 @@ namespace Hugo_LAND.Client.Vue
             this.cmbDescription = new System.Windows.Forms.ComboBox();
             this.cmbNomClass = new System.Windows.Forms.ComboBox();
             this.heroDetailsDTOBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.btnGenerate = new System.Windows.Forms.Button();
             nomHeroLabel = new System.Windows.Forms.Label();
             statBaseDexLabel = new System.Windows.Forms.Label();
             statBaseIntLabel = new System.Windows.Forms.Label();
@@ -132,6 +133,7 @@ namespace Hugo_LAND.Client.Vue
             // 
             this.txtstatBaseDex.Location = new System.Drawing.Point(108, 119);
             this.txtstatBaseDex.Name = "txtstatBaseDex";
+            this.txtstatBaseDex.ReadOnly = true;
             this.txtstatBaseDex.Size = new System.Drawing.Size(264, 20);
             this.txtstatBaseDex.TabIndex = 30;
             // 
@@ -139,6 +141,7 @@ namespace Hugo_LAND.Client.Vue
             // 
             this.txtstatBaseInt.Location = new System.Drawing.Point(108, 145);
             this.txtstatBaseInt.Name = "txtstatBaseInt";
+            this.txtstatBaseInt.ReadOnly = true;
             this.txtstatBaseInt.Size = new System.Drawing.Size(264, 20);
             this.txtstatBaseInt.TabIndex = 32;
             // 
@@ -146,6 +149,7 @@ namespace Hugo_LAND.Client.Vue
             // 
             this.txtstatBaseStr.Location = new System.Drawing.Point(108, 171);
             this.txtstatBaseStr.Name = "txtstatBaseStr";
+            this.txtstatBaseStr.ReadOnly = true;
             this.txtstatBaseStr.Size = new System.Drawing.Size(264, 20);
             this.txtstatBaseStr.TabIndex = 34;
             // 
@@ -153,6 +157,7 @@ namespace Hugo_LAND.Client.Vue
             // 
             this.txtstatBaseVitalite.Location = new System.Drawing.Point(108, 197);
             this.txtstatBaseVitalite.Name = "txtstatBaseVitalite";
+            this.txtstatBaseVitalite.ReadOnly = true;
             this.txtstatBaseVitalite.Size = new System.Drawing.Size(264, 20);
             this.txtstatBaseVitalite.TabIndex = 36;
             // 
@@ -170,7 +175,7 @@ namespace Hugo_LAND.Client.Vue
             // btnCancelHeroFrm
             // 
             this.btnCancelHeroFrm.Font = new System.Drawing.Font("Old English Text MT", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancelHeroFrm.Location = new System.Drawing.Point(260, 281);
+            this.btnCancelHeroFrm.Location = new System.Drawing.Point(268, 281);
             this.btnCancelHeroFrm.Name = "btnCancelHeroFrm";
             this.btnCancelHeroFrm.Size = new System.Drawing.Size(112, 37);
             this.btnCancelHeroFrm.TabIndex = 42;
@@ -209,11 +214,23 @@ namespace Hugo_LAND.Client.Vue
             // 
             this.heroDetailsDTOBindingSource.DataSource = typeof(Hugo_LAND.Client.HugoLandServices.HeroDetailsDTO);
             // 
+            // btnGenerate
+            // 
+            this.btnGenerate.Font = new System.Drawing.Font("Old English Text MT", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGenerate.Location = new System.Drawing.Point(142, 281);
+            this.btnGenerate.Name = "btnGenerate";
+            this.btnGenerate.Size = new System.Drawing.Size(112, 37);
+            this.btnGenerate.TabIndex = 46;
+            this.btnGenerate.Text = "Generate again";
+            this.btnGenerate.UseVisualStyleBackColor = true;
+            this.btnGenerate.Click += new System.EventHandler(this.btnGenerate_Click);
+            // 
             // frmCreateHero
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(392, 338);
+            this.Controls.Add(this.btnGenerate);
             this.Controls.Add(lblNomClasse);
             this.Controls.Add(this.cmbNomClass);
             this.Controls.Add(lblMonde);
@@ -253,5 +270,6 @@ namespace Hugo_LAND.Client.Vue
         private System.Windows.Forms.Label lblCreate;
         private System.Windows.Forms.ComboBox cmbDescription;
         private System.Windows.Forms.ComboBox cmbNomClass;
+        private System.Windows.Forms.Button btnGenerate;
     }
 }

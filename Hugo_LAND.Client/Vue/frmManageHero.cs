@@ -14,7 +14,7 @@ namespace Hugo_LAND.Client.Vue
     {
         private readonly frmMain mainForm;
         //private readonly frmCreateHero createHeroForm;
-        private readonly frmDeleteHero deleteHeroForm;
+        //private readonly frmDeleteHero deleteHeroForm;
 
 
         public frmManageHero(frmMain mainForm)
