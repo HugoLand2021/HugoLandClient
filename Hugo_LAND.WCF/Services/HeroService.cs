@@ -12,7 +12,7 @@ namespace Hugo_LAND.WCF.Services
 {
     public partial class HugoLandService : IHeroService
     {
-        private readonly Random _random = new Random();
+        
         public async void CreeHero(string newNomHero, bool newConnection, int idClasse, int idCompteJoueur,
               int idMonde)
         {
@@ -27,10 +27,10 @@ namespace Hugo_LAND.WCF.Services
                     Experience = 0,
                     x = 0,
                     y = 0,
-                    StatStr = classe.StatBaseStr + _random.Next(0, 10),
-                    StatDex = classe.StatBaseDex + _random.Next(0, 10),
-                    StatInt = classe.StatBaseInt + _random.Next(0, 10),
-                    StatVitalite = classe.StatBaseVitalite + _random.Next(0, 10),
+                    StatStr = classe.StatBaseStr,
+                    StatDex = classe.StatBaseDex,
+                    StatInt = classe.StatBaseInt,
+                    StatVitalite = classe.StatBaseVitalite,
                     NomHero = newNomHero,
                     EstConnecte = newConnection,
                     Classe = classe,
@@ -48,11 +48,12 @@ namespace Hugo_LAND.WCF.Services
         {
             using (var context = new HugoLANDContext())
             {
-                var hero = new Hero()
-                {
-                    Id = dto.Id,
-                    NomHero = dto.NomHero
-                };
+                //var hero = new Hero()
+                //{
+                //    Id = dto.Id,
+                //    NomHero = dto.NomHero
+                //};
+                var hero = context.Heros.Find(dto.Id);
                 context.Entry(hero).State = EntityState.Deleted;
                 await context.SaveChangesAsync();
             }

@@ -34,7 +34,7 @@ namespace Hugo_LAND.Client.Vue
             this.heroDetailsDTOBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
-            this.nomHeroComboBox = new System.Windows.Forms.ComboBox();
+            this.cmbNomHero = new System.Windows.Forms.ComboBox();
             nomHeroLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.heroDetailsDTOBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -42,7 +42,7 @@ namespace Hugo_LAND.Client.Vue
             // nomHeroLabel
             // 
             nomHeroLabel.AutoSize = true;
-            nomHeroLabel.Location = new System.Drawing.Point(13, 64);
+            nomHeroLabel.Location = new System.Drawing.Point(13, 39);
             nomHeroLabel.Name = "nomHeroLabel";
             nomHeroLabel.Size = new System.Drawing.Size(58, 13);
             nomHeroLabel.TabIndex = 46;
@@ -72,14 +72,14 @@ namespace Hugo_LAND.Client.Vue
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
-            // nomHeroComboBox
+            // cmbNomHero
             // 
-            this.nomHeroComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.heroDetailsDTOBindingSource, "NomHero", true));
-            this.nomHeroComboBox.FormattingEnabled = true;
-            this.nomHeroComboBox.Location = new System.Drawing.Point(77, 61);
-            this.nomHeroComboBox.Name = "nomHeroComboBox";
-            this.nomHeroComboBox.Size = new System.Drawing.Size(121, 21);
-            this.nomHeroComboBox.TabIndex = 47;
+            this.cmbNomHero.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.heroDetailsDTOBindingSource, "NomHero", true));
+            this.cmbNomHero.FormattingEnabled = true;
+            this.cmbNomHero.Location = new System.Drawing.Point(77, 36);
+            this.cmbNomHero.Name = "cmbNomHero";
+            this.cmbNomHero.Size = new System.Drawing.Size(121, 21);
+            this.cmbNomHero.TabIndex = 47;
             // 
             // frmDeleteHero
             // 
@@ -87,7 +87,7 @@ namespace Hugo_LAND.Client.Vue
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(222, 189);
             this.Controls.Add(nomHeroLabel);
-            this.Controls.Add(this.nomHeroComboBox);
+            this.Controls.Add(this.cmbNomHero);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnDelete);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
@@ -104,6 +104,6 @@ namespace Hugo_LAND.Client.Vue
         private System.Windows.Forms.BindingSource heroDetailsDTOBindingSource;
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button btnCancel;
-        private System.Windows.Forms.ComboBox nomHeroComboBox;
+        private System.Windows.Forms.ComboBox cmbNomHero;
     }
 }

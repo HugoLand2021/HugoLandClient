@@ -37,7 +37,6 @@ namespace Hugo_LAND.Client.Vue
             System.Windows.Forms.Label statBaseVitaliteLabel;
             System.Windows.Forms.Label lblMonde;
             System.Windows.Forms.Label lblNomClasse;
-            this.heroDetailsDTOBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.txtnomHero = new System.Windows.Forms.TextBox();
             this.txtstatBaseDex = new System.Windows.Forms.TextBox();
             this.txtstatBaseInt = new System.Windows.Forms.TextBox();
@@ -48,6 +47,7 @@ namespace Hugo_LAND.Client.Vue
             this.lblCreate = new System.Windows.Forms.Label();
             this.cmbDescription = new System.Windows.Forms.ComboBox();
             this.cmbNomClass = new System.Windows.Forms.ComboBox();
+            this.heroDetailsDTOBindingSource = new System.Windows.Forms.BindingSource(this.components);
             nomHeroLabel = new System.Windows.Forms.Label();
             statBaseDexLabel = new System.Windows.Forms.Label();
             statBaseIntLabel = new System.Windows.Forms.Label();
@@ -112,13 +112,17 @@ namespace Hugo_LAND.Client.Vue
             lblMonde.TabIndex = 43;
             lblMonde.Text = "World:";
             // 
-            // heroDetailsDTOBindingSource
+            // lblNomClasse
             // 
-            this.heroDetailsDTOBindingSource.DataSource = typeof(Hugo_LAND.Client.HugoLandServices.HeroDetailsDTO);
+            lblNomClasse.AutoSize = true;
+            lblNomClasse.Location = new System.Drawing.Point(12, 95);
+            lblNomClasse.Name = "lblNomClasse";
+            lblNomClasse.Size = new System.Drawing.Size(66, 13);
+            lblNomClasse.TabIndex = 44;
+            lblNomClasse.Text = "Nom Classe:";
             // 
             // txtnomHero
             // 
-            this.txtnomHero.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.heroDetailsDTOBindingSource, "NomHero", true));
             this.txtnomHero.Location = new System.Drawing.Point(108, 67);
             this.txtnomHero.Name = "txtnomHero";
             this.txtnomHero.Size = new System.Drawing.Size(264, 20);
@@ -126,7 +130,6 @@ namespace Hugo_LAND.Client.Vue
             // 
             // txtstatBaseDex
             // 
-            this.txtstatBaseDex.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.heroDetailsDTOBindingSource, "Classe.StatBaseDex", true));
             this.txtstatBaseDex.Location = new System.Drawing.Point(108, 119);
             this.txtstatBaseDex.Name = "txtstatBaseDex";
             this.txtstatBaseDex.Size = new System.Drawing.Size(264, 20);
@@ -134,7 +137,6 @@ namespace Hugo_LAND.Client.Vue
             // 
             // txtstatBaseInt
             // 
-            this.txtstatBaseInt.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.heroDetailsDTOBindingSource, "Classe.StatBaseInt", true));
             this.txtstatBaseInt.Location = new System.Drawing.Point(108, 145);
             this.txtstatBaseInt.Name = "txtstatBaseInt";
             this.txtstatBaseInt.Size = new System.Drawing.Size(264, 20);
@@ -142,7 +144,6 @@ namespace Hugo_LAND.Client.Vue
             // 
             // txtstatBaseStr
             // 
-            this.txtstatBaseStr.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.heroDetailsDTOBindingSource, "Classe.StatBaseStr", true));
             this.txtstatBaseStr.Location = new System.Drawing.Point(108, 171);
             this.txtstatBaseStr.Name = "txtstatBaseStr";
             this.txtstatBaseStr.Size = new System.Drawing.Size(264, 20);
@@ -150,7 +151,6 @@ namespace Hugo_LAND.Client.Vue
             // 
             // txtstatBaseVitalite
             // 
-            this.txtstatBaseVitalite.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.heroDetailsDTOBindingSource, "Classe.StatBaseVitalite", true));
             this.txtstatBaseVitalite.Location = new System.Drawing.Point(108, 197);
             this.txtstatBaseVitalite.Name = "txtstatBaseVitalite";
             this.txtstatBaseVitalite.Size = new System.Drawing.Size(264, 20);
@@ -190,30 +190,24 @@ namespace Hugo_LAND.Client.Vue
             // 
             // cmbDescription
             // 
-            this.cmbDescription.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.heroDetailsDTOBindingSource, "Monde.Description", true));
             this.cmbDescription.FormattingEnabled = true;
             this.cmbDescription.Location = new System.Drawing.Point(108, 223);
             this.cmbDescription.Name = "cmbDescription";
             this.cmbDescription.Size = new System.Drawing.Size(264, 21);
             this.cmbDescription.TabIndex = 44;
             // 
-            // lblNomClasse
-            // 
-            lblNomClasse.AutoSize = true;
-            lblNomClasse.Location = new System.Drawing.Point(12, 95);
-            lblNomClasse.Name = "lblNomClasse";
-            lblNomClasse.Size = new System.Drawing.Size(66, 13);
-            lblNomClasse.TabIndex = 44;
-            lblNomClasse.Text = "Nom Classe:";
-            // 
             // cmbNomClass
             // 
-            this.cmbNomClass.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.heroDetailsDTOBindingSource, "Classe.NomClasse", true));
             this.cmbNomClass.FormattingEnabled = true;
             this.cmbNomClass.Location = new System.Drawing.Point(108, 92);
             this.cmbNomClass.Name = "cmbNomClass";
             this.cmbNomClass.Size = new System.Drawing.Size(264, 21);
             this.cmbNomClass.TabIndex = 45;
+            this.cmbNomClass.SelectedIndexChanged += new System.EventHandler(this.cmbNomClass_SelectedIndexChanged);
+            // 
+            // heroDetailsDTOBindingSource
+            // 
+            this.heroDetailsDTOBindingSource.DataSource = typeof(Hugo_LAND.Client.HugoLandServices.HeroDetailsDTO);
             // 
             // frmCreateHero
             // 

@@ -38,7 +38,8 @@ namespace Hugo_LAND.Client.Vue
 
         private void btnDeleteHero_Click(object sender, EventArgs e)
         {
-
+            frmDeleteHero deleteHeroForm = new frmDeleteHero(mainForm);
+            deleteHeroForm.ShowDialog(this);
         }
     }
 }
