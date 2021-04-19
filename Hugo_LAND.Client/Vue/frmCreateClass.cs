@@ -77,7 +77,7 @@ namespace Hugo_LAND.Client.Vue
                 {
                     try
                     {
-                        classServiceClient.CreerClasse(newClass, world);
+                        classServiceClient.CreateClass(newClass, world);
                         MessageBox.Show("The user has been created", "Success!", MessageBoxButtons.OK, MessageBoxIcon.None);
                         this.Close();
                     }

@@ -32,11 +32,11 @@
   <wsdl:message name="IClassService_GetAllClasses_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetAllClassesResponse" />
   </wsdl:message>
-  <wsdl:message name="IClassService_CreerClasse_InputMessage">
-    <wsdl:part name="parameters" element="tns:CreerClasse" />
+  <wsdl:message name="IClassService_CreateClass_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateClass" />
   </wsdl:message>
-  <wsdl:message name="IClassService_CreerClasse_OutputMessage">
-    <wsdl:part name="parameters" element="tns:CreerClasseResponse" />
+  <wsdl:message name="IClassService_CreateClass_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateClassResponse" />
   </wsdl:message>
   <wsdl:message name="IClassService_DeleteClass_InputMessage">
     <wsdl:part name="parameters" element="tns:DeleteClass" />
@@ -50,11 +50,11 @@
   <wsdl:message name="IClassService_SaveClass_OutputMessage">
     <wsdl:part name="parameters" element="tns:SaveClassResponse" />
   </wsdl:message>
-  <wsdl:message name="IClassService_GetClasseByName_InputMessage">
-    <wsdl:part name="parameters" element="tns:GetClasseByName" />
+  <wsdl:message name="IClassService_GetClassByName_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetClassByName" />
   </wsdl:message>
-  <wsdl:message name="IClassService_GetClasseByName_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GetClasseByNameResponse" />
+  <wsdl:message name="IClassService_GetClassByName_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetClassByNameResponse" />
   </wsdl:message>
   <wsdl:message name="IHeroService_RetourneHerosCompte_InputMessage">
     <wsdl:part name="parameters" element="tns:RetourneHerosCompte" />
@@ -117,9 +117,9 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IClassService/GetAllClasses" message="tns:IClassService_GetAllClasses_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IClassService/GetAllClassesResponse" message="tns:IClassService_GetAllClasses_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="CreerClasse">
-      <wsdl:input wsaw:Action="http://tempuri.org/IClassService/CreerClasse" message="tns:IClassService_CreerClasse_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IClassService/CreerClasseResponse" message="tns:IClassService_CreerClasse_OutputMessage" />
+    <wsdl:operation name="CreateClass">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClassService/CreateClass" message="tns:IClassService_CreateClass_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClassService/CreateClassResponse" message="tns:IClassService_CreateClass_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="DeleteClass">
       <wsdl:input wsaw:Action="http://tempuri.org/IClassService/DeleteClass" message="tns:IClassService_DeleteClass_InputMessage" />
@@ -129,9 +129,9 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IClassService/SaveClass" message="tns:IClassService_SaveClass_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IClassService/SaveClassResponse" message="tns:IClassService_SaveClass_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="GetClasseByName">
-      <wsdl:input wsaw:Action="http://tempuri.org/IClassService/GetClasseByName" message="tns:IClassService_GetClasseByName_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IClassService/GetClasseByNameResponse" message="tns:IClassService_GetClasseByName_OutputMessage" />
+    <wsdl:operation name="GetClassByName">
+      <wsdl:input wsaw:Action="http://tempuri.org/IClassService/GetClassByName" message="tns:IClassService_GetClassByName_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IClassService/GetClassByNameResponse" message="tns:IClassService_GetClassByName_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:portType name="IHeroService">
@@ -207,8 +207,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="CreerClasse">
-      <soap:operation soapAction="http://tempuri.org/IClassService/CreerClasse" style="document" />
+    <wsdl:operation name="CreateClass">
+      <soap:operation soapAction="http://tempuri.org/IClassService/CreateClass" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -234,8 +234,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="GetClasseByName">
-      <soap:operation soapAction="http://tempuri.org/IClassService/GetClasseByName" style="document" />
+    <wsdl:operation name="GetClassByName">
+      <soap:operation soapAction="http://tempuri.org/IClassService/GetClassByName" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

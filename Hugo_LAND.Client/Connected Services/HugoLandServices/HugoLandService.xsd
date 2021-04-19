@@ -56,7 +56,7 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="CreerClasse">
+  <xs:element name="CreateClass">
     <xs:complexType>
       <xs:sequence>
         <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/Hugo_LAND.WCF.DTOs" minOccurs="0" name="newClass" nillable="true" type="q3:ClassDetailsDTO" />
@@ -64,7 +64,7 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="CreerClasseResponse">
+  <xs:element name="CreateClassResponse">
     <xs:complexType>
       <xs:sequence />
     </xs:complexType>
@@ -93,17 +93,17 @@
       <xs:sequence />
     </xs:complexType>
   </xs:element>
-  <xs:element name="GetClasseByName">
+  <xs:element name="GetClassByName">
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="GetClasseByNameResponse">
+  <xs:element name="GetClassByNameResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/Hugo_LAND.WCF.DTOs" minOccurs="0" name="GetClasseByNameResult" nillable="true" type="q7:ClassDetailsDTO" />
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/Hugo_LAND.WCF.DTOs" minOccurs="0" name="GetClassByNameResult" nillable="true" type="q7:ClassDetailsDTO" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

@@ -11,7 +11,7 @@ namespace Hugo_LAND.WCF.Services
 {
     public partial class HugoLandService : IClassService
     {
-        public async void CreerClasse(ClassDetailsDTO newClass, WorldItemDTO world)
+        public async void CreateClass(ClassDetailsDTO newClass, WorldItemDTO world)
         {
             using (HugoLANDContext context = new HugoLANDContext())
             {
@@ -28,7 +28,6 @@ namespace Hugo_LAND.WCF.Services
                 };
                 context.Entry(classe).State = EntityState.Added;
                 await context.SaveChangesAsync();
-                context.SaveChanges();
             }
         }
 
@@ -102,7 +101,7 @@ namespace Hugo_LAND.WCF.Services
 
             }
         }
-        public ClassDetailsDTO GetClasseByName(string name)
+        public ClassDetailsDTO GetClassByName(string name)
         {
             using (var context = new HugoLANDContext())
             {

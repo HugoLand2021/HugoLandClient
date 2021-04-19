@@ -16,12 +16,12 @@ namespace Hugo_LAND.WCF.Services
         List<ClassDetailsDTO> GetAllClasses();
 
         [OperationContract]
-        void CreerClasse(ClassDetailsDTO newClass, WorldItemDTO world);
+        void CreateClass(ClassDetailsDTO newClass, WorldItemDTO world);
         [OperationContract]
         void DeleteClass(ClassDetailsDTO dto);
         [OperationContract]
         void SaveClass(ClassDetailsDTO dto);
         [OperationContract]
-        ClassDetailsDTO GetClasseByName(string name);
+        ClassDetailsDTO GetClassByName(string name);
     }
 }
