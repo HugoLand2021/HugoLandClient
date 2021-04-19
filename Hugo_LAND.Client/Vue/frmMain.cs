@@ -17,6 +17,7 @@ namespace Hugo_LAND.Client.Vue
         private readonly frmLogin loginForm;
         public string nom = "";
         public int id = 0;
+        //private UserDetailsDTO herosList = new UserDetailsDTO();
 
         internal void ConnectionReussie()
         {

@@ -28,8 +28,8 @@ namespace Hugo_LAND.Client.Vue
 
 
             var user = compteJoueurService.RetourneIdCompteParNom(nomCompte);
-            var currhero = HeroService.RetourneHerosActuel(txtidHero.Text);
-            HeroService.SupprimeHero(currhero);
+            //var currhero = HeroService.RetourneHerosActuel(txtidHero.Text);
+            //HeroService.SupprimeHero(currhero);
 
 
         }
