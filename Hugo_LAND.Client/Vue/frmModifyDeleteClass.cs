@@ -24,7 +24,7 @@ namespace Hugo_LAND.Client.Vue
             InitializeInfo();
             SetAllTextboxes(classes.First());
             createClassValidator = new CreateClassValidator();
-            
+
         }
 
         private void btnBack_Click(object sender, EventArgs e)
@@ -91,13 +91,25 @@ namespace Hugo_LAND.Client.Vue
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            ClassDetailsDTO deletedClass = new ClassDetailsDTO() {
-                Id = int.Parse(idTextBox.Text),
-            };
-            classServiceClient.DeleteClass(deletedClass);
-            InitializeInfo();
-            SetAllTextboxes(classes.First());
-            currentClassIndex = 0;
+                DialogResult dir = MessageBox.Show("Are you sure you want to delete this hero?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+                switch (dir)
+                {
+                    case DialogResult.Yes:
+                    ClassDetailsDTO deletedClass = new ClassDetailsDTO()
+                    {
+                        Id = int.Parse(idTextBox.Text),
+                    };
+                    classServiceClient.DeleteClass(deletedClass);
+                    InitializeInfo();
+                    SetAllTextboxes(classes.First());
+                    currentClassIndex = 0;
+                    break;
+                    case DialogResult.No:
+                        break;
+                    default:
+                        break;
+                }
         }
 
         private void btnFirst_Click(object sender, EventArgs e)
@@ -132,19 +144,21 @@ namespace Hugo_LAND.Client.Vue
             SetAllTextboxes(classes[currentClassIndex]);
 
         }
-        private void InitializeInfo() {
+        private void InitializeInfo()
+        {
             try
             {
                 classes = classServiceClient.GetAllClasses().ToList();
             }
-            catch 
+            catch
             {
                 MessageBox.Show("No classes have been found or a network error has occured!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 this.Close();
             }
         }
 
-        private void SetAllTextboxes(ClassDetailsDTO currentClass) { 
+        private void SetAllTextboxes(ClassDetailsDTO currentClass)
+        {
             idTextBox.Text = currentClass.Id.ToString();
             nomClasseTextBox.Text = currentClass.NomClasse;
             descriptionTextBox.Text = currentClass.Description;
