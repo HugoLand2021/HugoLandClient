@@ -26,7 +26,6 @@ namespace Hugo_LAND.Client.Vue
 
         private void btnCancelManagement_Click(object sender, EventArgs e)
         {
-            this.Close();
         }
 
         private void bntCreateHero_Click(object sender, EventArgs e)
@@ -40,6 +39,12 @@ namespace Hugo_LAND.Client.Vue
         {
             frmDeleteHero deleteHeroForm = new frmDeleteHero(mainForm);
             deleteHeroForm.ShowDialog(this);
+        }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            this.Close();
+
         }
     }
 }

@@ -166,5 +166,10 @@ namespace Hugo_LAND.Client.Vue
             txtstatBaseInt.Enabled = false;
             txtstatBaseVitalite.Enabled = false;
         }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

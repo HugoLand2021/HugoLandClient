@@ -43,12 +43,12 @@ namespace Hugo_LAND.Client.Vue
             this.txtstatBaseStr = new System.Windows.Forms.TextBox();
             this.txtstatBaseVitalite = new System.Windows.Forms.TextBox();
             this.btnCreateHeroFrm = new System.Windows.Forms.Button();
-            this.btnCancelHeroFrm = new System.Windows.Forms.Button();
             this.lblCreate = new System.Windows.Forms.Label();
             this.cmbDescription = new System.Windows.Forms.ComboBox();
             this.cmbNomClass = new System.Windows.Forms.ComboBox();
             this.heroDetailsDTOBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.btnGenerate = new System.Windows.Forms.Button();
+            this.btnBack = new System.Windows.Forms.Button();
             nomHeroLabel = new System.Windows.Forms.Label();
             statBaseDexLabel = new System.Windows.Forms.Label();
             statBaseIntLabel = new System.Windows.Forms.Label();
@@ -164,24 +164,13 @@ namespace Hugo_LAND.Client.Vue
             // btnCreateHeroFrm
             // 
             this.btnCreateHeroFrm.Font = new System.Drawing.Font("Old English Text MT", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCreateHeroFrm.Location = new System.Drawing.Point(15, 281);
+            this.btnCreateHeroFrm.Location = new System.Drawing.Point(73, 277);
             this.btnCreateHeroFrm.Name = "btnCreateHeroFrm";
             this.btnCreateHeroFrm.Size = new System.Drawing.Size(112, 37);
             this.btnCreateHeroFrm.TabIndex = 41;
             this.btnCreateHeroFrm.Text = "Create";
             this.btnCreateHeroFrm.UseVisualStyleBackColor = true;
             this.btnCreateHeroFrm.Click += new System.EventHandler(this.btnCreateHeroFrm_Click);
-            // 
-            // btnCancelHeroFrm
-            // 
-            this.btnCancelHeroFrm.Font = new System.Drawing.Font("Old English Text MT", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancelHeroFrm.Location = new System.Drawing.Point(268, 281);
-            this.btnCancelHeroFrm.Name = "btnCancelHeroFrm";
-            this.btnCancelHeroFrm.Size = new System.Drawing.Size(112, 37);
-            this.btnCancelHeroFrm.TabIndex = 42;
-            this.btnCancelHeroFrm.Text = "Cancel";
-            this.btnCancelHeroFrm.UseVisualStyleBackColor = true;
-            this.btnCancelHeroFrm.Click += new System.EventHandler(this.btnCancelHeroFrm_Click);
             // 
             // lblCreate
             // 
@@ -217,7 +206,7 @@ namespace Hugo_LAND.Client.Vue
             // btnGenerate
             // 
             this.btnGenerate.Font = new System.Drawing.Font("Old English Text MT", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGenerate.Location = new System.Drawing.Point(142, 281);
+            this.btnGenerate.Location = new System.Drawing.Point(200, 277);
             this.btnGenerate.Name = "btnGenerate";
             this.btnGenerate.Size = new System.Drawing.Size(112, 37);
             this.btnGenerate.TabIndex = 46;
@@ -225,18 +214,36 @@ namespace Hugo_LAND.Client.Vue
             this.btnGenerate.UseVisualStyleBackColor = true;
             this.btnGenerate.Click += new System.EventHandler(this.btnGenerate_Click);
             // 
+            // btnBack
+            // 
+            this.btnBack.BackColor = System.Drawing.Color.Transparent;
+            this.btnBack.FlatAppearance.BorderColor = System.Drawing.Color.Red;
+            this.btnBack.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.btnBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBack.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBack.ForeColor = System.Drawing.Color.Red;
+            this.btnBack.ImageAlign = System.Drawing.ContentAlignment.BottomLeft;
+            this.btnBack.Location = new System.Drawing.Point(1, 1);
+            this.btnBack.Name = "btnBack";
+            this.btnBack.Size = new System.Drawing.Size(61, 57);
+            this.btnBack.TabIndex = 47;
+            this.btnBack.Text = "🠔";
+            this.btnBack.TextAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.btnBack.UseVisualStyleBackColor = false;
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
+            // 
             // frmCreateHero
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(392, 338);
+            this.Controls.Add(this.btnBack);
             this.Controls.Add(this.btnGenerate);
             this.Controls.Add(lblNomClasse);
             this.Controls.Add(this.cmbNomClass);
             this.Controls.Add(lblMonde);
             this.Controls.Add(this.cmbDescription);
             this.Controls.Add(this.lblCreate);
-            this.Controls.Add(this.btnCancelHeroFrm);
             this.Controls.Add(this.btnCreateHeroFrm);
             this.Controls.Add(statBaseDexLabel);
             this.Controls.Add(this.txtstatBaseDex);
@@ -266,10 +273,10 @@ namespace Hugo_LAND.Client.Vue
         private System.Windows.Forms.TextBox txtstatBaseStr;
         private System.Windows.Forms.TextBox txtstatBaseVitalite;
         private System.Windows.Forms.Button btnCreateHeroFrm;
-        private System.Windows.Forms.Button btnCancelHeroFrm;
         private System.Windows.Forms.Label lblCreate;
         private System.Windows.Forms.ComboBox cmbDescription;
         private System.Windows.Forms.ComboBox cmbNomClass;
         private System.Windows.Forms.Button btnGenerate;
+        private System.Windows.Forms.Button btnBack;
     }
 }

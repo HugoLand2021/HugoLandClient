@@ -62,5 +62,10 @@ namespace Hugo_LAND.Client.Vue
             frmManageHero f = new frmManageHero(this);
             f.ShowDialog(this);
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
