@@ -21,7 +21,7 @@ namespace Hugo_LAND.Client.Vue
         public frmDeleteHero(frmMain main)
         {
             InitializeComponent();
-            nomCompte = main.accountDetails.NomJoueur;
+            nomCompte = main.accountDetails.PlayerName;
             id = main.accountDetails.Id;
             herosList = HeroService.ReturnHerosFromAccount(id).ToList();
 

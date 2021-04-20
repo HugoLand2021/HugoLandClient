@@ -33,7 +33,7 @@ namespace Hugo_LAND.Client.Vue
             {
                 mainForm.accountDetails = compteJoueurService.GetAccountInfoByUsername(txtUserName.Text);
                 EstConnecte = true;
-                mainForm.ConnectionReussie();
+                mainForm.SuccessfulConnection();
                 this.Close();
             }
             else if (Resultat == "NETWORKERROR")

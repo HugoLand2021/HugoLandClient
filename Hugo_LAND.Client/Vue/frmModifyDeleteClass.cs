@@ -39,12 +39,12 @@ namespace Hugo_LAND.Client.Vue
             {
                 ClassDetailsDTO newClass = new ClassDetailsDTO()
                 {
-                    NomClasse = nomClasseTextBox.Text,
+                    ClassName = nomClasseTextBox.Text,
                     Description = descriptionTextBox.Text,
                     StatBaseStr = 0,
                     StatBaseDex = 0,
                     StatBaseInt = 0,
-                    StatBaseVitalite = 0
+                    StatBaseVitality = 0
                 };
                 var result = createClassValidator.Validate(newClass);
                 foreach (var item in result.Errors)
@@ -57,12 +57,12 @@ namespace Hugo_LAND.Client.Vue
                 ClassDetailsDTO modifiedClass = new ClassDetailsDTO()
                 {
                     Id = int.Parse(idTextBox.Text),
-                    NomClasse = nomClasseTextBox.Text,
+                    ClassName = nomClasseTextBox.Text,
                     Description = descriptionTextBox.Text,
                     StatBaseStr = int.Parse(statBaseStrTextBox.Text),
                     StatBaseDex = int.Parse(statBaseDexTextBox.Text),
                     StatBaseInt = int.Parse(statBaseIntTextBox.Text),
-                    StatBaseVitalite = int.Parse(statBaseVitaliteTextBox.Text)
+                    StatBaseVitality = int.Parse(statBaseVitaliteTextBox.Text)
                 };
 
                 var result = createClassValidator.Validate(modifiedClass);
@@ -160,12 +160,12 @@ namespace Hugo_LAND.Client.Vue
         private void SetAllTextboxes(ClassDetailsDTO currentClass)
         {
             idTextBox.Text = currentClass.Id.ToString();
-            nomClasseTextBox.Text = currentClass.NomClasse;
+            nomClasseTextBox.Text = currentClass.ClassName;
             descriptionTextBox.Text = currentClass.Description;
             statBaseStrTextBox.Text = currentClass.StatBaseStr.ToString();
             statBaseDexTextBox.Text = currentClass.StatBaseDex.ToString();
             statBaseIntTextBox.Text = currentClass.StatBaseInt.ToString();
-            statBaseVitaliteTextBox.Text = currentClass.StatBaseVitalite.ToString();
+            statBaseVitaliteTextBox.Text = currentClass.StatBaseVitality.ToString();
         }
 
         private List<string> VerifyInfo()

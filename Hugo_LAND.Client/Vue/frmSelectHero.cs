@@ -13,21 +13,18 @@ namespace Hugo_LAND.Client.Vue
 {
     public partial class frmSelectHero : Form
     {
-        private string nom;
-        private int id;
+
         private List<HeroDetailsDTO> herosList = new List<HeroDetailsDTO>();
         private HeroDetailsDTO selectedHero = new HeroDetailsDTO();
         private readonly HeroServiceClient HeroService = new HeroServiceClient();
         public frmSelectHero(frmMain main)
         {
             InitializeComponent();
-            nom = main.accountDetails.NomJoueur;
-            id = main.accountDetails.Id;
-            lblnomCompte.Text = nom;
-            var list = HeroService.ReturnHerosFromAccount(id);
+            lblnomCompte.Text = main.accountDetails.PlayerName;
+            var list = HeroService.ReturnHerosFromAccount(main.accountDetails.Id);
 
 
-            herosList = HeroService.ReturnHerosFromAccount(id).ToList();
+            herosList = HeroService.ReturnHerosFromAccount(main.accountDetails.Id).ToList();
             if (herosList.Count() == 0)
             {
                 MessageBox.Show("This account dosn't have any hero.", "ERREUR", MessageBoxButtons.OK, MessageBoxIcon.Error);

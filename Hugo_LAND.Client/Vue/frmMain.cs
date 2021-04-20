@@ -17,10 +17,10 @@ namespace Hugo_LAND.Client.Vue
         private readonly frmLogin loginForm;
         public  AccountDetailsDTO accountDetails = new AccountDetailsDTO();
 
-        internal void ConnectionReussie()
+        internal void SuccessfulConnection()
         {
             loginForm.Dispose();
-            lblUsername.Text = accountDetails.NomJoueur;
+            lblUsername.Text = accountDetails.PlayerName;
             this.Enabled = true;
         }
 

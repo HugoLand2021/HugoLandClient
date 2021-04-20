@@ -25,11 +25,11 @@ namespace Hugo_LAND.Client.Vue
         public frmCreateHero(frmMain main)
         {
             InitializeComponent();
-            nomCompte = main.accountDetails.NomJoueur;
+            nomCompte = main.accountDetails.PlayerName;
             worldsList = worldServiceClient.GetAllWorldNames().ToList();
             classList = classServiceClient.GetAllClasses().ToList();
             cmbDescription.DataSource = worldsList.Select(w => w.Description).ToList();
-            cmbNomClass.DataSource = classList.Select(c => c.NomClasse).ToList();
+            cmbNomClass.DataSource = classList.Select(c => c.ClassName).ToList();
             UpdateStats();
 
         }
@@ -62,7 +62,7 @@ namespace Hugo_LAND.Client.Vue
             txtstatBaseDex.Text = (currClass.StatBaseDex + _random.Next(0, 11)).ToString();
             txtstatBaseInt.Text = (currClass.StatBaseInt + _random.Next(0, 11)).ToString(); ;
             txtstatBaseStr.Text = (currClass.StatBaseStr + _random.Next(0, 11)).ToString(); ;
-            txtstatBaseVitalite.Text = (currClass.StatBaseVitalite + _random.Next(0, 11)).ToString(); ;
+            txtstatBaseVitalite.Text = (currClass.StatBaseVitality + _random.Next(0, 11)).ToString(); ;
 
         }
 

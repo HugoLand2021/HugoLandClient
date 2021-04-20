@@ -139,12 +139,6 @@
     <Compile Include="Vue\frmManageHero.Designer.cs">
       <DependentUpon>frmManageHero.cs</DependentUpon>
     </Compile>
-    <Compile Include="Vue\frmModifHero.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Vue\frmModifHero.Designer.cs">
-      <DependentUpon>frmModifHero.cs</DependentUpon>
-    </Compile>
     <Compile Include="Vue\frmModifyDeleteClass.cs">
       <SubType>Form</SubType>
     </Compile>

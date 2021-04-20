@@ -40,12 +40,12 @@ namespace Hugo_LAND.Client.Vue
             {
                 ClassDetailsDTO newClass = new ClassDetailsDTO()
                 {
-                    NomClasse = txtName.Text,
+                    ClassName = txtName.Text,
                     Description = txtDescription.Text,
                     StatBaseStr = 0,
                     StatBaseDex = 0,
                     StatBaseInt = 0,
-                    StatBaseVitalite = 0
+                    StatBaseVitality = 0
                 };
                 var result = createClassValidator.Validate(newClass);
                 foreach (var item in result.Errors)
@@ -57,12 +57,12 @@ namespace Hugo_LAND.Client.Vue
             {
                 ClassDetailsDTO newClass = new ClassDetailsDTO()
                 {
-                    NomClasse = txtName.Text,
+                    ClassName = txtName.Text,
                     Description = txtDescription.Text,
                     StatBaseStr = int.Parse(txtStr.Text),
                     StatBaseDex = int.Parse(txtDex.Text),
                     StatBaseInt = int.Parse(txtInt.Text),
-                    StatBaseVitalite = int.Parse(txtVitality.Text)
+                    StatBaseVitality = int.Parse(txtVitality.Text)
                 };
 
                 var result = createClassValidator.Validate(newClass);

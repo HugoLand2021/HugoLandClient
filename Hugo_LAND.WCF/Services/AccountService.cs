@@ -37,10 +37,10 @@ namespace Hugo_LAND.WCF.Services
                    .First();
                     AccountDetailsDTO a = new AccountDetailsDTO {
                     Id = account.Id,
-                    Courriel = account.Courriel,
-                    Nom = account.Nom,
-                    NomJoueur = account.NomJoueur,
-                    Prenom = account.Prenom,
+                    Email = account.Courriel,
+                    LastName = account.Nom,
+                    PlayerName = account.NomJoueur,
+                    FirstName = account.Prenom,
                     TypeUtilisateur = account.TypeUtilisateur
                     };
 

@@ -18,12 +18,12 @@ namespace Hugo_LAND.WCF.Services
                 Monde monde = context.Mondes.Find(world.ID);
                 var classe = new Classe()
                 {
-                    NomClasse = newClass.NomClasse,
+                    NomClasse = newClass.ClassName,
                     Description = newClass.Description,
                     StatBaseStr = newClass.StatBaseStr,
                     StatBaseDex = newClass.StatBaseDex,
                     StatBaseInt = newClass.StatBaseInt,
-                    StatBaseVitalite = newClass.StatBaseVitalite,
+                    StatBaseVitalite = newClass.StatBaseVitality,
                     Monde = monde,
                 };
                 context.Entry(classe).State = EntityState.Added;
@@ -64,12 +64,12 @@ namespace Hugo_LAND.WCF.Services
                     var currClass = new Classe()
                     {
                         Id = dto.Id,
-                        NomClasse = dto.NomClasse,
+                        NomClasse = dto.ClassName,
                         Description = dto.Description,
                         StatBaseStr = dto.StatBaseStr,
                         StatBaseDex = dto.StatBaseDex,
                         StatBaseInt = dto.StatBaseInt,
-                        StatBaseVitalite = dto.StatBaseVitalite,
+                        StatBaseVitalite = dto.StatBaseVitality,
                     };
                     context.Entry(currClass).State = EntityState.Modified;
                     context.SaveChanges();
@@ -91,12 +91,12 @@ namespace Hugo_LAND.WCF.Services
                     .Select(p => new ClassDetailsDTO
                     {
                         Id = p.Id,
-                        NomClasse = p.NomClasse,
+                        ClassName = p.NomClasse,
                         Description = p.Description,
                         StatBaseStr = p.StatBaseStr,
                         StatBaseDex = p.StatBaseDex,
                         StatBaseInt = p.StatBaseInt,
-                        StatBaseVitalite = p.StatBaseVitalite
+                        StatBaseVitality = p.StatBaseVitalite
 
                     }).ToList();
                 }
@@ -119,7 +119,7 @@ namespace Hugo_LAND.WCF.Services
                    .Select(p => new ClassDetailsDTO
                    {
                        Id = p.Id,
-                       NomClasse = p.NomClasse
+                       ClassName = p.NomClasse
                    }).FirstOrDefault();
 
                 }

@@ -13,7 +13,7 @@ namespace Hugo_LAND.WCF.DTOs
         [DataMember]
         public int Id { get; set; }
         [DataMember]
-        public string NomClasse { get; set; }
+        public string ClassName { get; set; }
         [DataMember]
         public string Description { get; set; }
         [DataMember]
@@ -23,7 +23,7 @@ namespace Hugo_LAND.WCF.DTOs
         [DataMember]
         public int StatBaseInt { get; set; }
         [DataMember]
-        public int StatBaseVitalite { get; set; }
+        public int StatBaseVitality { get; set; }
 
 
     }

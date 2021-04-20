@@ -23,19 +23,19 @@ namespace Hugo_LAND.Client.HugoLandServices {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string CourrielField;
+        private string EmailField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string FirstNameField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int IdField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string NomField;
+        private string LastNameField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string NomJoueurField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string PrenomField;
+        private string PlayerNameField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private Hugo_LAND.Core.Models.TypeUtilisateur TypeUtilisateurField;
@@ -51,14 +51,27 @@ namespace Hugo_LAND.Client.HugoLandServices {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Courriel {
+        public string Email {
             get {
-                return this.CourrielField;
+                return this.EmailField;
             }
             set {
-                if ((object.ReferenceEquals(this.CourrielField, value) != true)) {
-                    this.CourrielField = value;
-                    this.RaisePropertyChanged("Courriel");
+                if ((object.ReferenceEquals(this.EmailField, value) != true)) {
+                    this.EmailField = value;
+                    this.RaisePropertyChanged("Email");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string FirstName {
+            get {
+                return this.FirstNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.FirstNameField, value) != true)) {
+                    this.FirstNameField = value;
+                    this.RaisePropertyChanged("FirstName");
                 }
             }
         }
@@ -77,40 +90,27 @@ namespace Hugo_LAND.Client.HugoLandServices {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Nom {
+        public string LastName {
             get {
-                return this.NomField;
+                return this.LastNameField;
             }
             set {
-                if ((object.ReferenceEquals(this.NomField, value) != true)) {
-                    this.NomField = value;
-                    this.RaisePropertyChanged("Nom");
+                if ((object.ReferenceEquals(this.LastNameField, value) != true)) {
+                    this.LastNameField = value;
+                    this.RaisePropertyChanged("LastName");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string NomJoueur {
+        public string PlayerName {
             get {
-                return this.NomJoueurField;
+                return this.PlayerNameField;
             }
             set {
-                if ((object.ReferenceEquals(this.NomJoueurField, value) != true)) {
-                    this.NomJoueurField = value;
-                    this.RaisePropertyChanged("NomJoueur");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Prenom {
-            get {
-                return this.PrenomField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.PrenomField, value) != true)) {
-                    this.PrenomField = value;
-                    this.RaisePropertyChanged("Prenom");
+                if ((object.ReferenceEquals(this.PlayerNameField, value) != true)) {
+                    this.PlayerNameField = value;
+                    this.RaisePropertyChanged("PlayerName");
                 }
             }
         }
@@ -148,13 +148,13 @@ namespace Hugo_LAND.Client.HugoLandServices {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ClassNameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string DescriptionField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int IdField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string NomClasseField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int StatBaseDexField;
@@ -166,7 +166,7 @@ namespace Hugo_LAND.Client.HugoLandServices {
         private int StatBaseStrField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int StatBaseVitaliteField;
+        private int StatBaseVitalityField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -175,6 +175,19 @@ namespace Hugo_LAND.Client.HugoLandServices {
             }
             set {
                 this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ClassName {
+            get {
+                return this.ClassNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ClassNameField, value) != true)) {
+                    this.ClassNameField = value;
+                    this.RaisePropertyChanged("ClassName");
+                }
             }
         }
         
@@ -200,19 +213,6 @@ namespace Hugo_LAND.Client.HugoLandServices {
                 if ((this.IdField.Equals(value) != true)) {
                     this.IdField = value;
                     this.RaisePropertyChanged("Id");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string NomClasse {
-            get {
-                return this.NomClasseField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.NomClasseField, value) != true)) {
-                    this.NomClasseField = value;
-                    this.RaisePropertyChanged("NomClasse");
                 }
             }
         }
@@ -257,14 +257,14 @@ namespace Hugo_LAND.Client.HugoLandServices {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public int StatBaseVitalite {
+        public int StatBaseVitality {
             get {
-                return this.StatBaseVitaliteField;
+                return this.StatBaseVitalityField;
             }
             set {
-                if ((this.StatBaseVitaliteField.Equals(value) != true)) {
-                    this.StatBaseVitaliteField = value;
-                    this.RaisePropertyChanged("StatBaseVitalite");
+                if ((this.StatBaseVitalityField.Equals(value) != true)) {
+                    this.StatBaseVitalityField = value;
+                    this.RaisePropertyChanged("StatBaseVitality");
                 }
             }
         }

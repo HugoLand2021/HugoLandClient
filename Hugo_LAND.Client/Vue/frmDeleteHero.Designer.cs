@@ -42,9 +42,10 @@ namespace Hugo_LAND.Client.Vue
             // nomHeroLabel
             // 
             nomHeroLabel.AutoSize = true;
-            nomHeroLabel.Location = new System.Drawing.Point(13, 39);
+            nomHeroLabel.Location = new System.Drawing.Point(17, 48);
+            nomHeroLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             nomHeroLabel.Name = "nomHeroLabel";
-            nomHeroLabel.Size = new System.Drawing.Size(58, 13);
+            nomHeroLabel.Size = new System.Drawing.Size(76, 17);
             nomHeroLabel.TabIndex = 46;
             nomHeroLabel.Text = "Nom Hero:";
             // 
@@ -54,9 +55,10 @@ namespace Hugo_LAND.Client.Vue
             // 
             // btnDelete
             // 
-            this.btnDelete.Location = new System.Drawing.Point(17, 112);
+            this.btnDelete.Location = new System.Drawing.Point(23, 138);
+            this.btnDelete.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(75, 23);
+            this.btnDelete.Size = new System.Drawing.Size(100, 28);
             this.btnDelete.TabIndex = 45;
             this.btnDelete.Text = "Delete";
             this.btnDelete.UseVisualStyleBackColor = true;
@@ -64,9 +66,10 @@ namespace Hugo_LAND.Client.Vue
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(123, 112);
+            this.btnCancel.Location = new System.Drawing.Point(164, 138);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(75, 23);
+            this.btnCancel.Size = new System.Drawing.Size(100, 28);
             this.btnCancel.TabIndex = 46;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
@@ -74,23 +77,24 @@ namespace Hugo_LAND.Client.Vue
             // 
             // cmbNomHero
             // 
-            this.cmbNomHero.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.heroDetailsDTOBindingSource, "NomHero", true));
             this.cmbNomHero.FormattingEnabled = true;
-            this.cmbNomHero.Location = new System.Drawing.Point(77, 36);
+            this.cmbNomHero.Location = new System.Drawing.Point(103, 44);
+            this.cmbNomHero.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cmbNomHero.Name = "cmbNomHero";
-            this.cmbNomHero.Size = new System.Drawing.Size(121, 21);
+            this.cmbNomHero.Size = new System.Drawing.Size(160, 24);
             this.cmbNomHero.TabIndex = 47;
             // 
             // frmDeleteHero
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(222, 189);
+            this.ClientSize = new System.Drawing.Size(296, 233);
             this.Controls.Add(nomHeroLabel);
             this.Controls.Add(this.cmbNomHero);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnDelete);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "frmDeleteHero";
             this.Text = "Delete Hero";
             ((System.ComponentModel.ISupportInitialize)(this.heroDetailsDTOBindingSource)).EndInit();

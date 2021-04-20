@@ -16,7 +16,7 @@ namespace Hugo_LAND.Client.Validators
         public CreateClassValidator()
         {
             //Name
-            RuleFor(c => c.NomClasse)
+            RuleFor(c => c.ClassName)
                 .NotEmpty()
                 .WithMessage("Please provide a name.")
                 .Matches(NAME_REGEX)

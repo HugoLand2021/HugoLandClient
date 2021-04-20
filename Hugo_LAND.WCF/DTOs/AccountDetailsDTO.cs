@@ -9,13 +9,13 @@ namespace Hugo_LAND.WCF.DTOs
         [DataMember]
         public int Id { get; set; }
         [DataMember]
-        public string NomJoueur { get; set; }
+        public string PlayerName { get; set; }
         [DataMember]
-        public string Courriel { get; set; }
+        public string Email { get; set; }
         [DataMember]
-        public string Prenom { get; set; }
+        public string FirstName { get; set; }
         [DataMember]
-        public string Nom { get; set; }
+        public string LastName { get; set; }
         [DataMember]
         public TypeUtilisateur TypeUtilisateur { get; set; }
     }
