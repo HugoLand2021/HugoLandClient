@@ -73,13 +73,9 @@ namespace Hugo_LAND.WCF.Services
             {
                 using (var context = new HugoLANDContext())
                 {
-                    var hero = new Hero()
-                    {
-                        Id = dto.Id,
-                        x = newX,
-                        y = newY
-                    };
-                    context.Entry(hero).State = EntityState.Modified;
+                    var hero = context.Heros.Find(dto.Id);
+                    hero.x = newX;
+                    hero.y = newY;
                     await context.SaveChangesAsync();
                 }
             }
