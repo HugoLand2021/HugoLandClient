@@ -211,4 +211,36 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="ReturnMonsters">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="world" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="mapBeginX" type="xs:int" />
+        <xs:element minOccurs="0" name="mapBeginY" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ReturnMonstersResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/Hugo_LAND.WCF.DTOs" minOccurs="0" name="ReturnMonstersResult" nillable="true" type="q16:ArrayOfMonsterDetailsDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ReturnItems">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="world" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="mapBeginX" type="xs:int" />
+        <xs:element minOccurs="0" name="mapBeginY" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ReturnItemsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/Hugo_LAND.WCF.DTOs" minOccurs="0" name="ReturnItemsResult" nillable="true" type="q17:ArrayOfItemDetailsDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
 </xs:schema>

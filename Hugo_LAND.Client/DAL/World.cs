@@ -73,20 +73,6 @@ namespace Hugo_LAND.Client
             _heroSprite.ColorKey = Color.FromArgb(75, 75, 75);
         }
 
-        //private void readMapfile(string mapFile)
-        //{
-        //    using (StreamReader stream = new StreamReader(mapFile))
-        //    {
-        //        while (!stream.EndOfStream)
-        //        {
-        //            //Each area constructor will consume just one area
-        //            Area area = new Area(stream, _tiles);
-        //            _world.Add(area.Name, area);
-        //        }
-        //    }
-        //}
-
-
         public override void Update(double gameTime, double elapsedTime)
         {
             //We only actually update the current area the rest all 'sleep'
@@ -263,7 +249,7 @@ namespace Hugo_LAND.Client
                             List<WorldItemDetailsDTO> listItems = GetWorldItems(_gameState.Hero.x + 1, _gameState.Hero.y);
                             if (!(listItems == null))
                             {
-                                _currentArea = new Area(_tiles, listItems);
+                                _currentArea = new Area(_tiles, listItems, _gameState.Hero.World, GetBeginPos(_gameState.Hero.x + 1), GetBeginPos(_gameState.Hero.y));
                                 _heroPosition.X = 0;
                                 _gameState.Hero.x++;
                                 setDestination();
@@ -300,7 +286,7 @@ namespace Hugo_LAND.Client
                             List<WorldItemDetailsDTO> listItems = GetWorldItems(_gameState.Hero.x - 1, _gameState.Hero.y);
                             if (!(listItems == null))
                             {
-                                _currentArea = new Area(_tiles, listItems);
+                                _currentArea = new Area(_tiles, listItems, _gameState.Hero.World, GetBeginPos(_gameState.Hero.x - 1), GetBeginPos(_gameState.Hero.y));
                                 _heroPosition.X = Area.MapSizeX - 1;
                                 _gameState.Hero.x--;
                                 setDestination();
@@ -337,7 +323,7 @@ namespace Hugo_LAND.Client
                             List<WorldItemDetailsDTO> listItems = GetWorldItems(_gameState.Hero.x, _gameState.Hero.y - 1);
                             if (!(listItems == null))
                             {
-                                _currentArea = new Area(_tiles, listItems);
+                                _currentArea = new Area(_tiles, listItems, _gameState.Hero.World, GetBeginPos(_gameState.Hero.x), GetBeginPos(_gameState.Hero.y - 1));
                                 _heroPosition.Y = Area.MapSizeY - 1;
                                 _gameState.Hero.y--;
                                 setDestination();
@@ -375,7 +361,7 @@ namespace Hugo_LAND.Client
                             List<WorldItemDetailsDTO> listItems = GetWorldItems(_gameState.Hero.x, _gameState.Hero.y + 1);
                             if (!(listItems == null))
                             {
-                                _currentArea = new Area(_tiles, listItems);
+                                _currentArea = new Area(_tiles, listItems, _gameState.Hero.World, GetBeginPos(_gameState.Hero.x), GetBeginPos(_gameState.Hero.y + 1));
                                 _heroPosition.Y = 0;
                                 _gameState.Hero.y++;
                                 setDestination();
@@ -462,7 +448,7 @@ namespace Hugo_LAND.Client
                         _gameState.Health = 0;
                         _heroSprite = new Sprite(null, _heroPosition.X * Tile.TileSizeX + Area.AreaOffsetX,
                                 _heroPosition.Y * Tile.TileSizeY + Area.AreaOffsetY,
-                                _tiles["bon"].Bitmap, _tiles["bon"].Rectangle, _tiles["bon"].NumberOfFrames);
+                                _tiles["Bones"].Bitmap, _tiles["Bones"].Rectangle, _tiles["Bones"].NumberOfFrames);
                         _heroSprite.ColorKey = Color.FromArgb(75, 75, 75);
                     }
 

@@ -229,6 +229,12 @@
     <None Include="Connected Services\HugoLandServices\Hugo_LAND.Client.HugoLandServices.HeroDetailsDTO.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Connected Services\HugoLandServices\Hugo_LAND.Client.HugoLandServices.ItemDetailsDTO.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\HugoLandServices\Hugo_LAND.Client.HugoLandServices.MonsterDetailsDTO.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Connected Services\HugoLandServices\Hugo_LAND.Client.HugoLandServices.WorldDetailsDTO.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
