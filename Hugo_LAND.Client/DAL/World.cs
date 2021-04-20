@@ -50,17 +50,18 @@ namespace Hugo_LAND.Client
             _tiles = tiles;
 
             //Read in the map file
-           
+
 
             //Find the start point
             //_currentArea = _world[_startArea];
+            _currentArea = new Area(_tiles);
             
 
             //Create and position the hero character
             _heroPosition = new Point(3, 3);
             _heroSprite = new Sprite(null, _heroPosition.X * Tile.TileSizeX + Area.AreaOffsetX,
                                             _heroPosition.Y * Tile.TileSizeY + Area.AreaOffsetY,
-                                            _tiles["her"].Bitmap, _tiles["her"].Rectangle, _tiles["her"].NumberOfFrames);
+                                            _tiles["Hero"].Bitmap, _tiles["Hero"].Rectangle, _tiles["Hero"].NumberOfFrames);
             _heroSprite.Flip = true;
             _heroSprite.ColorKey = Color.FromArgb(75, 75, 75);
         }

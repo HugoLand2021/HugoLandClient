@@ -5,6 +5,7 @@ using System.Text;
 using System.Drawing;
 using System.IO;
 using System.Diagnostics;
+using System.Linq;
 
 namespace Hugo_LAND.Client
 {
@@ -18,7 +19,6 @@ namespace Hugo_LAND.Client
         public const int AreaOffsetY = 50;
         public const int MapSizeX = 8;
         public const int MapSizeY = 8;
-        private List<WorldItemDetailsDTO> pooper = new List<WorldItemDetailsDTO>();
         WorldItemServiceClient worlditemsService = new WorldItemServiceClient();
 
         public MapTile[,] Map = new MapTile[MapSizeX, MapSizeY];
@@ -30,7 +30,7 @@ namespace Hugo_LAND.Client
         //public string SouthArea;
         //public string WestArea;
 
-        public Area(StreamReader stream, Dictionary<string, Tile> tiles)
+        public Area(Dictionary<string, Tile> tiles)
         {
             //string line;
 
@@ -61,30 +61,41 @@ namespace Hugo_LAND.Client
             //    }
             //}
 
-            pooper = worlditemsService.ReturnWorldItems(1112, 0, 0, 8);
+            var pooper = worlditemsService.ReturnWorldItems(1111, 0, 0, 8).ToList();
 
-            //foreach (var item in collection)
-            //{
+            foreach (var item in pooper)
+            {
 
-            //}
+                MapTile mapTile = new MapTile();
+                Map[item.x, item.y] = mapTile;
+                mapTile.Tile = tiles[item.Description];
+                mapTile.SetSprite(item.x, item.y);
+                //mapTile.SetObjectSprite(item.x,item.y);
+
+
+                //if (mapTile.ObjectTile.IsTransparent)
+                //{
+                //    mapTile.ObjectSprite.ColorKey = Color.FromArgb(75, 75, 75);
+                //}
+            }
 
             //Read game objects until the blank line
-            while (!stream.EndOfStream && (line = stream.ReadLine().Trim()) != "")
-            {
-                //Each line is an x,y coordinate and a tile shortcut
-                //Look up the tile and construct the sprite
-                string[] elements = line.Split(',');
-                int x = Convert.ToInt32(elements[0]);
-                int y = Convert.ToInt32(elements[1]);
-                MapTile mapTile = Map[x, y];
-                mapTile.ObjectTile = tiles[elements[2]];
-                mapTile.SetObjectSprite(x, y);
+            //while (!stream.EndOfStream && (line = stream.ReadLine().Trim()) != "")
+            //{
+            //    //Each line is an x,y coordinate and a tile shortcut
+            //    //Look up the tile and construct the sprite
+            //    string[] elements = line.Split(',');
+            //    int x = Convert.ToInt32(elements[0]);
+            //    int y = Convert.ToInt32(elements[1]);
+            //    MapTile mapTile = Map[x, y];
+            //    mapTile.ObjectTile = tiles[elements[2]];
+            //    mapTile.SetObjectSprite(x, y);
 
-                if (mapTile.ObjectTile.IsTransparent)
-                {
-                    mapTile.ObjectSprite.ColorKey = Color.FromArgb(75, 75, 75);
-                }
-            }
+            //    if (mapTile.ObjectTile.IsTransparent)
+            //    {
+            //        mapTile.ObjectSprite.ColorKey = Color.FromArgb(75, 75, 75);
+            //    }
+            //}
 
         }
 
