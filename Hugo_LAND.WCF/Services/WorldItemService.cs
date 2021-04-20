@@ -29,8 +29,7 @@ namespace Hugo_LAND.WCF.Services
                             World = m.Monde.Id,
                             TypeObject = m.TypeObjet
 
-                        })
-                        .ToList();
+                        }).ToList();
                 }
             }
             catch 

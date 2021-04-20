@@ -1,4 +1,5 @@
 using System;
+using Hugo_LAND.Client.HugoLandServices;
 using System.Collections.Generic;
 using System.Text;
 using System.Drawing;
@@ -17,6 +18,8 @@ namespace Hugo_LAND.Client
         public const int AreaOffsetY = 50;
         public const int MapSizeX = 8;
         public const int MapSizeY = 8;
+        private List<WorldItemDetailsDTO> pooper = new List<WorldItemDetailsDTO>();
+        WorldItemServiceClient worlditemsService = new WorldItemServiceClient();
 
         public MapTile[,] Map = new MapTile[MapSizeX, MapSizeY];
         private Rectangle _areaRectangle = new Rectangle(AreaOffsetX, AreaOffsetY, MapSizeX * Tile.TileSizeX, MapSizeY * Tile.TileSizeY);
@@ -29,7 +32,7 @@ namespace Hugo_LAND.Client
 
         public Area(StreamReader stream, Dictionary<string, Tile> tiles)
         {
-            string line;
+            //string line;
 
             //1st line is the name
             //Name = stream.ReadLine().ToLower();
@@ -44,19 +47,26 @@ namespace Hugo_LAND.Client
 
             //Read in 8 lines of 8 characters each. Look up the tile and make the
             //matching sprite
-            for (int j = 0; j < MapSizeY; j++)
-            {
-                //Get a line of map characters
-                line = stream.ReadLine();
+            //for (int j = 0; j < MapSizeY; j++)
+            //{
+            //    //Get a line of map characters
+            //    line = stream.ReadLine();
 
-                for (int i = 0; i < MapSizeX; i++)
-                {
-                    MapTile mapTile = new MapTile();
-                    Map[i, j] = mapTile;
-                    mapTile.Tile = tiles[line[i].ToString()];
-                    mapTile.SetSprite(i, j);
-                }
-            }
+            //    for (int i = 0; i < MapSizeX; i++)
+            //    {
+            //        MapTile mapTile = new MapTile();
+            //        Map[i, j] = mapTile;
+            //        mapTile.Tile = tiles[line[i].ToString()];
+            //        mapTile.SetSprite(i, j);
+            //    }
+            //}
+
+            pooper = worlditemsService.ReturnWorldItems(1112, 0, 0, 8);
+
+            //foreach (var item in collection)
+            //{
+
+            //}
 
             //Read game objects until the blank line
             while (!stream.EndOfStream && (line = stream.ReadLine().Trim()) != "")
