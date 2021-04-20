@@ -256,10 +256,6 @@ namespace Hugo_LAND.Client
                                 setDestination();
                                 _heroSprite.Location = _heroDestination;
                             }
-                            //_currentArea = _world[_currentArea.EastArea];
-                            //_gameState.Hero.x++;
-                            //setDestination();
-                            //_heroSprite.Location = _heroDestination;
                         }
                         break;
 
@@ -294,10 +290,6 @@ namespace Hugo_LAND.Client
                                 setDestination();
                                 _heroSprite.Location = _heroDestination;
                             }
-                            //_currentArea = _world[_currentArea.WestArea];
-                            //_heroPosition.X = Area.MapSizeX - 1;
-                            //setDestination();
-                            //_heroSprite.Location = _heroDestination;
                         }
                         break;
 
@@ -332,11 +324,6 @@ namespace Hugo_LAND.Client
                                 setDestination();
                                 _heroSprite.Location = _heroDestination;
                             }
-
-                            //_currentArea = _world[_currentArea.NorthArea];
-                            //_heroPosition.Y = Area.MapSizeY - 1;
-                            //setDestination();
-                            //_heroSprite.Location = _heroDestination;
                         }
                         break;
 
@@ -372,11 +359,6 @@ namespace Hugo_LAND.Client
                                 setDestination();
                                 _heroSprite.Location = _heroDestination;
                             }
-
-                            //_currentArea = _world[_currentArea.SouthArea];
-                            //_heroPosition.Y = 0;
-                            //setDestination();
-                            //_heroSprite.Location = _heroDestination;
                         }
                         break;
 
