@@ -697,22 +697,22 @@ namespace Hugo_LAND.Client.HugoLandServices {
         System.Threading.Tasks.Task<Hugo_LAND.Client.HugoLandServices.ClassDetailsDTO[]> GetAllClassesAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IClassService/CreateClass", ReplyAction="http://tempuri.org/IClassService/CreateClassResponse")]
-        void CreateClass(Hugo_LAND.Client.HugoLandServices.ClassDetailsDTO newClass, Hugo_LAND.Client.HugoLandServices.WorldDetailsDTO world);
+        bool CreateClass(Hugo_LAND.Client.HugoLandServices.ClassDetailsDTO newClass, Hugo_LAND.Client.HugoLandServices.WorldDetailsDTO world);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IClassService/CreateClass", ReplyAction="http://tempuri.org/IClassService/CreateClassResponse")]
-        System.Threading.Tasks.Task CreateClassAsync(Hugo_LAND.Client.HugoLandServices.ClassDetailsDTO newClass, Hugo_LAND.Client.HugoLandServices.WorldDetailsDTO world);
+        System.Threading.Tasks.Task<bool> CreateClassAsync(Hugo_LAND.Client.HugoLandServices.ClassDetailsDTO newClass, Hugo_LAND.Client.HugoLandServices.WorldDetailsDTO world);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IClassService/DeleteClass", ReplyAction="http://tempuri.org/IClassService/DeleteClassResponse")]
-        void DeleteClass(Hugo_LAND.Client.HugoLandServices.ClassDetailsDTO dto);
+        bool DeleteClass(Hugo_LAND.Client.HugoLandServices.ClassDetailsDTO dto);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IClassService/DeleteClass", ReplyAction="http://tempuri.org/IClassService/DeleteClassResponse")]
-        System.Threading.Tasks.Task DeleteClassAsync(Hugo_LAND.Client.HugoLandServices.ClassDetailsDTO dto);
+        System.Threading.Tasks.Task<bool> DeleteClassAsync(Hugo_LAND.Client.HugoLandServices.ClassDetailsDTO dto);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IClassService/SaveClass", ReplyAction="http://tempuri.org/IClassService/SaveClassResponse")]
-        void SaveClass(Hugo_LAND.Client.HugoLandServices.ClassDetailsDTO dto);
+        bool SaveClass(Hugo_LAND.Client.HugoLandServices.ClassDetailsDTO dto);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IClassService/SaveClass", ReplyAction="http://tempuri.org/IClassService/SaveClassResponse")]
-        System.Threading.Tasks.Task SaveClassAsync(Hugo_LAND.Client.HugoLandServices.ClassDetailsDTO dto);
+        System.Threading.Tasks.Task<bool> SaveClassAsync(Hugo_LAND.Client.HugoLandServices.ClassDetailsDTO dto);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IClassService/GetClassByName", ReplyAction="http://tempuri.org/IClassService/GetClassByNameResponse")]
         Hugo_LAND.Client.HugoLandServices.ClassDetailsDTO GetClassByName(string name);
@@ -756,27 +756,27 @@ namespace Hugo_LAND.Client.HugoLandServices {
             return base.Channel.GetAllClassesAsync();
         }
         
-        public void CreateClass(Hugo_LAND.Client.HugoLandServices.ClassDetailsDTO newClass, Hugo_LAND.Client.HugoLandServices.WorldDetailsDTO world) {
-            base.Channel.CreateClass(newClass, world);
+        public bool CreateClass(Hugo_LAND.Client.HugoLandServices.ClassDetailsDTO newClass, Hugo_LAND.Client.HugoLandServices.WorldDetailsDTO world) {
+            return base.Channel.CreateClass(newClass, world);
         }
         
-        public System.Threading.Tasks.Task CreateClassAsync(Hugo_LAND.Client.HugoLandServices.ClassDetailsDTO newClass, Hugo_LAND.Client.HugoLandServices.WorldDetailsDTO world) {
+        public System.Threading.Tasks.Task<bool> CreateClassAsync(Hugo_LAND.Client.HugoLandServices.ClassDetailsDTO newClass, Hugo_LAND.Client.HugoLandServices.WorldDetailsDTO world) {
             return base.Channel.CreateClassAsync(newClass, world);
         }
         
-        public void DeleteClass(Hugo_LAND.Client.HugoLandServices.ClassDetailsDTO dto) {
-            base.Channel.DeleteClass(dto);
+        public bool DeleteClass(Hugo_LAND.Client.HugoLandServices.ClassDetailsDTO dto) {
+            return base.Channel.DeleteClass(dto);
         }
         
-        public System.Threading.Tasks.Task DeleteClassAsync(Hugo_LAND.Client.HugoLandServices.ClassDetailsDTO dto) {
+        public System.Threading.Tasks.Task<bool> DeleteClassAsync(Hugo_LAND.Client.HugoLandServices.ClassDetailsDTO dto) {
             return base.Channel.DeleteClassAsync(dto);
         }
         
-        public void SaveClass(Hugo_LAND.Client.HugoLandServices.ClassDetailsDTO dto) {
-            base.Channel.SaveClass(dto);
+        public bool SaveClass(Hugo_LAND.Client.HugoLandServices.ClassDetailsDTO dto) {
+            return base.Channel.SaveClass(dto);
         }
         
-        public System.Threading.Tasks.Task SaveClassAsync(Hugo_LAND.Client.HugoLandServices.ClassDetailsDTO dto) {
+        public System.Threading.Tasks.Task<bool> SaveClassAsync(Hugo_LAND.Client.HugoLandServices.ClassDetailsDTO dto) {
             return base.Channel.SaveClassAsync(dto);
         }
         
@@ -800,16 +800,16 @@ namespace Hugo_LAND.Client.HugoLandServices {
         System.Threading.Tasks.Task<Hugo_LAND.Client.HugoLandServices.HeroDetailsDTO[]> ReturnHerosFromAccountAsync(int idCompteJoueur);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IHeroService/CreateHero", ReplyAction="http://tempuri.org/IHeroService/CreateHeroResponse")]
-        void CreateHero(Hugo_LAND.Client.HugoLandServices.HeroDetailsDTO dto);
+        bool CreateHero(Hugo_LAND.Client.HugoLandServices.HeroDetailsDTO dto);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IHeroService/CreateHero", ReplyAction="http://tempuri.org/IHeroService/CreateHeroResponse")]
-        System.Threading.Tasks.Task CreateHeroAsync(Hugo_LAND.Client.HugoLandServices.HeroDetailsDTO dto);
+        System.Threading.Tasks.Task<bool> CreateHeroAsync(Hugo_LAND.Client.HugoLandServices.HeroDetailsDTO dto);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IHeroService/DeleteHero", ReplyAction="http://tempuri.org/IHeroService/DeleteHeroResponse")]
-        void DeleteHero(Hugo_LAND.Client.HugoLandServices.HeroDetailsDTO dto);
+        bool DeleteHero(Hugo_LAND.Client.HugoLandServices.HeroDetailsDTO dto);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IHeroService/DeleteHero", ReplyAction="http://tempuri.org/IHeroService/DeleteHeroResponse")]
-        System.Threading.Tasks.Task DeleteHeroAsync(Hugo_LAND.Client.HugoLandServices.HeroDetailsDTO dto);
+        System.Threading.Tasks.Task<bool> DeleteHeroAsync(Hugo_LAND.Client.HugoLandServices.HeroDetailsDTO dto);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IHeroService/MoveHero", ReplyAction="http://tempuri.org/IHeroService/MoveHeroResponse")]
         void MoveHero(Hugo_LAND.Client.HugoLandServices.HeroDetailsDTO dto, int newX, int newY);
@@ -859,19 +859,19 @@ namespace Hugo_LAND.Client.HugoLandServices {
             return base.Channel.ReturnHerosFromAccountAsync(idCompteJoueur);
         }
         
-        public void CreateHero(Hugo_LAND.Client.HugoLandServices.HeroDetailsDTO dto) {
-            base.Channel.CreateHero(dto);
+        public bool CreateHero(Hugo_LAND.Client.HugoLandServices.HeroDetailsDTO dto) {
+            return base.Channel.CreateHero(dto);
         }
         
-        public System.Threading.Tasks.Task CreateHeroAsync(Hugo_LAND.Client.HugoLandServices.HeroDetailsDTO dto) {
+        public System.Threading.Tasks.Task<bool> CreateHeroAsync(Hugo_LAND.Client.HugoLandServices.HeroDetailsDTO dto) {
             return base.Channel.CreateHeroAsync(dto);
         }
         
-        public void DeleteHero(Hugo_LAND.Client.HugoLandServices.HeroDetailsDTO dto) {
-            base.Channel.DeleteHero(dto);
+        public bool DeleteHero(Hugo_LAND.Client.HugoLandServices.HeroDetailsDTO dto) {
+            return base.Channel.DeleteHero(dto);
         }
         
-        public System.Threading.Tasks.Task DeleteHeroAsync(Hugo_LAND.Client.HugoLandServices.HeroDetailsDTO dto) {
+        public System.Threading.Tasks.Task<bool> DeleteHeroAsync(Hugo_LAND.Client.HugoLandServices.HeroDetailsDTO dto) {
             return base.Channel.DeleteHeroAsync(dto);
         }
         

@@ -231,6 +231,9 @@
     <None Include="Connected Services\HugoLandServices\Hugo_LAND.Client.HugoLandServices.WorldDetailsDTO.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Connected Services\HugoLandServices\Hugo_LAND.Client.HugoLandServices.WorldItemDetailsDTO.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Eula.rtf" />
     <None Include="GameData\TileLookups.csv">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

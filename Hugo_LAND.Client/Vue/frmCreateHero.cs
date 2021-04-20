@@ -16,22 +16,18 @@ namespace Hugo_LAND.Client.Vue
         private readonly Random _random = new Random();
         private string nomCompte;
         private readonly HeroServiceClient HeroService = new HeroServiceClient();
-        private readonly AccountServiceClient compteJoueurService = new AccountServiceClient();
         private readonly WorldServiceClient worldServiceClient = new WorldServiceClient();
         private readonly ClassServiceClient classServiceClient = new ClassServiceClient();
-        private readonly List<WorldDetailsDTO> worldsList = new List<WorldDetailsDTO>();
-        private readonly List<ClassDetailsDTO> classList = new List<ClassDetailsDTO>();
+        private  List<WorldDetailsDTO> worldsList = new List<WorldDetailsDTO>();
+        private  List<ClassDetailsDTO> classList = new List<ClassDetailsDTO>();
 
         public frmCreateHero(frmMain main)
         {
             InitializeComponent();
             nomCompte = main.accountDetails.PlayerName;
-            worldsList = worldServiceClient.GetAllWorldNames().ToList();
-            classList = classServiceClient.GetAllClasses().ToList();
-            cmbDescription.DataSource = worldsList.Select(w => w.Description).ToList();
-            cmbNomClass.DataSource = classList.Select(c => c.ClassName).ToList();
+            LoadWorlds();
+            LoadClasses();
             UpdateStats();
-
         }
 
         private void btnCreateHeroFrm_Click(object sender, EventArgs e)
@@ -47,7 +43,15 @@ namespace Hugo_LAND.Client.Vue
                 World = cmbDescription.Text,
                 UserName = nomCompte
             };
-            HeroService.CreateHero(hero);
+            bool isSuccess = HeroService.CreateHero(hero);
+            if (isSuccess)
+            {
+                MessageBox.Show("The hero has been created", "Success!", MessageBoxButtons.OK, MessageBoxIcon.None);
+                this.Close();
+            }
+            else
+                MessageBox.Show("An error has occured with the creation of the hero", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            
         }
 
         private void btnCancelHeroFrm_Click(object sender, EventArgs e)
@@ -74,6 +78,31 @@ namespace Hugo_LAND.Client.Vue
         private void btnGenerate_Click(object sender, EventArgs e)
         {
             UpdateStats();
+        }
+        private void LoadWorlds() {
+            try
+            {
+                worldsList = worldServiceClient.GetAllWorldNames().ToList();
+                cmbDescription.DataSource = worldsList.Select(w => w.Description).ToList();
+            }
+            catch
+            {
+                MessageBox.Show("No worlds have been found or a network error has occured!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                this.Close();
+            }
+        }
+        private void LoadClasses() {
+            try
+            {
+                classList = classServiceClient.GetAllClasses().ToList();
+                cmbNomClass.DataSource = classList.Select(c => c.ClassName).ToList();
+
+            }
+            catch
+            {
+                MessageBox.Show("No classes have been found or a network error has occured!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                this.Close();
+            }
         }
     }
 }

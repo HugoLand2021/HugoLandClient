@@ -41,8 +41,6 @@ namespace Hugo_LAND.WCF.Services
                        LimiteX = p.LimiteX,
                        LimiteY = p.LimiteY
                    }).FirstOrDefault();
-
-
                 }
                 catch 
                 {

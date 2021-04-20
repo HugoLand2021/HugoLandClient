@@ -11,27 +11,35 @@ namespace Hugo_LAND.WCF.Services
 {
     public partial class HugoLandService : IClassService
     {
-        public async void CreateClass(ClassDetailsDTO newClass, WorldDetailsDTO world)
+        public bool CreateClass(ClassDetailsDTO newClass, WorldDetailsDTO world)
         {
-            using (HugoLANDContext context = new HugoLANDContext())
+            try
             {
-                Monde monde = context.Mondes.Find(world.ID);
-                var classe = new Classe()
+                using (HugoLANDContext context = new HugoLANDContext())
                 {
-                    NomClasse = newClass.ClassName,
-                    Description = newClass.Description,
-                    StatBaseStr = newClass.StatBaseStr,
-                    StatBaseDex = newClass.StatBaseDex,
-                    StatBaseInt = newClass.StatBaseInt,
-                    StatBaseVitalite = newClass.StatBaseVitality,
-                    Monde = monde,
-                };
-                context.Entry(classe).State = EntityState.Added;
-                await context.SaveChangesAsync();
+                    Monde monde = context.Mondes.Find(world.ID);
+                    var classe = new Classe()
+                    {
+                        NomClasse = newClass.ClassName,
+                        Description = newClass.Description,
+                        StatBaseStr = newClass.StatBaseStr,
+                        StatBaseDex = newClass.StatBaseDex,
+                        StatBaseInt = newClass.StatBaseInt,
+                        StatBaseVitalite = newClass.StatBaseVitality,
+                        Monde = monde,
+                    };
+                    context.Entry(classe).State = EntityState.Added;
+                    context.SaveChangesAsync();
+                    return true;
+                }
+            }
+            catch
+            {
+                return false;
             }
         }
 
-        public void DeleteClass(ClassDetailsDTO dto)
+        public bool DeleteClass(ClassDetailsDTO dto)
         {
             try
             {
@@ -47,15 +55,16 @@ namespace Hugo_LAND.WCF.Services
 
                     context.Entry(delClass).State = EntityState.Deleted;
                     context.SaveChanges();
+                    return true;
                 }
             }
             catch
             {
-                //METTRREEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE UNE EEEEEEEEEEEEEEEEEEEEEEEEEERRRRRRRRRRREEEEEEEEEEUUUUUUUUURRRRRRRR
+                return false;
             }
         }
 
-        public void SaveClass(ClassDetailsDTO dto)
+        public bool SaveClass(ClassDetailsDTO dto)
         {
             using (HugoLANDContext context = new HugoLANDContext())
             {
@@ -73,10 +82,11 @@ namespace Hugo_LAND.WCF.Services
                     };
                     context.Entry(currClass).State = EntityState.Modified;
                     context.SaveChanges();
+                    return true;
                 }
                 catch
                 {
-                    //METTRREEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE UNE EEEEEEEEEEEEEEEEEEEEEEEEEERRRRRRRRRRREEEEEEEEEEUUUUUUUUURRRRRRRR
+                    return false;
                 }
 
             }
@@ -104,8 +114,6 @@ namespace Hugo_LAND.WCF.Services
                 {
                     return null;
                 }
-
-
             }
         }
         public ClassDetailsDTO GetClassByName(string name)
@@ -128,8 +136,6 @@ namespace Hugo_LAND.WCF.Services
                     return null;
                 }
             }
-
         }
-
     }
 }

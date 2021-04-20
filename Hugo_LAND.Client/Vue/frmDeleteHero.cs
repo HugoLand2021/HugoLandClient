@@ -24,7 +24,6 @@ namespace Hugo_LAND.Client.Vue
             nomCompte = main.accountDetails.PlayerName;
             id = main.accountDetails.Id;
             herosList = HeroService.ReturnHerosFromAccount(id).ToList();
-
             if (herosList.Count() == 0)
             {
                 MessageBox.Show("This account dosn't have any hero.", "ERREUR", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -43,13 +42,18 @@ namespace Hugo_LAND.Client.Vue
             if (cmbNomHero != null)
             {
                 DialogResult dir = MessageBox.Show("Are you sure you want to delete this hero?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-
-
-
                 switch (dir)
                 {
                     case DialogResult.Yes:
-                        HeroService.DeleteHero(herosList[cmbNomHero.SelectedIndex]);
+                        bool isSuccess = HeroService.DeleteHero(herosList[cmbNomHero.SelectedIndex]);
+                        if (isSuccess)
+                        {
+                            MessageBox.Show("The hero has been created", "Success!", MessageBoxButtons.OK, MessageBoxIcon.None);
+                            this.Close();
+                        }
+                        else
+                            MessageBox.Show("An error has occured while trying to delete the hero", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
                         break;
                     case DialogResult.No:
                         break;
@@ -57,11 +61,6 @@ namespace Hugo_LAND.Client.Vue
                         break;
                 }
             }
-
-            //var currhero = HeroService.RetourneHerosActuel(txtidHero.Text);
-            //HeroService.SupprimeHero(currhero);
-
-
         }
 
         private void btnCancel_Click(object sender, EventArgs e)

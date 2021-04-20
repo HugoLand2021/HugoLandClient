@@ -17,10 +17,10 @@ namespace Hugo_LAND.WCF.Services
 
 
         [OperationContract]
-        void CreateHero(HeroDetailsDTO dto);
+        bool CreateHero(HeroDetailsDTO dto);
 
         [OperationContract]
-        void DeleteHero(HeroDetailsDTO dto);
+        bool DeleteHero(HeroDetailsDTO dto);
 
         [OperationContract]
         void MoveHero(HeroDetailsDTO dto, int newX, int newY);

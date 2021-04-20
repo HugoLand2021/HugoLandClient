@@ -74,42 +74,45 @@ namespace Hugo_LAND.Client.Vue
                 }
                 else
                 {
-                    try
+                    bool isSuccess = classServiceClient.SaveClass(modifiedClass);
+                    if (isSuccess)
                     {
-                        classServiceClient.SaveClass(modifiedClass);
                         MessageBox.Show("The user has been saved", "Success!", MessageBoxButtons.OK, MessageBoxIcon.None);
                         InitializeInfo();
                         SetAllTextboxes(classes[currentClassIndex]);
                     }
-                    catch
-                    {
-                        MessageBox.Show("An error has occured with the save of the user", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    }
+                    else
+                        MessageBox.Show("An error has occured while trying to save the user", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-                DialogResult dir = MessageBox.Show("Are you sure you want to delete this hero?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            DialogResult dir = MessageBox.Show("Are you sure you want to delete this hero?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
-                switch (dir)
-                {
-                    case DialogResult.Yes:
+            switch (dir)
+            {
+                case DialogResult.Yes:
                     ClassDetailsDTO deletedClass = new ClassDetailsDTO()
                     {
                         Id = int.Parse(idTextBox.Text),
                     };
-                    classServiceClient.DeleteClass(deletedClass);
-                    InitializeInfo();
-                    SetAllTextboxes(classes.First());
-                    currentClassIndex = 0;
+                    bool isSuccess = classServiceClient.DeleteClass(deletedClass);
+                    if (isSuccess)
+                    {
+                        InitializeInfo();
+                        SetAllTextboxes(classes.First());
+                        currentClassIndex = 0;
+                    }
+                    else
+                        MessageBox.Show("An error has occured while trying to delete the user", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     break;
-                    case DialogResult.No:
-                        break;
-                    default:
-                        break;
-                }
+                case DialogResult.No:
+                    break;
+                default:
+                    break;
+            }
         }
 
         private void btnFirst_Click(object sender, EventArgs e)

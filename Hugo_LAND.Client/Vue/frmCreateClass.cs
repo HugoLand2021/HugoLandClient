@@ -75,16 +75,14 @@ namespace Hugo_LAND.Client.Vue
                 }
                 else
                 {
-                    try
+                    bool isSuccess = classServiceClient.CreateClass(newClass, world);
+                    if (isSuccess)
                     {
-                        classServiceClient.CreateClass(newClass, world);
                         MessageBox.Show("The user has been created", "Success!", MessageBoxButtons.OK, MessageBoxIcon.None);
                         this.Close();
                     }
-                    catch
-                    {
+                    else
                         MessageBox.Show("An error has occured with the creation of the user", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    }
                 }
             }
         }
@@ -126,7 +124,7 @@ namespace Hugo_LAND.Client.Vue
             {
                 w = worldsList.First(wo => wo.Description == comboWorlds.Text);
             }
-            catch 
+            catch
             {
                 w = null;
             }
