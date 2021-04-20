@@ -9,6 +9,5 @@ namespace Hugo_LAND.WCF.Services
     {
         [OperationContract]
         List<ItemDetailsDTO> ReturnItems(string world, int mapBeginX, int mapBeginY);
-
     }
 }

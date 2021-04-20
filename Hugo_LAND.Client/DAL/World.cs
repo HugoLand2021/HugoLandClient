@@ -59,7 +59,7 @@ namespace Hugo_LAND.Client
             //Find the start point
             //_currentArea = _world[_startArea];
 
-            _currentArea = new Area(_tiles,_gameState.Hero.World, GetBeginPos(_gameState.Hero.x), GetBeginPos(_gameState.Hero.y));
+            _currentArea = new Area(_tiles, _gameState.Hero.World, GetBeginPos(_gameState.Hero.x), GetBeginPos(_gameState.Hero.y));
 
 
             //Create and position the hero character
@@ -543,17 +543,24 @@ namespace Hugo_LAND.Client
             Up,
             Down
         }
-        private int GetBeginPos(int pos) {
+        private int GetBeginPos(int pos)
+        {
             return (pos / 8) * 8;
         }
-        private List<WorldItemDetailsDTO> GetWorldItems(int posX, int posY) {
+        private List<WorldItemDetailsDTO> GetWorldItems(int posX, int posY)
+        {
             if (!(_currentWorld.LimiteX <= posX && _currentWorld.LimiteY <= posY))
             {
                 var list = WorldItemService.ReturnWorldItems(_currentWorld.Description, GetBeginPos(posX), GetBeginPos(posY));
-                List<WorldItemDetailsDTO> listReturn = new List<WorldItemDetailsDTO>();
-                foreach (var item in list)
-                    listReturn.Add(item);
-                return listReturn;
+                if (list == null)
+                    MessageBox.Show("There has been an error while trying to load another area.", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                else
+                {
+                    List<WorldItemDetailsDTO> listReturn = new List<WorldItemDetailsDTO>();
+                    foreach (var item in list)
+                        listReturn.Add(item);
+                    return listReturn;
+                }
             }
             return null;
         }

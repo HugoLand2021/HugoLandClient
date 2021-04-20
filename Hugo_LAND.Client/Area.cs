@@ -24,115 +24,55 @@ namespace Hugo_LAND.Client
 
         public Area(Dictionary<string, Tile> tiles, string worldName, int beginX, int beginY)
         {
-            var worldoObjects = worlditemsService.ReturnWorldItems(worldName, beginX, beginY).ToList();
-            foreach (var item in worldoObjects)
-            {
-                MapTile mapTile = new MapTile();
-                Map[item.x % 8, item.y % 8] = mapTile;
-                mapTile.Tile = tiles[item.Description];
-                mapTile.SetSprite(item.x % 8, item.y % 8);
-            }
-
-            for (int x = 0; x < 8; x++)
-            {
-                for (int y = 0; y < 8; y++)
+                var worldoObjects = worlditemsService.ReturnWorldItems(worldName, beginX, beginY).ToList();
+                foreach (var item in worldoObjects)
                 {
-                    if (Map[x, y] == null)
+                    MapTile mapTile = new MapTile();
+                    Map[item.x % 8, item.y % 8] = mapTile;
+                    mapTile.Tile = tiles[item.Description];
+                    mapTile.SetSprite(item.x % 8, item.y % 8);
+                }
+
+                for (int x = 0; x < 8; x++)
+                {
+                    for (int y = 0; y < 8; y++)
                     {
-                        MapTile mapTile = new MapTile();
-                        Map[x, y] = mapTile;
-                        mapTile.Tile = tiles["Grass"];
-                        mapTile.SetSprite(x, y);
+                        if (Map[x, y] == null)
+                        {
+                            MapTile mapTile = new MapTile();
+                            Map[x, y] = mapTile;
+                            mapTile.Tile = tiles["Grass"];
+                            mapTile.SetSprite(x, y);
+                        }
                     }
                 }
-            }
 
-            var items = itemService.ReturnItems(worldName, beginX, beginY).ToList();
-            foreach (var item in items)
-            {
-                if (item.x != null)
-                {
-                    MapTile mapTile = Map[item.x.GetValueOrDefault() % 8, item.y.GetValueOrDefault() % 8];
-                    mapTile.ObjectTile = tiles[item.Description];
-                    mapTile.SetObjectSprite(item.x.GetValueOrDefault() % 8, item.y.GetValueOrDefault() % 8);
-
-                    if (mapTile.ObjectTile.IsTransparent)
-                    {
-                        mapTile.ObjectSprite.ColorKey = Color.FromArgb(75, 75, 75);
-                    }
-                }
-            }
-
-            var monstres = monstreService.ReturnMonsters(worldName, beginX, beginY).ToList();
-            foreach (var monstre in monstres)
-            {
-
-                MapTile mapTile = Map[monstre.x % 8, monstre.y % 8];
-                mapTile.ObjectTile = tiles[monstre.Nom];
-                mapTile.SetObjectSprite(monstre.x % 8, monstre.y % 8);
-
-                if (mapTile.ObjectTile.IsTransparent)
-                {
-                    mapTile.ObjectSprite.ColorKey = Color.FromArgb(75, 75, 75);
-                }
-
-            }
-
+                LoadItemsMonsters(tiles, worldName, beginX, beginY);
         }
         public Area(Dictionary<string, Tile> tiles, List<WorldItemDetailsDTO> listItems, string worldName, int beginX, int beginY)
         {
-            foreach (var item in listItems)
-            {
-                MapTile mapTile = new MapTile();
-                Map[item.x % 8, item.y % 8] = mapTile;
-                mapTile.Tile = tiles[item.Description];
-                mapTile.SetSprite(item.x % 8, item.y % 8);
-            }
-
-            for (int x = 0; x < 8; x++)
-            {
-                for (int y = 0; y < 8; y++)
+                foreach (var item in listItems)
                 {
-                    if (Map[x, y] == null)
+                    MapTile mapTile = new MapTile();
+                    Map[item.x % 8, item.y % 8] = mapTile;
+                    mapTile.Tile = tiles[item.Description];
+                    mapTile.SetSprite(item.x % 8, item.y % 8);
+                }
+
+                for (int x = 0; x < 8; x++)
+                {
+                    for (int y = 0; y < 8; y++)
                     {
-                        MapTile mapTile = new MapTile();
-                        Map[x, y] = mapTile;
-                        mapTile.Tile = tiles["Grass"];
-                        mapTile.SetSprite(x, y);
+                        if (Map[x, y] == null)
+                        {
+                            MapTile mapTile = new MapTile();
+                            Map[x, y] = mapTile;
+                            mapTile.Tile = tiles["Grass"];
+                            mapTile.SetSprite(x, y);
+                        }
                     }
                 }
-            }
-
-            var items = itemService.ReturnItems(worldName, beginX, beginY).ToList();
-            foreach (var item in items)
-            {
-                if (item.x != null)
-                {
-                    MapTile mapTile = Map[item.x.GetValueOrDefault() % 8, item.y.GetValueOrDefault() % 8];
-                    mapTile.ObjectTile = tiles[item.Description];
-                    mapTile.SetObjectSprite(item.x.GetValueOrDefault() % 8, item.y.GetValueOrDefault() % 8);
-
-                    if (mapTile.ObjectTile.IsTransparent)
-                    {
-                        mapTile.ObjectSprite.ColorKey = Color.FromArgb(75, 75, 75);
-                    }
-                }
-            }
-
-            var monstres = monstreService.ReturnMonsters(worldName, beginX, beginY).ToList();
-            foreach (var monstre in monstres)
-            {
-
-                MapTile mapTile = Map[monstre.x % 8, monstre.y % 8];
-                mapTile.ObjectTile = tiles[monstre.Nom];
-                mapTile.SetObjectSprite(monstre.x % 8, monstre.y % 8);
-
-                if (mapTile.ObjectTile.IsTransparent)
-                {
-                    mapTile.ObjectSprite.ColorKey = Color.FromArgb(75, 75, 75);
-                }
-
-            }
+                LoadItemsMonsters(tiles, worldName, beginX, beginY);
         }
 
         public override void Update(double gameTime, double elapsedTime)
@@ -165,6 +105,38 @@ namespace Hugo_LAND.Client
                 }
             }
 
+        }
+        public void LoadItemsMonsters(Dictionary<string, Tile> tiles, string worldName, int beginX, int beginY)
+        {
+                var items = itemService.ReturnItems(worldName, beginX, beginY).ToList();
+                foreach (var item in items)
+                {
+                    if (item.x != null)
+                    {
+                        MapTile mapTile = Map[item.x.GetValueOrDefault() % 8, item.y.GetValueOrDefault() % 8];
+                        mapTile.ObjectTile = tiles[item.Description];
+                        mapTile.SetObjectSprite(item.x.GetValueOrDefault() % 8, item.y.GetValueOrDefault() % 8);
+
+                        if (mapTile.ObjectTile.IsTransparent)
+                        {
+                            mapTile.ObjectSprite.ColorKey = Color.FromArgb(75, 75, 75);
+                        }
+                    }
+                }
+
+                var monstres = monstreService.ReturnMonsters(worldName, beginX, beginY).ToList();
+                foreach (var monstre in monstres)
+                {
+
+                    MapTile mapTile = Map[monstre.x % 8, monstre.y % 8];
+                    mapTile.ObjectTile = tiles[monstre.Nom];
+                    mapTile.SetObjectSprite(monstre.x % 8, monstre.y % 8);
+
+                    if (mapTile.ObjectTile.IsTransparent)
+                    {
+                        mapTile.ObjectSprite.ColorKey = Color.FromArgb(75, 75, 75);
+                    }
+                }
         }
     }
 }

@@ -19,10 +19,18 @@ namespace Hugo_LAND.Client.Vue
             var list = HeroService.ReturnHerosFromAccount(main.accountDetails.Id);
 
 
-            herosList = HeroService.ReturnHerosFromAccount(main.accountDetails.Id).ToList();
+            try
+            {
+                herosList = HeroService.ReturnHerosFromAccount(main.accountDetails.Id).ToList();
+
+            }
+            catch
+            {
+
+            }
             if (herosList.Count() == 0)
             {
-                MessageBox.Show("This account dosn't have any hero.", "ERREUR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("This account doesn't have any heros or there has been a network error.", "ERREUR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 cmbNomhero.Enabled = false;
                 btnJouerSelectHero.Enabled = false;
             }
@@ -35,12 +43,22 @@ namespace Hugo_LAND.Client.Vue
 
         private void btnJouerSelectHero_Click(object sender, EventArgs e)
         {
-            if (cmbNomhero != null)
+            bool error = false;
+            if (cmbNomhero.Text != "")
             {
-                selectedHero = herosList[cmbNomhero.SelectedIndex];
-                HugoWorld hugoWorld = new HugoWorld(selectedHero);
-                hugoWorld.ShowDialog();
+                if (herosList.Any(h => h.HeroName == cmbNomhero.Text))
+                {
+                    selectedHero = herosList[cmbNomhero.SelectedIndex];
+                    HugoWorld hugoWorld = new HugoWorld(selectedHero);
+                    hugoWorld.ShowDialog();
+                }
+                else
+                    error = true;
             }
+            else
+                error = true;
+            if (error)
+                MessageBox.Show("Please select a valid hero.", "ERREUR", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
         }
 
