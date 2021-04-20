@@ -16,6 +16,7 @@ namespace Hugo_LAND.WCF.Services
             {
                 using (HugoLANDContext context = new HugoLANDContext())
                 {
+
                     return context.Mondes.Find(mondeId)
                         .ObjetMondes
                         .Where(obj => Math.Abs(obj.x - heroX) < rayon && Math.Abs(obj.y - heroY) < rayon)

@@ -22,23 +22,23 @@ namespace Hugo_LAND.Client
         private Rectangle _areaRectangle = new Rectangle(AreaOffsetX, AreaOffsetY, MapSizeX * Tile.TileSizeX, MapSizeY * Tile.TileSizeY);
 
         public string Name;
-        public string NorthArea;
-        public string EastArea;
-        public string SouthArea;
-        public string WestArea;
+        //public string NorthArea;
+        //public string EastArea;
+        //public string SouthArea;
+        //public string WestArea;
 
         public Area(StreamReader stream, Dictionary<string, Tile> tiles)
         {
             string line;
 
             //1st line is the name
-            Name = stream.ReadLine().ToLower();
+            //Name = stream.ReadLine().ToLower();
 
-            //next 4 lines are which areas you go for N,E,S,W
-            NorthArea = stream.ReadLine().ToLower();
-            EastArea = stream.ReadLine().ToLower();
-            SouthArea = stream.ReadLine().ToLower();
-            WestArea = stream.ReadLine().ToLower();
+            ////next 4 lines are which areas you go for N,E,S,W
+            //NorthArea = stream.ReadLine().ToLower();
+            //EastArea = stream.ReadLine().ToLower();
+            //SouthArea = stream.ReadLine().ToLower();
+            //WestArea = stream.ReadLine().ToLower();
 
 
 

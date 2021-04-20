@@ -12,6 +12,6 @@ namespace Hugo_LAND.WCF.Services
     public interface IWorldItemService
     {
         [OperationContract]
-        ICollection<WorldItemDetailsDTO> ReturnWorldItems(int mondeId, int heroX, int heroY, int rayon);
+        ICollection<WorldItemDetailsDTO> ReturnWorldItems(int mondeId, int areaBeginX, int areaBeginY, int diametre);
     }
 }
