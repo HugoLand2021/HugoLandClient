@@ -10,7 +10,7 @@ namespace Hugo_LAND.WCF.Services
 {
     public partial class HugoLandService : IWorldItemService
     {
-        public ICollection<WorldItemDetailsDTO> ReturnWorldItems(int mondeId, int heroX, int heroY, int rayon)
+        public ICollection<WorldItemDetailsDTO> ReturnWorldItems(int mondeId, int mapBeginX, int mapBeginY)
         {
             try
             {
@@ -19,7 +19,7 @@ namespace Hugo_LAND.WCF.Services
 
                     return context.Mondes.Find(mondeId)
                         .ObjetMondes
-                        .Where(obj => Math.Abs(obj.x - heroX) < rayon && Math.Abs(obj.y - heroY) < rayon)
+                        .Where(obj => ((obj.x >= mapBeginX) && (obj.x < mapBeginX + 8)) && ((obj.y >= mapBeginY) && (obj.y < mapBeginY + 8)))
                         .Select(m => new WorldItemDetailsDTO
                         {
                             ID = m.Id,

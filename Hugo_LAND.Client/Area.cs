@@ -61,7 +61,7 @@ namespace Hugo_LAND.Client
             //    }
             //}
 
-            var pooper = worlditemsService.ReturnWorldItems(1111, 0, 0, 8).ToList();
+            var pooper = worlditemsService.ReturnWorldItems(1111, 0, 0).ToList();
 
             foreach (var item in pooper)
             {

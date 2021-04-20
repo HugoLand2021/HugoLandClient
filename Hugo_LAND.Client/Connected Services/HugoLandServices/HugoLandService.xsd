@@ -199,9 +199,8 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="mondeId" type="xs:int" />
-        <xs:element minOccurs="0" name="heroX" type="xs:int" />
-        <xs:element minOccurs="0" name="heroY" type="xs:int" />
-        <xs:element minOccurs="0" name="rayon" type="xs:int" />
+        <xs:element minOccurs="0" name="mapBeginX" type="xs:int" />
+        <xs:element minOccurs="0" name="mapBeginY" type="xs:int" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
