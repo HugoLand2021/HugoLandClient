@@ -40,6 +40,9 @@ namespace Hugo_LAND.Client
         private GameState _gameState;
         private List<textPopup> _popups = new List<textPopup>();
         private readonly HeroServiceClient HeroService = new HeroServiceClient();
+        private readonly WorldItemServiceClient WorldItemService = new WorldItemServiceClient();
+        private readonly WorldServiceClient WorldService = new WorldServiceClient();
+        private WorldDetailsDTO _currentWorld;
 
         private static Font _font = new Font("Arial", 18);
         private static Brush _whiteBrush = new SolidBrush(Color.White);
@@ -50,15 +53,16 @@ namespace Hugo_LAND.Client
         {
             _gameState = gameState;
             _tiles = tiles;
+            _currentWorld = WorldService.GetWorldByName(_gameState.Hero.World);
 
             //Read in the map file
 
 
             //Find the start point
             //_currentArea = _world[_startArea];
-            
-            _currentArea = new Area(_tiles);
-            
+
+            _currentArea = new Area(_tiles,_gameState.Hero.World, GetBeginPos(_gameState.Hero.x), GetBeginPos(_gameState.Hero.y));
+
 
             //Create and position the hero character
             _heroPosition = new Point(_gameState.Hero.x % 8, _gameState.Hero.y % 8);
@@ -130,7 +134,7 @@ namespace Hugo_LAND.Client
         private void checkObjects()
         {
             Tile objectTile = _currentArea.Map[_heroPosition.X, _heroPosition.Y].ObjectTile;
-            if (objectTile == null) 
+            if (objectTile == null)
                 return;
             switch (objectTile.Category)
             {
@@ -229,6 +233,7 @@ namespace Hugo_LAND.Client
             //Ignore keypresses while we are animating or fighting
             if (!_heroSpriteAnimating && !_heroSpriteFighting)
             {
+                //Pt chercher beginx beginy here
                 switch (key)
                 {
                     case Keys.Right:
@@ -245,18 +250,30 @@ namespace Hugo_LAND.Client
                                 _heroPosition.X++;
                                 _gameState.Hero.x++;
                                 HeroService.MoveHero(_gameState.Hero, _gameState.Hero.x, _gameState.Hero.y);
-                                
+
                                 setDestination();
                             }
                         }
-                        //else if (_currentArea.EastArea != "-")
-                        //{
-                        //    //Edge of map - move to next area
-                        //    _currentArea = _world[_currentArea.EastArea];
-                        //    _heroPosition.X = 0;
-                        //    setDestination();
-                        //    _heroSprite.Location = _heroDestination;
-                        //}
+                        else if (_gameState.Hero.x + 1 >= _currentWorld.LimiteX)
+                        { break; }
+                        else /*if (_currentArea.EastArea != "-")*/ // Droite
+                        {
+                            //Edge of map - move to next area
+
+                            List<WorldItemDetailsDTO> listItems = GetWorldItems(_gameState.Hero.x + 1, _gameState.Hero.y);
+                            if (!(listItems == null))
+                            {
+                                _currentArea = new Area(_tiles, listItems);
+                                _heroPosition.X = 0;
+                                _gameState.Hero.x++;
+                                setDestination();
+                                _heroSprite.Location = _heroDestination;
+                            }
+                            //_currentArea = _world[_currentArea.EastArea];
+                            //_gameState.Hero.x++;
+                            //setDestination();
+                            //_heroSprite.Location = _heroDestination;
+                        }
                         break;
 
                     case Keys.Left:
@@ -276,13 +293,24 @@ namespace Hugo_LAND.Client
                                 setDestination();
                             }
                         }
-                        //else if (_currentArea.WestArea != "-")
-                        //{
-                        //    _currentArea = _world[_currentArea.WestArea];
-                        //    _heroPosition.X = Area.MapSizeX - 1;
-                        //    setDestination();
-                        //    _heroSprite.Location = _heroDestination;
-                        //}
+                        else if (_gameState.Hero.x - 1 < 0)
+                        { break; }
+                        else
+                        {
+                            List<WorldItemDetailsDTO> listItems = GetWorldItems(_gameState.Hero.x - 1, _gameState.Hero.y);
+                            if (!(listItems == null))
+                            {
+                                _currentArea = new Area(_tiles, listItems);
+                                _heroPosition.X = Area.MapSizeX - 1;
+                                _gameState.Hero.x--;
+                                setDestination();
+                                _heroSprite.Location = _heroDestination;
+                            }
+                            //_currentArea = _world[_currentArea.WestArea];
+                            //_heroPosition.X = Area.MapSizeX - 1;
+                            //setDestination();
+                            //_heroSprite.Location = _heroDestination;
+                        }
                         break;
 
                     case Keys.Up:
@@ -301,14 +329,26 @@ namespace Hugo_LAND.Client
                                 setDestination();
                             }
                         }
-                        //else if (_currentArea.NorthArea != "-")
-                        //{
-                        //    //Edge of map - move to next area
-                        //    _currentArea = _world[_currentArea.NorthArea];
-                        //    _heroPosition.Y = Area.MapSizeY - 1;
-                        //    setDestination();
-                        //    _heroSprite.Location = _heroDestination;
-                        //}
+                        else if (_gameState.Hero.y - 1 < 0)
+                        { break; }
+                        else
+                        {
+                            //Edge of map - move to next area
+                            List<WorldItemDetailsDTO> listItems = GetWorldItems(_gameState.Hero.x, _gameState.Hero.y - 1);
+                            if (!(listItems == null))
+                            {
+                                _currentArea = new Area(_tiles, listItems);
+                                _heroPosition.Y = Area.MapSizeY - 1;
+                                _gameState.Hero.y--;
+                                setDestination();
+                                _heroSprite.Location = _heroDestination;
+                            }
+
+                            //_currentArea = _world[_currentArea.NorthArea];
+                            //_heroPosition.Y = Area.MapSizeY - 1;
+                            //setDestination();
+                            //_heroSprite.Location = _heroDestination;
+                        }
                         break;
 
                     case Keys.Down:
@@ -327,14 +367,26 @@ namespace Hugo_LAND.Client
                                 setDestination();
                             }
                         }
-                        //else if (_currentArea.SouthArea != "-")
-                        //{
-                        //    //Edge of map - move to next area
-                        //    _currentArea = _world[_currentArea.SouthArea];
-                        //    _heroPosition.Y = 0;
-                        //    setDestination();
-                        //    _heroSprite.Location = _heroDestination;
-                        //}
+                        else if (_gameState.Hero.y + 1 >= _currentWorld.LimiteY)
+                        { break; }
+                        else
+                        {
+                            //Edge of map - move to next area
+                            List<WorldItemDetailsDTO> listItems = GetWorldItems(_gameState.Hero.x, _gameState.Hero.y + 1);
+                            if (!(listItems == null))
+                            {
+                                _currentArea = new Area(_tiles, listItems);
+                                _heroPosition.Y = 0;
+                                _gameState.Hero.y++;
+                                setDestination();
+                                _heroSprite.Location = _heroDestination;
+                            }
+
+                            //_currentArea = _world[_currentArea.SouthArea];
+                            //_heroPosition.Y = 0;
+                            //setDestination();
+                            //_heroSprite.Location = _heroDestination;
+                        }
                         break;
 
                     case Keys.P:
@@ -519,6 +571,20 @@ namespace Hugo_LAND.Client
             Right,
             Up,
             Down
+        }
+        private int GetBeginPos(int pos) {
+            return (pos / 8) * 8;
+        }
+        private List<WorldItemDetailsDTO> GetWorldItems(int posX, int posY) {
+            if (!(_currentWorld.LimiteX <= posX && _currentWorld.LimiteY <= posY))
+            {
+                var list = WorldItemService.ReturnWorldItems(_currentWorld.Description, GetBeginPos(posX), GetBeginPos(posY));
+                List<WorldItemDetailsDTO> listReturn = new List<WorldItemDetailsDTO>();
+                foreach (var item in list)
+                    listReturn.Add(item);
+                return listReturn;
+            }
+            return null;
         }
     }
 }

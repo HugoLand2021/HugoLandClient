@@ -1083,10 +1083,10 @@ namespace Hugo_LAND.Client.HugoLandServices {
     public interface IWorldItemService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWorldItemService/ReturnWorldItems", ReplyAction="http://tempuri.org/IWorldItemService/ReturnWorldItemsResponse")]
-        Hugo_LAND.Client.HugoLandServices.WorldItemDetailsDTO[] ReturnWorldItems(int mondeId, int mapBeginX, int mapBeginY);
+        Hugo_LAND.Client.HugoLandServices.WorldItemDetailsDTO[] ReturnWorldItems(string world, int mapBeginX, int mapBeginY);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWorldItemService/ReturnWorldItems", ReplyAction="http://tempuri.org/IWorldItemService/ReturnWorldItemsResponse")]
-        System.Threading.Tasks.Task<Hugo_LAND.Client.HugoLandServices.WorldItemDetailsDTO[]> ReturnWorldItemsAsync(int mondeId, int mapBeginX, int mapBeginY);
+        System.Threading.Tasks.Task<Hugo_LAND.Client.HugoLandServices.WorldItemDetailsDTO[]> ReturnWorldItemsAsync(string world, int mapBeginX, int mapBeginY);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -1116,12 +1116,12 @@ namespace Hugo_LAND.Client.HugoLandServices {
                 base(binding, remoteAddress) {
         }
         
-        public Hugo_LAND.Client.HugoLandServices.WorldItemDetailsDTO[] ReturnWorldItems(int mondeId, int mapBeginX, int mapBeginY) {
-            return base.Channel.ReturnWorldItems(mondeId, mapBeginX, mapBeginY);
+        public Hugo_LAND.Client.HugoLandServices.WorldItemDetailsDTO[] ReturnWorldItems(string world, int mapBeginX, int mapBeginY) {
+            return base.Channel.ReturnWorldItems(world, mapBeginX, mapBeginY);
         }
         
-        public System.Threading.Tasks.Task<Hugo_LAND.Client.HugoLandServices.WorldItemDetailsDTO[]> ReturnWorldItemsAsync(int mondeId, int mapBeginX, int mapBeginY) {
-            return base.Channel.ReturnWorldItemsAsync(mondeId, mapBeginX, mapBeginY);
+        public System.Threading.Tasks.Task<Hugo_LAND.Client.HugoLandServices.WorldItemDetailsDTO[]> ReturnWorldItemsAsync(string world, int mapBeginX, int mapBeginY) {
+            return base.Channel.ReturnWorldItemsAsync(world, mapBeginX, mapBeginY);
         }
     }
 }

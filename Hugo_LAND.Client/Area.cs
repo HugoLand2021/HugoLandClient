@@ -19,16 +19,17 @@ namespace Hugo_LAND.Client
         public const int AreaOffsetY = 50;
         public const int MapSizeX = 8;
         public const int MapSizeY = 8;
-        public int AreaBeginX = 0;
-        public int AreaBeginY = 0;
+        public int AreaBeginX;
+        public int AreaBeginY;
         WorldItemServiceClient worlditemsService = new WorldItemServiceClient();
 
         public MapTile[,] Map = new MapTile[MapSizeX, MapSizeY];
         private Rectangle _areaRectangle = new Rectangle(AreaOffsetX, AreaOffsetY, MapSizeX * Tile.TileSizeX, MapSizeY * Tile.TileSizeY);
 
-        public Area(Dictionary<string, Tile> tiles)
+        public Area(Dictionary<string, Tile> tiles, string worldName, int beginX, int beginY)
         {
-
+            AreaBeginX = beginX;
+            AreaBeginY = beginY;
 
 
             //Read in 8 lines of 8 characters each. Look up the tile and make the
@@ -46,11 +47,8 @@ namespace Hugo_LAND.Client
             //        mapTile.SetSprite(i, j);
             //    }
             //}
-            var pooper = worlditemsService.ReturnWorldItems(1112, 0, 0).ToList();
-
-
-
-            foreach (var item in pooper)
+            var items = worlditemsService.ReturnWorldItems(worldName, beginX, beginY).ToList();
+            foreach (var item in items)
             {
 
 
@@ -100,6 +98,30 @@ namespace Hugo_LAND.Client
             //    }
             //}
 
+        }
+        public Area(Dictionary<string, Tile> tiles, List<WorldItemDetailsDTO> listItems)
+        {
+            foreach (var item in listItems)
+            {
+                MapTile mapTile = new MapTile();
+                Map[item.x % 8, item.y % 8] = mapTile;
+                mapTile.Tile = tiles[item.Description];
+                mapTile.SetSprite(item.x % 8, item.y % 8);
+            }
+
+            for (int x = 0; x < 8; x++)
+            {
+                for (int y = 0; y < 8; y++)
+                {
+                    if (Map[x, y] == null)
+                    {
+                        MapTile mapTile = new MapTile();
+                        Map[x, y] = mapTile;
+                        mapTile.Tile = tiles["Grass"];
+                        mapTile.SetSprite(x, y);
+                    }
+                }
+            }
         }
 
         public override void Update(double gameTime, double elapsedTime)
