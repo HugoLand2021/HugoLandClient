@@ -17,13 +17,13 @@ namespace Hugo_LAND.Client.Vue
     {
         private readonly WorldServiceClient worldServiceClient = new WorldServiceClient();
         private readonly ClassServiceClient classServiceClient = new ClassServiceClient();
-        private List<WorldItemDTO> worldsList;
+        private List<WorldDetailsDTO> worldsList;
         private readonly CreateClassValidator createClassValidator;
 
         public frmCreateClass()
         {
             InitializeComponent();
-            worldsList = new List<WorldItemDTO>();
+            worldsList = new List<WorldDetailsDTO>();
             LoadWorlds();
             createClassValidator = new CreateClassValidator();
         }
@@ -66,7 +66,7 @@ namespace Hugo_LAND.Client.Vue
                 };
 
                 var result = createClassValidator.Validate(newClass);
-                WorldItemDTO world = worldsList.FirstOrDefault(w => w.Description == comboWorlds.Text);
+                WorldDetailsDTO world = worldsList.FirstOrDefault(w => w.Description == comboWorlds.Text);
 
                 if (!result.IsValid)
                 {
@@ -121,7 +121,7 @@ namespace Hugo_LAND.Client.Vue
                 errors.Add("Please provide a valid base stat vitality between(inclusive) 0 and 10.");
 
             //World
-            WorldItemDTO w;
+            WorldDetailsDTO w;
             try
             {
                 w = worldsList.First(wo => wo.Description == comboWorlds.Text);

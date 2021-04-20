@@ -1,5 +1,4 @@
-﻿using Hugo_LAND.Core.Models;
-using Hugo_LAND.WCF.DTOs;
+﻿using Hugo_LAND.WCF.DTOs;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,11 +9,9 @@ using System.Threading.Tasks;
 namespace Hugo_LAND.WCF.Services
 {
     [ServiceContract]
-    public interface IWorldService
+    public interface IWorldItemService
     {
         [OperationContract]
-        List<WorldDetailsDTO> GetAllWorldNames();
-        [OperationContract]
-        WorldDetailsDTO GetWorldByName(string worldName);
+        ICollection<WorldItemDetailsDTO> ReturnWorldItems(int mondeId, int heroX, int heroY, int rayon);
     }
 }

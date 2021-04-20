@@ -281,9 +281,9 @@ namespace Hugo_LAND.Client.HugoLandServices {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="WorldItemDTO", Namespace="http://schemas.datacontract.org/2004/07/Hugo_LAND.WCF.DTOs")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="WorldDetailsDTO", Namespace="http://schemas.datacontract.org/2004/07/Hugo_LAND.WCF.DTOs")]
     [System.SerializableAttribute()]
-    public partial class WorldItemDTO : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+    public partial class WorldDetailsDTO : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
@@ -293,6 +293,12 @@ namespace Hugo_LAND.Client.HugoLandServices {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int IDField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int LimiteXField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int LimiteYField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -326,6 +332,32 @@ namespace Hugo_LAND.Client.HugoLandServices {
                 if ((this.IDField.Equals(value) != true)) {
                     this.IDField = value;
                     this.RaisePropertyChanged("ID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int LimiteX {
+            get {
+                return this.LimiteXField;
+            }
+            set {
+                if ((this.LimiteXField.Equals(value) != true)) {
+                    this.LimiteXField = value;
+                    this.RaisePropertyChanged("LimiteX");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int LimiteY {
+            get {
+                return this.LimiteYField;
+            }
+            set {
+                if ((this.LimiteYField.Equals(value) != true)) {
+                    this.LimiteYField = value;
+                    this.RaisePropertyChanged("LimiteY");
                 }
             }
         }
@@ -665,10 +697,10 @@ namespace Hugo_LAND.Client.HugoLandServices {
         System.Threading.Tasks.Task<Hugo_LAND.Client.HugoLandServices.ClassDetailsDTO[]> GetAllClassesAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IClassService/CreateClass", ReplyAction="http://tempuri.org/IClassService/CreateClassResponse")]
-        void CreateClass(Hugo_LAND.Client.HugoLandServices.ClassDetailsDTO newClass, Hugo_LAND.Client.HugoLandServices.WorldItemDTO world);
+        void CreateClass(Hugo_LAND.Client.HugoLandServices.ClassDetailsDTO newClass, Hugo_LAND.Client.HugoLandServices.WorldDetailsDTO world);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IClassService/CreateClass", ReplyAction="http://tempuri.org/IClassService/CreateClassResponse")]
-        System.Threading.Tasks.Task CreateClassAsync(Hugo_LAND.Client.HugoLandServices.ClassDetailsDTO newClass, Hugo_LAND.Client.HugoLandServices.WorldItemDTO world);
+        System.Threading.Tasks.Task CreateClassAsync(Hugo_LAND.Client.HugoLandServices.ClassDetailsDTO newClass, Hugo_LAND.Client.HugoLandServices.WorldDetailsDTO world);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IClassService/DeleteClass", ReplyAction="http://tempuri.org/IClassService/DeleteClassResponse")]
         void DeleteClass(Hugo_LAND.Client.HugoLandServices.ClassDetailsDTO dto);
@@ -724,11 +756,11 @@ namespace Hugo_LAND.Client.HugoLandServices {
             return base.Channel.GetAllClassesAsync();
         }
         
-        public void CreateClass(Hugo_LAND.Client.HugoLandServices.ClassDetailsDTO newClass, Hugo_LAND.Client.HugoLandServices.WorldItemDTO world) {
+        public void CreateClass(Hugo_LAND.Client.HugoLandServices.ClassDetailsDTO newClass, Hugo_LAND.Client.HugoLandServices.WorldDetailsDTO world) {
             base.Channel.CreateClass(newClass, world);
         }
         
-        public System.Threading.Tasks.Task CreateClassAsync(Hugo_LAND.Client.HugoLandServices.ClassDetailsDTO newClass, Hugo_LAND.Client.HugoLandServices.WorldItemDTO world) {
+        public System.Threading.Tasks.Task CreateClassAsync(Hugo_LAND.Client.HugoLandServices.ClassDetailsDTO newClass, Hugo_LAND.Client.HugoLandServices.WorldDetailsDTO world) {
             return base.Channel.CreateClassAsync(newClass, world);
         }
         
@@ -865,16 +897,16 @@ namespace Hugo_LAND.Client.HugoLandServices {
     public interface IWorldService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWorldService/GetAllWorldNames", ReplyAction="http://tempuri.org/IWorldService/GetAllWorldNamesResponse")]
-        Hugo_LAND.Client.HugoLandServices.WorldItemDTO[] GetAllWorldNames();
+        Hugo_LAND.Client.HugoLandServices.WorldDetailsDTO[] GetAllWorldNames();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWorldService/GetAllWorldNames", ReplyAction="http://tempuri.org/IWorldService/GetAllWorldNamesResponse")]
-        System.Threading.Tasks.Task<Hugo_LAND.Client.HugoLandServices.WorldItemDTO[]> GetAllWorldNamesAsync();
+        System.Threading.Tasks.Task<Hugo_LAND.Client.HugoLandServices.WorldDetailsDTO[]> GetAllWorldNamesAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWorldService/GetWorldByName", ReplyAction="http://tempuri.org/IWorldService/GetWorldByNameResponse")]
-        Hugo_LAND.Client.HugoLandServices.WorldItemDTO GetWorldByName(string worldName);
+        Hugo_LAND.Client.HugoLandServices.WorldDetailsDTO GetWorldByName(string worldName);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWorldService/GetWorldByName", ReplyAction="http://tempuri.org/IWorldService/GetWorldByNameResponse")]
-        System.Threading.Tasks.Task<Hugo_LAND.Client.HugoLandServices.WorldItemDTO> GetWorldByNameAsync(string worldName);
+        System.Threading.Tasks.Task<Hugo_LAND.Client.HugoLandServices.WorldDetailsDTO> GetWorldByNameAsync(string worldName);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -904,19 +936,19 @@ namespace Hugo_LAND.Client.HugoLandServices {
                 base(binding, remoteAddress) {
         }
         
-        public Hugo_LAND.Client.HugoLandServices.WorldItemDTO[] GetAllWorldNames() {
+        public Hugo_LAND.Client.HugoLandServices.WorldDetailsDTO[] GetAllWorldNames() {
             return base.Channel.GetAllWorldNames();
         }
         
-        public System.Threading.Tasks.Task<Hugo_LAND.Client.HugoLandServices.WorldItemDTO[]> GetAllWorldNamesAsync() {
+        public System.Threading.Tasks.Task<Hugo_LAND.Client.HugoLandServices.WorldDetailsDTO[]> GetAllWorldNamesAsync() {
             return base.Channel.GetAllWorldNamesAsync();
         }
         
-        public Hugo_LAND.Client.HugoLandServices.WorldItemDTO GetWorldByName(string worldName) {
+        public Hugo_LAND.Client.HugoLandServices.WorldDetailsDTO GetWorldByName(string worldName) {
             return base.Channel.GetWorldByName(worldName);
         }
         
-        public System.Threading.Tasks.Task<Hugo_LAND.Client.HugoLandServices.WorldItemDTO> GetWorldByNameAsync(string worldName) {
+        public System.Threading.Tasks.Task<Hugo_LAND.Client.HugoLandServices.WorldDetailsDTO> GetWorldByNameAsync(string worldName) {
             return base.Channel.GetWorldByNameAsync(worldName);
         }
     }

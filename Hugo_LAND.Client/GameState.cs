@@ -147,14 +147,15 @@ namespace Hugo_LAND.Client
             Sounds.Start();
 
             //Create all the main gameobjects
-            World = new World(this, _tiles, @"gamedata\map.txt");
+            World = new World(this, _tiles);
 
             //Reset the game state
+            
             Attack = 1;
             Potions = 10;
             Armour = 1; 
             Experience = 0;
-            Level = 1;
+            Level = 0;
             _nextUpgrade = 20;
             Health = 100; 
             Treasure = 0;

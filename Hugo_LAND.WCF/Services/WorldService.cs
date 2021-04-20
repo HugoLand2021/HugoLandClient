@@ -10,19 +10,21 @@ namespace Hugo_LAND.WCF.Services
 {
     public partial class HugoLandService : IWorldService
     {
-        public List<WorldItemDTO> GetAllWorldNames()
+        public List<WorldDetailsDTO> GetAllWorldNames()
         {
             using (HugoLANDContext context = new HugoLANDContext())
             {
                 return context.Mondes
-                    .Select(m => new WorldItemDTO
+                    .Select(m => new WorldDetailsDTO
                     {
                         ID = m.Id,
                         Description = m.Description,
+                        LimiteX = m.LimiteX,
+                        LimiteY = m.LimiteY
                     }).ToList();
             }
         }
-        public WorldItemDTO GetWorldByName(string worldName)
+        public WorldDetailsDTO GetWorldByName(string worldName)
         {
             using (var context = new HugoLANDContext())
             {
@@ -32,10 +34,12 @@ namespace Hugo_LAND.WCF.Services
                     //return monde;
                     return context.Mondes
                    .Where(p => p.Description.StartsWith(worldName))
-                   .Select(p => new WorldItemDTO
+                   .Select(p => new WorldDetailsDTO
                    {
                        ID = p.Id,
-                       Description = p.Description
+                       Description = p.Description,
+                       LimiteX = p.LimiteX,
+                       LimiteY = p.LimiteY
                    }).FirstOrDefault();
 
 

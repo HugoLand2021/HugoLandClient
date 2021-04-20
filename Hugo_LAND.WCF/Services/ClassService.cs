@@ -11,7 +11,7 @@ namespace Hugo_LAND.WCF.Services
 {
     public partial class HugoLandService : IClassService
     {
-        public async void CreateClass(ClassDetailsDTO newClass, WorldItemDTO world)
+        public async void CreateClass(ClassDetailsDTO newClass, WorldDetailsDTO world)
         {
             using (HugoLANDContext context = new HugoLANDContext())
             {

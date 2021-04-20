@@ -46,7 +46,7 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/Hugo_LAND.WCF.DTOs" minOccurs="0" name="newClass" nillable="true" type="q3:ClassDetailsDTO" />
-        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/Hugo_LAND.WCF.DTOs" minOccurs="0" name="world" nillable="true" type="q4:WorldItemDTO" />
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/Hugo_LAND.WCF.DTOs" minOccurs="0" name="world" nillable="true" type="q4:WorldDetailsDTO" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -167,7 +167,7 @@
   <xs:element name="GetAllWorldNamesResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/Hugo_LAND.WCF.DTOs" minOccurs="0" name="GetAllWorldNamesResult" nillable="true" type="q13:ArrayOfWorldItemDTO" />
+        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/Hugo_LAND.WCF.DTOs" minOccurs="0" name="GetAllWorldNamesResult" nillable="true" type="q13:ArrayOfWorldDetailsDTO" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -181,7 +181,7 @@
   <xs:element name="GetWorldByNameResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/Hugo_LAND.WCF.DTOs" minOccurs="0" name="GetWorldByNameResult" nillable="true" type="q14:WorldItemDTO" />
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/Hugo_LAND.WCF.DTOs" minOccurs="0" name="GetWorldByNameResult" nillable="true" type="q14:WorldDetailsDTO" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

@@ -40,6 +40,8 @@ namespace Hugo_LAND.Client
             SouthArea = stream.ReadLine().ToLower();
             WestArea = stream.ReadLine().ToLower();
 
+
+
             //Read in 8 lines of 8 characters each. Look up the tile and make the
             //matching sprite
             for (int j = 0; j < MapSizeY; j++)

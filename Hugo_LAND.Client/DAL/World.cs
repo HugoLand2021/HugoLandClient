@@ -44,13 +44,13 @@ namespace Hugo_LAND.Client
         private static Brush _blackBrush = new SolidBrush(Color.Red);
         private static Random _random = new Random();
 
-        public World(GameState gameState, Dictionary<string, Tile> tiles, string mapFile)
+        public World(GameState gameState, Dictionary<string, Tile> tiles)
         {
             _gameState = gameState;
             _tiles = tiles;
 
             //Read in the map file
-            readMapfile(mapFile);
+           
 
             //Find the start point
             _currentArea = _world[_startArea];

@@ -19,7 +19,7 @@ namespace Hugo_LAND.Client.Vue
         private readonly AccountServiceClient compteJoueurService = new AccountServiceClient();
         private readonly WorldServiceClient worldServiceClient = new WorldServiceClient();
         private readonly ClassServiceClient classServiceClient = new ClassServiceClient();
-        private readonly List<WorldItemDTO> worldsList = new List<WorldItemDTO>();
+        private readonly List<WorldDetailsDTO> worldsList = new List<WorldDetailsDTO>();
         private readonly List<ClassDetailsDTO> classList = new List<ClassDetailsDTO>();
 
         public frmCreateHero(frmMain main)

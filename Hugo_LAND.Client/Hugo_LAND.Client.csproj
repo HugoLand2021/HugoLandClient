@@ -228,7 +228,7 @@
     <None Include="Connected Services\HugoLandServices\Hugo_LAND.Client.HugoLandServices.HeroDetailsDTO.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Connected Services\HugoLandServices\Hugo_LAND.Client.HugoLandServices.WorldItemDTO.datasource">
+    <None Include="Connected Services\HugoLandServices\Hugo_LAND.Client.HugoLandServices.WorldDetailsDTO.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Eula.rtf" />

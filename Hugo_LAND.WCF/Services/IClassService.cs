@@ -16,7 +16,7 @@ namespace Hugo_LAND.WCF.Services
         List<ClassDetailsDTO> GetAllClasses();
 
         [OperationContract]
-        void CreateClass(ClassDetailsDTO newClass, WorldItemDTO world);
+        void CreateClass(ClassDetailsDTO newClass, WorldDetailsDTO world);
         [OperationContract]
         void DeleteClass(ClassDetailsDTO dto);
         [OperationContract]
