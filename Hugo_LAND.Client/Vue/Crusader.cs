@@ -11,16 +11,27 @@ namespace Hugo_LAND.Client
         private double _lastTime;
         private long _frameCounter;
         private GameState _gameState;
+        private WorldDetailsDTO _currentWorld;
+        private readonly WorldServiceClient wsc = new WorldServiceClient();
 
         public HugoWorld(HeroDetailsDTO hero)
         {
             //Setup the form
-            InitializeComponent();
-            SetStyle(ControlStyles.AllPaintingInWmPaint | ControlStyles.UserPaint | ControlStyles.OptimizedDoubleBuffer, true);
             //Startup the game state
-            _gameState = new GameState(ClientSize, hero);
+            _currentWorld = wsc.GetWorldByName(hero.World);
+            if (_currentWorld != null)
+            {
+                InitializeComponent();
+                SetStyle(ControlStyles.AllPaintingInWmPaint | ControlStyles.UserPaint | ControlStyles.OptimizedDoubleBuffer, true);
+                _gameState = new GameState(ClientSize, hero);
+                initialize();
+            }
+            else
+            {
+                MessageBox.Show("An error has occured while loading the map.", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
 
-            initialize();
+
         }
 
         private void initialize()
