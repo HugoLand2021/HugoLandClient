@@ -10,7 +10,7 @@ namespace Hugo_LAND.Client.Vue
     {
 
         private List<HeroDetailsDTO> herosList = new List<HeroDetailsDTO>();
-        private HeroDetailsDTO selectedHero = new HeroDetailsDTO();
+        public HeroDetailsDTO selectedHero = new HeroDetailsDTO();
         private readonly HeroServiceClient HeroService = new HeroServiceClient();
         public frmSelectHero(frmMain main)
         {
@@ -49,8 +49,8 @@ namespace Hugo_LAND.Client.Vue
                 if (herosList.Any(h => h.HeroName == cmbNomhero.Text))
                 {
                     selectedHero = herosList[cmbNomhero.SelectedIndex];
-                    HugoWorld hugoWorld = new HugoWorld(selectedHero);
-                    hugoWorld.ShowDialog();
+                    
+                    this.Close();
                 }
                 else
                     error = true;

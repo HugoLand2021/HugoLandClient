@@ -8,6 +8,7 @@ namespace Hugo_LAND.Client.Vue
     {
         private readonly AccountServiceClient accountService = new AccountServiceClient();
         private readonly frmLogin loginForm;
+        private HeroDetailsDTO hero;
         public AccountDetailsDTO accountDetails = new AccountDetailsDTO();
 
         internal void SuccessfulConnection()
@@ -38,9 +39,12 @@ namespace Hugo_LAND.Client.Vue
         private void btnStart_Click(object sender, EventArgs e)
         {
             frmSelectHero selecthero = new frmSelectHero(this);
-            selecthero.ShowDialog();
-            //HugoWorld hugoWorld = new HugoWorld(this);
-            //hugoWorld.ShowDialog();
+            selecthero.ShowDialog(this);
+            hero = selecthero.selectedHero;
+            
+
+            HugoWorld hugoWorld = new HugoWorld(hero);
+            hugoWorld.ShowDialog();
 
         }
 
