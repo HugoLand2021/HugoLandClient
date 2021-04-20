@@ -89,6 +89,7 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
     <Compile Include="Validators\CreateClassValidator.cs" />
+    <Compile Include="Validators\CreateHeroValidator.cs" />
     <Compile Include="Vue\Crusader.cs">
       <SubType>Form</SubType>
     </Compile>

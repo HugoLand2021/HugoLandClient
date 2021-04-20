@@ -78,11 +78,11 @@ namespace Hugo_LAND.Client.Vue
                     bool isSuccess = classServiceClient.CreateClass(newClass, world);
                     if (isSuccess)
                     {
-                        MessageBox.Show("The user has been created", "Success!", MessageBoxButtons.OK, MessageBoxIcon.None);
+                        MessageBox.Show("The class has been created", "Success!", MessageBoxButtons.OK, MessageBoxIcon.None);
                         this.Close();
                     }
                     else
-                        MessageBox.Show("An error has occured with the creation of the user", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        MessageBox.Show("An error has occured with the creation of the class", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
         }
@@ -97,7 +97,14 @@ namespace Hugo_LAND.Client.Vue
             catch
             {
                 MessageBox.Show("No worlds have been found or a network error has occured!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                this.Close();
+                txtDescription.Enabled = false;
+                txtName.Enabled = false;
+                txtStr.Enabled = false;
+                txtDex.Enabled = false;
+                txtInt.Enabled = false;
+                txtVitality.Enabled = false;
+                btnCreate.Enabled = false;
+                comboWorlds.Enabled = false;
             }
         }
         private List<string> VerifyInfo()

@@ -1,4 +1,5 @@
 ﻿using Hugo_LAND.Client.HugoLandServices;
+using Hugo_LAND.Client.Validators;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -18,13 +19,16 @@ namespace Hugo_LAND.Client.Vue
         private readonly HeroServiceClient HeroService = new HeroServiceClient();
         private readonly WorldServiceClient worldServiceClient = new WorldServiceClient();
         private readonly ClassServiceClient classServiceClient = new ClassServiceClient();
-        private  List<WorldDetailsDTO> worldsList = new List<WorldDetailsDTO>();
-        private  List<ClassDetailsDTO> classList = new List<ClassDetailsDTO>();
+        private List<WorldDetailsDTO> worldsList = new List<WorldDetailsDTO>();
+        private List<ClassDetailsDTO> classList = new List<ClassDetailsDTO>();
+        private readonly CreateHeroValidator createHeroValidator;
+
 
         public frmCreateHero(frmMain main)
         {
             InitializeComponent();
             nomCompte = main.accountDetails.PlayerName;
+            createHeroValidator = new CreateHeroValidator();
             LoadWorlds();
             LoadClasses();
             UpdateStats();
@@ -32,6 +36,7 @@ namespace Hugo_LAND.Client.Vue
 
         private void btnCreateHeroFrm_Click(object sender, EventArgs e)
         {
+            List<string> errors = VerifyInfo();
             HeroDetailsDTO hero = new HeroDetailsDTO()
             {
                 HeroName = txtnomHero.Text,
@@ -43,15 +48,22 @@ namespace Hugo_LAND.Client.Vue
                 World = cmbDescription.Text,
                 UserName = nomCompte
             };
-            bool isSuccess = HeroService.CreateHero(hero);
-            if (isSuccess)
-            {
-                MessageBox.Show("The hero has been created", "Success!", MessageBoxButtons.OK, MessageBoxIcon.None);
-                this.Close();
-            }
+            var result = createHeroValidator.Validate(hero);
+            foreach (var item in result.Errors)
+                errors.Add(item.ErrorMessage);
+            if (errors.Count() > 0)
+                MessageBox.Show(string.Join("\n", errors), "Errors", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             else
-                MessageBox.Show("An error has occured with the creation of the hero", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            
+            {
+                bool isSuccess = HeroService.CreateHero(hero);
+                if (isSuccess)
+                {
+                    MessageBox.Show("The hero has been created", "Success!", MessageBoxButtons.OK, MessageBoxIcon.None);
+                    this.Close();
+                }
+                else
+                    MessageBox.Show("An error has occured with the creation of the hero", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
         private void btnCancelHeroFrm_Click(object sender, EventArgs e)
@@ -61,13 +73,18 @@ namespace Hugo_LAND.Client.Vue
 
         private void UpdateStats()
         {
-            var currClass = classList[cmbNomClass.SelectedIndex];
+            try
+            {
+                var currClass = classList[cmbNomClass.SelectedIndex];
+                txtstatBaseDex.Text = (currClass.StatBaseDex + _random.Next(0, 11)).ToString();
+                txtstatBaseInt.Text = (currClass.StatBaseInt + _random.Next(0, 11)).ToString(); ;
+                txtstatBaseStr.Text = (currClass.StatBaseStr + _random.Next(0, 11)).ToString(); ;
+                txtstatBaseVitalite.Text = (currClass.StatBaseVitality + _random.Next(0, 11)).ToString(); ;
+            }
+            catch 
+            {
 
-            txtstatBaseDex.Text = (currClass.StatBaseDex + _random.Next(0, 11)).ToString();
-            txtstatBaseInt.Text = (currClass.StatBaseInt + _random.Next(0, 11)).ToString(); ;
-            txtstatBaseStr.Text = (currClass.StatBaseStr + _random.Next(0, 11)).ToString(); ;
-            txtstatBaseVitalite.Text = (currClass.StatBaseVitality + _random.Next(0, 11)).ToString(); ;
-
+            }
         }
 
         private void cmbNomClass_SelectedIndexChanged(object sender, EventArgs e)
@@ -79,7 +96,8 @@ namespace Hugo_LAND.Client.Vue
         {
             UpdateStats();
         }
-        private void LoadWorlds() {
+        private void LoadWorlds()
+        {
             try
             {
                 worldsList = worldServiceClient.GetAllWorldNames().ToList();
@@ -88,10 +106,11 @@ namespace Hugo_LAND.Client.Vue
             catch
             {
                 MessageBox.Show("No worlds have been found or a network error has occured!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                this.Close();
+                DisableComponents();
             }
         }
-        private void LoadClasses() {
+        private void LoadClasses()
+        {
             try
             {
                 classList = classServiceClient.GetAllClasses().ToList();
@@ -101,8 +120,51 @@ namespace Hugo_LAND.Client.Vue
             catch
             {
                 MessageBox.Show("No classes have been found or a network error has occured!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                this.Close();
+                DisableComponents();
             }
+        }
+        List<string> VerifyInfo()
+        {
+            List<string> errors = new List<string>();
+
+            //Class
+            ClassDetailsDTO c;
+            try
+            {
+                c = classList.First(cl => cl.ClassName == cmbNomClass.Text);
+            }
+            catch
+            {
+                c = null;
+            }
+            if (string.IsNullOrEmpty(cmbDescription.Text) || c == null)
+                errors.Add("Please select a valid class.");
+
+            //World
+            WorldDetailsDTO w;
+            try
+            {
+                w = worldsList.First(wo => wo.Description == cmbDescription.Text);
+            }
+            catch
+            {
+                w = null;
+            }
+            if (string.IsNullOrEmpty(cmbDescription.Text) || w == null)
+                errors.Add("Please select a valid world.");
+
+            return errors;
+        }
+        void DisableComponents() {
+            btnGenerate.Enabled = false;
+            btnCreateHeroFrm.Enabled = false;
+            txtnomHero.Enabled = false;
+            cmbDescription.Enabled = false;
+            cmbNomClass.Enabled = false;
+            txtstatBaseStr.Enabled = false;
+            txtstatBaseDex.Enabled = false;
+            txtstatBaseInt.Enabled = false;
+            txtstatBaseVitalite.Enabled = false;
         }
     }
 }

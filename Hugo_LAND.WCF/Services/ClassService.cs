@@ -29,7 +29,7 @@ namespace Hugo_LAND.WCF.Services
                         Monde = monde,
                     };
                     context.Entry(classe).State = EntityState.Added;
-                    context.SaveChangesAsync();
+                    context.SaveChanges();
                     return true;
                 }
             }
@@ -48,10 +48,23 @@ namespace Hugo_LAND.WCF.Services
 
                     var delClass = context.Classes.Find(dto.Id);
                     List<int> listDelHero = new List<int>();
+                    List<int> listDelHeroItems = new List<int>();
+                    List<int> listDelHeroInventaire = new List<int>();
                     foreach (Hero hero in delClass.Heros)
+                    {
                         listDelHero.Add(hero.Id);
+                        foreach (Item item in hero.Items)
+                            listDelHeroItems.Add(item.Id);
+                        foreach (InventaireHero inv in hero.InventaireHeroes)
+                            listDelHeroInventaire.Add(inv.IdInventaireHero);
+                    }
+                    foreach (int id in listDelHeroItems)
+                        context.Entry(context.Items.Find(id)).State = EntityState.Deleted;
+                    foreach (int id in listDelHeroInventaire)
+                        context.Entry(context.InventaireHeroes.Find(id)).State = EntityState.Deleted;
                     foreach (int id in listDelHero)
                         context.Entry(context.Heros.Find(id)).State = EntityState.Deleted;
+
 
                     context.Entry(delClass).State = EntityState.Deleted;
                     context.SaveChanges();
