@@ -19,29 +19,15 @@ namespace Hugo_LAND.Client
         public const int AreaOffsetY = 50;
         public const int MapSizeX = 8;
         public const int MapSizeY = 8;
+        public int AreaBeginX = 0;
+        public int AreaBeginY = 0;
         WorldItemServiceClient worlditemsService = new WorldItemServiceClient();
 
         public MapTile[,] Map = new MapTile[MapSizeX, MapSizeY];
         private Rectangle _areaRectangle = new Rectangle(AreaOffsetX, AreaOffsetY, MapSizeX * Tile.TileSizeX, MapSizeY * Tile.TileSizeY);
 
-        public string Name;
-        //public string NorthArea;
-        //public string EastArea;
-        //public string SouthArea;
-        //public string WestArea;
-
         public Area(Dictionary<string, Tile> tiles)
         {
-            //string line;
-
-            //1st line is the name
-            //Name = stream.ReadLine().ToLower();
-
-            ////next 4 lines are which areas you go for N,E,S,W
-            //NorthArea = stream.ReadLine().ToLower();
-            //EastArea = stream.ReadLine().ToLower();
-            //SouthArea = stream.ReadLine().ToLower();
-            //WestArea = stream.ReadLine().ToLower();
 
 
 
@@ -60,16 +46,19 @@ namespace Hugo_LAND.Client
             //        mapTile.SetSprite(i, j);
             //    }
             //}
+            var pooper = worlditemsService.ReturnWorldItems(1112, 0, 0).ToList();
 
-            var pooper = worlditemsService.ReturnWorldItems(1111, 0, 0).ToList();
+
 
             foreach (var item in pooper)
             {
 
+
+
                 MapTile mapTile = new MapTile();
-                Map[item.x, item.y] = mapTile;
+                Map[item.x % 8, item.y % 8] = mapTile;
                 mapTile.Tile = tiles[item.Description];
-                mapTile.SetSprite(item.x, item.y);
+                mapTile.SetSprite(item.x % 8, item.y % 8);
                 //mapTile.SetObjectSprite(item.x,item.y);
 
 
@@ -77,6 +66,20 @@ namespace Hugo_LAND.Client
                 //{
                 //    mapTile.ObjectSprite.ColorKey = Color.FromArgb(75, 75, 75);
                 //}
+            }
+
+            for (int x = 0; x < 8; x++)
+            {
+                for (int y = 0; y < 8; y++)
+                {
+                    if (Map[x,y] == null)
+                    {
+                        MapTile mapTile = new MapTile();
+                        Map[x,y] = mapTile;
+                        mapTile.Tile = tiles["Grass"];
+                        mapTile.SetSprite(x,y);
+                    }
+                }
             }
 
             //Read game objects until the blank line

@@ -73,11 +73,6 @@ namespace Hugo_LAND.WCF.Services
             {
                 using (var context = new HugoLANDContext())
                 {
-                    //Hero hero = context.Heros.Find(dto.Id);
-                    //hero.x = newX;
-                    //hero.y = newY;
-                    //context.SaveChanges();
-
                     var hero = new Hero()
                     {
                         Id = dto.Id,

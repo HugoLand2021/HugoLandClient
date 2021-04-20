@@ -4,6 +4,7 @@ using System.Text;
 using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
+using Hugo_LAND.Client.HugoLandServices;
 
 namespace Hugo_LAND.Client
 {
@@ -38,6 +39,7 @@ namespace Hugo_LAND.Client
         private HeroDirection _direction;
         private GameState _gameState;
         private List<textPopup> _popups = new List<textPopup>();
+        private readonly HeroServiceClient HeroService = new HeroServiceClient();
 
         private static Font _font = new Font("Arial", 18);
         private static Brush _whiteBrush = new SolidBrush(Color.White);
@@ -54,11 +56,12 @@ namespace Hugo_LAND.Client
 
             //Find the start point
             //_currentArea = _world[_startArea];
+            
             _currentArea = new Area(_tiles);
             
 
             //Create and position the hero character
-            _heroPosition = new Point(3, 3);
+            _heroPosition = new Point(_gameState.Hero.x % 8, _gameState.Hero.y % 8);
             _heroSprite = new Sprite(null, _heroPosition.X * Tile.TileSizeX + Area.AreaOffsetX,
                                             _heroPosition.Y * Tile.TileSizeY + Area.AreaOffsetY,
                                             _tiles["Hero"].Bitmap, _tiles["Hero"].Rectangle, _tiles["Hero"].NumberOfFrames);
@@ -240,6 +243,9 @@ namespace Hugo_LAND.Client
                                 _heroSpriteAnimating = true;
                                 _direction = HeroDirection.Right;
                                 _heroPosition.X++;
+                                _gameState.Hero.x++;
+                                HeroService.MoveHero(_gameState.Hero, _gameState.Hero.x, _gameState.Hero.y);
+                                
                                 setDestination();
                             }
                         }
