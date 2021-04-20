@@ -1,12 +1,7 @@
 ﻿using Hugo_LAND.Client.HugoLandServices;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Hugo_LAND.Client.Vue
@@ -27,7 +22,7 @@ namespace Hugo_LAND.Client.Vue
             {
                 herosList = HeroService.ReturnHerosFromAccount(id).ToList();
             }
-            catch 
+            catch
             {
 
             }

@@ -2,12 +2,7 @@
 using Hugo_LAND.Client.Validators;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Hugo_LAND.Client.Vue
@@ -81,7 +76,7 @@ namespace Hugo_LAND.Client.Vue
                 txtstatBaseStr.Text = (currClass.StatBaseStr + _random.Next(0, 11)).ToString(); ;
                 txtstatBaseVitalite.Text = (currClass.StatBaseVitality + _random.Next(0, 11)).ToString(); ;
             }
-            catch 
+            catch
             {
 
             }
@@ -155,7 +150,8 @@ namespace Hugo_LAND.Client.Vue
 
             return errors;
         }
-        void DisableComponents() {
+        void DisableComponents()
+        {
             btnGenerate.Enabled = false;
             btnCreateHeroFrm.Enabled = false;
             txtnomHero.Enabled = false;
