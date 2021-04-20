@@ -271,6 +271,8 @@ namespace Hugo_LAND.Client
                                 _heroSpriteAnimating = true;
                                 _direction = HeroDirection.Left;
                                 _heroPosition.X--;
+                                _gameState.Hero.x--;
+                                HeroService.MoveHero(_gameState.Hero, _gameState.Hero.x, _gameState.Hero.y);
                                 setDestination();
                             }
                         }
@@ -294,6 +296,8 @@ namespace Hugo_LAND.Client
                                 _heroSpriteAnimating = true;
                                 _direction = HeroDirection.Up;
                                 _heroPosition.Y--;
+                                _gameState.Hero.y--;
+                                HeroService.MoveHero(_gameState.Hero, _gameState.Hero.x, _gameState.Hero.y);
                                 setDestination();
                             }
                         }
@@ -318,6 +322,8 @@ namespace Hugo_LAND.Client
                                 _heroSpriteAnimating = true;
                                 _direction = HeroDirection.Down;
                                 _heroPosition.Y++;
+                                _gameState.Hero.y++;
+                                HeroService.MoveHero(_gameState.Hero, _gameState.Hero.x, _gameState.Hero.y);
                                 setDestination();
                             }
                         }
