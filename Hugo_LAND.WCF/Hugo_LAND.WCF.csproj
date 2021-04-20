@@ -63,6 +63,8 @@
     <Compile Include="DTOs\AuthentificationDetailsDTO.cs" />
     <Compile Include="DTOs\ClassDetailsDTO.cs" />
     <Compile Include="DTOs\HeroDetailsDTO.cs" />
+    <Compile Include="DTOs\ItemDetailsDTO.cs" />
+    <Compile Include="DTOs\MonsterDetailsDTO.cs" />
     <Compile Include="DTOs\WorldDetailsDTO.cs" />
     <Compile Include="DTOs\WorldItemDetailsDTO.cs" />
     <Compile Include="Services\ClassService.cs" />
@@ -72,8 +74,12 @@
     <Compile Include="Services\AccountService.cs" />
     <Compile Include="Services\IAccountService.cs" />
     <Compile Include="Services\IHeroService.cs" />
+    <Compile Include="Services\IItemService.cs" />
+    <Compile Include="Services\IMonsterService.cs" />
+    <Compile Include="Services\ItemService.cs" />
     <Compile Include="Services\IWorldItemService.cs" />
     <Compile Include="Services\IWorldService.cs" />
+    <Compile Include="Services\MonsterService.cs" />
     <Compile Include="Services\WorldItemService.cs" />
     <Compile Include="Services\WorldService.cs" />
   </ItemGroup>
