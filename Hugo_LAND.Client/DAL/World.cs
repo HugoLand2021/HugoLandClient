@@ -252,6 +252,7 @@ namespace Hugo_LAND.Client
                                 _currentArea = new Area(_tiles, listItems, _gameState.Hero.World, GetBeginPos(_gameState.Hero.x + 1), GetBeginPos(_gameState.Hero.y));
                                 _heroPosition.X = 0;
                                 _gameState.Hero.x++;
+                                HeroService.MoveHero(_gameState.Hero, _gameState.Hero.x, _gameState.Hero.y);
                                 setDestination();
                                 _heroSprite.Location = _heroDestination;
                             }
@@ -289,6 +290,7 @@ namespace Hugo_LAND.Client
                                 _currentArea = new Area(_tiles, listItems, _gameState.Hero.World, GetBeginPos(_gameState.Hero.x - 1), GetBeginPos(_gameState.Hero.y));
                                 _heroPosition.X = Area.MapSizeX - 1;
                                 _gameState.Hero.x--;
+                                HeroService.MoveHero(_gameState.Hero, _gameState.Hero.x, _gameState.Hero.y);
                                 setDestination();
                                 _heroSprite.Location = _heroDestination;
                             }
@@ -326,6 +328,7 @@ namespace Hugo_LAND.Client
                                 _currentArea = new Area(_tiles, listItems, _gameState.Hero.World, GetBeginPos(_gameState.Hero.x), GetBeginPos(_gameState.Hero.y - 1));
                                 _heroPosition.Y = Area.MapSizeY - 1;
                                 _gameState.Hero.y--;
+                                HeroService.MoveHero(_gameState.Hero, _gameState.Hero.x, _gameState.Hero.y);
                                 setDestination();
                                 _heroSprite.Location = _heroDestination;
                             }
@@ -349,6 +352,7 @@ namespace Hugo_LAND.Client
                                 _direction = HeroDirection.Down;
                                 _heroPosition.Y++;
                                 _gameState.Hero.y++;
+
                                 HeroService.MoveHero(_gameState.Hero, _gameState.Hero.x, _gameState.Hero.y);
                                 setDestination();
                             }
@@ -364,6 +368,7 @@ namespace Hugo_LAND.Client
                                 _currentArea = new Area(_tiles, listItems, _gameState.Hero.World, GetBeginPos(_gameState.Hero.x), GetBeginPos(_gameState.Hero.y + 1));
                                 _heroPosition.Y = 0;
                                 _gameState.Hero.y++;
+                                HeroService.MoveHero(_gameState.Hero, _gameState.Hero.x, _gameState.Hero.y);
                                 setDestination();
                                 _heroSprite.Location = _heroDestination;
                             }
