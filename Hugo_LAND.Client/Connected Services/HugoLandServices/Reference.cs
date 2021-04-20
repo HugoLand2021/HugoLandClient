@@ -625,6 +625,131 @@ namespace Hugo_LAND.Client.HugoLandServices {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="WorldItemDetailsDTO", Namespace="http://schemas.datacontract.org/2004/07/Hugo_LAND.WCF.DTOs")]
+    [System.SerializableAttribute()]
+    public partial class WorldItemDetailsDTO : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string DescriptionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IDField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int TypeObjectField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int WorldField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int xField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int yField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Description {
+            get {
+                return this.DescriptionField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DescriptionField, value) != true)) {
+                    this.DescriptionField = value;
+                    this.RaisePropertyChanged("Description");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int ID {
+            get {
+                return this.IDField;
+            }
+            set {
+                if ((this.IDField.Equals(value) != true)) {
+                    this.IDField = value;
+                    this.RaisePropertyChanged("ID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TypeObject {
+            get {
+                return this.TypeObjectField;
+            }
+            set {
+                if ((this.TypeObjectField.Equals(value) != true)) {
+                    this.TypeObjectField = value;
+                    this.RaisePropertyChanged("TypeObject");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int World {
+            get {
+                return this.WorldField;
+            }
+            set {
+                if ((this.WorldField.Equals(value) != true)) {
+                    this.WorldField = value;
+                    this.RaisePropertyChanged("World");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int x {
+            get {
+                return this.xField;
+            }
+            set {
+                if ((this.xField.Equals(value) != true)) {
+                    this.xField = value;
+                    this.RaisePropertyChanged("x");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int y {
+            get {
+                return this.yField;
+            }
+            set {
+                if ((this.yField.Equals(value) != true)) {
+                    this.yField = value;
+                    this.RaisePropertyChanged("y");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="HugoLandServices.IAccountService")]
     public interface IAccountService {
@@ -950,6 +1075,53 @@ namespace Hugo_LAND.Client.HugoLandServices {
         
         public System.Threading.Tasks.Task<Hugo_LAND.Client.HugoLandServices.WorldDetailsDTO> GetWorldByNameAsync(string worldName) {
             return base.Channel.GetWorldByNameAsync(worldName);
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="HugoLandServices.IWorldItemService")]
+    public interface IWorldItemService {
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWorldItemService/ReturnWorldItems", ReplyAction="http://tempuri.org/IWorldItemService/ReturnWorldItemsResponse")]
+        Hugo_LAND.Client.HugoLandServices.WorldItemDetailsDTO[] ReturnWorldItems(int mondeId, int heroX, int heroY, int rayon);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWorldItemService/ReturnWorldItems", ReplyAction="http://tempuri.org/IWorldItemService/ReturnWorldItemsResponse")]
+        System.Threading.Tasks.Task<Hugo_LAND.Client.HugoLandServices.WorldItemDetailsDTO[]> ReturnWorldItemsAsync(int mondeId, int heroX, int heroY, int rayon);
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public interface IWorldItemServiceChannel : Hugo_LAND.Client.HugoLandServices.IWorldItemService, System.ServiceModel.IClientChannel {
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class WorldItemServiceClient : System.ServiceModel.ClientBase<Hugo_LAND.Client.HugoLandServices.IWorldItemService>, Hugo_LAND.Client.HugoLandServices.IWorldItemService {
+        
+        public WorldItemServiceClient() {
+        }
+        
+        public WorldItemServiceClient(string endpointConfigurationName) : 
+                base(endpointConfigurationName) {
+        }
+        
+        public WorldItemServiceClient(string endpointConfigurationName, string remoteAddress) : 
+                base(endpointConfigurationName, remoteAddress) {
+        }
+        
+        public WorldItemServiceClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
+                base(endpointConfigurationName, remoteAddress) {
+        }
+        
+        public WorldItemServiceClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
+                base(binding, remoteAddress) {
+        }
+        
+        public Hugo_LAND.Client.HugoLandServices.WorldItemDetailsDTO[] ReturnWorldItems(int mondeId, int heroX, int heroY, int rayon) {
+            return base.Channel.ReturnWorldItems(mondeId, heroX, heroY, rayon);
+        }
+        
+        public System.Threading.Tasks.Task<Hugo_LAND.Client.HugoLandServices.WorldItemDetailsDTO[]> ReturnWorldItemsAsync(int mondeId, int heroX, int heroY, int rayon) {
+            return base.Channel.ReturnWorldItemsAsync(mondeId, heroX, heroY, rayon);
         }
     }
 }

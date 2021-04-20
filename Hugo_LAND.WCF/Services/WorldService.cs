@@ -12,26 +12,32 @@ namespace Hugo_LAND.WCF.Services
     {
         public List<WorldDetailsDTO> GetAllWorldNames()
         {
-            using (HugoLANDContext context = new HugoLANDContext())
+            try
             {
-                return context.Mondes
-                    .Select(m => new WorldDetailsDTO
-                    {
-                        ID = m.Id,
-                        Description = m.Description,
-                        LimiteX = m.LimiteX,
-                        LimiteY = m.LimiteY
-                    }).ToList();
+                using (HugoLANDContext context = new HugoLANDContext())
+                {
+                    return context.Mondes
+                        .Select(m => new WorldDetailsDTO
+                        {
+                            ID = m.Id,
+                            Description = m.Description,
+                            LimiteX = m.LimiteX,
+                            LimiteY = m.LimiteY
+                        }).ToList();
+                }
             }
+            catch
+            {
+                return null;
+            }
+
         }
         public WorldDetailsDTO GetWorldByName(string worldName)
         {
-            using (var context = new HugoLANDContext())
+            try
             {
-                try
+                using (var context = new HugoLANDContext())
                 {
-                    //Monde monde = context.Mondes.FirstOrDefault(p => p.Description == worldName);
-                    //return monde;
                     return context.Mondes
                    .Where(p => p.Description.StartsWith(worldName))
                    .Select(p => new WorldDetailsDTO
@@ -42,12 +48,11 @@ namespace Hugo_LAND.WCF.Services
                        LimiteY = p.LimiteY
                    }).FirstOrDefault();
                 }
-                catch 
-                {
-                    return null;
-                }
+            }
+            catch
+            {
+                return null;
             }
         }
-
     }
 }

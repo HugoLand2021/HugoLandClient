@@ -195,4 +195,21 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="ReturnWorldItems">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="mondeId" type="xs:int" />
+        <xs:element minOccurs="0" name="heroX" type="xs:int" />
+        <xs:element minOccurs="0" name="heroY" type="xs:int" />
+        <xs:element minOccurs="0" name="rayon" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ReturnWorldItemsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/Hugo_LAND.WCF.DTOs" minOccurs="0" name="ReturnWorldItemsResult" nillable="true" type="q15:ArrayOfWorldItemDetailsDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
 </xs:schema>

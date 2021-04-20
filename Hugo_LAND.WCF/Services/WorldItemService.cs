@@ -12,23 +12,31 @@ namespace Hugo_LAND.WCF.Services
     {
         public ICollection<WorldItemDetailsDTO> ReturnWorldItems(int mondeId, int heroX, int heroY, int rayon)
         {
-            using (HugoLANDContext context = new HugoLANDContext())
+            try
             {
-                return context.Mondes.Find(mondeId)
-                    .ObjetMondes
-                    .Where(obj => Math.Abs(obj.x - heroX) < rayon && Math.Abs(obj.y - heroY) < rayon)
-                    .Select(m => new WorldItemDetailsDTO
-                    {
-                        ID = m.Id,
-                        Description = m.Description,
-                        x = m.x,
-                        y = m.y,
-                        World = m.Monde.Id,
-                        TypeObject = m.TypeObjet
+                using (HugoLANDContext context = new HugoLANDContext())
+                {
+                    return context.Mondes.Find(mondeId)
+                        .ObjetMondes
+                        .Where(obj => Math.Abs(obj.x - heroX) < rayon && Math.Abs(obj.y - heroY) < rayon)
+                        .Select(m => new WorldItemDetailsDTO
+                        {
+                            ID = m.Id,
+                            Description = m.Description,
+                            x = m.x,
+                            y = m.y,
+                            World = m.Monde.Id,
+                            TypeObject = m.TypeObjet
 
-                    })
-                    .ToList();
+                        })
+                        .ToList();
+                }
             }
+            catch 
+            {
+                return null;
+            }
+            
         }
     }
 }
