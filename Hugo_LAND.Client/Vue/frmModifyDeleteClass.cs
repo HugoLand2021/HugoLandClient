@@ -21,10 +21,11 @@ namespace Hugo_LAND.Client.Vue
         public frmModifyDeleteClass()
         {
             InitializeComponent();
-            InitializeInfo();
-            SetAllTextboxes(classes.First());
-            createClassValidator = new CreateClassValidator();
-
+            if (InitializeInfo())
+            {
+                SetAllTextboxes(classes.First());
+                createClassValidator = new CreateClassValidator();
+            }
         }
 
         private void btnBack_Click(object sender, EventArgs e)
@@ -77,19 +78,19 @@ namespace Hugo_LAND.Client.Vue
                     bool isSuccess = classServiceClient.SaveClass(modifiedClass);
                     if (isSuccess)
                     {
-                        MessageBox.Show("The user has been saved", "Success!", MessageBoxButtons.OK, MessageBoxIcon.None);
+                        MessageBox.Show("The class has been saved", "Success!", MessageBoxButtons.OK, MessageBoxIcon.None);
                         InitializeInfo();
                         SetAllTextboxes(classes[currentClassIndex]);
                     }
                     else
-                        MessageBox.Show("An error has occured while trying to save the user", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        MessageBox.Show("An error has occured while trying to save the class", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            DialogResult dir = MessageBox.Show("Are you sure you want to delete this hero?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            DialogResult dir = MessageBox.Show("Are you sure you want to delete this class?", "Warning", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
             switch (dir)
             {
@@ -102,11 +103,14 @@ namespace Hugo_LAND.Client.Vue
                     if (isSuccess)
                     {
                         InitializeInfo();
-                        SetAllTextboxes(classes.First());
+                        if (!(classes.Count() == 0))
+                        {
+                            SetAllTextboxes(classes.First());
+                        }
                         currentClassIndex = 0;
                     }
                     else
-                        MessageBox.Show("An error has occured while trying to delete the user", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        MessageBox.Show("An error has occured while trying to delete the class", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     break;
                 case DialogResult.No:
                     break;
@@ -147,17 +151,42 @@ namespace Hugo_LAND.Client.Vue
             SetAllTextboxes(classes[currentClassIndex]);
 
         }
-        private void InitializeInfo()
+        private bool InitializeInfo()
         {
             try
             {
                 classes = classServiceClient.GetAllClasses().ToList();
             }
-            catch
+            catch 
+            {
+
+            }
+            if (classes.Count() == 0)
             {
                 MessageBox.Show("No classes have been found or a network error has occured!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                this.Close();
+                btnDelete.Enabled = false;
+                btnModify.Enabled = false;
+                nomClasseTextBox.Enabled = false;
+                nomClasseTextBox.Text = "";
+                descriptionTextBox.Enabled = false;
+                descriptionTextBox.Text = "";
+                statBaseDexTextBox.Enabled = false;
+                statBaseDexTextBox.Text = "";
+                statBaseStrTextBox.Enabled = false;
+                statBaseStrTextBox.Text = "";
+                statBaseIntTextBox.Enabled = false;
+                statBaseIntTextBox.Text = "";
+                statBaseVitaliteTextBox.Enabled = false;
+                statBaseVitaliteTextBox.Text = "";
+                idTextBox.Enabled = false;
+                idTextBox.Text = "";
+                btnFirst.Enabled = false;
+                btnPrev.Enabled = false;
+                btnNext.Enabled = false;
+                btnLast.Enabled = false;
+                return false;
             }
+            return true;
         }
 
         private void SetAllTextboxes(ClassDetailsDTO currentClass)

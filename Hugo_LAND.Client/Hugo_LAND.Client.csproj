@@ -89,6 +89,7 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
     <Compile Include="Validators\CreateClassValidator.cs" />
+    <Compile Include="Validators\CreateHeroValidator.cs" />
     <Compile Include="Vue\Crusader.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -239,13 +240,6 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="packages.config" />
-    <None Include="Properties\DataSources\Hugo_LAND.Core.Models.Classe.datasource" />
-    <None Include="Properties\DataSources\Hugo_LAND.Core.Models.Monde1.datasource" />
-    <None Include="Properties\DataSources\Hugo_LAND.WCF.DTOs.ClassDetailsDTO.datasource" />
-    <None Include="Properties\DataSources\Hugo_LAND.WCF.DTOs.HeroDetailsDTO.datasource" />
-    <None Include="Properties\DataSources\Hugo_LAND.WCF.DTOs.WorldItemDTO.datasource" />
-    <None Include="Properties\DataSources\Hugo_LAND.Core.Models.Hero.datasource" />
-    <None Include="Properties\DataSources\Hugo_LAND.Core.Models.Monde.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

@@ -23,10 +23,17 @@ namespace Hugo_LAND.Client.Vue
             InitializeComponent();
             nomCompte = main.accountDetails.PlayerName;
             id = main.accountDetails.Id;
-            herosList = HeroService.ReturnHerosFromAccount(id).ToList();
+            try
+            {
+                herosList = HeroService.ReturnHerosFromAccount(id).ToList();
+            }
+            catch 
+            {
+
+            }
             if (herosList.Count() == 0)
             {
-                MessageBox.Show("This account dosn't have any hero.", "ERREUR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("This account doesn't have any hero or there has been a network error.", "ERREUR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 cmbNomHero.Enabled = false;
                 btnDelete.Enabled = false;
             }
@@ -48,7 +55,7 @@ namespace Hugo_LAND.Client.Vue
                         bool isSuccess = HeroService.DeleteHero(herosList[cmbNomHero.SelectedIndex]);
                         if (isSuccess)
                         {
-                            MessageBox.Show("The hero has been created", "Success!", MessageBoxButtons.OK, MessageBoxIcon.None);
+                            MessageBox.Show("The hero has been deleted", "Success!", MessageBoxButtons.OK, MessageBoxIcon.None);
                             this.Close();
                         }
                         else
@@ -63,7 +70,7 @@ namespace Hugo_LAND.Client.Vue
             }
         }
 
-        private void btnCancel_Click(object sender, EventArgs e)
+        private void btnBack_Click(object sender, EventArgs e)
         {
             this.Close();
         }

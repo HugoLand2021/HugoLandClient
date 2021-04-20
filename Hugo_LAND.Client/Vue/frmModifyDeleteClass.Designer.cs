@@ -47,7 +47,7 @@ namespace Hugo_LAND.Client.Vue
             this.statBaseVitaliteTextBox = new System.Windows.Forms.TextBox();
             this.btnBack = new System.Windows.Forms.Button();
             this.lblTitle = new System.Windows.Forms.Label();
-            this.btnModifiy = new System.Windows.Forms.Button();
+            this.btnModify = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnFirst = new System.Windows.Forms.Button();
             this.btnLast = new System.Windows.Forms.Button();
@@ -209,16 +209,16 @@ namespace Hugo_LAND.Client.Vue
             this.lblTitle.TabIndex = 21;
             this.lblTitle.Text = "Modify or Delete a class";
             // 
-            // btnModifiy
+            // btnModify
             // 
-            this.btnModifiy.Font = new System.Drawing.Font("Old English Text MT", 40F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnModifiy.Location = new System.Drawing.Point(97, 448);
-            this.btnModifiy.Name = "btnModifiy";
-            this.btnModifiy.Size = new System.Drawing.Size(209, 128);
-            this.btnModifiy.TabIndex = 8;
-            this.btnModifiy.Text = "Modify";
-            this.btnModifiy.UseVisualStyleBackColor = true;
-            this.btnModifiy.Click += new System.EventHandler(this.btnModifiy_Click);
+            this.btnModify.Font = new System.Drawing.Font("Old English Text MT", 40F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnModify.Location = new System.Drawing.Point(97, 448);
+            this.btnModify.Name = "btnModify";
+            this.btnModify.Size = new System.Drawing.Size(209, 128);
+            this.btnModify.TabIndex = 8;
+            this.btnModify.Text = "Modify";
+            this.btnModify.UseVisualStyleBackColor = true;
+            this.btnModify.Click += new System.EventHandler(this.btnModifiy_Click);
             // 
             // btnDelete
             // 
@@ -287,7 +287,7 @@ namespace Hugo_LAND.Client.Vue
             this.Controls.Add(this.btnLast);
             this.Controls.Add(this.btnFirst);
             this.Controls.Add(this.btnDelete);
-            this.Controls.Add(this.btnModifiy);
+            this.Controls.Add(this.btnModify);
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.lblTitle);
             this.Controls.Add(descriptionLabel);
@@ -324,7 +324,7 @@ namespace Hugo_LAND.Client.Vue
         private System.Windows.Forms.TextBox statBaseVitaliteTextBox;
         private System.Windows.Forms.Button btnBack;
         private System.Windows.Forms.Label lblTitle;
-        private System.Windows.Forms.Button btnModifiy;
+        private System.Windows.Forms.Button btnModify;
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button btnFirst;
         private System.Windows.Forms.Button btnLast;

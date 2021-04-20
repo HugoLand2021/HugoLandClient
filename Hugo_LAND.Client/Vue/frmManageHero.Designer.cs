@@ -31,17 +31,20 @@ namespace Hugo_LAND.Client.Vue
         {
             this.bntCreateHero = new System.Windows.Forms.Button();
             this.btnDeleteHero = new System.Windows.Forms.Button();
-            this.btnCancelManagement = new System.Windows.Forms.Button();
             this.lblHeroManagement = new System.Windows.Forms.Label();
+            this.btnBack = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // bntCreateHero
             // 
-            this.bntCreateHero.BackColor = System.Drawing.Color.Gray;
+            this.bntCreateHero.BackColor = System.Drawing.Color.Transparent;
+            this.bntCreateHero.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.bntCreateHero.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bntCreateHero.Font = new System.Drawing.Font("Old English Text MT", 36F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bntCreateHero.Location = new System.Drawing.Point(108, 113);
+            this.bntCreateHero.ForeColor = System.Drawing.Color.White;
+            this.bntCreateHero.Location = new System.Drawing.Point(28, 131);
             this.bntCreateHero.Name = "bntCreateHero";
-            this.bntCreateHero.Size = new System.Drawing.Size(215, 131);
+            this.bntCreateHero.Size = new System.Drawing.Size(288, 190);
             this.bntCreateHero.TabIndex = 0;
             this.bntCreateHero.Text = "Create Hero";
             this.bntCreateHero.UseVisualStyleBackColor = false;
@@ -49,38 +52,48 @@ namespace Hugo_LAND.Client.Vue
             // 
             // btnDeleteHero
             // 
-            this.btnDeleteHero.BackColor = System.Drawing.Color.DarkGray;
+            this.btnDeleteHero.BackColor = System.Drawing.Color.Transparent;
+            this.btnDeleteHero.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btnDeleteHero.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDeleteHero.Font = new System.Drawing.Font("Old English Text MT", 36F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDeleteHero.Location = new System.Drawing.Point(449, 113);
+            this.btnDeleteHero.ForeColor = System.Drawing.Color.White;
+            this.btnDeleteHero.Location = new System.Drawing.Point(470, 131);
             this.btnDeleteHero.Name = "btnDeleteHero";
-            this.btnDeleteHero.Size = new System.Drawing.Size(215, 131);
+            this.btnDeleteHero.Size = new System.Drawing.Size(288, 190);
             this.btnDeleteHero.TabIndex = 1;
             this.btnDeleteHero.Text = "Delete Hero";
             this.btnDeleteHero.UseVisualStyleBackColor = false;
             this.btnDeleteHero.Click += new System.EventHandler(this.btnDeleteHero_Click);
             // 
-            // btnCancelManagement
-            // 
-            this.btnCancelManagement.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.btnCancelManagement.Font = new System.Drawing.Font("Old English Text MT", 36F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancelManagement.Location = new System.Drawing.Point(277, 277);
-            this.btnCancelManagement.Name = "btnCancelManagement";
-            this.btnCancelManagement.Size = new System.Drawing.Size(215, 131);
-            this.btnCancelManagement.TabIndex = 3;
-            this.btnCancelManagement.Text = "Cancel";
-            this.btnCancelManagement.UseVisualStyleBackColor = false;
-            this.btnCancelManagement.Click += new System.EventHandler(this.btnCancelManagement_Click);
-            // 
             // lblHeroManagement
             // 
             this.lblHeroManagement.AutoSize = true;
             this.lblHeroManagement.BackColor = System.Drawing.Color.Transparent;
-            this.lblHeroManagement.Font = new System.Drawing.Font("Old English Text MT", 36F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblHeroManagement.Location = new System.Drawing.Point(184, 9);
+            this.lblHeroManagement.Font = new System.Drawing.Font("Old English Text MT", 50F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblHeroManagement.ForeColor = System.Drawing.Color.White;
+            this.lblHeroManagement.Location = new System.Drawing.Point(136, 9);
             this.lblHeroManagement.Name = "lblHeroManagement";
-            this.lblHeroManagement.Size = new System.Drawing.Size(409, 57);
+            this.lblHeroManagement.Size = new System.Drawing.Size(454, 79);
             this.lblHeroManagement.TabIndex = 4;
-            this.lblHeroManagement.Text = "Hero Management";
+            this.lblHeroManagement.Text = "Hero Manager";
+            // 
+            // btnBack
+            // 
+            this.btnBack.BackColor = System.Drawing.Color.Transparent;
+            this.btnBack.FlatAppearance.BorderColor = System.Drawing.Color.Red;
+            this.btnBack.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.btnBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBack.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBack.ForeColor = System.Drawing.Color.Red;
+            this.btnBack.ImageAlign = System.Drawing.ContentAlignment.BottomLeft;
+            this.btnBack.Location = new System.Drawing.Point(1, 0);
+            this.btnBack.Name = "btnBack";
+            this.btnBack.Size = new System.Drawing.Size(61, 57);
+            this.btnBack.TabIndex = 20;
+            this.btnBack.Text = "🠔";
+            this.btnBack.TextAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.btnBack.UseVisualStyleBackColor = false;
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
             // frmManageHero
             // 
@@ -88,9 +101,9 @@ namespace Hugo_LAND.Client.Vue
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::Hugo_LAND.Client.Properties.Resources._1920x1080_Might___Magic__Heroes_VI_game_wallpaper;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(785, 450);
+            this.ClientSize = new System.Drawing.Size(796, 377);
+            this.Controls.Add(this.btnBack);
             this.Controls.Add(this.lblHeroManagement);
-            this.Controls.Add(this.btnCancelManagement);
             this.Controls.Add(this.btnDeleteHero);
             this.Controls.Add(this.bntCreateHero);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
@@ -105,7 +118,7 @@ namespace Hugo_LAND.Client.Vue
 
         private System.Windows.Forms.Button bntCreateHero;
         private System.Windows.Forms.Button btnDeleteHero;
-        private System.Windows.Forms.Button btnCancelManagement;
         private System.Windows.Forms.Label lblHeroManagement;
+        private System.Windows.Forms.Button btnBack;
     }
 }

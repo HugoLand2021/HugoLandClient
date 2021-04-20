@@ -48,5 +48,10 @@ namespace Hugo_LAND.Client.Vue
             }
 
         }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
