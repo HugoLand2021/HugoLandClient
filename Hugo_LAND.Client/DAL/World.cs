@@ -253,6 +253,7 @@ namespace Hugo_LAND.Client
                                 HeroService.MoveHero(_gameState.Hero, _gameState.Hero.x, _gameState.Hero.y);
                                 setDestination();
                                 _heroSprite.Location = _heroDestination;
+
                             }
                         }
                         break;

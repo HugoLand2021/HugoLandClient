@@ -142,7 +142,7 @@ namespace Hugo_LAND.Client
 
         public void Initialize()
         {
-            Sounds.Start();
+            //Sounds.Start();
 
             //Create all the main gameobjects
             World = new World(this, _tiles);
