@@ -169,6 +169,21 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="ConnectHero">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="isConnected" type="xs:boolean" />
+        <xs:element minOccurs="0" name="idHero" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ConnectHeroResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ConnectHeroResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="GetAllWorldNames">
     <xs:complexType>
       <xs:sequence />

@@ -7,6 +7,7 @@ namespace Hugo_LAND.Client.Vue
     public partial class frmMain : Form
     {
         private readonly AccountServiceClient accountService = new AccountServiceClient();
+        private readonly HeroServiceClient heroService = new HeroServiceClient();
         private readonly frmLogin loginForm;
         private HeroDetailsDTO hero;
         public AccountDetailsDTO accountDetails = new AccountDetailsDTO();
@@ -44,8 +45,10 @@ namespace Hugo_LAND.Client.Vue
 
             if (hero is object)
             {
+                heroService.ConnectHero(true, hero.Id);
                 HugoWorld hugoWorld = new HugoWorld(hero);
                 hugoWorld.ShowDialog();
+                heroService.ConnectHero(false, hero.Id);
             }
         }
 
@@ -64,6 +67,14 @@ namespace Hugo_LAND.Client.Vue
         private void button1_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void frmMain_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            if (hero is object)
+            {
+                heroService.ConnectHero(false, hero.Id);
+            }
         }
     }
 }

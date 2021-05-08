@@ -134,5 +134,22 @@ namespace Hugo_LAND.WCF.Services
             }
             
         }
+
+        public string ConnectHero(bool isConnected, int idHero)
+        {
+            try
+            {
+                using (var context = new HugoLANDContext())
+                {
+                    context.Heros.Find(idHero).EstConnecte = isConnected;
+                    context.SaveChanges();
+                }
+                return "SUCCESS";
+            }
+            catch
+            {
+                return "ERROR";
+            }
+        }
     }
 }

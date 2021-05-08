@@ -22,7 +22,6 @@ namespace Hugo_LAND.Client.Vue
             try
             {
                 herosList = HeroService.ReturnHerosFromAccount(main.accountDetails.Id).ToList();
-
             }
             catch
             {

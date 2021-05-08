@@ -35,6 +35,7 @@ namespace Hugo_LAND.Client
         private Sprite _greenKeySprite;
         private Sprite _redKeySprite;
 
+
         private Dictionary<string, Tile> _tiles = new Dictionary<string, Tile>();
 
         private static Font _font = new Font("Arial", 24);
@@ -152,7 +153,6 @@ namespace Hugo_LAND.Client
             Potions = 10; //-------
             Armour = 1;   // TODO : le lien avec l'inventaire ici du Hero (donc l'inventaire DTO)
             Treasure = 0; // ------
-
             Attack = Hero.StatStr; // TODO il faut le mélanger probablement avec le nombre d'épée dans l'inventaire du Héro
             Experience = Hero.Experience;
             Level = Hero.Level;

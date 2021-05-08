@@ -1245,6 +1245,12 @@ namespace Hugo_LAND.Client.HugoLandServices {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IHeroService/ReturnHero", ReplyAction="http://tempuri.org/IHeroService/ReturnHeroResponse")]
         System.Threading.Tasks.Task<Hugo_LAND.Client.HugoLandServices.HeroDetailsDTO> ReturnHeroAsync(string idhero);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IHeroService/ConnectHero", ReplyAction="http://tempuri.org/IHeroService/ConnectHeroResponse")]
+        string ConnectHero(bool isConnected, int idHero);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IHeroService/ConnectHero", ReplyAction="http://tempuri.org/IHeroService/ConnectHeroResponse")]
+        System.Threading.Tasks.Task<string> ConnectHeroAsync(bool isConnected, int idHero);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -1312,6 +1318,14 @@ namespace Hugo_LAND.Client.HugoLandServices {
         
         public System.Threading.Tasks.Task<Hugo_LAND.Client.HugoLandServices.HeroDetailsDTO> ReturnHeroAsync(string idhero) {
             return base.Channel.ReturnHeroAsync(idhero);
+        }
+        
+        public string ConnectHero(bool isConnected, int idHero) {
+            return base.Channel.ConnectHero(isConnected, idHero);
+        }
+        
+        public System.Threading.Tasks.Task<string> ConnectHeroAsync(bool isConnected, int idHero) {
+            return base.Channel.ConnectHeroAsync(isConnected, idHero);
         }
     }
     
