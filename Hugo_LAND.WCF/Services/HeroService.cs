@@ -93,7 +93,7 @@ namespace Hugo_LAND.WCF.Services
                         {
                             Id = p.Id,
                             Level = p.Niveau,
-                            Experience = p.Experience,
+                            Experience = (int)p.Experience,
                             x = p.x,
                             y = p.y,
                             StatStr = p.StatStr,

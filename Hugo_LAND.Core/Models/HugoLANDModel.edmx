@@ -14,7 +14,7 @@
           <Property Name="Description" Type="nvarchar" MaxLength="128" Nullable="false" />
           <Property Name="StatBaseStr" Type="int" Nullable="false" />
           <Property Name="StatBaseDex" Type="int" Nullable="false" />
-          <Property Name="StatBaseInt" Type="int" Nullable="false" />
+          <Property Name="StatBaseReg" Type="int" Nullable="false" />
           <Property Name="StatBaseVitalite" Type="int" Nullable="false" />
           <Property Name="MondeId" Type="int" Nullable="false" />
         </EntityType>
@@ -52,7 +52,7 @@
           <Property Name="y" Type="int" Nullable="false" />
           <Property Name="StatStr" Type="int" Nullable="false" />
           <Property Name="StatDex" Type="int" Nullable="false" />
-          <Property Name="StatInt" Type="int" Nullable="false" />
+          <Property Name="StatReg" Type="int" Nullable="false" />
           <Property Name="StatVitalite" Type="int" Nullable="false" />
           <Property Name="MondeId" Type="int" Nullable="false" />
           <Property Name="ClasseId" Type="int" Nullable="false" />
@@ -344,10 +344,10 @@
           <Property Name="Description" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="StatBaseStr" Type="Int32" Nullable="false" />
           <Property Name="StatBaseDex" Type="Int32" Nullable="false" />
-          <Property Name="StatBaseReg" Type="Int32" Nullable="false" />
           <Property Name="StatBaseVitalite" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Monde" Relationship="Self.FK_Classe_Monde" FromRole="Classe" ToRole="Monde" />
           <NavigationProperty Name="Heros" Relationship="Self.FK_Hero_Classe" FromRole="Classe" ToRole="Heros" />
+          <Property Name="StatBaseReg" Type="Int32" Nullable="false" />
         </EntityType>
         <EntityType Name="CompteJoueur">
           <Key>
@@ -383,7 +383,6 @@
           <Property Name="y" Type="Int32" Nullable="false" />
           <Property Name="StatStr" Type="Int32" Nullable="false" />
           <Property Name="StatDex" Type="Int32" Nullable="false" />
-          <Property Name="StatReg" Type="Int32" Nullable="false" />
           <Property Name="StatVitalite" Type="Int32" Nullable="false" />
           <Property Name="NomHero" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="EstConnecte" Type="Boolean" Nullable="false" />
@@ -392,6 +391,7 @@
           <NavigationProperty Name="InventaireHeroes" Relationship="Self.BelongsToHero" FromRole="Heros" ToRole="InventaireHero" />
           <NavigationProperty Name="Monde" Relationship="Self.FK_Hero_Monde" FromRole="Heros" ToRole="Monde" />
           <NavigationProperty Name="Items" Relationship="Self.FK_Item_Heros" FromRole="Heros" ToRole="Item" />
+          <Property Name="StatReg" Type="Int32" Nullable="false" />
         </EntityType>
         <EntityType Name="InventaireHero">
           <Key>
@@ -565,12 +565,12 @@
             <End Role="ObjetMonde" EntitySet="ObjetMondes" />
           </AssociationSet>
           <FunctionImport Name="Connexion">
-            <Parameter Name="pNomJoueur" Mode="In" Type="String" />
+          <Parameter Name="pNomJoueur" Mode="In" Type="String" />
             <Parameter Name="pMotDePasse" Mode="In" Type="String" />
             <Parameter Name="Message" Mode="InOut" Type="String" />
           </FunctionImport>
           <FunctionImport Name="CreerCompteJoueur">
-            <Parameter Name="pNomUtilisateur" Mode="In" Type="String" />
+          <Parameter Name="pNomUtilisateur" Mode="In" Type="String" />
             <Parameter Name="pCourriel" Mode="In" Type="String" />
             <Parameter Name="pPrenom" Mode="In" Type="String" />
             <Parameter Name="pNom" Mode="In" Type="String" />
@@ -579,7 +579,7 @@
             <Parameter Name="Message" Mode="InOut" Type="String" />
           </FunctionImport>
           <FunctionImport Name="ChangerMdp">
-            <Parameter Name="pNomUtilisateur" Mode="In" Type="String" />
+          <Parameter Name="pNomUtilisateur" Mode="In" Type="String" />
             <Parameter Name="pMotDePasse" Mode="In" Type="String" />
             <Parameter Name="Message" Mode="InOut" Type="String" />
           </FunctionImport>
@@ -597,12 +597,12 @@
           <EntitySetMapping Name="Classes">
             <EntityTypeMapping TypeName="HugoLANDModel.Classe">
               <MappingFragment StoreEntitySet="Classe">
+                <ScalarProperty Name="StatBaseReg" ColumnName="StatBaseReg" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="NomClasse" ColumnName="NomClasse" />
                 <ScalarProperty Name="Description" ColumnName="Description" />
                 <ScalarProperty Name="StatBaseStr" ColumnName="StatBaseStr" />
                 <ScalarProperty Name="StatBaseDex" ColumnName="StatBaseDex" />
-                <ScalarProperty Name="StatBaseReg" ColumnName="StatBaseInt" />
                 <ScalarProperty Name="StatBaseVitalite" ColumnName="StatBaseVitalite" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -633,6 +633,7 @@
           <EntitySetMapping Name="Heros">
             <EntityTypeMapping TypeName="HugoLANDModel.Hero">
               <MappingFragment StoreEntitySet="Heros">
+                <ScalarProperty Name="StatReg" ColumnName="StatReg" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Niveau" ColumnName="Niveau" />
                 <ScalarProperty Name="Experience" ColumnName="Experience" />
@@ -640,7 +641,6 @@
                 <ScalarProperty Name="y" ColumnName="y" />
                 <ScalarProperty Name="StatStr" ColumnName="StatStr" />
                 <ScalarProperty Name="StatDex" ColumnName="StatDex" />
-                <ScalarProperty Name="StatReg" ColumnName="StatInt" />
                 <ScalarProperty Name="StatVitalite" ColumnName="StatVitalite" />
                 <ScalarProperty Name="NomHero" ColumnName="NomHero" />
                 <ScalarProperty Name="EstConnecte" ColumnName="EstConnecte" />

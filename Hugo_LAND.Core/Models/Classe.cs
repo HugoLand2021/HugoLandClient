@@ -25,8 +25,8 @@ namespace Hugo_LAND.Core.Models
         public string Description { get; set; }
         public int StatBaseStr { get; set; }
         public int StatBaseDex { get; set; }
-        public int StatBaseReg { get; set; }
         public int StatBaseVitalite { get; set; }
+        public int StatBaseReg { get; set; }
     
         public virtual Monde Monde { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

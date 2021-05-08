@@ -149,14 +149,15 @@ namespace Hugo_LAND.Client
 
             //Reset the game state
             
-            Attack = 1;
-            Potions = 10;
-            Armour = 1; 
-            Experience = 0;
-            Level = 0;
+            Potions = 10; //-------
+            Armour = 1;   // TODO : le lien avec l'inventaire ici du Hero (donc l'inventaire DTO)
+            Treasure = 0; // ------
+
+            Attack = Hero.StatStr; // TODO il faut le mélanger probablement avec le nombre d'épée dans l'inventaire du Héro
+            Experience = Hero.Experience;
+            Level = Hero.Level;
             _nextUpgrade = 20;
-            Health = 100; 
-            Treasure = 0;
+            Health = Hero.StatVitality; 
             GameIsWon = false;
         }
 

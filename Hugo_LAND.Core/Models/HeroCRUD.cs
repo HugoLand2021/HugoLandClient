@@ -9,7 +9,7 @@ namespace Hugo_LAND.Core.Models
 {
     public static class HeroCRUD
     {
-        public static void CreeHero(int newNiveau, long newExperience, int newX, int newY, int newStatStr, int newStatDex,
+        public static void CreeHero(int newNiveau, int newExperience, int newX, int newY, int newStatStr, int newStatDex,
             int newStatReg, int newStatVitalite, string newNomHero, bool newConnection, int idClasse, int idCompteJoueur,
               int idMonde)
         {
@@ -47,7 +47,7 @@ namespace Hugo_LAND.Core.Models
             }
         }
 
-        public static void ModifHero(int id, int newNiveau, long newExperience, int newStatStr, int newStatDex,
+        public static void ModifHero(int id, int newNiveau, int newExperience, int newStatStr, int newStatDex,
             int newStatReg, int newStatVitalite, string newNomHero)
         {
             using (HugoLANDContext context = new HugoLANDContext())

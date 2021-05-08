@@ -45,7 +45,7 @@ namespace Hugo_LAND
             //CompteJoueursCRUD.ModifCompteJoueur(3, "JetManger", "AntonynyneCoolDextraze@gmail.com", "Anthony", "Dextrazio", 1, "GirlHunterzz64");
             //CompteJoueursCRUD.ModifCompteJoueur(3, "JetManger", "AntonynyneCoolDextraze@gmail.com", "Anthony", "Dextrazio", 1, "GirlHunterzz64");
             //Console.WriteLine(CompteJoueursCRUD.ValideJoueur("Random-Pal", "SucksTObeU"));
-            CompteJoueurCRUD.CreerJoueur("Test123", "123@pop.com", "Charles", "Henry", 1, "Okay123");
+            CompteJoueurCRUD.CreerJoueur("Test1234", "1243@pop.com", "Charle3s", "Henry2", 1, "Okay1234");
 
             //Mauvais mdp
             //Console.WriteLine(CompteJoueursCRUD.ValideJoueur("Random-Pal", "AHAHAHAHAA"));

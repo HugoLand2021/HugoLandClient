@@ -10,7 +10,7 @@ namespace Hugo_LAND.WCF.DTOs
         [DataMember]
         public int Level { get; set; }
         [DataMember]
-        public long Experience { get; set; }
+        public int Experience { get; set; }
         [DataMember]
         public int x { get; set; }
         [DataMember]

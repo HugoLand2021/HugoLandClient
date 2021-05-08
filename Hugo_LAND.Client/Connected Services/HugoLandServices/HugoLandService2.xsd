@@ -48,7 +48,7 @@
   <xs:complexType name="HeroDetailsDTO">
     <xs:sequence>
       <xs:element minOccurs="0" name="Class" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Experience" type="xs:long" />
+      <xs:element minOccurs="0" name="Experience" type="xs:int" />
       <xs:element minOccurs="0" name="HeroName" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Id" type="xs:int" />
       <xs:element minOccurs="0" name="Level" type="xs:int" />

@@ -28,10 +28,10 @@ namespace Hugo_LAND.Core.Models
         public int y { get; set; }
         public int StatStr { get; set; }
         public int StatDex { get; set; }
-        public int StatReg { get; set; }
         public int StatVitalite { get; set; }
         public string NomHero { get; set; }
         public bool EstConnecte { get; set; }
+        public int StatReg { get; set; }
     
         public virtual Classe Classe { get; set; }
         public virtual CompteJoueur CompteJoueur { get; set; }

@@ -385,7 +385,7 @@ namespace Hugo_LAND.Client.HugoLandServices {
         private string ClassField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private long ExperienceField;
+        private int ExperienceField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string HeroNameField;
@@ -447,7 +447,7 @@ namespace Hugo_LAND.Client.HugoLandServices {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public long Experience {
+        public int Experience {
             get {
                 return this.ExperienceField;
             }
