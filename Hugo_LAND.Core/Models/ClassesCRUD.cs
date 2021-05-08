@@ -20,7 +20,7 @@ namespace Hugo_LAND.Core.Models
                     Description = description,
                     StatBaseStr = str,
                     StatBaseDex = dex,
-                    StatBaseInt = ints,
+                    StatBaseReg = ints,
                     StatBaseVitalite = vit,
                     Monde = monde
                 });
@@ -47,7 +47,7 @@ namespace Hugo_LAND.Core.Models
                 result.Description = description;
                 result.StatBaseStr = str;
                 result.StatBaseDex = dex;
-                result.StatBaseInt = ints;
+                result.StatBaseReg = ints;
                 result.StatBaseVitalite = vit;
                 result.Monde = monde;
                 context.SaveChanges();

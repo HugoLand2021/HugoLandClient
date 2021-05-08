@@ -24,7 +24,7 @@
       <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Id" type="xs:int" />
       <xs:element minOccurs="0" name="StatBaseDex" type="xs:int" />
-      <xs:element minOccurs="0" name="StatBaseInt" type="xs:int" />
+      <xs:element minOccurs="0" name="StatBaseReg" type="xs:int" />
       <xs:element minOccurs="0" name="StatBaseStr" type="xs:int" />
       <xs:element minOccurs="0" name="StatBaseVitality" type="xs:int" />
     </xs:sequence>
@@ -53,7 +53,7 @@
       <xs:element minOccurs="0" name="Id" type="xs:int" />
       <xs:element minOccurs="0" name="Level" type="xs:int" />
       <xs:element minOccurs="0" name="StatDex" type="xs:int" />
-      <xs:element minOccurs="0" name="StatInt" type="xs:int" />
+      <xs:element minOccurs="0" name="StatReg" type="xs:int" />
       <xs:element minOccurs="0" name="StatStr" type="xs:int" />
       <xs:element minOccurs="0" name="StatVitality" type="xs:int" />
       <xs:element minOccurs="0" name="UserName" nillable="true" type="xs:string" />

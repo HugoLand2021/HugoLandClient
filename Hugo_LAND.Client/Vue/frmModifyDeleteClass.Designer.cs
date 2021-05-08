@@ -34,7 +34,7 @@ namespace Hugo_LAND.Client.Vue
             System.Windows.Forms.Label idLabel;
             System.Windows.Forms.Label nomClasseLabel;
             System.Windows.Forms.Label statBaseDexLabel;
-            System.Windows.Forms.Label statBaseIntLabel;
+            System.Windows.Forms.Label statBaseRegLabel;
             System.Windows.Forms.Label statBaseStrLabel;
             System.Windows.Forms.Label statBaseVitaliteLabel;
             this.descriptionTextBox = new System.Windows.Forms.TextBox();
@@ -42,7 +42,7 @@ namespace Hugo_LAND.Client.Vue
             this.idTextBox = new System.Windows.Forms.TextBox();
             this.nomClasseTextBox = new System.Windows.Forms.TextBox();
             this.statBaseDexTextBox = new System.Windows.Forms.TextBox();
-            this.statBaseIntTextBox = new System.Windows.Forms.TextBox();
+            this.statBaseRegTextBox = new System.Windows.Forms.TextBox();
             this.statBaseStrTextBox = new System.Windows.Forms.TextBox();
             this.statBaseVitaliteTextBox = new System.Windows.Forms.TextBox();
             this.btnBack = new System.Windows.Forms.Button();
@@ -57,7 +57,7 @@ namespace Hugo_LAND.Client.Vue
             idLabel = new System.Windows.Forms.Label();
             nomClasseLabel = new System.Windows.Forms.Label();
             statBaseDexLabel = new System.Windows.Forms.Label();
-            statBaseIntLabel = new System.Windows.Forms.Label();
+            statBaseRegLabel = new System.Windows.Forms.Label();
             statBaseStrLabel = new System.Windows.Forms.Label();
             statBaseVitaliteLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.classeBindingSource)).BeginInit();
@@ -66,72 +66,80 @@ namespace Hugo_LAND.Client.Vue
             // descriptionLabel
             // 
             descriptionLabel.AutoSize = true;
-            descriptionLabel.Location = new System.Drawing.Point(94, 246);
+            descriptionLabel.Location = new System.Drawing.Point(125, 303);
+            descriptionLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             descriptionLabel.Name = "descriptionLabel";
-            descriptionLabel.Size = new System.Drawing.Size(63, 13);
+            descriptionLabel.Size = new System.Drawing.Size(83, 17);
             descriptionLabel.TabIndex = 1;
             descriptionLabel.Text = "Description:";
             // 
             // idLabel
             // 
             idLabel.AutoSize = true;
-            idLabel.Location = new System.Drawing.Point(94, 194);
+            idLabel.Location = new System.Drawing.Point(125, 239);
+            idLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             idLabel.Name = "idLabel";
-            idLabel.Size = new System.Drawing.Size(19, 13);
+            idLabel.Size = new System.Drawing.Size(23, 17);
             idLabel.TabIndex = 3;
             idLabel.Text = "Id:";
             // 
             // nomClasseLabel
             // 
             nomClasseLabel.AutoSize = true;
-            nomClasseLabel.Location = new System.Drawing.Point(94, 220);
+            nomClasseLabel.Location = new System.Drawing.Point(125, 271);
+            nomClasseLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             nomClasseLabel.Name = "nomClasseLabel";
-            nomClasseLabel.Size = new System.Drawing.Size(64, 13);
+            nomClasseLabel.Size = new System.Drawing.Size(85, 17);
             nomClasseLabel.TabIndex = 5;
             nomClasseLabel.Text = "Class name:";
             // 
             // statBaseDexLabel
             // 
             statBaseDexLabel.AutoSize = true;
-            statBaseDexLabel.Location = new System.Drawing.Point(94, 328);
+            statBaseDexLabel.Location = new System.Drawing.Point(125, 404);
+            statBaseDexLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             statBaseDexLabel.Name = "statBaseDexLabel";
-            statBaseDexLabel.Size = new System.Drawing.Size(78, 13);
+            statBaseDexLabel.Size = new System.Drawing.Size(101, 17);
             statBaseDexLabel.TabIndex = 7;
             statBaseDexLabel.Text = "Base Stat Dex:";
             // 
-            // statBaseIntLabel
+            // statBaseRegLabel
             // 
-            statBaseIntLabel.AutoSize = true;
-            statBaseIntLabel.Location = new System.Drawing.Point(94, 354);
-            statBaseIntLabel.Name = "statBaseIntLabel";
-            statBaseIntLabel.Size = new System.Drawing.Size(71, 13);
-            statBaseIntLabel.TabIndex = 9;
-            statBaseIntLabel.Text = "Base Stat Int:";
+            statBaseRegLabel.AutoSize = true;
+            statBaseRegLabel.Location = new System.Drawing.Point(125, 436);
+            statBaseRegLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            statBaseRegLabel.Name = "statBaseRegLabel";
+            statBaseRegLabel.Size = new System.Drawing.Size(119, 17);
+            statBaseRegLabel.TabIndex = 9;
+            statBaseRegLabel.Text = "Base Stat Regen:";
             // 
             // statBaseStrLabel
             // 
             statBaseStrLabel.AutoSize = true;
-            statBaseStrLabel.Location = new System.Drawing.Point(94, 380);
+            statBaseStrLabel.Location = new System.Drawing.Point(125, 468);
+            statBaseStrLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             statBaseStrLabel.Name = "statBaseStrLabel";
-            statBaseStrLabel.Size = new System.Drawing.Size(72, 13);
+            statBaseStrLabel.Size = new System.Drawing.Size(95, 17);
             statBaseStrLabel.TabIndex = 11;
             statBaseStrLabel.Text = "Base Stat Str:";
             // 
             // statBaseVitaliteLabel
             // 
             statBaseVitaliteLabel.AutoSize = true;
-            statBaseVitaliteLabel.Location = new System.Drawing.Point(94, 406);
+            statBaseVitaliteLabel.Location = new System.Drawing.Point(125, 500);
+            statBaseVitaliteLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             statBaseVitaliteLabel.Name = "statBaseVitaliteLabel";
-            statBaseVitaliteLabel.Size = new System.Drawing.Size(90, 13);
+            statBaseVitaliteLabel.Size = new System.Drawing.Size(119, 17);
             statBaseVitaliteLabel.TabIndex = 13;
             statBaseVitaliteLabel.Text = "Base Stat Vitalite:";
             // 
             // descriptionTextBox
             // 
-            this.descriptionTextBox.Location = new System.Drawing.Point(190, 243);
+            this.descriptionTextBox.Location = new System.Drawing.Point(253, 299);
+            this.descriptionTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.descriptionTextBox.Multiline = true;
             this.descriptionTextBox.Name = "descriptionTextBox";
-            this.descriptionTextBox.Size = new System.Drawing.Size(440, 76);
+            this.descriptionTextBox.Size = new System.Drawing.Size(585, 93);
             this.descriptionTextBox.TabIndex = 3;
             // 
             // classeBindingSource
@@ -140,45 +148,51 @@ namespace Hugo_LAND.Client.Vue
             // 
             // idTextBox
             // 
-            this.idTextBox.Location = new System.Drawing.Point(190, 191);
+            this.idTextBox.Location = new System.Drawing.Point(253, 235);
+            this.idTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.idTextBox.Name = "idTextBox";
             this.idTextBox.ReadOnly = true;
-            this.idTextBox.Size = new System.Drawing.Size(440, 20);
+            this.idTextBox.Size = new System.Drawing.Size(585, 22);
             this.idTextBox.TabIndex = 1;
             // 
             // nomClasseTextBox
             // 
-            this.nomClasseTextBox.Location = new System.Drawing.Point(190, 217);
+            this.nomClasseTextBox.Location = new System.Drawing.Point(253, 267);
+            this.nomClasseTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.nomClasseTextBox.Name = "nomClasseTextBox";
-            this.nomClasseTextBox.Size = new System.Drawing.Size(440, 20);
+            this.nomClasseTextBox.Size = new System.Drawing.Size(585, 22);
             this.nomClasseTextBox.TabIndex = 2;
             // 
             // statBaseDexTextBox
             // 
-            this.statBaseDexTextBox.Location = new System.Drawing.Point(190, 325);
+            this.statBaseDexTextBox.Location = new System.Drawing.Point(253, 400);
+            this.statBaseDexTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.statBaseDexTextBox.Name = "statBaseDexTextBox";
-            this.statBaseDexTextBox.Size = new System.Drawing.Size(440, 20);
+            this.statBaseDexTextBox.Size = new System.Drawing.Size(585, 22);
             this.statBaseDexTextBox.TabIndex = 4;
             // 
-            // statBaseIntTextBox
+            // statBaseRegTextBox
             // 
-            this.statBaseIntTextBox.Location = new System.Drawing.Point(190, 351);
-            this.statBaseIntTextBox.Name = "statBaseIntTextBox";
-            this.statBaseIntTextBox.Size = new System.Drawing.Size(440, 20);
-            this.statBaseIntTextBox.TabIndex = 5;
+            this.statBaseRegTextBox.Location = new System.Drawing.Point(253, 432);
+            this.statBaseRegTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.statBaseRegTextBox.Name = "statBaseRegTextBox";
+            this.statBaseRegTextBox.Size = new System.Drawing.Size(585, 22);
+            this.statBaseRegTextBox.TabIndex = 5;
             // 
             // statBaseStrTextBox
             // 
-            this.statBaseStrTextBox.Location = new System.Drawing.Point(190, 377);
+            this.statBaseStrTextBox.Location = new System.Drawing.Point(253, 464);
+            this.statBaseStrTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.statBaseStrTextBox.Name = "statBaseStrTextBox";
-            this.statBaseStrTextBox.Size = new System.Drawing.Size(440, 20);
+            this.statBaseStrTextBox.Size = new System.Drawing.Size(585, 22);
             this.statBaseStrTextBox.TabIndex = 6;
             // 
             // statBaseVitaliteTextBox
             // 
-            this.statBaseVitaliteTextBox.Location = new System.Drawing.Point(190, 403);
+            this.statBaseVitaliteTextBox.Location = new System.Drawing.Point(253, 496);
+            this.statBaseVitaliteTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.statBaseVitaliteTextBox.Name = "statBaseVitaliteTextBox";
-            this.statBaseVitaliteTextBox.Size = new System.Drawing.Size(440, 20);
+            this.statBaseVitaliteTextBox.Size = new System.Drawing.Size(585, 22);
             this.statBaseVitaliteTextBox.TabIndex = 7;
             // 
             // btnBack
@@ -191,8 +205,9 @@ namespace Hugo_LAND.Client.Vue
             this.btnBack.ForeColor = System.Drawing.Color.Red;
             this.btnBack.ImageAlign = System.Drawing.ContentAlignment.BottomLeft;
             this.btnBack.Location = new System.Drawing.Point(0, 0);
+            this.btnBack.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(61, 57);
+            this.btnBack.Size = new System.Drawing.Size(81, 70);
             this.btnBack.TabIndex = 22;
             this.btnBack.Text = "🠔";
             this.btnBack.TextAlign = System.Drawing.ContentAlignment.TopLeft;
@@ -203,18 +218,20 @@ namespace Hugo_LAND.Client.Vue
             // 
             this.lblTitle.AutoSize = true;
             this.lblTitle.Font = new System.Drawing.Font("Old English Text MT", 40F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitle.Location = new System.Drawing.Point(75, 103);
+            this.lblTitle.Location = new System.Drawing.Point(100, 127);
+            this.lblTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(555, 65);
+            this.lblTitle.Size = new System.Drawing.Size(692, 79);
             this.lblTitle.TabIndex = 21;
             this.lblTitle.Text = "Modify or Delete a class";
             // 
             // btnModify
             // 
             this.btnModify.Font = new System.Drawing.Font("Old English Text MT", 40F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnModify.Location = new System.Drawing.Point(97, 448);
+            this.btnModify.Location = new System.Drawing.Point(129, 551);
+            this.btnModify.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnModify.Name = "btnModify";
-            this.btnModify.Size = new System.Drawing.Size(209, 128);
+            this.btnModify.Size = new System.Drawing.Size(279, 158);
             this.btnModify.TabIndex = 8;
             this.btnModify.Text = "Modify";
             this.btnModify.UseVisualStyleBackColor = true;
@@ -223,9 +240,10 @@ namespace Hugo_LAND.Client.Vue
             // btnDelete
             // 
             this.btnDelete.Font = new System.Drawing.Font("Old English Text MT", 40F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDelete.Location = new System.Drawing.Point(421, 448);
+            this.btnDelete.Location = new System.Drawing.Point(561, 551);
+            this.btnDelete.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(209, 128);
+            this.btnDelete.Size = new System.Drawing.Size(279, 158);
             this.btnDelete.TabIndex = 9;
             this.btnDelete.Text = "Delete";
             this.btnDelete.UseVisualStyleBackColor = true;
@@ -235,9 +253,10 @@ namespace Hugo_LAND.Client.Vue
             // 
             this.btnFirst.Font = new System.Drawing.Font("Old English Text MT", 50F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnFirst.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnFirst.Location = new System.Drawing.Point(97, 12);
+            this.btnFirst.Location = new System.Drawing.Point(129, 15);
+            this.btnFirst.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnFirst.Name = "btnFirst";
-            this.btnFirst.Size = new System.Drawing.Size(127, 96);
+            this.btnFirst.Size = new System.Drawing.Size(169, 118);
             this.btnFirst.TabIndex = 26;
             this.btnFirst.Text = "↞";
             this.btnFirst.UseVisualStyleBackColor = true;
@@ -246,9 +265,10 @@ namespace Hugo_LAND.Client.Vue
             // btnLast
             // 
             this.btnLast.Font = new System.Drawing.Font("Old English Text MT", 50F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLast.Location = new System.Drawing.Point(503, 12);
+            this.btnLast.Location = new System.Drawing.Point(671, 15);
+            this.btnLast.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnLast.Name = "btnLast";
-            this.btnLast.Size = new System.Drawing.Size(127, 96);
+            this.btnLast.Size = new System.Drawing.Size(169, 118);
             this.btnLast.TabIndex = 27;
             this.btnLast.Text = "↠";
             this.btnLast.UseVisualStyleBackColor = true;
@@ -257,9 +277,10 @@ namespace Hugo_LAND.Client.Vue
             // btnNext
             // 
             this.btnNext.Font = new System.Drawing.Font("Old English Text MT", 50F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNext.Location = new System.Drawing.Point(370, 12);
+            this.btnNext.Location = new System.Drawing.Point(493, 15);
+            this.btnNext.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnNext.Name = "btnNext";
-            this.btnNext.Size = new System.Drawing.Size(127, 96);
+            this.btnNext.Size = new System.Drawing.Size(169, 118);
             this.btnNext.TabIndex = 28;
             this.btnNext.Text = "→";
             this.btnNext.UseVisualStyleBackColor = true;
@@ -269,9 +290,10 @@ namespace Hugo_LAND.Client.Vue
             // 
             this.btnPrev.Font = new System.Drawing.Font("Old English Text MT", 50F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPrev.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnPrev.Location = new System.Drawing.Point(230, 12);
+            this.btnPrev.Location = new System.Drawing.Point(307, 15);
+            this.btnPrev.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnPrev.Name = "btnPrev";
-            this.btnPrev.Size = new System.Drawing.Size(127, 96);
+            this.btnPrev.Size = new System.Drawing.Size(169, 118);
             this.btnPrev.TabIndex = 29;
             this.btnPrev.Text = "←";
             this.btnPrev.UseVisualStyleBackColor = true;
@@ -279,9 +301,9 @@ namespace Hugo_LAND.Client.Vue
             // 
             // frmModifyDeleteClass
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(719, 608);
+            this.ClientSize = new System.Drawing.Size(959, 748);
             this.Controls.Add(this.btnPrev);
             this.Controls.Add(this.btnNext);
             this.Controls.Add(this.btnLast);
@@ -298,12 +320,13 @@ namespace Hugo_LAND.Client.Vue
             this.Controls.Add(this.nomClasseTextBox);
             this.Controls.Add(statBaseDexLabel);
             this.Controls.Add(this.statBaseDexTextBox);
-            this.Controls.Add(statBaseIntLabel);
-            this.Controls.Add(this.statBaseIntTextBox);
+            this.Controls.Add(statBaseRegLabel);
+            this.Controls.Add(this.statBaseRegTextBox);
             this.Controls.Add(statBaseStrLabel);
             this.Controls.Add(this.statBaseStrTextBox);
             this.Controls.Add(statBaseVitaliteLabel);
             this.Controls.Add(this.statBaseVitaliteTextBox);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "frmModifyDeleteClass";
             this.Text = "frmModifyDeleteClass";
             ((System.ComponentModel.ISupportInitialize)(this.classeBindingSource)).EndInit();
@@ -319,7 +342,7 @@ namespace Hugo_LAND.Client.Vue
         private System.Windows.Forms.TextBox idTextBox;
         private System.Windows.Forms.TextBox nomClasseTextBox;
         private System.Windows.Forms.TextBox statBaseDexTextBox;
-        private System.Windows.Forms.TextBox statBaseIntTextBox;
+        private System.Windows.Forms.TextBox statBaseRegTextBox;
         private System.Windows.Forms.TextBox statBaseStrTextBox;
         private System.Windows.Forms.TextBox statBaseVitaliteTextBox;
         private System.Windows.Forms.Button btnBack;

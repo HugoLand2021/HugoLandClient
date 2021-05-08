@@ -20,7 +20,7 @@ namespace Hugo_LAND.WCF.DTOs
         [DataMember]
         public int StatDex { get; set; }
         [DataMember]
-        public int StatInt { get; set; }
+        public int StatReg { get; set; }
         [DataMember]
         public int StatVitality { get; set; }
         [DataMember]

@@ -31,12 +31,14 @@ namespace Hugo_LAND.Client.Vue
 
         private void btnCreateHeroFrm_Click(object sender, EventArgs e)
         {
+
             List<string> errors = VerifyInfo();
             HeroDetailsDTO hero = new HeroDetailsDTO()
             {
+                
                 HeroName = txtnomHero.Text,
                 StatDex = int.Parse(txtstatBaseDex.Text),
-                StatInt = int.Parse(txtstatBaseInt.Text),
+                StatReg = int.Parse(txtstatBaseReg.Text),
                 StatStr = int.Parse(txtstatBaseStr.Text),
                 StatVitality = int.Parse(txtstatBaseVitalite.Text),
                 Class = cmbNomClass.Text,
@@ -72,7 +74,7 @@ namespace Hugo_LAND.Client.Vue
             {
                 var currClass = classList[cmbNomClass.SelectedIndex];
                 txtstatBaseDex.Text = (currClass.StatBaseDex + _random.Next(0, 11)).ToString();
-                txtstatBaseInt.Text = (currClass.StatBaseInt + _random.Next(0, 11)).ToString(); ;
+                txtstatBaseReg.Text = (currClass.StatBaseReg + _random.Next(0, 11)).ToString(); ;
                 txtstatBaseStr.Text = (currClass.StatBaseStr + _random.Next(0, 11)).ToString(); ;
                 txtstatBaseVitalite.Text = (currClass.StatBaseVitality + _random.Next(0, 11)).ToString(); ;
             }
@@ -159,7 +161,7 @@ namespace Hugo_LAND.Client.Vue
             cmbNomClass.Enabled = false;
             txtstatBaseStr.Enabled = false;
             txtstatBaseDex.Enabled = false;
-            txtstatBaseInt.Enabled = false;
+            txtstatBaseReg.Enabled = false;
             txtstatBaseVitalite.Enabled = false;
         }
 

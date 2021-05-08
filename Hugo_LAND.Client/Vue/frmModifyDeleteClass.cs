@@ -39,7 +39,7 @@ namespace Hugo_LAND.Client.Vue
                     Description = descriptionTextBox.Text,
                     StatBaseStr = 0,
                     StatBaseDex = 0,
-                    StatBaseInt = 0,
+                    StatBaseReg = 0,
                     StatBaseVitality = 0
                 };
                 var result = createClassValidator.Validate(newClass);
@@ -57,7 +57,7 @@ namespace Hugo_LAND.Client.Vue
                     Description = descriptionTextBox.Text,
                     StatBaseStr = int.Parse(statBaseStrTextBox.Text),
                     StatBaseDex = int.Parse(statBaseDexTextBox.Text),
-                    StatBaseInt = int.Parse(statBaseIntTextBox.Text),
+                    StatBaseReg = int.Parse(statBaseRegTextBox.Text),
                     StatBaseVitality = int.Parse(statBaseVitaliteTextBox.Text)
                 };
 
@@ -169,8 +169,8 @@ namespace Hugo_LAND.Client.Vue
                 statBaseDexTextBox.Text = "";
                 statBaseStrTextBox.Enabled = false;
                 statBaseStrTextBox.Text = "";
-                statBaseIntTextBox.Enabled = false;
-                statBaseIntTextBox.Text = "";
+                statBaseRegTextBox.Enabled = false;
+                statBaseRegTextBox.Text = "";
                 statBaseVitaliteTextBox.Enabled = false;
                 statBaseVitaliteTextBox.Text = "";
                 idTextBox.Enabled = false;
@@ -191,7 +191,7 @@ namespace Hugo_LAND.Client.Vue
             descriptionTextBox.Text = currentClass.Description;
             statBaseStrTextBox.Text = currentClass.StatBaseStr.ToString();
             statBaseDexTextBox.Text = currentClass.StatBaseDex.ToString();
-            statBaseIntTextBox.Text = currentClass.StatBaseInt.ToString();
+            statBaseRegTextBox.Text = currentClass.StatBaseReg.ToString();
             statBaseVitaliteTextBox.Text = currentClass.StatBaseVitality.ToString();
         }
 
@@ -199,19 +199,19 @@ namespace Hugo_LAND.Client.Vue
         {
             List<string> errors = new List<string>();
             //Stats
-            int StatStr, StatDex, StatInt, StatVitality;
+            int StatStr, StatDex, StaReg, StatVitality;
             bool isNumericStr = int.TryParse(statBaseStrTextBox.Text, out StatStr);
             bool isNumericDex = int.TryParse(statBaseDexTextBox.Text, out StatDex);
-            bool isNumericInt = int.TryParse(statBaseIntTextBox.Text, out StatInt);
+            bool isNumericReg = int.TryParse(statBaseRegTextBox.Text, out StaReg);
             bool isNumericVitality = int.TryParse(statBaseVitaliteTextBox.Text, out StatVitality);
             if (!isNumericStr || StatStr < 0 || StatStr > 10)
                 errors.Add("Please provide a valid base stat str between(inclusive) 0 and 10.");
-            if (!isNumericDex || StatDex < 0 || StatDex > 10)
-                errors.Add("Please provide a valid base stat dex between(inclusive) 0 and 10.");
-            if (!isNumericInt || StatInt < 0 || StatInt > 10)
-                errors.Add("Please provide a valid base stat int between(inclusive) 0 and 10.");
-            if (!isNumericVitality || StatVitality < 0 || StatVitality > 10)
-                errors.Add("Please provide a valid base stat vitality between(inclusive) 0 and 10.");
+            if (!isNumericDex || StatDex < 0 || StatDex > 60)
+                errors.Add("Please provide a valid base stat dex between(inclusive) 0 and 60.");
+            if (!isNumericReg || StaReg < 0 || StaReg > 5)
+                errors.Add("Please provide a valid base stat int between(inclusive) 0 and 5.");
+            if (!isNumericVitality || StatVitality < 0 || StatVitality > 200)
+                errors.Add("Please provide a valid base stat vitality between(inclusive) 0 and 200.");
 
             return errors;
         }

@@ -344,7 +344,7 @@
           <Property Name="Description" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="StatBaseStr" Type="Int32" Nullable="false" />
           <Property Name="StatBaseDex" Type="Int32" Nullable="false" />
-          <Property Name="StatBaseInt" Type="Int32" Nullable="false" />
+          <Property Name="StatBaseReg" Type="Int32" Nullable="false" />
           <Property Name="StatBaseVitalite" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Monde" Relationship="Self.FK_Classe_Monde" FromRole="Classe" ToRole="Monde" />
           <NavigationProperty Name="Heros" Relationship="Self.FK_Hero_Classe" FromRole="Classe" ToRole="Heros" />
@@ -383,7 +383,7 @@
           <Property Name="y" Type="Int32" Nullable="false" />
           <Property Name="StatStr" Type="Int32" Nullable="false" />
           <Property Name="StatDex" Type="Int32" Nullable="false" />
-          <Property Name="StatInt" Type="Int32" Nullable="false" />
+          <Property Name="StatReg" Type="Int32" Nullable="false" />
           <Property Name="StatVitalite" Type="Int32" Nullable="false" />
           <Property Name="NomHero" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="EstConnecte" Type="Boolean" Nullable="false" />
@@ -602,7 +602,7 @@
                 <ScalarProperty Name="Description" ColumnName="Description" />
                 <ScalarProperty Name="StatBaseStr" ColumnName="StatBaseStr" />
                 <ScalarProperty Name="StatBaseDex" ColumnName="StatBaseDex" />
-                <ScalarProperty Name="StatBaseInt" ColumnName="StatBaseInt" />
+                <ScalarProperty Name="StatBaseReg" ColumnName="StatBaseInt" />
                 <ScalarProperty Name="StatBaseVitalite" ColumnName="StatBaseVitalite" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -640,7 +640,7 @@
                 <ScalarProperty Name="y" ColumnName="y" />
                 <ScalarProperty Name="StatStr" ColumnName="StatStr" />
                 <ScalarProperty Name="StatDex" ColumnName="StatDex" />
-                <ScalarProperty Name="StatInt" ColumnName="StatInt" />
+                <ScalarProperty Name="StatReg" ColumnName="StatInt" />
                 <ScalarProperty Name="StatVitalite" ColumnName="StatVitalite" />
                 <ScalarProperty Name="NomHero" ColumnName="NomHero" />
                 <ScalarProperty Name="EstConnecte" ColumnName="EstConnecte" />

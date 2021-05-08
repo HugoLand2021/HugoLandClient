@@ -16,7 +16,7 @@ namespace Hugo_LAND.WCF.DTOs
         [DataMember]
         public int StatBaseDex { get; set; }
         [DataMember]
-        public int StatBaseInt { get; set; }
+        public int StatBaseReg { get; set; }
         [DataMember]
         public int StatBaseVitality { get; set; }
 

@@ -160,7 +160,7 @@ namespace Hugo_LAND.Client.HugoLandServices {
         private int StatBaseDexField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int StatBaseIntField;
+        private int StatBaseRegField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int StatBaseStrField;
@@ -231,14 +231,14 @@ namespace Hugo_LAND.Client.HugoLandServices {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public int StatBaseInt {
+        public int StatBaseReg {
             get {
-                return this.StatBaseIntField;
+                return this.StatBaseRegField;
             }
             set {
-                if ((this.StatBaseIntField.Equals(value) != true)) {
-                    this.StatBaseIntField = value;
-                    this.RaisePropertyChanged("StatBaseInt");
+                if ((this.StatBaseRegField.Equals(value) != true)) {
+                    this.StatBaseRegField = value;
+                    this.RaisePropertyChanged("StatBaseReg");
                 }
             }
         }
@@ -400,7 +400,7 @@ namespace Hugo_LAND.Client.HugoLandServices {
         private int StatDexField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int StatIntField;
+        private int StatRegField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int StatStrField;
@@ -512,14 +512,14 @@ namespace Hugo_LAND.Client.HugoLandServices {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public int StatInt {
+        public int StatReg {
             get {
-                return this.StatIntField;
+                return this.StatRegField;
             }
             set {
-                if ((this.StatIntField.Equals(value) != true)) {
-                    this.StatIntField = value;
-                    this.RaisePropertyChanged("StatInt");
+                if ((this.StatRegField.Equals(value) != true)) {
+                    this.StatRegField = value;
+                    this.RaisePropertyChanged("StatReg");
                 }
             }
         }

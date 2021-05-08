@@ -38,7 +38,7 @@ namespace Hugo_LAND.Client.Vue
                     Description = txtDescription.Text,
                     StatBaseStr = 0,
                     StatBaseDex = 0,
-                    StatBaseInt = 0,
+                    StatBaseReg = 0,
                     StatBaseVitality = 0
                 };
                 var result = createClassValidator.Validate(newClass);
@@ -55,7 +55,7 @@ namespace Hugo_LAND.Client.Vue
                     Description = txtDescription.Text,
                     StatBaseStr = int.Parse(txtStr.Text),
                     StatBaseDex = int.Parse(txtDex.Text),
-                    StatBaseInt = int.Parse(txtInt.Text),
+                    StatBaseReg = int.Parse(txtReg.Text),
                     StatBaseVitality = int.Parse(txtVitality.Text)
                 };
 
@@ -95,7 +95,7 @@ namespace Hugo_LAND.Client.Vue
                 txtName.Enabled = false;
                 txtStr.Enabled = false;
                 txtDex.Enabled = false;
-                txtInt.Enabled = false;
+                txtReg.Enabled = false;
                 txtVitality.Enabled = false;
                 btnCreate.Enabled = false;
                 comboWorlds.Enabled = false;
@@ -105,19 +105,19 @@ namespace Hugo_LAND.Client.Vue
         {
             List<string> errors = new List<string>();
             //Stats
-            int StatStr, StatDex, StatInt, StatVitality;
+            int StatStr, StatDex, StatReg, StatVitality;
             bool isNumericStr = int.TryParse(txtStr.Text, out StatStr);
             bool isNumericDex = int.TryParse(txtDex.Text, out StatDex);
-            bool isNumericInt = int.TryParse(txtInt.Text, out StatInt);
+            bool isNumericReg = int.TryParse(txtReg.Text, out StatReg);
             bool isNumericVitality = int.TryParse(txtVitality.Text, out StatVitality);
             if (!isNumericStr || StatStr < 0 || StatStr > 10)
                 errors.Add("Please provide a valid base stat str between(inclusive) 0 and 10.");
-            if (!isNumericDex || StatDex < 0 || StatDex > 10)
-                errors.Add("Please provide a valid base stat dex between(inclusive) 0 and 10.");
-            if (!isNumericInt || StatInt < 0 || StatInt > 10)
-                errors.Add("Please provide a valid base stat int between(inclusive) 0 and 10.");
-            if (!isNumericVitality || StatVitality < 0 || StatVitality > 10)
-                errors.Add("Please provide a valid base stat vitality between(inclusive) 0 and 10.");
+            if (!isNumericDex || StatDex < 0 || StatDex > 60)
+                errors.Add("Please provide a valid base stat dex between(inclusive) 0 and 60.");
+            if (!isNumericReg || StatReg < 0 || StatReg > 5)
+                errors.Add("Please provide a valid base stat int between(inclusive) 0 and 5.");
+            if (!isNumericVitality || StatVitality < 0 || StatVitality > 200)
+                errors.Add("Please provide a valid base stat vitality between(inclusive) 0 and 200.");
 
             //World
             WorldDetailsDTO w;

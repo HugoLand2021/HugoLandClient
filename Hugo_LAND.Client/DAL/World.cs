@@ -489,7 +489,7 @@ namespace Hugo_LAND.Client
                 _gameState.Experience += mapTile.ObjectTile.Health;
 
                 //Remove the monster and replace with bones
-                mapTile.ObjectTile = _tiles["bon"];
+                mapTile.ObjectTile = _tiles["Bones"];
                 mapTile.SetObjectSprite(x, y);
                 returnValue = true; //monster is dead
             }

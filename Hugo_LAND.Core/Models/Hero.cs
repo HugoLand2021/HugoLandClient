@@ -28,7 +28,7 @@ namespace Hugo_LAND.Core.Models
         public int y { get; set; }
         public int StatStr { get; set; }
         public int StatDex { get; set; }
-        public int StatInt { get; set; }
+        public int StatReg { get; set; }
         public int StatVitalite { get; set; }
         public string NomHero { get; set; }
         public bool EstConnecte { get; set; }

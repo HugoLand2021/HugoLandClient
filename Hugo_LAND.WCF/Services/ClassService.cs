@@ -21,7 +21,7 @@ namespace Hugo_LAND.WCF.Services
                         Description = newClass.Description,
                         StatBaseStr = newClass.StatBaseStr,
                         StatBaseDex = newClass.StatBaseDex,
-                        StatBaseInt = newClass.StatBaseInt,
+                        StatBaseReg = newClass.StatBaseReg,
                         StatBaseVitalite = newClass.StatBaseVitality,
                         Monde = monde,
                     };
@@ -87,7 +87,7 @@ namespace Hugo_LAND.WCF.Services
                         Description = dto.Description,
                         StatBaseStr = dto.StatBaseStr,
                         StatBaseDex = dto.StatBaseDex,
-                        StatBaseInt = dto.StatBaseInt,
+                        StatBaseReg = dto.StatBaseReg,
                         StatBaseVitalite = dto.StatBaseVitality,
                     };
                     context.Entry(currClass).State = EntityState.Modified;
@@ -115,7 +115,7 @@ namespace Hugo_LAND.WCF.Services
                         Description = p.Description,
                         StatBaseStr = p.StatBaseStr,
                         StatBaseDex = p.StatBaseDex,
-                        StatBaseInt = p.StatBaseInt,
+                        StatBaseReg = p.StatBaseReg,
                         StatBaseVitality = p.StatBaseVitalite
 
                     }).ToList();

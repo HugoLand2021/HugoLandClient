@@ -10,7 +10,7 @@ namespace Hugo_LAND.Core.Models
     public static class HeroCRUD
     {
         public static void CreeHero(int newNiveau, long newExperience, int newX, int newY, int newStatStr, int newStatDex,
-            int newStatInt, int newStatVitalite, string newNomHero, bool newConnection, int idClasse, int idCompteJoueur,
+            int newStatReg, int newStatVitalite, string newNomHero, bool newConnection, int idClasse, int idCompteJoueur,
               int idMonde)
         {
             using (HugoLANDContext context = new HugoLANDContext())
@@ -26,7 +26,7 @@ namespace Hugo_LAND.Core.Models
                     y = newY,
                     StatStr = newStatStr,
                     StatDex = newStatDex,
-                    StatInt = newStatInt,
+                    StatReg = newStatReg,
                     StatVitalite = newStatVitalite,
                     NomHero = newNomHero,
                     EstConnecte = newConnection,
@@ -48,7 +48,7 @@ namespace Hugo_LAND.Core.Models
         }
 
         public static void ModifHero(int id, int newNiveau, long newExperience, int newStatStr, int newStatDex,
-            int newStatInt, int newStatVitalite, string newNomHero)
+            int newStatReg, int newStatVitalite, string newNomHero)
         {
             using (HugoLANDContext context = new HugoLANDContext())
             {
@@ -57,7 +57,7 @@ namespace Hugo_LAND.Core.Models
                 hero.Experience = newExperience;
                 hero.StatStr = newStatStr;
                 hero.StatDex = newStatDex;
-                hero.StatInt = newStatInt;
+                hero.StatReg = newStatReg;
                 hero.StatVitalite = newStatVitalite;
                 hero.NomHero = newNomHero;
                 context.SaveChanges();
