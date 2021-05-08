@@ -58,6 +58,7 @@
           <Property Name="ClasseId" Type="int" Nullable="false" />
           <Property Name="NomHero" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="EstConnecte" Type="bit" Nullable="false" />
+          <Property Name="row_version" Type="timestamp" StoreGeneratedPattern="Computed" />
         </EntityType>
         <EntityType Name="InventaireHero">
           <Key>
@@ -79,6 +80,7 @@
           <Property Name="MondeId" Type="int" Nullable="false" />
           <Property Name="ImageId" Type="int" />
           <Property Name="IdHero" Type="int" />
+          <Property Name="row_version" Type="timestamp" StoreGeneratedPattern="Computed" />
         </EntityType>
         <EntityType Name="Monde">
           <Key>
@@ -103,6 +105,7 @@
           <Property Name="StatDmgMax" Type="real" Nullable="false" />
           <Property Name="MondeId" Type="int" Nullable="false" />
           <Property Name="ImageId" Type="int" />
+          <Property Name="row_version" Type="timestamp" StoreGeneratedPattern="Computed" />
         </EntityType>
         <EntityType Name="ObjetMonde">
           <Key>
@@ -392,6 +395,7 @@
           <NavigationProperty Name="Monde" Relationship="Self.FK_Hero_Monde" FromRole="Heros" ToRole="Monde" />
           <NavigationProperty Name="Items" Relationship="Self.FK_Item_Heros" FromRole="Heros" ToRole="Item" />
           <Property Name="StatReg" Type="Int32" Nullable="false" />
+          <Property Name="RowVersion" Type="Binary" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
         </EntityType>
         <EntityType Name="InventaireHero">
           <Key>
@@ -415,6 +419,7 @@
           <NavigationProperty Name="Hero" Relationship="Self.FK_Item_Heros" FromRole="Item" ToRole="Heros" />
           <NavigationProperty Name="InventaireHeroes" Relationship="Self.BelongsToItem" FromRole="Item" ToRole="InventaireHero" />
           <NavigationProperty Name="Monde" Relationship="Self.FK_Item_Monde" FromRole="Item" ToRole="Monde" />
+          <Property Name="RowVersion" Type="Binary" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
         </EntityType>
         <EntityType Name="Monde">
           <Key>
@@ -444,6 +449,7 @@
           <Property Name="StatDmgMax" Type="Single" Nullable="false" />
           <Property Name="ImageId" Type="Int32" />
           <NavigationProperty Name="Monde" Relationship="Self.FK_Monstre_Monde" FromRole="Monstre" ToRole="Monde" />
+          <Property Name="RowVersion" Type="Binary" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
         </EntityType>
         <EntityType Name="ObjetMonde">
           <Key>
@@ -565,12 +571,12 @@
             <End Role="ObjetMonde" EntitySet="ObjetMondes" />
           </AssociationSet>
           <FunctionImport Name="Connexion">
-          <Parameter Name="pNomJoueur" Mode="In" Type="String" />
+            <Parameter Name="pNomJoueur" Mode="In" Type="String" />
             <Parameter Name="pMotDePasse" Mode="In" Type="String" />
             <Parameter Name="Message" Mode="InOut" Type="String" />
           </FunctionImport>
           <FunctionImport Name="CreerCompteJoueur">
-          <Parameter Name="pNomUtilisateur" Mode="In" Type="String" />
+            <Parameter Name="pNomUtilisateur" Mode="In" Type="String" />
             <Parameter Name="pCourriel" Mode="In" Type="String" />
             <Parameter Name="pPrenom" Mode="In" Type="String" />
             <Parameter Name="pNom" Mode="In" Type="String" />
@@ -579,7 +585,7 @@
             <Parameter Name="Message" Mode="InOut" Type="String" />
           </FunctionImport>
           <FunctionImport Name="ChangerMdp">
-          <Parameter Name="pNomUtilisateur" Mode="In" Type="String" />
+            <Parameter Name="pNomUtilisateur" Mode="In" Type="String" />
             <Parameter Name="pMotDePasse" Mode="In" Type="String" />
             <Parameter Name="Message" Mode="InOut" Type="String" />
           </FunctionImport>
@@ -633,6 +639,7 @@
           <EntitySetMapping Name="Heros">
             <EntityTypeMapping TypeName="HugoLANDModel.Hero">
               <MappingFragment StoreEntitySet="Heros">
+                <ScalarProperty Name="RowVersion" ColumnName="row_version" />
                 <ScalarProperty Name="StatReg" ColumnName="StatReg" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Niveau" ColumnName="Niveau" />
@@ -657,6 +664,7 @@
           <EntitySetMapping Name="Items">
             <EntityTypeMapping TypeName="HugoLANDModel.Item">
               <MappingFragment StoreEntitySet="Item">
+                <ScalarProperty Name="RowVersion" ColumnName="row_version" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Nom" ColumnName="Nom" />
                 <ScalarProperty Name="Description" ColumnName="Description" />
@@ -679,6 +687,7 @@
           <EntitySetMapping Name="Monstres">
             <EntityTypeMapping TypeName="HugoLANDModel.Monstre">
               <MappingFragment StoreEntitySet="Monstre">
+                <ScalarProperty Name="RowVersion" ColumnName="row_version" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Nom" ColumnName="Nom" />
                 <ScalarProperty Name="Niveau" ColumnName="Niveau" />
