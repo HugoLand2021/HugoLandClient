@@ -64,6 +64,7 @@ namespace Hugo_LAND.Client.Vue
 
         private void btnBack_Click(object sender, EventArgs e)
         {
+            selectedHero = null;
             this.Close();
         }
     }

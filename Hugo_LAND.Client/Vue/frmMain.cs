@@ -41,11 +41,12 @@ namespace Hugo_LAND.Client.Vue
             frmSelectHero selecthero = new frmSelectHero(this);
             selecthero.ShowDialog(this);
             hero = selecthero.selectedHero;
-            
 
-            HugoWorld hugoWorld = new HugoWorld(hero);
-            hugoWorld.ShowDialog();
-
+            if (hero is object)
+            {
+                HugoWorld hugoWorld = new HugoWorld(hero);
+                hugoWorld.ShowDialog();
+            }
         }
 
         private void btnClassManagement_Click(object sender, EventArgs e)
