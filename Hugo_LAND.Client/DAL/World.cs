@@ -39,6 +39,7 @@ namespace Hugo_LAND.Client
         private readonly WorldItemServiceClient WorldItemService = new WorldItemServiceClient();
         private readonly WorldServiceClient WorldService = new WorldServiceClient();
         private WorldDetailsDTO _currentWorld;
+        private double _intervale = 0;
 
         private static Font _font = new Font("Arial", 18);
         private static Brush _whiteBrush = new SolidBrush(Color.White);
@@ -71,9 +72,17 @@ namespace Hugo_LAND.Client
 
         public override void Update(double gameTime, double elapsedTime)
         {
-            if (elapsedTime >= 1)
+
+            _intervale += elapsedTime;
+
+            if (_intervale >= 1)
             {
-                _currentArea.LoadItemsMonsters(_tiles,_currentWorld.Description,_gameState.Hero.x,_gameState.Hero.y);
+                List<WorldItemDetailsDTO> listItems = GetWorldItems(_gameState.Hero.x, _gameState.Hero.y);
+                if (!(listItems == null))
+                {
+                    _currentArea = new Area(_tiles, listItems, _gameState.Hero.World, GetBeginPos(_gameState.Hero.x), GetBeginPos(_gameState.Hero.y), _gameState.Hero.Id);
+                }
+                _intervale = 0;
             }
 
             //We only actually update the current area the rest all 'sleep'

@@ -76,7 +76,7 @@ namespace Hugo_LAND.Client
                     }
                 }
             }
-            LoadItemsMonsters(tiles, worldName, beginX, beginY);
+             LoadItemsMonsters(tiles, worldName, beginX, beginY);
         }
 
         public override void Update(double gameTime, double elapsedTime)
@@ -153,15 +153,6 @@ namespace Hugo_LAND.Client
                     mapTile.ObjectSprite.ColorKey = Color.FromArgb(75, 75, 75);
                 }
             }
-
-            //TODO
-            /*
-             Faire le code ici qui viendra loader Dans les mapTile tous les héros qui sont présentement connecté à la BD
-             Il me semble que c'est la tuile 70 qui est le sprite a faire popper au travers de la carte.
-
-
-             */
-
         }
     }
 }
