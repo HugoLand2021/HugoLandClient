@@ -1251,6 +1251,12 @@ namespace Hugo_LAND.Client.HugoLandServices {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IHeroService/ConnectHero", ReplyAction="http://tempuri.org/IHeroService/ConnectHeroResponse")]
         System.Threading.Tasks.Task<string> ConnectHeroAsync(bool isConnected, int idHero);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IHeroService/ReturnHeros", ReplyAction="http://tempuri.org/IHeroService/ReturnHerosResponse")]
+        Hugo_LAND.Client.HugoLandServices.HeroDetailsDTO[] ReturnHeros(string world, int mapBeginX, int mapBeginY);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IHeroService/ReturnHeros", ReplyAction="http://tempuri.org/IHeroService/ReturnHerosResponse")]
+        System.Threading.Tasks.Task<Hugo_LAND.Client.HugoLandServices.HeroDetailsDTO[]> ReturnHerosAsync(string world, int mapBeginX, int mapBeginY);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -1326,6 +1332,14 @@ namespace Hugo_LAND.Client.HugoLandServices {
         
         public System.Threading.Tasks.Task<string> ConnectHeroAsync(bool isConnected, int idHero) {
             return base.Channel.ConnectHeroAsync(isConnected, idHero);
+        }
+        
+        public Hugo_LAND.Client.HugoLandServices.HeroDetailsDTO[] ReturnHeros(string world, int mapBeginX, int mapBeginY) {
+            return base.Channel.ReturnHeros(world, mapBeginX, mapBeginY);
+        }
+        
+        public System.Threading.Tasks.Task<Hugo_LAND.Client.HugoLandServices.HeroDetailsDTO[]> ReturnHerosAsync(string world, int mapBeginX, int mapBeginY) {
+            return base.Channel.ReturnHerosAsync(world, mapBeginX, mapBeginY);
         }
     }
     

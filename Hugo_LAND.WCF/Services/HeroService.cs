@@ -151,5 +151,42 @@ namespace Hugo_LAND.WCF.Services
                 return "ERROR";
             }
         }
+
+        public List<HeroDetailsDTO> ReturnHeros(string world, int mapBeginX, int mapBeginY)
+        {
+            try
+            {
+                using (HugoLANDContext context = new HugoLANDContext())
+                {
+
+                    return context.Mondes.First(w => w.Description == world)
+                        .Heros
+                        .Where(obj => ((obj.x >= mapBeginX) && (obj.x < mapBeginX + 8)) && ((obj.y >= mapBeginY) && (obj.y < mapBeginY + 8)))
+                        .Select(m => new HeroDetailsDTO
+                        {
+                            Id = m.Id,
+                            x = m.x,
+                            y = m.y,
+                            StatDex = m.StatDex,
+                            StatReg = m.StatReg,
+                            StatStr = m.StatStr,
+                            StatVitality = m.StatVitalite,
+                            Class = m.Classe.NomClasse,
+                            isConnected = m.EstConnecte,
+                            Experience = (int)m.Experience,
+                            HeroName = m.NomHero,
+                            Level = m.Niveau,
+                            UserName = m.CompteJoueur.Nom,
+                            World = m.Monde.Description
+
+
+                        }).ToList();
+                }
+            }
+            catch
+            {
+                return null;
+            }
+        }
     }
 }
