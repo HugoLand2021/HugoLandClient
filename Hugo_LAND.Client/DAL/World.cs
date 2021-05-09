@@ -77,11 +77,8 @@ namespace Hugo_LAND.Client
 
             if (_intervale >= 1)
             {
-                List<WorldItemDetailsDTO> listItems = GetWorldItems(_gameState.Hero.x, _gameState.Hero.y);
-                if (!(listItems == null))
-                {
-                    _currentArea = new Area(_tiles, listItems, _gameState.Hero.World, GetBeginPos(_gameState.Hero.x), GetBeginPos(_gameState.Hero.y), _gameState.Hero.Id);
-                }
+                _currentArea = new Area(_tiles, _gameState.Hero.World, GetBeginPos(_gameState.Hero.x), GetBeginPos(_gameState.Hero.y), _gameState.Hero.Id);
+                
                 _intervale = 0;
             }
 
