@@ -395,7 +395,7 @@
           <NavigationProperty Name="Monde" Relationship="Self.FK_Hero_Monde" FromRole="Heros" ToRole="Monde" />
           <NavigationProperty Name="Items" Relationship="Self.FK_Item_Heros" FromRole="Heros" ToRole="Item" />
           <Property Name="StatReg" Type="Int32" Nullable="false" />
-          <Property Name="RowVersion" Type="Binary" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="RowVersion" Type="Binary" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" ConcurrencyMode="Fixed" />
         </EntityType>
         <EntityType Name="InventaireHero">
           <Key>
@@ -419,7 +419,7 @@
           <NavigationProperty Name="Hero" Relationship="Self.FK_Item_Heros" FromRole="Item" ToRole="Heros" />
           <NavigationProperty Name="InventaireHeroes" Relationship="Self.BelongsToItem" FromRole="Item" ToRole="InventaireHero" />
           <NavigationProperty Name="Monde" Relationship="Self.FK_Item_Monde" FromRole="Item" ToRole="Monde" />
-          <Property Name="RowVersion" Type="Binary" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="RowVersion" Type="Binary" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" ConcurrencyMode="Fixed" />
         </EntityType>
         <EntityType Name="Monde">
           <Key>
@@ -449,7 +449,7 @@
           <Property Name="StatDmgMax" Type="Single" Nullable="false" />
           <Property Name="ImageId" Type="Int32" />
           <NavigationProperty Name="Monde" Relationship="Self.FK_Monstre_Monde" FromRole="Monstre" ToRole="Monde" />
-          <Property Name="RowVersion" Type="Binary" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="RowVersion" Type="Binary" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" ConcurrencyMode="Fixed" />
         </EntityType>
         <EntityType Name="ObjetMonde">
           <Key>
