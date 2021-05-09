@@ -10,13 +10,19 @@ namespace Hugo_LAND.WCF.Services
 {
     public partial class HugoLandService : IInventoryService
     {
-        public InventoryDetailsDTO ReturnInventory(int idHero)
+        public List<InventoryDetailsDTO> ReturnInventory(int idHero)
         {
             try
             {
                 using (HugoLANDContext context = new HugoLANDContext())
                 {
-                    return (InventoryDetailsDTO)context.InventaireHeroes.Where(c => c.Hero.Id == idHero);
+                    return context.InventaireHeroes.Where(c => c.Hero.Id == idHero)
+                        .Select(m=> new InventoryDetailsDTO 
+                        { 
+                            Id = m.IdInventaireHero,
+                            IdItem=m.Item.Id,
+                            IdHero =m.Hero.Id
+                        }).ToList();
                 }
             }
             catch

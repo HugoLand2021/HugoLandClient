@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.Serialization;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Runtime.Serialization;
 
 namespace Hugo_LAND.WCF.DTOs
 {
@@ -11,7 +6,7 @@ namespace Hugo_LAND.WCF.DTOs
     public class InventoryDetailsDTO
     {
         [DataMember]
-        public int IdInventory { get; set; }
+        public int Id { get; set; }
         [DataMember]
         public int IdHero { get; set; }
         [DataMember]

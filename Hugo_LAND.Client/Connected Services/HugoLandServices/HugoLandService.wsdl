@@ -122,6 +122,12 @@
   <wsdl:message name="IItemService_ReturnItems_OutputMessage">
     <wsdl:part name="parameters" element="tns:ReturnItemsResponse" />
   </wsdl:message>
+  <wsdl:message name="IInventoryService_ReturnInventory_InputMessage">
+    <wsdl:part name="parameters" element="tns:ReturnInventory" />
+  </wsdl:message>
+  <wsdl:message name="IInventoryService_ReturnInventory_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ReturnInventoryResponse" />
+  </wsdl:message>
   <wsdl:portType name="IAccountService">
     <wsdl:operation name="Authentification">
       <wsdl:input wsaw:Action="http://tempuri.org/IAccountService/Authentification" message="tns:IAccountService_Authentification_InputMessage" />
@@ -210,6 +216,12 @@
     <wsdl:operation name="ReturnItems">
       <wsdl:input wsaw:Action="http://tempuri.org/IItemService/ReturnItems" message="tns:IItemService_ReturnItems_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IItemService/ReturnItemsResponse" message="tns:IItemService_ReturnItems_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="IInventoryService">
+    <wsdl:operation name="ReturnInventory">
+      <wsdl:input wsaw:Action="http://tempuri.org/IInventoryService/ReturnInventory" message="tns:IInventoryService_ReturnInventory_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IInventoryService/ReturnInventoryResponse" message="tns:IInventoryService_ReturnInventory_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IAccountService" type="tns:IAccountService">
@@ -404,6 +416,18 @@
       </wsdl:output>
     </wsdl:operation>
   </wsdl:binding>
+  <wsdl:binding name="BasicHttpBinding_IInventoryService" type="tns:IInventoryService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ReturnInventory">
+      <soap:operation soapAction="http://tempuri.org/IInventoryService/ReturnInventory" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
   <wsdl:service name="HugoLandService">
     <wsdl:port name="BasicHttpBinding_IAccountService" binding="tns:BasicHttpBinding_IAccountService">
       <soap:address location="http://localhost:8733/Design_Time_Adresses/Hugo_LAND.WCF/HugoLandService" />
@@ -424,6 +448,9 @@
       <soap:address location="http://localhost:8733/Design_Time_Adresses/Hugo_LAND.WCF/HugoLandService" />
     </wsdl:port>
     <wsdl:port name="BasicHttpBinding_IItemService" binding="tns:BasicHttpBinding_IItemService">
+      <soap:address location="http://localhost:8733/Design_Time_Adresses/Hugo_LAND.WCF/HugoLandService" />
+    </wsdl:port>
+    <wsdl:port name="BasicHttpBinding_IInventoryService" binding="tns:BasicHttpBinding_IInventoryService">
       <soap:address location="http://localhost:8733/Design_Time_Adresses/Hugo_LAND.WCF/HugoLandService" />
     </wsdl:port>
   </wsdl:service>
