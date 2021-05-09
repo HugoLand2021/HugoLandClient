@@ -23,7 +23,6 @@ namespace Hugo_LAND.Client
 
     public class World : GameObject
     {
-        private Dictionary<string, Area> _world = new Dictionary<string, Area>();
         private Area _currentArea;
         private Dictionary<string, Tile> _tiles;
         private Point _heroPosition;
@@ -77,8 +76,7 @@ namespace Hugo_LAND.Client
 
             if (_intervale >= 1)
             {
-                _currentArea = new Area(_tiles, _gameState.Hero.World, GetBeginPos(_gameState.Hero.x), GetBeginPos(_gameState.Hero.y), _gameState.Hero.Id);
-                
+                _currentArea.LoadItemsMonsters(_tiles, _currentWorld.Description, GetBeginPos(_gameState.Hero.x), GetBeginPos(_gameState.Hero.y));
                 _intervale = 0;
             }
 
