@@ -12,12 +12,16 @@ namespace Hugo_LAND.Client
         private long _frameCounter;
         private GameState _gameState;
         private WorldDetailsDTO _currentWorld;
+        private HeroDetailsDTO currHero;
         private readonly WorldServiceClient wsc = new WorldServiceClient();
+        private readonly HeroServiceClient hsc = new HeroServiceClient();
+        bool buttonDisconnectPressed = false;
 
         public HugoWorld(HeroDetailsDTO hero)
         {
             //Setup the form
             //Startup the game state
+            currHero = hero;
             _currentWorld = wsc.GetWorldByName(hero.World);
             if (_currentWorld != null)
             {
@@ -42,7 +46,7 @@ namespace Hugo_LAND.Client
             _lastTime = 0.0;
             _timer.Reset();
             _timer.Start();
-
+            this.KeyPreview = true;
         }
 
         private void Crusader_Paint(object sender, PaintEventArgs e)
@@ -62,9 +66,11 @@ namespace Hugo_LAND.Client
             _gameState.Draw(e.Graphics);
 
 
-            //Force the next Paint()
-            this.Invalidate();
-
+            if (!buttonDisconnectPressed)
+            {
+                //Force the next Paint()
+                this.Invalidate();
+            }
         }
 
         private void Crusader_KeyDown(object sender, KeyEventArgs e)
@@ -78,6 +84,57 @@ namespace Hugo_LAND.Client
             Form help = new helpform();
             help.Show();
             help.Focus();
+            btnDisconnect.Refresh();
+        }
+
+        private void HugoWorld_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
+        {
+            //This and the "this.KeyPreview = true;" fixes the problem
+            //of arrow keys not detected!!
+            e.IsInputKey = true;
+        }
+
+        private void btnDisconnect_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void HugoWorld_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            buttonDisconnectPressed = true;
+            DialogResult dr = MessageBox.Show("Are you sure you want to leave us?", "Disconnect", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (dr == DialogResult.No)
+            {
+                e.Cancel = true;
+                buttonDisconnectPressed = false;
+                this.Invalidate(); //Draw form again
+            }
+            else
+            {
+                bool result = DisconnectUser();
+                if (!result)
+                    e.Cancel = true;
+            }
+        }
+
+        private bool DisconnectUser() {
+            try
+            {
+                hsc.ConnectHero(false, currHero.Id);
+                return true;
+            }
+            catch 
+            {
+                MessageBox.Show("There was an error while trying to disconnect!","ERROR!", MessageBoxButtons.OK,  MessageBoxIcon.Error);
+                return false;
+            }
+        }
+
+        private void btnDisconnect_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
+        {
+            //if bug button is selected
+            e.IsInputKey = true;
+
         }
     }
 }

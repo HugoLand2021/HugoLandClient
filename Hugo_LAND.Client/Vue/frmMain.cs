@@ -49,7 +49,6 @@ namespace Hugo_LAND.Client.Vue
                 {
                     HugoWorld hugoWorld = new HugoWorld(hero);
                     hugoWorld.ShowDialog();
-                    heroService.ConnectHero(false, hero.Id);
                 }
                 else
                 {
@@ -77,10 +76,6 @@ namespace Hugo_LAND.Client.Vue
 
         private void frmMain_FormClosed(object sender, FormClosedEventArgs e)
         {
-            if (hero is object)
-            {
-                heroService.ConnectHero(false, hero.Id);
-            }
         }
     }
 }
