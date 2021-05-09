@@ -128,6 +128,12 @@
   <wsdl:message name="IInventoryService_ReturnInventory_OutputMessage">
     <wsdl:part name="parameters" element="tns:ReturnInventoryResponse" />
   </wsdl:message>
+  <wsdl:message name="IInventoryService_ReturnObject_InputMessage">
+    <wsdl:part name="parameters" element="tns:ReturnObject" />
+  </wsdl:message>
+  <wsdl:message name="IInventoryService_ReturnObject_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ReturnObjectResponse" />
+  </wsdl:message>
   <wsdl:portType name="IAccountService">
     <wsdl:operation name="Authentification">
       <wsdl:input wsaw:Action="http://tempuri.org/IAccountService/Authentification" message="tns:IAccountService_Authentification_InputMessage" />
@@ -222,6 +228,10 @@
     <wsdl:operation name="ReturnInventory">
       <wsdl:input wsaw:Action="http://tempuri.org/IInventoryService/ReturnInventory" message="tns:IInventoryService_ReturnInventory_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IInventoryService/ReturnInventoryResponse" message="tns:IInventoryService_ReturnInventory_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ReturnObject">
+      <wsdl:input wsaw:Action="http://tempuri.org/IInventoryService/ReturnObject" message="tns:IInventoryService_ReturnObject_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IInventoryService/ReturnObjectResponse" message="tns:IInventoryService_ReturnObject_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IAccountService" type="tns:IAccountService">
@@ -420,6 +430,15 @@
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
     <wsdl:operation name="ReturnInventory">
       <soap:operation soapAction="http://tempuri.org/IInventoryService/ReturnInventory" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReturnObject">
+      <soap:operation soapAction="http://tempuri.org/IInventoryService/ReturnObject" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

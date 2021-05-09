@@ -124,6 +124,12 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="ItemDetailsDTO" nillable="true" type="tns:ItemDetailsDTO" />
+  <xs:complexType name="ArrayOfInventoryDetailsDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="InventoryDetailsDTO" nillable="true" type="tns:InventoryDetailsDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfInventoryDetailsDTO" nillable="true" type="tns:ArrayOfInventoryDetailsDTO" />
   <xs:complexType name="InventoryDetailsDTO">
     <xs:sequence>
       <xs:element minOccurs="0" name="Id" type="xs:int" />

@@ -31,5 +31,28 @@ namespace Hugo_LAND.WCF.Services
                 return null;
             }
         }
+        public List<InventoryDetailsDTO> ReturnObject(int idHero, int idItem)
+        {
+            try
+            {
+                using (HugoLANDContext context = new HugoLANDContext())
+                {
+                    return context.InventaireHeroes.Where(c => c.Hero.Id == idHero && c.Item.ImageId == idItem).Select(m => new InventoryDetailsDTO
+                    {
+                        Id = m.IdInventaireHero,
+                        IdItem = m.Item.Id,
+                        IdHero = m.Hero.Id
+                    }).ToList();
+                        
+                }
+            }
+            catch
+            {
+
+                return null;
+            }
+        }
+
+
     }
 }

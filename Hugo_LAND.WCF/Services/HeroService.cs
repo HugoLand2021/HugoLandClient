@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using Hugo_LAND.WCF.DTOs;
+using System.Data.Entity.Infrastructure;
+using System.Data.Entity.Core.Objects;
 
 namespace Hugo_LAND.WCF.Services
 {
@@ -188,5 +190,7 @@ namespace Hugo_LAND.WCF.Services
                 return null;
             }
         }
+
+
     }
 }

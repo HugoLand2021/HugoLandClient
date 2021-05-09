@@ -1627,10 +1627,16 @@ namespace Hugo_LAND.Client.HugoLandServices {
     public interface IInventoryService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IInventoryService/ReturnInventory", ReplyAction="http://tempuri.org/IInventoryService/ReturnInventoryResponse")]
-        Hugo_LAND.Client.HugoLandServices.InventoryDetailsDTO ReturnInventory(int idHero);
+        Hugo_LAND.Client.HugoLandServices.InventoryDetailsDTO[] ReturnInventory(int idHero);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IInventoryService/ReturnInventory", ReplyAction="http://tempuri.org/IInventoryService/ReturnInventoryResponse")]
-        System.Threading.Tasks.Task<Hugo_LAND.Client.HugoLandServices.InventoryDetailsDTO> ReturnInventoryAsync(int idHero);
+        System.Threading.Tasks.Task<Hugo_LAND.Client.HugoLandServices.InventoryDetailsDTO[]> ReturnInventoryAsync(int idHero);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IInventoryService/ReturnObject", ReplyAction="http://tempuri.org/IInventoryService/ReturnObjectResponse")]
+        Hugo_LAND.Client.HugoLandServices.InventoryDetailsDTO[] ReturnObject(int idHero, int idItem);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IInventoryService/ReturnObject", ReplyAction="http://tempuri.org/IInventoryService/ReturnObjectResponse")]
+        System.Threading.Tasks.Task<Hugo_LAND.Client.HugoLandServices.InventoryDetailsDTO[]> ReturnObjectAsync(int idHero, int idItem);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -1660,12 +1666,20 @@ namespace Hugo_LAND.Client.HugoLandServices {
                 base(binding, remoteAddress) {
         }
         
-        public Hugo_LAND.Client.HugoLandServices.InventoryDetailsDTO ReturnInventory(int idHero) {
+        public Hugo_LAND.Client.HugoLandServices.InventoryDetailsDTO[] ReturnInventory(int idHero) {
             return base.Channel.ReturnInventory(idHero);
         }
         
-        public System.Threading.Tasks.Task<Hugo_LAND.Client.HugoLandServices.InventoryDetailsDTO> ReturnInventoryAsync(int idHero) {
+        public System.Threading.Tasks.Task<Hugo_LAND.Client.HugoLandServices.InventoryDetailsDTO[]> ReturnInventoryAsync(int idHero) {
             return base.Channel.ReturnInventoryAsync(idHero);
+        }
+        
+        public Hugo_LAND.Client.HugoLandServices.InventoryDetailsDTO[] ReturnObject(int idHero, int idItem) {
+            return base.Channel.ReturnObject(idHero, idItem);
+        }
+        
+        public System.Threading.Tasks.Task<Hugo_LAND.Client.HugoLandServices.InventoryDetailsDTO[]> ReturnObjectAsync(int idHero, int idItem) {
+            return base.Channel.ReturnObjectAsync(idHero, idItem);
         }
     }
 }

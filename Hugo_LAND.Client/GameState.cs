@@ -4,6 +4,7 @@ using System.Drawing;
 using System.Windows.Forms;
 using System.IO;
 using Hugo_LAND.Client.HugoLandServices;
+using System.Linq;
 
 namespace Hugo_LAND.Client
 {
@@ -153,12 +154,21 @@ namespace Hugo_LAND.Client
             World = new World(this, _tiles);
             pourcent = _rnd.NextDouble();
             //Reset the game state
-            //List<InventoryDetailsDTO> inventaire = serviceInventory.ReturnInventory(Hero.Id);
-            double attack2 = (pourcent * ((double)Hero.StatDex / 100) * (double)Hero.StatStr);
+            
+            List<InventoryDetailsDTO> inventaireSword = serviceInventory.ReturnObject(Hero.Id, 135)?.ToList();
+            List<InventoryDetailsDTO> inventaireArmour = serviceInventory.ReturnObject(Hero.Id, 134)?.ToList();
+            List<InventoryDetailsDTO> inventaireTreasure = serviceInventory.ReturnObject(Hero.Id, 105)?.ToList();
+            List<InventoryDetailsDTO> inventairePotion = serviceInventory.ReturnObject(Hero.Id, 136)?.ToList();
+            int CountSword = inventaireSword.Count();
+            int CountArmour = inventaireArmour.Count();
+            int CountTreasure = inventaireTreasure.Count();
+            int CountPotion = inventairePotion.Count();
+            double attack2 = (pourcent * ((double)Hero.StatDex / 100) * (double)Hero.StatStr) + CountSword;
 
-            Potions = 10; //-------
-            Armour = 1;   // TODO : le lien avec l'inventaire ici du Hero (donc l'inventaire DTO)
-            Treasure = 0; // ------
+
+            Potions = CountPotion; //-------
+            Armour = CountArmour;   // TODO : le lien avec l'inventaire ici du Hero (donc l'inventaire DTO)
+            Treasure = CountTreasure; // ------
             Attack = (int)attack2; // TODO il faut le mélanger probablement avec le nombre d'épée dans l'inventaire du Héro
             Experience = Hero.Experience;
             Level = Hero.Level;

@@ -9,6 +9,7 @@ namespace Hugo_LAND.WCF.Services
     {
         [OperationContract]
         List<InventoryDetailsDTO> ReturnInventory(int idHero);
-
+        [OperationContract]
+        List<InventoryDetailsDTO> ReturnObject(int idHero, int idItem);
     }
 }
