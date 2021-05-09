@@ -1,8 +1,8 @@
+using Hugo_LAND.Client.HugoLandServices;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
-using Hugo_LAND.Client.HugoLandServices;
 
 namespace Hugo_LAND.Client
 {
@@ -76,7 +76,7 @@ namespace Hugo_LAND.Client
 
             if (_intervale >= 1)
             {
-                _currentArea.LoadItemsMonsters(_tiles, _currentWorld.Description, GetBeginPos(_gameState.Hero.x), GetBeginPos(_gameState.Hero.y));
+                _currentArea.RefreshMap(GetBeginPos(_gameState.Hero.x), GetBeginPos(_gameState.Hero.y));
                 _intervale = 0;
             }
 
@@ -254,7 +254,8 @@ namespace Hugo_LAND.Client
                             List<WorldItemDetailsDTO> listItems = GetWorldItems(_gameState.Hero.x + 1, _gameState.Hero.y);
                             if (!(listItems == null))
                             {
-                                _currentArea = new Area(_tiles, listItems, _gameState.Hero.World, GetBeginPos(_gameState.Hero.x + 1), GetBeginPos(_gameState.Hero.y), _gameState.Hero.Id);
+                                //_currentArea = new Area(_tiles, listItems, _gameState.Hero.World, GetBeginPos(_gameState.Hero.x + 1), GetBeginPos(_gameState.Hero.y), _gameState.Hero.Id);
+                                _currentArea.ChangeMap(listItems, GetBeginPos(_gameState.Hero.x + 1), GetBeginPos(_gameState.Hero.y));
                                 _heroPosition.X = 0;
                                 _gameState.Hero.x++;
                                 HeroService.MoveHero(_gameState.Hero, _gameState.Hero.x, _gameState.Hero.y);
@@ -289,7 +290,8 @@ namespace Hugo_LAND.Client
                             List<WorldItemDetailsDTO> listItems = GetWorldItems(_gameState.Hero.x - 1, _gameState.Hero.y);
                             if (!(listItems == null))
                             {
-                                _currentArea = new Area(_tiles, listItems, _gameState.Hero.World, GetBeginPos(_gameState.Hero.x - 1), GetBeginPos(_gameState.Hero.y),_gameState.Hero.Id);
+                                //_currentArea = new Area(_tiles, listItems, _gameState.Hero.World, GetBeginPos(_gameState.Hero.x - 1), GetBeginPos(_gameState.Hero.y),_gameState.Hero.Id);
+                                _currentArea.ChangeMap(listItems, GetBeginPos(_gameState.Hero.x - 1), GetBeginPos(_gameState.Hero.y));
                                 _heroPosition.X = Area.MapSizeX - 1;
                                 _gameState.Hero.x--;
                                 HeroService.MoveHero(_gameState.Hero, _gameState.Hero.x, _gameState.Hero.y);
@@ -323,7 +325,8 @@ namespace Hugo_LAND.Client
                             List<WorldItemDetailsDTO> listItems = GetWorldItems(_gameState.Hero.x, _gameState.Hero.y - 1);
                             if (!(listItems == null))
                             {
-                                _currentArea = new Area(_tiles, listItems, _gameState.Hero.World, GetBeginPos(_gameState.Hero.x), GetBeginPos(_gameState.Hero.y - 1), _gameState.Hero.Id);
+                                //_currentArea = new Area(_tiles, listItems, _gameState.Hero.World, GetBeginPos(_gameState.Hero.x), GetBeginPos(_gameState.Hero.y - 1), _gameState.Hero.Id);
+                                _currentArea.ChangeMap(listItems, GetBeginPos(_gameState.Hero.x), GetBeginPos(_gameState.Hero.y - 1));
                                 _heroPosition.Y = Area.MapSizeY - 1;
                                 _gameState.Hero.y--;
                                 HeroService.MoveHero(_gameState.Hero, _gameState.Hero.x, _gameState.Hero.y);
@@ -358,7 +361,8 @@ namespace Hugo_LAND.Client
                             List<WorldItemDetailsDTO> listItems = GetWorldItems(_gameState.Hero.x, _gameState.Hero.y + 1);
                             if (!(listItems == null))
                             {
-                                _currentArea = new Area(_tiles, listItems, _gameState.Hero.World, GetBeginPos(_gameState.Hero.x), GetBeginPos(_gameState.Hero.y + 1), _gameState.Hero.Id);
+                                //_currentArea = new Area(_tiles, listItems, _gameState.Hero.World, GetBeginPos(_gameState.Hero.x), GetBeginPos(_gameState.Hero.y + 1), _gameState.Hero.Id);
+                                _currentArea.ChangeMap(listItems, GetBeginPos(_gameState.Hero.x), GetBeginPos(_gameState.Hero.y + 1));
                                 _heroPosition.Y = 0;
                                 _gameState.Hero.y++;
                                 HeroService.MoveHero(_gameState.Hero, _gameState.Hero.x, _gameState.Hero.y);

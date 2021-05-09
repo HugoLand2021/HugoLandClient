@@ -1,6 +1,5 @@
 using Hugo_LAND.Client.Vue;
 using System;
-using System.Collections.Generic;
 using System.Windows.Forms;
 
 namespace Hugo_LAND.Client

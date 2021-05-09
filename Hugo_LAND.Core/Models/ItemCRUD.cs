@@ -1,9 +1,5 @@
-﻿using Hugo_LAND.Core.Models;
-using System;
-using System.Collections.Generic;
+﻿using System;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Hugo_LAND.Core.Models
 {
@@ -23,7 +19,7 @@ namespace Hugo_LAND.Core.Models
                     ImageId = item.ImageId,
                     Hero = item.Hero,
                     Monde = m
-                }) ;
+                });
                 context.SaveChanges();
             }
         }
@@ -77,7 +73,7 @@ namespace Hugo_LAND.Core.Models
                                 y = item.y,
                                 ImageId = item.ImageId,
                                 Monde = m
-                            },3);
+                            }, 3);
                             RamasserItem(context.Items.ToList().LastOrDefault(it => it.Nom == item.Nom).Id, idHero);
                         }
                     }

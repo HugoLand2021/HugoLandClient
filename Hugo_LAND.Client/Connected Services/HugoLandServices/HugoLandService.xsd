@@ -184,7 +184,7 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="ReturnHeros">
+  <xs:element name="ReturnHeroes">
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="world" nillable="true" type="xs:string" />
@@ -194,10 +194,10 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="ReturnHerosResponse">
+  <xs:element name="ReturnHeroesResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/Hugo_LAND.WCF.DTOs" minOccurs="0" name="ReturnHerosResult" nillable="true" type="q13:ArrayOfHeroDetailsDTO" />
+        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/Hugo_LAND.WCF.DTOs" minOccurs="0" name="ReturnHeroesResult" nillable="true" type="q13:ArrayOfHeroDetailsDTO" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

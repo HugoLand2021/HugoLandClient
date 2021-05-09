@@ -1,9 +1,4 @@
-﻿using Hugo_LAND.Core.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Linq;
 
 namespace Hugo_LAND.Core.Models
 {
@@ -23,7 +18,7 @@ namespace Hugo_LAND.Core.Models
                     StatPV = monstre.StatPV,
                     StatDmgMin = monstre.StatDmgMin,
                     StatDmgMax = monstre.StatDmgMax,
-                    ImageId= monstre.ImageId,
+                    ImageId = monstre.ImageId,
                     Monde = m
                 });
                 context.SaveChanges();

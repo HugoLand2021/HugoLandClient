@@ -113,7 +113,7 @@ namespace Hugo_LAND.Client
             {
                 bool result = DisconnectUser();
                 if (!result)
-                { 
+                {
                     e.Cancel = true;
                     buttonDisconnectPressed = false;
                     this.Invalidate(); //Draw form again
@@ -121,14 +121,15 @@ namespace Hugo_LAND.Client
             }
         }
 
-        private bool DisconnectUser() {
-                if (hsc.ConnectHero(false, currHero.Id) == "SUCCESS")
-                    return true;
-                else
-                { 
-                MessageBox.Show("There was an error while trying to disconnect!","ERROR!", MessageBoxButtons.OK,  MessageBoxIcon.Error);
+        private bool DisconnectUser()
+        {
+            if (hsc.ConnectHero(false, currHero.Id) == "SUCCESS")
+                return true;
+            else
+            {
+                MessageBox.Show("There was an error while trying to disconnect!", "ERROR!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
-                }
+            }
         }
 
         private void btnDisconnect_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)

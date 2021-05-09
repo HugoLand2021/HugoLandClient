@@ -29,11 +29,11 @@ namespace Hugo_LAND.WCF.Services
                         }).ToList();
                 }
             }
-            catch 
+            catch
             {
                 return null;
             }
-            
+
         }
     }
 }

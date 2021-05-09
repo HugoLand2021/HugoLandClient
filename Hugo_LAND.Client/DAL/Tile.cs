@@ -3,7 +3,7 @@ using System.Drawing;
 
 namespace Hugo_LAND.Client
 {
-    public class Tile 
+    public class Tile
     {
         private static BitmapCache _bitmaps = new BitmapCache();
         public const int TileSizeX = 64;
@@ -32,10 +32,10 @@ namespace Hugo_LAND.Client
             NumberOfFrames = Convert.ToInt32(tileData[7]);
             Rectangle = new Rectangle((Convert.ToInt32(tileData[4]) - 1) * TileSizeX, (Convert.ToInt32(tileData[5]) - 1) * TileSizeY, TileSizeX * NumberOfFrames, TileSizeY);
             IsTransparent = (tileData[6].ToLower() == "y");
-            IsBlock = ((tileData[8].ToLower())=="block");
+            IsBlock = ((tileData[8].ToLower()) == "block");
 
             //Some types of tiles have a color
-            if (Category == "door" || Category =="key")
+            if (Category == "door" || Category == "key")
             {
                 Color = tileData[9].ToLower();
             }

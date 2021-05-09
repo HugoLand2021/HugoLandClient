@@ -1,10 +1,7 @@
 ﻿using Hugo_LAND.Core.Models;
 using Hugo_LAND.WCF.DTOs;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Hugo_LAND.WCF.Services
 {
@@ -17,11 +14,11 @@ namespace Hugo_LAND.WCF.Services
                 using (HugoLANDContext context = new HugoLANDContext())
                 {
                     return context.InventaireHeroes.Where(c => c.Hero.Id == idHero)
-                        .Select(m=> new InventoryDetailsDTO 
-                        { 
+                        .Select(m => new InventoryDetailsDTO
+                        {
                             Id = m.IdInventaireHero,
-                            IdItem=m.Item.Id,
-                            IdHero =m.Hero.Id
+                            IdItem = m.Item.Id,
+                            IdHero = m.Hero.Id
                         }).ToList();
                 }
             }
@@ -43,7 +40,7 @@ namespace Hugo_LAND.WCF.Services
                         IdItem = m.Item.Id,
                         IdHero = m.Hero.Id
                     }).ToList();
-                        
+
                 }
             }
             catch

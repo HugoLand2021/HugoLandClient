@@ -86,11 +86,11 @@
   <wsdl:message name="IHeroService_ConnectHero_OutputMessage">
     <wsdl:part name="parameters" element="tns:ConnectHeroResponse" />
   </wsdl:message>
-  <wsdl:message name="IHeroService_ReturnHeros_InputMessage">
-    <wsdl:part name="parameters" element="tns:ReturnHeros" />
+  <wsdl:message name="IHeroService_ReturnHeroes_InputMessage">
+    <wsdl:part name="parameters" element="tns:ReturnHeroes" />
   </wsdl:message>
-  <wsdl:message name="IHeroService_ReturnHeros_OutputMessage">
-    <wsdl:part name="parameters" element="tns:ReturnHerosResponse" />
+  <wsdl:message name="IHeroService_ReturnHeroes_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ReturnHeroesResponse" />
   </wsdl:message>
   <wsdl:message name="IWorldService_GetAllWorldNames_InputMessage">
     <wsdl:part name="parameters" element="tns:GetAllWorldNames" />
@@ -191,9 +191,9 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IHeroService/ConnectHero" message="tns:IHeroService_ConnectHero_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IHeroService/ConnectHeroResponse" message="tns:IHeroService_ConnectHero_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="ReturnHeros">
-      <wsdl:input wsaw:Action="http://tempuri.org/IHeroService/ReturnHeros" message="tns:IHeroService_ReturnHeros_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IHeroService/ReturnHerosResponse" message="tns:IHeroService_ReturnHeros_OutputMessage" />
+    <wsdl:operation name="ReturnHeroes">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHeroService/ReturnHeroes" message="tns:IHeroService_ReturnHeroes_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHeroService/ReturnHeroesResponse" message="tns:IHeroService_ReturnHeroes_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:portType name="IWorldService">
@@ -359,8 +359,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="ReturnHeros">
-      <soap:operation soapAction="http://tempuri.org/IHeroService/ReturnHeros" style="document" />
+    <wsdl:operation name="ReturnHeroes">
+      <soap:operation soapAction="http://tempuri.org/IHeroService/ReturnHeroes" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

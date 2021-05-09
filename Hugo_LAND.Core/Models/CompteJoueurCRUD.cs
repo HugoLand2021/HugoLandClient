@@ -1,10 +1,5 @@
-﻿using Hugo_LAND.Core.Models;
-using System;
-using System.Collections.Generic;
-using System.Data.Entity.Core.Objects;
+﻿using System.Data.Entity.Core.Objects;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Hugo_LAND.Core.Models
 {
@@ -70,10 +65,13 @@ namespace Hugo_LAND.Core.Models
             ObjectParameter message = new ObjectParameter("message", typeof(string));
             using (HugoLANDContext context = new HugoLANDContext())
             {
-                try {
+                try
+                {
                     if (context.CompteJoueurs.Where(c => c.NomJoueur == nomJoueur).FirstOrDefault().TypeUtilisateur != TypeUtilisateur.Admin)
                         return "INCORRECT";
-                } catch {
+                }
+                catch
+                {
                     return "INCORRECT";
                 }
 

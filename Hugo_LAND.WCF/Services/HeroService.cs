@@ -1,11 +1,9 @@
 ﻿using Hugo_LAND.Core.Models;
+using Hugo_LAND.WCF.DTOs;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
-using Hugo_LAND.WCF.DTOs;
-using System.Data.Entity.Infrastructure;
-using System.Data.Entity.Core.Objects;
 
 namespace Hugo_LAND.WCF.Services
 {
@@ -134,7 +132,7 @@ namespace Hugo_LAND.WCF.Services
             {
                 return null;
             }
-            
+
         }
 
         public string ConnectHero(bool isConnected, int idHero)
@@ -154,7 +152,7 @@ namespace Hugo_LAND.WCF.Services
             }
         }
 
-        public List<HeroDetailsDTO> ReturnHeros(string world, int mapBeginX, int mapBeginY, int idHero)
+        public List<HeroDetailsDTO> ReturnHeroes(string world, int mapBeginX, int mapBeginY, int idHero)
         {
             try
             {
@@ -180,8 +178,6 @@ namespace Hugo_LAND.WCF.Services
                             Level = m.Niveau,
                             UserName = m.CompteJoueur.Nom,
                             World = m.Monde.Description
-
-
                         }).ToList();
                 }
             }
@@ -190,7 +186,5 @@ namespace Hugo_LAND.WCF.Services
                 return null;
             }
         }
-
-
     }
 }

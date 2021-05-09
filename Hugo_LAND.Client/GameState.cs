@@ -1,10 +1,10 @@
+using Hugo_LAND.Client.HugoLandServices;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
-using System.Windows.Forms;
 using System.IO;
-using Hugo_LAND.Client.HugoLandServices;
 using System.Linq;
+using System.Windows.Forms;
 
 namespace Hugo_LAND.Client
 {
@@ -70,7 +70,7 @@ namespace Hugo_LAND.Client
             _treasureSprite.ColorKey = Color.FromArgb(75, 75, 75);
             _potionSprite = new Sprite(this, 580, y += 74, _tiles["Potion"].Bitmap, _tiles["Potion"].Rectangle, _tiles["Potion"].NumberOfFrames);
             _potionSprite.ColorKey = Color.FromArgb(75, 75, 75);
-            _brownKeySprite = new Sprite(this, 580, y +=74, _tiles["KeyBrown"].Bitmap, _tiles["KeyBrown"].Rectangle, _tiles["KeyBrown"].NumberOfFrames);
+            _brownKeySprite = new Sprite(this, 580, y += 74, _tiles["KeyBrown"].Bitmap, _tiles["KeyBrown"].Rectangle, _tiles["KeyBrown"].NumberOfFrames);
             _brownKeySprite.ColorKey = Color.FromArgb(75, 75, 75);
             _greenKeySprite = new Sprite(this, 654, y, _tiles["KeyGreen"].Bitmap, _tiles["KeyGreen"].Rectangle, _tiles["KeyGreen"].NumberOfFrames);
             _greenKeySprite.ColorKey = Color.FromArgb(75, 75, 75);
@@ -117,7 +117,7 @@ namespace Hugo_LAND.Client
             if (HasRedKey) _redKeySprite.Draw(graphics);
             int y = 65;
             graphics.DrawString(Experience.ToString(), _font, _brush, 650, y);
-            graphics.DrawString(Health.ToString(), _font, _brush, 650, y+=74);
+            graphics.DrawString(Health.ToString(), _font, _brush, 650, y += 74);
             graphics.DrawString(Attack.ToString(), _font, _brush, 650, y += 74);
             graphics.DrawString(Armour.ToString(), _font, _brush, 650, y += 74);
             graphics.DrawString(Treasure.ToString(), _font, _brush, 650, y += 74);
@@ -154,7 +154,7 @@ namespace Hugo_LAND.Client
             World = new World(this, _tiles);
             pourcent = _rnd.NextDouble();
             //Reset the game state
-            
+
             List<InventoryDetailsDTO> inventaireSword = serviceInventory.ReturnObject(Hero.Id, 135)?.ToList();
             List<InventoryDetailsDTO> inventaireArmour = serviceInventory.ReturnObject(Hero.Id, 134)?.ToList();
             List<InventoryDetailsDTO> inventaireTreasure = serviceInventory.ReturnObject(Hero.Id, 105)?.ToList();
@@ -173,7 +173,7 @@ namespace Hugo_LAND.Client
             Experience = Hero.Experience;
             Level = Hero.Level;
             _nextUpgrade = 20;
-            Health = Hero.StatVitality; 
+            Health = Hero.StatVitality;
             GameIsWon = false;
         }
 

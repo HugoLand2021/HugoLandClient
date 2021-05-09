@@ -48,7 +48,7 @@ namespace Hugo_LAND.Client.Vue
                 if (herosList.Any(h => h.HeroName == cmbNomhero.Text))
                 {
                     selectedHero = herosList[cmbNomhero.SelectedIndex];
-                    
+
                     this.Close();
                 }
                 else

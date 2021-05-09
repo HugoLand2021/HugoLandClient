@@ -30,7 +30,7 @@ namespace Hugo_LAND.Core.Validators
                 .WithMessage("Please provide a password.")
                 .Matches(PASSWORD_REGEX)
                 .WithMessage("Please provide a valid password (8 to 20 characters, at least one uppercase letter, one lowercase letter and one number.");
-            
+
 
             //Password confirmation
             RuleFor(c => c.MotDePasseConfirmation)

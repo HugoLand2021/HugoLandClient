@@ -35,7 +35,7 @@ namespace Hugo_LAND.Client.Vue
             List<string> errors = VerifyInfo();
             HeroDetailsDTO hero = new HeroDetailsDTO()
             {
-                
+
                 HeroName = txtnomHero.Text,
                 StatDex = int.Parse(txtstatBaseDex.Text),
                 StatReg = int.Parse(txtstatBaseReg.Text),
