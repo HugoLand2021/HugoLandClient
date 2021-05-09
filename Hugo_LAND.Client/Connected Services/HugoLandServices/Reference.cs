@@ -1253,10 +1253,10 @@ namespace Hugo_LAND.Client.HugoLandServices {
         System.Threading.Tasks.Task<string> ConnectHeroAsync(bool isConnected, int idHero);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IHeroService/ReturnHeros", ReplyAction="http://tempuri.org/IHeroService/ReturnHerosResponse")]
-        Hugo_LAND.Client.HugoLandServices.HeroDetailsDTO[] ReturnHeros(string world, int mapBeginX, int mapBeginY);
+        Hugo_LAND.Client.HugoLandServices.HeroDetailsDTO[] ReturnHeros(string world, int mapBeginX, int mapBeginY, int idHero);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IHeroService/ReturnHeros", ReplyAction="http://tempuri.org/IHeroService/ReturnHerosResponse")]
-        System.Threading.Tasks.Task<Hugo_LAND.Client.HugoLandServices.HeroDetailsDTO[]> ReturnHerosAsync(string world, int mapBeginX, int mapBeginY);
+        System.Threading.Tasks.Task<Hugo_LAND.Client.HugoLandServices.HeroDetailsDTO[]> ReturnHerosAsync(string world, int mapBeginX, int mapBeginY, int idHero);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -1334,12 +1334,12 @@ namespace Hugo_LAND.Client.HugoLandServices {
             return base.Channel.ConnectHeroAsync(isConnected, idHero);
         }
         
-        public Hugo_LAND.Client.HugoLandServices.HeroDetailsDTO[] ReturnHeros(string world, int mapBeginX, int mapBeginY) {
-            return base.Channel.ReturnHeros(world, mapBeginX, mapBeginY);
+        public Hugo_LAND.Client.HugoLandServices.HeroDetailsDTO[] ReturnHeros(string world, int mapBeginX, int mapBeginY, int idHero) {
+            return base.Channel.ReturnHeros(world, mapBeginX, mapBeginY, idHero);
         }
         
-        public System.Threading.Tasks.Task<Hugo_LAND.Client.HugoLandServices.HeroDetailsDTO[]> ReturnHerosAsync(string world, int mapBeginX, int mapBeginY) {
-            return base.Channel.ReturnHerosAsync(world, mapBeginX, mapBeginY);
+        public System.Threading.Tasks.Task<Hugo_LAND.Client.HugoLandServices.HeroDetailsDTO[]> ReturnHerosAsync(string world, int mapBeginX, int mapBeginY, int idHero) {
+            return base.Channel.ReturnHerosAsync(world, mapBeginX, mapBeginY, idHero);
         }
     }
     

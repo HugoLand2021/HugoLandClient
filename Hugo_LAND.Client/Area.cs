@@ -15,6 +15,7 @@ namespace Hugo_LAND.Client
         public const int AreaOffsetY = 50;
         public const int MapSizeX = 8;
         public const int MapSizeY = 8;
+        private int IdHero;
         WorldItemServiceClient worlditemsService = new WorldItemServiceClient();
         ItemServiceClient itemService = new ItemServiceClient();
         MonsterServiceClient monstreService = new MonsterServiceClient();
@@ -23,8 +24,9 @@ namespace Hugo_LAND.Client
         public MapTile[,] Map = new MapTile[MapSizeX, MapSizeY];
         private Rectangle _areaRectangle = new Rectangle(AreaOffsetX, AreaOffsetY, MapSizeX * Tile.TileSizeX, MapSizeY * Tile.TileSizeY);
 
-        public Area(Dictionary<string, Tile> tiles, string worldName, int beginX, int beginY)
+        public Area(Dictionary<string, Tile> tiles, string worldName, int beginX, int beginY, int idHero)
         {
+            IdHero = idHero;
             var worldoObjects = worlditemsService.ReturnWorldItems(worldName, beginX, beginY).ToList();
             foreach (var item in worldoObjects)
             {
@@ -50,8 +52,9 @@ namespace Hugo_LAND.Client
 
             LoadItemsMonsters(tiles, worldName, beginX, beginY);
         }
-        public Area(Dictionary<string, Tile> tiles, List<WorldItemDetailsDTO> listItems, string worldName, int beginX, int beginY)
+        public Area(Dictionary<string, Tile> tiles, List<WorldItemDetailsDTO> listItems, string worldName, int beginX, int beginY, int idHero)
         {
+            IdHero = idHero;
             foreach (var item in listItems)
             {
                 MapTile mapTile = new MapTile();
@@ -139,7 +142,7 @@ namespace Hugo_LAND.Client
                 }
             }
 
-            var heros = heroService.ReturnHeros(worldName, beginX, beginY).ToList();
+            var heros = heroService.ReturnHeros(worldName, beginX, beginY, IdHero).ToList();
             foreach (var hero in heros)
             {
                 MapTile mapTile = Map[hero.x % 8, hero.y % 8];
