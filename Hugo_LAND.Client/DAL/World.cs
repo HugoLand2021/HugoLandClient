@@ -71,6 +71,11 @@ namespace Hugo_LAND.Client
 
         public override void Update(double gameTime, double elapsedTime)
         {
+            if (elapsedTime >= 1)
+            {
+                _currentArea.LoadItemsMonsters(_tiles,_currentWorld.Description,_gameState.Hero.x,_gameState.Hero.y);
+            }
+
             //We only actually update the current area the rest all 'sleep'
             _currentArea.Update(gameTime, elapsedTime);
 

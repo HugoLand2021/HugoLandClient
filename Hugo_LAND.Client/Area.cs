@@ -94,7 +94,6 @@ namespace Hugo_LAND.Client
                     mapTile.ObjectSprite.Update(gameTime, elapsedTime);
                 }
             }
-
         }
 
         public override void Draw(Graphics graphics)
