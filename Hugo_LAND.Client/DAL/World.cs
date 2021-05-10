@@ -137,31 +137,31 @@ namespace Hugo_LAND.Client
                 case "armour":
 
                     _gameState.Armour++;
-                    _gameState.Hero = HeroService.ArmorHero(_currentWorld.ID, _gameState.Hero.x, _gameState.Hero.y, _gameState.Hero, 0, force: true);
+                    _gameState.Hero = HeroService.PicksUpItem("armour",_currentWorld.ID, _gameState.Hero.x, _gameState.Hero.y, _gameState.Hero,  force: true);
                     Sounds.Pickup();
                     break;
                     //Pour augmenté l'attaque
                 case "attack":
                     _gameState.Attack++;
-                    _gameState.Hero = HeroService.ArmorHero(_currentWorld.ID, _gameState.Hero.x, _gameState.Hero.y, _gameState.Hero, 0, force: true);
+                    _gameState.Hero = HeroService.PicksUpItem("attack",_currentWorld.ID, _gameState.Hero.x, _gameState.Hero.y, _gameState.Hero,  force: true);
                     Sounds.Pickup();
                     break;
                 //Pour augmenté la vie
                 case "food":
                     _gameState.Health += 10;
-                    _gameState.Hero = HeroService.FoodHero(_currentWorld.ID, _gameState.Hero.x, _gameState.Hero.y, _gameState.Hero, 0, force: true);
+                    _gameState.Hero = HeroService.PicksUpItem("food",_currentWorld.ID, _gameState.Hero.x, _gameState.Hero.y, _gameState.Hero,  force: true);
                     Sounds.Eat();
                     break;
                 //Pour augmenté le nombre de trésor
                 case "treasure":
                     _gameState.Treasure += 5;
-                    _gameState.Hero = HeroService.ArmorHero(_currentWorld.ID, _gameState.Hero.x, _gameState.Hero.y, _gameState.Hero, 0, force: true);
+                    _gameState.Hero = HeroService.PicksUpItem("treasure",_currentWorld.ID, _gameState.Hero.x, _gameState.Hero.y, _gameState.Hero,  force: true);
                     Sounds.Pickup();
                     break;
                 //Pour augmenté le nombre de potion
                 case "potion":
                     _gameState.Potions++;
-                    _gameState.Hero = HeroService.ArmorHero(_currentWorld.ID, _gameState.Hero.x, _gameState.Hero.y, _gameState.Hero, 0, force: true);
+                    _gameState.Hero = HeroService.PicksUpItem("potion",_currentWorld.ID, _gameState.Hero.x, _gameState.Hero.y, _gameState.Hero,  force: true);
                     Sounds.Pickup();
                     break;
 
@@ -169,23 +169,24 @@ namespace Hugo_LAND.Client
                     if (objectTile.Color == "brown")
                     {
                         _gameState.HasBrownKey = true;
-                        _gameState.Hero = HeroService.ArmorHero(_currentWorld.ID, _gameState.Hero.x, _gameState.Hero.y, _gameState.Hero, 0, force: false);
+                    _gameState.Hero = HeroService.PicksUpItem("keybrown",_currentWorld.ID, _gameState.Hero.x, _gameState.Hero.y, _gameState.Hero,  force: true);
                     }
                     if (objectTile.Color == "green")
                     {
                         _gameState.HasGreenKey = true;
-                        _gameState.Hero = HeroService.ArmorHero(_currentWorld.ID, _gameState.Hero.x, _gameState.Hero.y, _gameState.Hero, 0, force: false);
+                    _gameState.Hero = HeroService.PicksUpItem("keygreen",_currentWorld.ID, _gameState.Hero.x, _gameState.Hero.y, _gameState.Hero,  force: true);
                     }
                     if (objectTile.Color == "red")
                     {
                         _gameState.HasRedKey = true;
-                        _gameState.Hero = HeroService.ArmorHero(_currentWorld.ID, _gameState.Hero.x, _gameState.Hero.y, _gameState.Hero, 0, force: false);
+                    _gameState.Hero = HeroService.PicksUpItem("keyred", _currentWorld.ID, _gameState.Hero.x, _gameState.Hero.y, _gameState.Hero,  force: true);
                     }
                     Sounds.Pickup();
                     break;
                 //Pour diminué le nombre de vie de 2
                 case "fire":
                     _gameState.Health -= 2;
+                    //AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAATTAQUE LE NOTRE PLAYER DE 2 FAIRE MÉTHODE POUR ÇA
                     break;
             }
             //Remove the object unless its bones or fire

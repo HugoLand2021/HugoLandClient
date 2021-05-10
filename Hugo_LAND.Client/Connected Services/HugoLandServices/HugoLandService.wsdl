@@ -98,17 +98,11 @@
   <wsdl:message name="IHeroService_IsHeroConnected_OutputMessage">
     <wsdl:part name="parameters" element="tns:IsHeroConnectedResponse" />
   </wsdl:message>
-  <wsdl:message name="IHeroService_ArmorHero_InputMessage">
-    <wsdl:part name="parameters" element="tns:ArmorHero" />
+  <wsdl:message name="IHeroService_PicksUpItem_InputMessage">
+    <wsdl:part name="parameters" element="tns:PicksUpItem" />
   </wsdl:message>
-  <wsdl:message name="IHeroService_ArmorHero_OutputMessage">
-    <wsdl:part name="parameters" element="tns:ArmorHeroResponse" />
-  </wsdl:message>
-  <wsdl:message name="IHeroService_FoodHero_InputMessage">
-    <wsdl:part name="parameters" element="tns:FoodHero" />
-  </wsdl:message>
-  <wsdl:message name="IHeroService_FoodHero_OutputMessage">
-    <wsdl:part name="parameters" element="tns:FoodHeroResponse" />
+  <wsdl:message name="IHeroService_PicksUpItem_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PicksUpItemResponse" />
   </wsdl:message>
   <wsdl:message name="IWorldService_GetAllWorldNames_InputMessage">
     <wsdl:part name="parameters" element="tns:GetAllWorldNames" />
@@ -140,17 +134,11 @@
   <wsdl:message name="IItemService_ReturnItems_OutputMessage">
     <wsdl:part name="parameters" element="tns:ReturnItemsResponse" />
   </wsdl:message>
-  <wsdl:message name="IInventoryService_ReturnInventory_InputMessage">
-    <wsdl:part name="parameters" element="tns:ReturnInventory" />
+  <wsdl:message name="IInventoryService_GetPlayerInventory_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPlayerInventory" />
   </wsdl:message>
-  <wsdl:message name="IInventoryService_ReturnInventory_OutputMessage">
-    <wsdl:part name="parameters" element="tns:ReturnInventoryResponse" />
-  </wsdl:message>
-  <wsdl:message name="IInventoryService_ReturnObject_InputMessage">
-    <wsdl:part name="parameters" element="tns:ReturnObject" />
-  </wsdl:message>
-  <wsdl:message name="IInventoryService_ReturnObject_OutputMessage">
-    <wsdl:part name="parameters" element="tns:ReturnObjectResponse" />
+  <wsdl:message name="IInventoryService_GetPlayerInventory_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPlayerInventoryResponse" />
   </wsdl:message>
   <wsdl:portType name="IAccountService">
     <wsdl:operation name="Authentification">
@@ -217,13 +205,9 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IHeroService/IsHeroConnected" message="tns:IHeroService_IsHeroConnected_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IHeroService/IsHeroConnectedResponse" message="tns:IHeroService_IsHeroConnected_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="ArmorHero">
-      <wsdl:input wsaw:Action="http://tempuri.org/IHeroService/ArmorHero" message="tns:IHeroService_ArmorHero_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IHeroService/ArmorHeroResponse" message="tns:IHeroService_ArmorHero_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="FoodHero">
-      <wsdl:input wsaw:Action="http://tempuri.org/IHeroService/FoodHero" message="tns:IHeroService_FoodHero_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IHeroService/FoodHeroResponse" message="tns:IHeroService_FoodHero_OutputMessage" />
+    <wsdl:operation name="PicksUpItem">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHeroService/PicksUpItem" message="tns:IHeroService_PicksUpItem_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHeroService/PicksUpItemResponse" message="tns:IHeroService_PicksUpItem_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:portType name="IWorldService">
@@ -255,13 +239,9 @@
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:portType name="IInventoryService">
-    <wsdl:operation name="ReturnInventory">
-      <wsdl:input wsaw:Action="http://tempuri.org/IInventoryService/ReturnInventory" message="tns:IInventoryService_ReturnInventory_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IInventoryService/ReturnInventoryResponse" message="tns:IInventoryService_ReturnInventory_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="ReturnObject">
-      <wsdl:input wsaw:Action="http://tempuri.org/IInventoryService/ReturnObject" message="tns:IInventoryService_ReturnObject_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IInventoryService/ReturnObjectResponse" message="tns:IInventoryService_ReturnObject_OutputMessage" />
+    <wsdl:operation name="GetPlayerInventory">
+      <wsdl:input wsaw:Action="http://tempuri.org/IInventoryService/GetPlayerInventory" message="tns:IInventoryService_GetPlayerInventory_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IInventoryService/GetPlayerInventoryResponse" message="tns:IInventoryService_GetPlayerInventory_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IAccountService" type="tns:IAccountService">
@@ -407,17 +387,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="ArmorHero">
-      <soap:operation soapAction="http://tempuri.org/IHeroService/ArmorHero" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="FoodHero">
-      <soap:operation soapAction="http://tempuri.org/IHeroService/FoodHero" style="document" />
+    <wsdl:operation name="PicksUpItem">
+      <soap:operation soapAction="http://tempuri.org/IHeroService/PicksUpItem" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -485,17 +456,8 @@
   </wsdl:binding>
   <wsdl:binding name="BasicHttpBinding_IInventoryService" type="tns:IInventoryService">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
-    <wsdl:operation name="ReturnInventory">
-      <soap:operation soapAction="http://tempuri.org/IInventoryService/ReturnInventory" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="ReturnObject">
-      <soap:operation soapAction="http://tempuri.org/IInventoryService/ReturnObject" style="document" />
+    <wsdl:operation name="GetPlayerInventory">
+      <soap:operation soapAction="http://tempuri.org/IInventoryService/GetPlayerInventory" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

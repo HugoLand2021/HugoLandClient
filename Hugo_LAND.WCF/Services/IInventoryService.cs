@@ -8,8 +8,7 @@ namespace Hugo_LAND.WCF.Services
     public interface IInventoryService
     {
         [OperationContract]
-        List<InventoryDetailsDTO> ReturnInventory(int idHero);
-        [OperationContract]
-        List<InventoryDetailsDTO> ReturnObject(int idHero, int idItem);
+        List<ItemDetailsDTO> GetPlayerInventory(int HeroID);
+
     }
 }

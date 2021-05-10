@@ -13,16 +13,18 @@ namespace Hugo_LAND.Client.Vue
         public HeroDetailsDTO selectedHero = new HeroDetailsDTO();
         bool _HeroSelected = false;
         private readonly HeroServiceClient HeroService = new HeroServiceClient();
+        private readonly frmMain _main;
         public frmSelectHero(frmMain main)
         {
+            _main = main;
             InitializeComponent();
-            lblnomCompte.Text = main.accountDetails.PlayerName;
-            var list = HeroService.ReturnHerosFromAccount(main.accountDetails.Id);
+            lblnomCompte.Text = _main.accountDetails.PlayerName;
+            var list = HeroService.ReturnHerosFromAccount(_main.accountDetails.Id);
 
 
             try
             {
-                herosList = HeroService.ReturnHerosFromAccount(main.accountDetails.Id).ToList();
+                herosList = HeroService.ReturnHerosFromAccount(_main.accountDetails.Id).ToList();
             }
             catch
             {
@@ -48,7 +50,7 @@ namespace Hugo_LAND.Client.Vue
             {
                 if (herosList.Any(h => h.HeroName == cmbNomhero.Text))
                 {
-                    if (!HeroService.IsHeroConnected(cmbNomhero.Text))
+                    if (!HeroService.IsHeroConnected(cmbNomhero.Text, _main.accountDetails.Id))
                     {
                         selectedHero = herosList[cmbNomhero.SelectedIndex];
                         _HeroSelected = true;

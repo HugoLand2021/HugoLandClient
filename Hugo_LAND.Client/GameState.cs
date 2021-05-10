@@ -14,8 +14,8 @@ namespace Hugo_LAND.Client
         public World World;
         public HeroDetailsDTO Hero;
         public ItemDetailsDTO Item;
-        public InventoryDetailsDTO inventory;
-        private readonly InventoryServiceClient serviceInventory = new InventoryServiceClient();
+        public List<ItemDetailsDTO> _inventory;
+        private readonly InventoryServiceClient _serviceInventory = new InventoryServiceClient();
         public int Attack;
         public int Armour;
         public int Level;
@@ -52,6 +52,8 @@ namespace Hugo_LAND.Client
         {
             GameArea = gameArea;
             Hero = hero;
+            //Load inventory of player.
+            _inventory = _serviceInventory.GetPlayerInventory(hero.Id).ToList();
 
             //Load in all the tile definitions
             readTileDefinitions(@"gamedata\tilelookups.csv");
@@ -155,14 +157,18 @@ namespace Hugo_LAND.Client
             pourcent = _rnd.NextDouble();
             //Reset the game state
 
-            List<InventoryDetailsDTO> inventaireSword = serviceInventory.ReturnObject(Hero.Id, 135)?.ToList();
-            List<InventoryDetailsDTO> inventaireArmour = serviceInventory.ReturnObject(Hero.Id, 134)?.ToList();
-            List<InventoryDetailsDTO> inventaireTreasure = serviceInventory.ReturnObject(Hero.Id, 105)?.ToList();
-            List<InventoryDetailsDTO> inventairePotion = serviceInventory.ReturnObject(Hero.Id, 136)?.ToList();
-            int CountSword = inventaireSword.Count();
-            int CountArmour = inventaireArmour.Count();
-            int CountTreasure = inventaireTreasure.Count();
-            int CountPotion = inventairePotion.Count();
+            //List<ItemDetailsDTO> inventaireSword = GetAllOneTypeItem("Attack");
+            //List<ItemDetailsDTO> inventaireArmour = _serviceInventory.ReturnObject(Hero.Id, 134)?.ToList();
+            //List<ItemDetailsDTO> inventaireTreasure = _serviceInventory.ReturnObject(Hero.Id, 105)?.ToList();
+            //List<ItemDetailsDTO> inventairePotion = _serviceInventory.ReturnObject(Hero.Id, 136)?.ToList();
+            int CountSword = GetAllOneTypeItem("Attack").Count();
+            int CountArmour = GetAllOneTypeItem("Armour").Count();
+            int CountTreasure = GetAllOneTypeItem("Treasure").Count();
+            int CountPotion = GetAllOneTypeItem("Potion").Count();
+            bool GreenKey = GetAllOneTypeItem("KeyGreen").Count() > 0;
+            bool BrownKey = GetAllOneTypeItem("KeyBrown").Count() > 0;
+            bool RedKey = GetAllOneTypeItem("KeyRed").Count() > 0;
+
             double attack2 = (pourcent * ((double)Hero.StatDex / 100) * (double)Hero.StatStr) + CountSword;
 
 
@@ -174,6 +180,9 @@ namespace Hugo_LAND.Client
             Level = Hero.Level;
             _nextUpgrade = 20;
             Health = Hero.StatVitality;
+            HasGreenKey = GreenKey;
+            HasBrownKey = BrownKey;
+            HasRedKey = RedKey;
             GameIsWon = false;
         }
 
@@ -212,6 +221,16 @@ namespace Hugo_LAND.Client
                 }
             }
         }
-        
+
+        private List<ItemDetailsDTO> GetAllOneTypeItem(string itemName) {
+            try
+            {
+                return _inventory.Where(i => i.Nom == itemName).ToList();
+            }
+            catch
+            {
+                return new List<ItemDetailsDTO>();
+            }
+        }
     }
 }

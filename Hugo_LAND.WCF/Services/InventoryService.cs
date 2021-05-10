@@ -7,45 +7,24 @@ namespace Hugo_LAND.WCF.Services
 {
     public partial class HugoLandService : IInventoryService
     {
-        public List<InventoryDetailsDTO> ReturnInventory(int idHero)
-        {
+        public List<ItemDetailsDTO> GetPlayerInventory(int HeroID) {
             try
             {
                 using (HugoLANDContext context = new HugoLANDContext())
                 {
-                    return context.InventaireHeroes.Where(c => c.Hero.Id == idHero)
-                        .Select(m => new InventoryDetailsDTO
-                        {
-                            Id = m.IdInventaireHero,
-                            IdItem = m.Item.Id,
-                            IdHero = m.Hero.Id
-                        }).ToList();
-                }
-            }
-            catch
-            {
-
-                return null;
-            }
-        }
-        public List<InventoryDetailsDTO> ReturnObject(int idHero, int idItem)
-        {
-            try
-            {
-                using (HugoLANDContext context = new HugoLANDContext())
-                {
-                    return context.InventaireHeroes.Where(c => c.Hero.Id == idHero && c.Item.ImageId == idItem).Select(m => new InventoryDetailsDTO
+                    return context.Items.Where(c => c.Hero.Id == HeroID).Select(m => new ItemDetailsDTO
                     {
-                        Id = m.IdInventaireHero,
-                        IdItem = m.Item.Id,
-                        IdHero = m.Hero.Id
+                        Description = m.Description,
+                        Id = m.Id,
+                        ImageId = m.ImageId,
+                        Nom = m.Nom,
+                        x = m.x,
+                        y = m.y
                     }).ToList();
-
                 }
             }
             catch
             {
-
                 return null;
             }
         }

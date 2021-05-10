@@ -190,13 +190,13 @@ namespace Hugo_LAND.WCF.Services
         }
 
 
-        public bool IsHeroConnected(string nomHero)
+        public bool IsHeroConnected(string HeroName, int AccountID)
         {
             try
             {
                 using (HugoLANDContext context = new HugoLANDContext())
                 {
-                    return context.Heros.Any(h => h.NomHero == nomHero && h.EstConnecte == true);
+                    return context.Heros.Any(h => h.NomHero == HeroName && h.EstConnecte == true && h.CompteJoueur.Id == AccountID);
                 }
             }
             catch
@@ -205,111 +205,72 @@ namespace Hugo_LAND.WCF.Services
             }
         }
 
-        public HeroDetailsDTO ArmorHero(int world, int newX, int newY, HeroDetailsDTO hero, int idItem, bool force = false)
+        public HeroDetailsDTO PicksUpItem(string itemType,int world, int X, int Y, HeroDetailsDTO hero, bool force = false)
         {
+            //RESTE À VERIF C'EST QUOI LE TYPE d'ITEM !! SI DOIT BOOST LA VIE OU QUELQUE CHOSE
+            //heros.StatVitalite = heros.StatVitalite + 10;
+
             using (var context = new HugoLANDContext())
             {
-                var heros = context.Heros.Find(hero.Id);
-                var item = context.Items.Where(x=>x.Monde.Id == world);
+                Hero currHero;
+                Item item;
+                try
+                {
+                    currHero = context.Heros.Find(hero.Id);
+                    item = context.Items.FirstOrDefault(i => i.x == X && i.y == Y && i.Monde.Id == world && i.Hero == null);
+                    currHero.Items.Add(item);
+                    item.Hero = currHero;
+                    switch (itemType)
+                    {
+                        case "food":
+                            hero.StatVitality += 10;
+                            break;
+                        default:
+                            break;
+                    }
+                }
+                catch
+                {
+                    return hero; //DOES NOT PICK UP ITEM
+                }
 
-                heros.Items.Add(item.Where(x => x.x == newX && x.y == newY).FirstOrDefault());
-                Item itemfdgdv = item.Where(x => x.x == newX && x.y == newY).FirstOrDefault();
-                itemfdgdv.Hero = heros;
-                context.Entry(itemfdgdv).State = EntityState.Modified;
-
-                context.Heros.Attach(heros);
-                context.Entry(heros).State = EntityState.Modified;
                 int itr = force ? 5 : 1;
-                var currVersion = heros.RowVersion;
+                var currVersion = currHero.RowVersion;
                 do
                 {
                     itr--;
                     try
                     {
                         context.SaveChanges();
-
                     }
                     catch (DbUpdateConcurrencyException)
                     {
-                        var objContext = ((IObjectContextAdapter)context).ObjectContext;
-                        objContext.Refresh(RefreshMode.ClientWins, heros);
+                        if (itr > 0)
+                        {
+                            var objContext = ((IObjectContextAdapter)context).ObjectContext;
+                            objContext.Refresh(RefreshMode.ClientWins, currHero);
+                            objContext.Refresh(RefreshMode.ClientWins, item);
+                        }
                     }
+                } while (itr > 0 && currVersion != currHero.RowVersion);
 
-                } while (itr > 0 && currVersion != heros.RowVersion);
-
-                HeroDetailsDTO heroCrud = new HeroDetailsDTO()
+                return new HeroDetailsDTO()
                 {
-                    Id = heros.Id,
-                    Class = heros.Classe.Description,
-                    Level = heros.Niveau,
-                    Experience = (int)heros.Experience,
-                    x = heros.x,
-                    y = heros.y,
-                    StatStr = heros.StatStr,
-                    StatDex = heros.StatDex,
-                    StatReg = heros.StatReg,
-                    StatVitality = heros.StatVitalite,
-                    HeroName = heros.NomHero,
-                    isConnected = heros.EstConnecte,
-                    World = heros.Monde.Description,
-                    UserName = heros.CompteJoueur.Nom
+                    Id = currHero.Id,
+                    Class = currHero.Classe.Description,
+                    Level = currHero.Niveau,
+                    Experience = (int)currHero.Experience,
+                    x = currHero.x,
+                    y = currHero.y,
+                    StatStr = currHero.StatStr,
+                    StatDex = currHero.StatDex,
+                    StatReg = currHero.StatReg,
+                    StatVitality = currHero.StatVitalite,
+                    HeroName = currHero.NomHero,
+                    isConnected = currHero.EstConnecte,
+                    World = currHero.Monde.Description,
+                    UserName = currHero.CompteJoueur.Nom
                 };
-
-                return heroCrud;
-            }
-        }
-        public HeroDetailsDTO FoodHero(int world, int newX, int newY, HeroDetailsDTO hero, int idItem, bool force = false)
-        {
-            using (var context = new HugoLANDContext())
-            {
-                var heros = context.Heros.Find(hero.Id);
-                var item = context.Items.Where(x => x.Monde.Id == world);
-
-                Item itemfdgdv = item.Where(x => x.x == newX && x.y == newY).FirstOrDefault();
-                itemfdgdv.Hero = heros;
-                context.Entry(itemfdgdv).State = EntityState.Modified;
-
-                heros.StatVitalite = heros.StatVitalite + 10;
-                context.Heros.Attach(heros);
-                context.Entry(heros).State = EntityState.Modified;
-                int itr = force ? 5 : 1;
-                var currVersion = heros.RowVersion;
-
-                do
-                {
-                    itr--;
-                    try
-                    {
-                        context.SaveChanges();
-
-                    }
-                    catch (DbUpdateConcurrencyException)
-                    {
-                        var objContext = ((IObjectContextAdapter)context).ObjectContext;
-                        objContext.Refresh(RefreshMode.ClientWins, heros);
-                    }
-
-                } while (itr > 0 && currVersion != heros.RowVersion);
-
-                HeroDetailsDTO heroCrud = new HeroDetailsDTO()
-                {
-                    Id = heros.Id,
-                    Class = heros.Classe.Description,
-                    Level = heros.Niveau,
-                    Experience = (int)heros.Experience,
-                    x = heros.x,
-                    y = heros.y,
-                    StatStr = heros.StatStr,
-                    StatDex = heros.StatDex,
-                    StatReg = heros.StatReg,
-                    StatVitality = heros.StatVitalite,
-                    HeroName = heros.NomHero,
-                    isConnected = heros.EstConnecte,
-                    World = heros.Monde.Description,
-                    UserName = heros.CompteJoueur.Nom
-                };
-
-                return heroCrud;
             }
         }
     }
