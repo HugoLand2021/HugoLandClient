@@ -211,9 +211,9 @@ namespace Hugo_LAND.WCF.Services
             {
                 var heros = context.Heros.Find(hero.Id);
                 var item = context.Items.Where(x=>x.Monde.Id == world);
-                
 
                 heros.Items.Add(item.Where(x => x.x == newX && x.y == newY).FirstOrDefault());
+                //heros.InventaireHeroes.Add(new InventaireHero { Hero = heros, Item = heros.Items.Where(x => x.x == newX && x.y == newY).SingleOrDefault()});
 
 
                 context.Heros.Attach(heros);
@@ -234,7 +234,7 @@ namespace Hugo_LAND.WCF.Services
                         objContext.Refresh(RefreshMode.ClientWins, heros);
                     }
 
-                } while (currVersion != heros.RowVersion);
+                } while (itr > 0 && currVersion != heros.RowVersion);
 
                 HeroDetailsDTO heroCrud = new HeroDetailsDTO()
                 {
