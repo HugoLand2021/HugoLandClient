@@ -1,4 +1,5 @@
 using Hugo_LAND.Client.HugoLandServices;
+using Hugo_LAND.Core.Models;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -38,6 +39,8 @@ namespace Hugo_LAND.Client
         private readonly WorldItemServiceClient WorldItemService = new WorldItemServiceClient();
         private readonly WorldServiceClient WorldService = new WorldServiceClient();
         private WorldDetailsDTO _currentWorld;
+        
+
         private double _intervale = 0;
 
         private static Font _font = new Font("Arial", 18);
@@ -130,38 +133,57 @@ namespace Hugo_LAND.Client
             switch (objectTile.Category)
             {
                 //Most objects change your stats in some way.
+                //Pour augmenté la défense
                 case "armour":
+
                     _gameState.Armour++;
+                    _gameState.Hero = HeroService.ArmorHero(_currentWorld.ID, _gameState.Hero.x, _gameState.Hero.y, _gameState.Hero, 0, force: false);
                     Sounds.Pickup();
                     break;
-
+                    //Pour augmenté l'attaque
                 case "attack":
                     _gameState.Attack++;
+                    _gameState.Hero = HeroService.ArmorHero(_currentWorld.ID, _gameState.Hero.x, _gameState.Hero.y, _gameState.Hero, 0, force: false);
                     Sounds.Pickup();
                     break;
-
+                //Pour augmenté la vie
                 case "food":
                     _gameState.Health += 10;
+                    _gameState.Hero = HeroService.FoodHero(_currentWorld.ID, _gameState.Hero.x, _gameState.Hero.y, _gameState.Hero, 0, force: false);
                     Sounds.Eat();
                     break;
-
+                //Pour augmenté le nombre de trésor
                 case "treasure":
                     _gameState.Treasure += 5;
+                    _gameState.Hero = HeroService.ArmorHero(_currentWorld.ID, _gameState.Hero.x, _gameState.Hero.y, _gameState.Hero, 0, force: false);
                     Sounds.Pickup();
                     break;
-
+                //Pour augmenté le nombre de potion
                 case "potion":
                     _gameState.Potions++;
+                    _gameState.Hero = HeroService.ArmorHero(_currentWorld.ID, _gameState.Hero.x, _gameState.Hero.y, _gameState.Hero, 0, force: false);
                     Sounds.Pickup();
                     break;
 
                 case "key":
-                    if (objectTile.Color == "brown") _gameState.HasBrownKey = true;
-                    if (objectTile.Color == "green") _gameState.HasGreenKey = true;
-                    if (objectTile.Color == "red") _gameState.HasRedKey = true;
+                    if (objectTile.Color == "brown")
+                    {
+                        _gameState.HasBrownKey = true;
+                        _gameState.Hero = HeroService.ArmorHero(_currentWorld.ID, _gameState.Hero.x, _gameState.Hero.y, _gameState.Hero, 0, force: false);
+                    }
+                    if (objectTile.Color == "green")
+                    {
+                        _gameState.HasGreenKey = true;
+                        _gameState.Hero = HeroService.ArmorHero(_currentWorld.ID, _gameState.Hero.x, _gameState.Hero.y, _gameState.Hero, 0, force: false);
+                    }
+                    if (objectTile.Color == "red")
+                    {
+                        _gameState.HasRedKey = true;
+                        _gameState.Hero = HeroService.ArmorHero(_currentWorld.ID, _gameState.Hero.x, _gameState.Hero.y, _gameState.Hero, 0, force: false);
+                    }
                     Sounds.Pickup();
                     break;
-
+                //Pour diminué le nombre de vie de 2
                 case "fire":
                     _gameState.Health -= 2;
                     break;

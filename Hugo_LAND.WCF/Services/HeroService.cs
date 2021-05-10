@@ -3,6 +3,8 @@ using Hugo_LAND.WCF.DTOs;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Data.Entity.Core.Objects;
+using System.Data.Entity.Infrastructure;
 using System.Linq;
 
 namespace Hugo_LAND.WCF.Services
@@ -187,7 +189,9 @@ namespace Hugo_LAND.WCF.Services
             }
         }
 
-        public bool IsHeroConnected(string nomHero) {
+
+        public bool IsHeroConnected(string nomHero)
+        {
             try
             {
                 using (HugoLANDContext context = new HugoLANDContext())
@@ -195,9 +199,115 @@ namespace Hugo_LAND.WCF.Services
                     return context.Heros.Any(h => h.NomHero == nomHero && h.EstConnecte == true);
                 }
             }
-            catch 
+            catch
             {
                 return false;
+            }
+        }
+
+        public HeroDetailsDTO ArmorHero(int world, int newX, int newY, HeroDetailsDTO hero, int idItem, bool force = false)
+        {
+            using (var context = new HugoLANDContext())
+            {
+                var heros = context.Heros.Find(hero.Id);
+                var item = context.Items.Where(x=>x.Monde.Id == world);
+                
+
+                heros.Items.Add(item.Where(x => x.x == newX && x.y == newY).FirstOrDefault());
+
+
+                context.Heros.Attach(heros);
+                context.Entry(heros).State = EntityState.Modified;
+                int itr = force ? 5 : 1;
+                var currVersion = heros.RowVersion;
+
+                do
+                {
+                    try
+                    {
+                        context.SaveChanges();
+
+                    }
+                    catch (DbUpdateConcurrencyException)
+                    {
+                        var objContext = ((IObjectContextAdapter)context).ObjectContext;
+                        objContext.Refresh(RefreshMode.ClientWins, heros);
+                    }
+
+                } while (currVersion != heros.RowVersion);
+
+                HeroDetailsDTO heroCrud = new HeroDetailsDTO()
+                {
+                    Id = heros.Id,
+                    Class = heros.Classe.Description,
+                    Level = heros.Niveau,
+                    Experience = (int)heros.Experience,
+                    x = heros.x,
+                    y = heros.y,
+                    StatStr = heros.StatStr,
+                    StatDex = heros.StatDex,
+                    StatReg = heros.StatReg,
+                    StatVitality = heros.StatVitalite,
+                    HeroName = heros.NomHero,
+                    isConnected = heros.EstConnecte,
+                    World = heros.Monde.Description,
+                    UserName = heros.CompteJoueur.Nom
+                };
+
+                return heroCrud;
+            }
+        }
+        public HeroDetailsDTO FoodHero(int world, int newX, int newY, HeroDetailsDTO hero, int idItem, bool force = false)
+        {
+            using (var context = new HugoLANDContext())
+            {
+                var heros = context.Heros.Find(hero.Id);
+                var item = context.Items.Where(x => x.Monde.Id == world);
+
+
+                heros.InventaireHeroes.Add(new InventaireHero { Hero = heros, Item = item.Where(x => x.x == newX && x.y == newY).FirstOrDefault() });
+
+                heros.StatVitalite = heros.StatVitalite + 10;
+
+                context.Heros.Attach(heros);
+                context.Entry(heros).State = EntityState.Modified;
+                int itr = force ? 5 : 1;
+                var currVersion = heros.RowVersion;
+
+                do
+                {
+                    try
+                    {
+                        context.SaveChanges();
+
+                    }
+                    catch (DbUpdateConcurrencyException)
+                    {
+                        var objContext = ((IObjectContextAdapter)context).ObjectContext;
+                        objContext.Refresh(RefreshMode.ClientWins, heros);
+                    }
+
+                } while (currVersion != heros.RowVersion);
+
+                HeroDetailsDTO heroCrud = new HeroDetailsDTO()
+                {
+                    Id = heros.Id,
+                    Class = heros.Classe.Description,
+                    Level = heros.Niveau,
+                    Experience = (int)heros.Experience,
+                    x = heros.x,
+                    y = heros.y,
+                    StatStr = heros.StatStr,
+                    StatDex = heros.StatDex,
+                    StatReg = heros.StatReg,
+                    StatVitality = heros.StatVitalite,
+                    HeroName = heros.NomHero,
+                    isConnected = heros.EstConnecte,
+                    World = heros.Monde.Description,
+                    UserName = heros.CompteJoueur.Nom
+                };
+
+                return heroCrud;
             }
         }
     }

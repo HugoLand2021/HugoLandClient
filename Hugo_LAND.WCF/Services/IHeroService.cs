@@ -31,5 +31,11 @@ namespace Hugo_LAND.WCF.Services
 
         [OperationContract]
         bool IsHeroConnected(string nomHero);
+		
+		[OperationContract]
+        HeroDetailsDTO ArmorHero(int world, int newX, int newY, HeroDetailsDTO hero, int idItem, bool force = false);
+
+        [OperationContract]
+        HeroDetailsDTO FoodHero(int world, int newX, int newY, HeroDetailsDTO hero, int idItem, bool force = false);
     }
 }

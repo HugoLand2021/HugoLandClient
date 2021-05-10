@@ -98,6 +98,18 @@
   <wsdl:message name="IHeroService_IsHeroConnected_OutputMessage">
     <wsdl:part name="parameters" element="tns:IsHeroConnectedResponse" />
   </wsdl:message>
+  <wsdl:message name="IHeroService_ArmorHero_InputMessage">
+    <wsdl:part name="parameters" element="tns:ArmorHero" />
+  </wsdl:message>
+  <wsdl:message name="IHeroService_ArmorHero_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ArmorHeroResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHeroService_FoodHero_InputMessage">
+    <wsdl:part name="parameters" element="tns:FoodHero" />
+  </wsdl:message>
+  <wsdl:message name="IHeroService_FoodHero_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FoodHeroResponse" />
+  </wsdl:message>
   <wsdl:message name="IWorldService_GetAllWorldNames_InputMessage">
     <wsdl:part name="parameters" element="tns:GetAllWorldNames" />
   </wsdl:message>
@@ -204,6 +216,14 @@
     <wsdl:operation name="IsHeroConnected">
       <wsdl:input wsaw:Action="http://tempuri.org/IHeroService/IsHeroConnected" message="tns:IHeroService_IsHeroConnected_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IHeroService/IsHeroConnectedResponse" message="tns:IHeroService_IsHeroConnected_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ArmorHero">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHeroService/ArmorHero" message="tns:IHeroService_ArmorHero_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHeroService/ArmorHeroResponse" message="tns:IHeroService_ArmorHero_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FoodHero">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHeroService/FoodHero" message="tns:IHeroService_FoodHero_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHeroService/FoodHeroResponse" message="tns:IHeroService_FoodHero_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:portType name="IWorldService">
@@ -380,6 +400,24 @@
     </wsdl:operation>
     <wsdl:operation name="IsHeroConnected">
       <soap:operation soapAction="http://tempuri.org/IHeroService/IsHeroConnected" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ArmorHero">
+      <soap:operation soapAction="http://tempuri.org/IHeroService/ArmorHero" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FoodHero">
+      <soap:operation soapAction="http://tempuri.org/IHeroService/FoodHero" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
