@@ -170,7 +170,7 @@ namespace Hugo_LAND.Client
                     Map[i, ia].ObjectTile = null;
                     Map[i, ia].ObjectSprite = null;
                 }
-            LoadItemsMonsters(beginX, beginY);
+            //LoadItemsMonsters(beginX, beginY);
             LoadHeroes(beginX, beginY);
         }
         

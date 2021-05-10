@@ -217,13 +217,18 @@ namespace Hugo_LAND.WCF.Services
                 try
                 {
                     currHero = context.Heros.Find(hero.Id);
-                    item = context.Items.FirstOrDefault(i => i.x == X && i.y == Y && i.Monde.Id == world && i.Hero == null);
-                    currHero.Items.Add(item);
+                    item = context.Mondes.Find(world).Items.FirstOrDefault(i => i.x == X && i.y == Y && i.Hero == null);
                     item.Hero = currHero;
                     switch (itemType)
                     {
                         case "food":
                             hero.StatVitality += 10;
+                            break;
+                        case "armour":
+                            currHero.StatReg = 1;
+                            break;
+                        case "attack":
+                            currHero.StatStr = 1;
                             break;
                         default:
                             break;
@@ -238,39 +243,26 @@ namespace Hugo_LAND.WCF.Services
                 var currVersion = currHero.RowVersion;
                 do
                 {
-                    itr--;
                     try
                     {
                         context.SaveChanges();
+                        hero.StatVitality = currHero.StatVitalite;
+                        hero.StatStr = currHero.StatStr;
+                        hero.StatReg = currHero.StatReg;
+                        return hero;
                     }
                     catch (DbUpdateConcurrencyException)
                     {
                         if (itr > 0)
                         {
                             var objContext = ((IObjectContextAdapter)context).ObjectContext;
-                            objContext.Refresh(RefreshMode.ClientWins, currHero);
                             objContext.Refresh(RefreshMode.ClientWins, item);
+                            itr--;
                         }
                     }
                 } while (itr > 0 && currVersion != currHero.RowVersion);
 
-                return new HeroDetailsDTO()
-                {
-                    Id = currHero.Id,
-                    Class = currHero.Classe.Description,
-                    Level = currHero.Niveau,
-                    Experience = (int)currHero.Experience,
-                    x = currHero.x,
-                    y = currHero.y,
-                    StatStr = currHero.StatStr,
-                    StatDex = currHero.StatDex,
-                    StatReg = currHero.StatReg,
-                    StatVitality = currHero.StatVitalite,
-                    HeroName = currHero.NomHero,
-                    isConnected = currHero.EstConnecte,
-                    World = currHero.Monde.Description,
-                    UserName = currHero.CompteJoueur.Nom
-                };
+                return hero;
             }
         }
     }
