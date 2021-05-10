@@ -143,6 +143,8 @@ namespace Hugo_LAND.Client
             {
                 MapTile mapTile = Map[hero.x % 8, hero.y % 8];
                 mapTile.ObjectTile = _tiles["Hero"];
+                mapTile.ObjectTile.Health = hero.StatVitality;
+
                 mapTile.SetObjectSprite(hero.x % 8, hero.y % 8);
 
                 if (mapTile.ObjectTile.IsTransparent)

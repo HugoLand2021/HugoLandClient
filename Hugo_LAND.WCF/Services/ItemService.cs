@@ -16,7 +16,7 @@ namespace Hugo_LAND.WCF.Services
 
                     return context.Mondes.First(w => w.Description == world)
                         .Items
-                        .Where(obj => ((obj.x >= mapBeginX) && (obj.x < mapBeginX + 8)) && ((obj.y >= mapBeginY) && (obj.y < mapBeginY + 8)))
+                        .Where(obj => ((obj.x >= mapBeginX) && (obj.x < mapBeginX + 8)) && ((obj.y >= mapBeginY) && (obj.y < mapBeginY + 8)) && obj.Hero is null)
                         .Select(m => new ItemDetailsDTO
                         {
                             Id = m.Id,

@@ -114,6 +114,7 @@ namespace Hugo_LAND.Client.Vue
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "frmSelectHero";
             this.Text = "Select Hero";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmSelectHero_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.heroDetailsDTOBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

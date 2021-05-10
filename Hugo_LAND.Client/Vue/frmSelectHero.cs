@@ -11,6 +11,7 @@ namespace Hugo_LAND.Client.Vue
 
         private List<HeroDetailsDTO> herosList = new List<HeroDetailsDTO>();
         public HeroDetailsDTO selectedHero = new HeroDetailsDTO();
+        bool _HeroSelected = false;
         private readonly HeroServiceClient HeroService = new HeroServiceClient();
         public frmSelectHero(frmMain main)
         {
@@ -48,7 +49,10 @@ namespace Hugo_LAND.Client.Vue
                 if (herosList.Any(h => h.HeroName == cmbNomhero.Text))
                 {
                     if (!HeroService.IsHeroConnected(cmbNomhero.Text))
+                    {
                         selectedHero = herosList[cmbNomhero.SelectedIndex];
+                        _HeroSelected = true;
+                    }
                     else
                     {
                         MessageBox.Show("This hero is already in game!", "ERREUR", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -70,8 +74,13 @@ namespace Hugo_LAND.Client.Vue
 
         private void btnBack_Click(object sender, EventArgs e)
         {
-            selectedHero = null;
             this.Close();
+        }
+
+        private void frmSelectHero_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (!_HeroSelected)
+                selectedHero = null;
         }
     }
 }
