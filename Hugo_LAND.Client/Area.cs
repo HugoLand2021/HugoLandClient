@@ -166,7 +166,10 @@ namespace Hugo_LAND.Client
 
             for (int i = 0; i < 8; i++)
                 for (int ia = 0; ia < 8; ia++)
+                {
                     Map[i, ia].ObjectTile = null;
+                    Map[i, ia].ObjectSprite = null;
+                }
             LoadItemsMonsters(beginX, beginY);
             LoadHeroes(beginX, beginY);
         }
