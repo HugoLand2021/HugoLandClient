@@ -201,6 +201,20 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="IsHeroConnected">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="nomHero" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="IsHeroConnectedResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="IsHeroConnectedResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="GetAllWorldNames">
     <xs:complexType>
       <xs:sequence />

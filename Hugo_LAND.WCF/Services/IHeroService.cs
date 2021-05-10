@@ -29,8 +29,7 @@ namespace Hugo_LAND.WCF.Services
         [OperationContract]
         List<HeroDetailsDTO> ReturnHeroes(string world, int mapBeginX, int mapBeginY, int idHero);
 
-
-
-
+        [OperationContract]
+        bool IsHeroConnected(string nomHero);
     }
 }

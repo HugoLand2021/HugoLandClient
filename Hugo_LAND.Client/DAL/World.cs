@@ -58,7 +58,7 @@ namespace Hugo_LAND.Client
             //_currentArea = _world[_startArea];
 
             _currentArea = new Area(_tiles, _gameState.Hero.World, GetBeginPos(_gameState.Hero.x), GetBeginPos(_gameState.Hero.y), _gameState.Hero.Id);
-
+            VerifyHeroPosition();
 
             //Create and position the hero character
             _heroPosition = new Point(_gameState.Hero.x % 8, _gameState.Hero.y % 8);
@@ -575,6 +575,30 @@ namespace Hugo_LAND.Client
                 }
             }
             return null;
+        }
+        private void VerifyHeroPosition()
+        {
+            var currTile = _currentArea.Map[_gameState.Hero.x % 8, _gameState.Hero.y % 8];
+            if (!currTile.Tile.IsBlock && currTile.ObjectTile is null)
+                return;
+            for (int i = _gameState.Hero.x - 1; i < _gameState.Hero.x + 1; i++)
+            {
+                for (int ia = _gameState.Hero.y - 1; ia < _gameState.Hero.y + 1; ia++)
+                {
+                    if (i >= 0 && i < _currentWorld.LimiteX && ia >= 0 && ia < _currentWorld.LimiteY)
+                    {
+                        currTile = _currentArea.Map[i % 8, ia % 8];
+                        if (!currTile.Tile.IsBlock && currTile.ObjectTile is null)
+                        {
+                            HeroService.MoveHero(_gameState.Hero, i, ia);
+                            _gameState.Hero.x = i;
+                            _gameState.Hero.y = ia;
+                            _currentArea.ChangeMap(null, GetBeginPos(i), GetBeginPos(ia));
+                            return;
+                        }
+                    }
+                }
+            }
         }
     }
 }

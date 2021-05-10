@@ -186,5 +186,19 @@ namespace Hugo_LAND.WCF.Services
                 return null;
             }
         }
+
+        public bool IsHeroConnected(string nomHero) {
+            try
+            {
+                using (HugoLANDContext context = new HugoLANDContext())
+                {
+                    return context.Heros.Any(h => h.NomHero == nomHero && h.EstConnecte == true);
+                }
+            }
+            catch 
+            {
+                return false;
+            }
+        }
     }
 }

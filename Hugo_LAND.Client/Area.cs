@@ -168,5 +168,6 @@ namespace Hugo_LAND.Client
             LoadItemsMonsters(beginX, beginY);
             LoadHeroes(beginX, beginY);
         }
+        
     }
 }

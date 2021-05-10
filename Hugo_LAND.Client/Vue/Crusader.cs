@@ -84,7 +84,7 @@ namespace Hugo_LAND.Client
             Form help = new helpform();
             help.Show();
             help.Focus();
-            btnDisconnect.Refresh();
+            btnDisconnect.Refresh(); //Fix bug white overlay on button
         }
 
         private void HugoWorld_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)

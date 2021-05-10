@@ -15,7 +15,7 @@ namespace Hugo_LAND.Client
         public HeroDetailsDTO Hero;
         public ItemDetailsDTO Item;
         public InventoryDetailsDTO inventory;
-        InventoryServiceClient serviceInventory = new InventoryServiceClient();
+        private readonly InventoryServiceClient serviceInventory = new InventoryServiceClient();
         public int Attack;
         public int Armour;
         public int Level;
@@ -212,5 +212,6 @@ namespace Hugo_LAND.Client
                 }
             }
         }
+        
     }
 }

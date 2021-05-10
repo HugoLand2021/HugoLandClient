@@ -92,6 +92,12 @@
   <wsdl:message name="IHeroService_ReturnHeroes_OutputMessage">
     <wsdl:part name="parameters" element="tns:ReturnHeroesResponse" />
   </wsdl:message>
+  <wsdl:message name="IHeroService_IsHeroConnected_InputMessage">
+    <wsdl:part name="parameters" element="tns:IsHeroConnected" />
+  </wsdl:message>
+  <wsdl:message name="IHeroService_IsHeroConnected_OutputMessage">
+    <wsdl:part name="parameters" element="tns:IsHeroConnectedResponse" />
+  </wsdl:message>
   <wsdl:message name="IWorldService_GetAllWorldNames_InputMessage">
     <wsdl:part name="parameters" element="tns:GetAllWorldNames" />
   </wsdl:message>
@@ -194,6 +200,10 @@
     <wsdl:operation name="ReturnHeroes">
       <wsdl:input wsaw:Action="http://tempuri.org/IHeroService/ReturnHeroes" message="tns:IHeroService_ReturnHeroes_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IHeroService/ReturnHeroesResponse" message="tns:IHeroService_ReturnHeroes_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="IsHeroConnected">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHeroService/IsHeroConnected" message="tns:IHeroService_IsHeroConnected_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHeroService/IsHeroConnectedResponse" message="tns:IHeroService_IsHeroConnected_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:portType name="IWorldService">
@@ -361,6 +371,15 @@
     </wsdl:operation>
     <wsdl:operation name="ReturnHeroes">
       <soap:operation soapAction="http://tempuri.org/IHeroService/ReturnHeroes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IsHeroConnected">
+      <soap:operation soapAction="http://tempuri.org/IHeroService/IsHeroConnected" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
