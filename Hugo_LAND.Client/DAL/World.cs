@@ -137,31 +137,31 @@ namespace Hugo_LAND.Client
                 case "armour":
 
                     _gameState.Armour++;
-                    _gameState.Hero = HeroService.ArmorHero(_currentWorld.ID, _gameState.Hero.x, _gameState.Hero.y, _gameState.Hero, 0, force: false);
+                    _gameState.Hero = HeroService.ArmorHero(_currentWorld.ID, _gameState.Hero.x, _gameState.Hero.y, _gameState.Hero, 0, force: true);
                     Sounds.Pickup();
                     break;
                     //Pour augmenté l'attaque
                 case "attack":
                     _gameState.Attack++;
-                    _gameState.Hero = HeroService.ArmorHero(_currentWorld.ID, _gameState.Hero.x, _gameState.Hero.y, _gameState.Hero, 0, force: false);
+                    _gameState.Hero = HeroService.ArmorHero(_currentWorld.ID, _gameState.Hero.x, _gameState.Hero.y, _gameState.Hero, 0, force: true);
                     Sounds.Pickup();
                     break;
                 //Pour augmenté la vie
                 case "food":
                     _gameState.Health += 10;
-                    _gameState.Hero = HeroService.FoodHero(_currentWorld.ID, _gameState.Hero.x, _gameState.Hero.y, _gameState.Hero, 0, force: false);
+                    _gameState.Hero = HeroService.FoodHero(_currentWorld.ID, _gameState.Hero.x, _gameState.Hero.y, _gameState.Hero, 0, force: true);
                     Sounds.Eat();
                     break;
                 //Pour augmenté le nombre de trésor
                 case "treasure":
                     _gameState.Treasure += 5;
-                    _gameState.Hero = HeroService.ArmorHero(_currentWorld.ID, _gameState.Hero.x, _gameState.Hero.y, _gameState.Hero, 0, force: false);
+                    _gameState.Hero = HeroService.ArmorHero(_currentWorld.ID, _gameState.Hero.x, _gameState.Hero.y, _gameState.Hero, 0, force: true);
                     Sounds.Pickup();
                     break;
                 //Pour augmenté le nombre de potion
                 case "potion":
                     _gameState.Potions++;
-                    _gameState.Hero = HeroService.ArmorHero(_currentWorld.ID, _gameState.Hero.x, _gameState.Hero.y, _gameState.Hero, 0, force: false);
+                    _gameState.Hero = HeroService.ArmorHero(_currentWorld.ID, _gameState.Hero.x, _gameState.Hero.y, _gameState.Hero, 0, force: true);
                     Sounds.Pickup();
                     break;
 
