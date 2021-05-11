@@ -2,6 +2,7 @@ using Hugo_LAND.Client.HugoLandServices;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
+using System.Windows.Forms;
 
 namespace Hugo_LAND.Client
 {
@@ -29,6 +30,8 @@ namespace Hugo_LAND.Client
         private Dictionary<string, Tile> _tiles = new Dictionary<string, Tile>();
         private string _worldName = "";
         private int IdHero;
+        private bool ErrorMessage = false;
+        private bool isAlreadyUpdating = false;
 
 
         private Rectangle _areaRectangle = new Rectangle(AreaOffsetX, AreaOffsetY, MapSizeX * Tile.TileSizeX, MapSizeY * Tile.TileSizeY);
@@ -75,104 +78,151 @@ namespace Hugo_LAND.Client
             }
 
         }
-        public void LoadWorldObjects(List<WorldItemDetailsDTO> worldObjects, int beginX, int beginY)
+        public bool LoadWorldObjects(List<WorldItemDetailsDTO> worldObjects, int beginX, int beginY)
         {
-            if (worldObjects is null)
-                _worldObjects = worlditemsService.ReturnWorldItems(_worldName, beginX, beginY).ToList();
-            else
-                _worldObjects = worldObjects;
-            foreach (var item in _worldObjects)
+            try
             {
-                MapTile mapTile = new MapTile();
-                Map[item.x % 8, item.y % 8] = mapTile;
-                mapTile.Tile = _tiles[item.Description];
-                mapTile.SetSprite(item.x % 8, item.y % 8);
-            }
-
-            for (int x = 0; x < 8; x++)
-            {
-                for (int y = 0; y < 8; y++)
+                if (worldObjects is null)
+                    _worldObjects = worlditemsService.ReturnWorldItems(_worldName, beginX, beginY).ToList();
+                else
+                    _worldObjects = worldObjects;
+                foreach (var item in _worldObjects)
                 {
-                    if (Map[x, y] == null)
+                    MapTile mapTile = new MapTile();
+                    Map[item.x % 8, item.y % 8] = mapTile;
+                    mapTile.Tile = _tiles[item.Description];
+                    mapTile.SetSprite(item.x % 8, item.y % 8);
+                }
+
+                for (int x = 0; x < 8; x++)
+                {
+                    for (int y = 0; y < 8; y++)
                     {
-                        MapTile mapTile = new MapTile();
-                        Map[x, y] = mapTile;
-                        mapTile.Tile = _tiles["Grass"];
-                        mapTile.SetSprite(x, y);
+                        if (Map[x, y] == null)
+                        {
+                            MapTile mapTile = new MapTile();
+                            Map[x, y] = mapTile;
+                            mapTile.Tile = _tiles["Grass"];
+                            mapTile.SetSprite(x, y);
+                        }
                     }
                 }
+                return true;
+            }
+            catch
+            {
+                return false;
             }
         }
-        public void LoadItemsMonsters(int beginX, int beginY)
+        public bool LoadItemsMonsters(int beginX, int beginY)
         {
-            _items = itemService.ReturnItems(_worldName, beginX, beginY).ToList();
-            foreach (var item in _items)
+            try
             {
-                if (item.x != null)
+                _items = itemService.ReturnItems(_worldName, beginX, beginY).ToList();
+                foreach (var item in _items)
                 {
-                    MapTile mapTile = Map[item.x.GetValueOrDefault() % 8, item.y.GetValueOrDefault() % 8];
-                    mapTile.ObjectTile = _tiles[item.Description];
-                    mapTile.SetObjectSprite(item.x.GetValueOrDefault() % 8, item.y.GetValueOrDefault() % 8);
+                    if (item.x != null)
+                    {
+                        MapTile mapTile = Map[item.x.GetValueOrDefault() % 8, item.y.GetValueOrDefault() % 8];
+                        mapTile.ObjectTile = _tiles[item.Description];
+                        mapTile.SetObjectSprite(item.x.GetValueOrDefault() % 8, item.y.GetValueOrDefault() % 8);
+
+                        if (mapTile.ObjectTile.IsTransparent)
+                        {
+                            mapTile.ObjectSprite.ColorKey = Color.FromArgb(75, 75, 75);
+                        }
+                    }
+                }
+
+                _monsters = monstreService.ReturnMonsters(_worldName, beginX, beginY).ToList();
+                foreach (var monstre in _monsters)
+                {
+
+                    MapTile mapTile = Map[monstre.x % 8, monstre.y % 8];
+                    mapTile.ObjectTile = _tiles[monstre.Nom];
+                    mapTile.SetObjectSprite(monstre.x % 8, monstre.y % 8);
 
                     if (mapTile.ObjectTile.IsTransparent)
                     {
                         mapTile.ObjectSprite.ColorKey = Color.FromArgb(75, 75, 75);
                     }
                 }
+                return true;
             }
-
-            _monsters = monstreService.ReturnMonsters(_worldName, beginX, beginY).ToList();
-            foreach (var monstre in _monsters)
+            catch
             {
-
-                MapTile mapTile = Map[monstre.x % 8, monstre.y % 8];
-                mapTile.ObjectTile = _tiles[monstre.Nom];
-                mapTile.SetObjectSprite(monstre.x % 8, monstre.y % 8);
-
-                if (mapTile.ObjectTile.IsTransparent)
-                {
-                    mapTile.ObjectSprite.ColorKey = Color.FromArgb(75, 75, 75);
-                }
+                return false;
             }
         }
 
-        public void LoadHeroes(int beginX, int beginY)
+        public bool LoadHeroes(int beginX, int beginY)
         {
-            _heroes = heroService.ReturnHeroes(_worldName, beginX, beginY, IdHero).ToList();
-            foreach (var hero in _heroes)
+            try
             {
-                MapTile mapTile = Map[hero.x % 8, hero.y % 8];
-                mapTile.ObjectTile = _tiles["Hero"];
-                mapTile.ObjectTile.Health = hero.StatVitality;
-
-                mapTile.SetObjectSprite(hero.x % 8, hero.y % 8);
-
-                if (mapTile.ObjectTile.IsTransparent)
+                _heroes = heroService.ReturnHeroes(_worldName, beginX, beginY, IdHero).ToList();
+                foreach (var hero in _heroes)
                 {
-                    mapTile.ObjectSprite.ColorKey = Color.FromArgb(75, 75, 75);
+                    MapTile mapTile = Map[hero.x % 8, hero.y % 8];
+                    mapTile.ObjectTile = _tiles["Hero"];
+                    mapTile.ObjectTile.Health = hero.StatVitality;
+
+                    mapTile.SetObjectSprite(hero.x % 8, hero.y % 8);
+
+                    if (mapTile.ObjectTile.IsTransparent)
+                    {
+                        mapTile.ObjectSprite.ColorKey = Color.FromArgb(75, 75, 75);
+                    }
                 }
+                return true;
+            }
+            catch
+            {
+                return false;
             }
         }
         public void ChangeMap(List<WorldItemDetailsDTO> worldObjects, int beginX, int beginY)
         {
-            Map = new MapTile[MapSizeX, MapSizeY];
-            LoadWorldObjects(worldObjects, beginX, beginY);
-            LoadItemsMonsters(beginX, beginY);
-            LoadHeroes(beginX, beginY);
+            if (!isAlreadyUpdating)
+            {
+                isAlreadyUpdating = true;
+                Map = new MapTile[MapSizeX, MapSizeY];
+                bool Success = LoadWorldObjects(worldObjects, beginX, beginY);
+                Success = Success && LoadItemsMonsters(beginX, beginY);
+                Success = Success && LoadHeroes(beginX, beginY);
+                if (!Success && !ErrorMessage)
+                {
+                    ErrorMessage = true;
+                    MessageBox.Show("Could not load map!", "ERROR");
+                }
+                else
+                    ErrorMessage = false;
+                isAlreadyUpdating = false;
+            }
         }
 
         public void RefreshMap(int beginX, int beginY)
         {
-
-            for (int i = 0; i < 8; i++)
-                for (int ia = 0; ia < 8; ia++)
+            if (!isAlreadyUpdating)
+            {
+                isAlreadyUpdating = true;
+                for (int i = 0; i < 8; i++)
+                    for (int ia = 0; ia < 8; ia++)
+                    {
+                        Map[i, ia].ObjectTile = null;
+                        Map[i, ia].ObjectSprite = null;
+                    }
+                bool Success = LoadItemsMonsters(beginX, beginY);
+                Success = Success && LoadHeroes(beginX, beginY);
+                if (!Success && !ErrorMessage)
                 {
-                    Map[i, ia].ObjectTile = null;
-                    Map[i, ia].ObjectSprite = null;
+                    ErrorMessage = true;
+                    MessageBox.Show("Could not load map!", "ERROR");
                 }
-            LoadItemsMonsters(beginX, beginY);
-            LoadHeroes(beginX, beginY);
+                else
+                    ErrorMessage = false;
+                isAlreadyUpdating = false;
+            }
         }
-        
+
     }
 }
