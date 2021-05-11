@@ -85,7 +85,7 @@ namespace Hugo_LAND.Client
 
 
                 int damage = _gameState.Health - _currentArea.UpdatedCurrentHero.StatVitality;
-                if (damage > 0)
+                if (damage != 0)
                 {
                     _popups.Add(new textPopup(_currentArea.UpdatedCurrentHero.x % 8, _currentArea.UpdatedCurrentHero.y % 8, damage.ToString()));
                     _gameState.Health = _currentArea.UpdatedCurrentHero.StatVitality;
@@ -430,7 +430,7 @@ namespace Hugo_LAND.Client
                                     MapTile mapTile = _currentArea.Map[i, j];
                                     if (mapTile.ObjectTile != null && mapTile.ObjectTile.Category == "character")
                                     {
-                                        damageMonster(_gameState.Attack * 2, mapTile, _currentArea._monsters.First(m => m.x == i && m.y == j));
+                                        damageMonster(_gameState.Attack * 2, mapTile, i, j);
                                     }
                                 }
                             }
@@ -532,7 +532,7 @@ namespace Hugo_LAND.Client
                     if (_random.Next(_gameState.Attack + 1) >= (mapTile.ObjectTile.Health / 5))
                     {
 
-                        if (damageMonster((int)(_random.NextDouble() * ((double)_gameState.Hero.StatDex / 100) * (double)_gameState.Hero.StatStr), mapTile, _currentArea._monsters.First(m => m.x % 8 == x && m.y % 8 == y)));
+                        if (damageMonster((int)(_random.NextDouble() * ((double)_gameState.Hero.StatDex / 100) * (double)_gameState.Hero.StatStr), mapTile, x, y))
                         {
                             //Monster is dead now
                             return true;
@@ -554,7 +554,7 @@ namespace Hugo_LAND.Client
             return true;
         }
 
-        private bool damageMonster(int damage, MapTile mapTile, MonsterDetailsDTO monster)
+        private bool damageMonster(int damage, MapTile mapTile, int x, int y)
         {
             //Do some damage, and remove the monster if its dead
             bool returnValue = false; //monster not dead
@@ -577,7 +577,7 @@ namespace Hugo_LAND.Client
                 //Remove the monster and replace with bones
                 //mapTile.ObjectTile = _tiles["Bones"];
                 //mapTile.SetObjectSprite(x, y);
-                MonsterService.ReplaceMonsterToBones(monster, _currentWorld.ID, force: true);
+                MonsterService.ReplaceMonsterToBones(x, y, _currentWorld.ID, force: true);
                 returnValue = true; //monster is dead
             }
 
