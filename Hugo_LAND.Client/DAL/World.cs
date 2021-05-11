@@ -82,7 +82,15 @@ namespace Hugo_LAND.Client
             if (_intervale >= 1)
             {
                 _currentArea.RefreshMap(GetBeginPos(_gameState.Hero.x), GetBeginPos(_gameState.Hero.y));
-                _gameState.Health = _currentArea.UpdatedCurrentHero.StatVitality;
+
+
+                int damage = _gameState.Health - _currentArea.UpdatedCurrentHero.StatVitality;
+                if (damage != 0)
+                {
+                    _popups.Add(new textPopup(_currentArea.UpdatedCurrentHero.x, _currentArea.UpdatedCurrentHero.y, damage.ToString()));
+                    _gameState.Health = _currentArea.UpdatedCurrentHero.StatVitality;
+                    Sounds.Fight();
+                }
                 _gameState.Experience = _currentArea.UpdatedCurrentHero.Experience;
                 _intervale = 0;
             }

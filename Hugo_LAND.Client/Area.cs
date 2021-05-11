@@ -152,6 +152,7 @@ namespace Hugo_LAND.Client
             }
             catch
             {
+                DialogResult dr = MessageBox.Show("An error occured while loading the map!", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
         }
@@ -185,46 +186,23 @@ namespace Hugo_LAND.Client
         }
         public void ChangeMap(List<WorldItemDetailsDTO> worldObjects, int beginX, int beginY)
         {
-            if (!isAlreadyUpdating)
-            {
-                isAlreadyUpdating = true;
-                Map = new MapTile[MapSizeX, MapSizeY];
-                bool Success = LoadWorldObjects(worldObjects, beginX, beginY);
-                Success = Success && LoadItemsMonsters(beginX, beginY);
-                Success = Success && LoadHeroes(beginX, beginY);
-                if (!Success && !ErrorMessage)
-                {
-                    ErrorMessage = true;
-                    MessageBox.Show("Could not load map!", "ERROR");
-                }
-                else
-                    ErrorMessage = false;
-                isAlreadyUpdating = false;
-            }
+            Map = new MapTile[MapSizeX, MapSizeY];
+            LoadWorldObjects(worldObjects, beginX, beginY);
+            LoadItemsMonsters(beginX, beginY);
+            LoadHeroes(beginX, beginY);
+            
         }
 
         public void RefreshMap(int beginX, int beginY)
         {
-            if (!isAlreadyUpdating)
-            {
-                isAlreadyUpdating = true;
-                for (int i = 0; i < 8; i++)
-                    for (int ia = 0; ia < 8; ia++)
-                    {
-                        Map[i, ia].ObjectTile = null;
-                        Map[i, ia].ObjectSprite = null;
-                    }
-                bool Success = LoadItemsMonsters(beginX, beginY);
-                Success = Success && LoadHeroes(beginX, beginY);
-                if (!Success && !ErrorMessage)
+            for (int i = 0; i < 8; i++)
+                for (int ia = 0; ia < 8; ia++)
                 {
-                    ErrorMessage = true;
-                    MessageBox.Show("Could not load map!", "ERROR");
+                    Map[i, ia].ObjectTile = null;
+                    Map[i, ia].ObjectSprite = null;
                 }
-                else
-                    ErrorMessage = false;
-                isAlreadyUpdating = false;
-            }
+            LoadItemsMonsters(beginX, beginY);
+            LoadHeroes(beginX, beginY);
         }
 
     }
