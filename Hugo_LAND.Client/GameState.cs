@@ -126,7 +126,7 @@ namespace Hugo_LAND.Client
             graphics.DrawString(Potions.ToString(), _font, _brush, 650, y += 74);
 
             //If the game is over then display the end game message
-            if (Health == 0)
+            if (Health <= 0)
             {
                 graphics.DrawString("You died!", _font, _brush, 200, 250);
                 graphics.DrawString("Press 's' to play again", _font, _brush, 100, 300);

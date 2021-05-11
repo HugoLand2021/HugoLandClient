@@ -73,9 +73,14 @@ namespace Hugo_LAND.WCF.Services
                 using (var context = new HugoLANDContext())
                 {
                     var hero = context.Heros.Find(dto.Id);
-                    hero.x = newX;
-                    hero.y = newY;
-                    await context.SaveChangesAsync();
+                    var world = context.Mondes.Find(dto.World);
+                    bool cannotWalk = world.Heros.Any(h => h.x == newX && h.y == newY && h.EstConnecte && h.StatVitalite > 0);
+                    if (!cannotWalk)
+                    {
+                        hero.x = newX;
+                        hero.y = newY;
+                        await context.SaveChangesAsync();
+                    }
                 }
             }
             catch

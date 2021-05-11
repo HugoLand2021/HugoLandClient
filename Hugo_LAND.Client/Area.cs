@@ -31,8 +31,6 @@ namespace Hugo_LAND.Client
         private string _worldName = "";
         private int IdHero;
         public HeroDetailsDTO UpdatedCurrentHero = new HeroDetailsDTO();
-        private bool ErrorMessage = false;
-        private bool isAlreadyUpdating = false;
 
 
         private Rectangle _areaRectangle = new Rectangle(AreaOffsetX, AreaOffsetY, MapSizeX * Tile.TileSizeX, MapSizeY * Tile.TileSizeY);
