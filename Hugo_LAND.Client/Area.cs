@@ -85,8 +85,19 @@ namespace Hugo_LAND.Client
             {
                 MapTile mapTile = new MapTile();
                 Map[item.x % 8, item.y % 8] = mapTile;
-                mapTile.Tile = _tiles[item.Description];
-                mapTile.SetSprite(item.x % 8, item.y % 8);
+                if (_tiles[item.Description].Name != "Bones")
+                {
+                    mapTile.Tile = _tiles[item.Description];
+                    mapTile.SetSprite(item.x % 8, item.y % 8);
+                }
+                else
+                {
+                    mapTile.Tile = _tiles["Grass"];
+                    mapTile.SetSprite(item.x % 8, item.y % 8);
+                    mapTile.ObjectTile = _tiles["Bones"];
+                    mapTile.SetObjectSprite(item.x % 8, item.y % 8);
+                }
+
             }
 
             for (int x = 0; x < 8; x++)

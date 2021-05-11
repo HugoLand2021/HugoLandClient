@@ -11,6 +11,8 @@ namespace Hugo_LAND.WCF.Services
         List<WorldDetailsDTO> GetAllWorldNames();
         [OperationContract]
         WorldDetailsDTO GetWorldByName(string worldName);
+        [OperationContract]
+        WorldDetailsDTO KillMonster(int idWorld, int x, int y);
 
     }
 }
