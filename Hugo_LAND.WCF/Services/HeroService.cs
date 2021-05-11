@@ -73,14 +73,9 @@ namespace Hugo_LAND.WCF.Services
                 using (var context = new HugoLANDContext())
                 {
                     var hero = context.Heros.Find(dto.Id);
-                    var world = context.Mondes.First(w => w.Description == dto.World);
-                    bool cannotWalk = world.Heros.Any(h => h.x == newX && h.y == newY && h.EstConnecte && h.StatVitalite > 0);
-                    if (!cannotWalk)
-                    {
-                        hero.x = newX;
-                        hero.y = newY;
-                        await context.SaveChangesAsync();
-                    }
+                    hero.x = newX;
+                    hero.y = newY;
+                    await context.SaveChangesAsync();
                 }
             }
             catch
@@ -427,12 +422,12 @@ namespace Hugo_LAND.WCF.Services
                     currHero.y = 0;
                     currHero.StatVitalite = currHero.Classe.StatBaseVitalite;
 
-                    context.Mondes.Find(world).Items.Add(new Item{ Nom = "Bones", Description = "Bones", x = X, y = Y, ImageId = 168 });
+                    context.Mondes.Find(world).Items.Add(new Item { Nom = "Bones", Description = "Bones", x = X, y = Y, ImageId = 168 });
                     item = context.Items.Where(x => x.Monde.Id == world && x.x == X && x.y == Y).FirstOrDefault();
                 }
                 catch
                 {
-                    return hero; 
+                    return hero;
                 }
 
                 int itr = force ? 5 : 1;
@@ -460,6 +455,6 @@ namespace Hugo_LAND.WCF.Services
             }
         }
 
-        
+
     }
 }

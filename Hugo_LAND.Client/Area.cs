@@ -24,7 +24,7 @@ namespace Hugo_LAND.Client
         public MapTile[,] Map = new MapTile[MapSizeX, MapSizeY];
         private List<WorldItemDetailsDTO> _worldObjects = new List<WorldItemDetailsDTO>();
         private List<ItemDetailsDTO> _items = new List<ItemDetailsDTO>();
-        private List<MonsterDetailsDTO> _monsters = new List<MonsterDetailsDTO>();
+        public List<MonsterDetailsDTO> _monsters = new List<MonsterDetailsDTO>();
         public List<HeroDetailsDTO> _heroes = new List<HeroDetailsDTO>();
 
         private Dictionary<string, Tile> _tiles = new Dictionary<string, Tile>();

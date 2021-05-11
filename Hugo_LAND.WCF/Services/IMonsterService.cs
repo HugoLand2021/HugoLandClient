@@ -10,7 +10,7 @@ namespace Hugo_LAND.WCF.Services
         [OperationContract]
         List<MonsterDetailsDTO> ReturnMonsters(string world, int mapBeginX, int mapBeginY);
         [OperationContract]
-        MonsterDetailsDTO ReplaceMonsterToBones(int X, int Y, int world, bool force = false);
+        void ReplaceMonsterToBones(MonsterDetailsDTO monster, int world, bool force = false);
         [OperationContract]
         int RemoveHealthMonster(MonsterDetailsDTO monster, int heroDamage, bool force = false);
     }

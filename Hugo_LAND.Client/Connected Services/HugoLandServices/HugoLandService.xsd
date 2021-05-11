@@ -345,8 +345,7 @@
   <xs:element name="ReplaceMonsterToBones">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="X" type="xs:int" />
-        <xs:element minOccurs="0" name="Y" type="xs:int" />
+        <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/Hugo_LAND.WCF.DTOs" minOccurs="0" name="monster" nillable="true" type="q24:MonsterDetailsDTO" />
         <xs:element minOccurs="0" name="world" type="xs:int" />
         <xs:element minOccurs="0" name="force" type="xs:boolean" />
       </xs:sequence>
@@ -354,9 +353,7 @@
   </xs:element>
   <xs:element name="ReplaceMonsterToBonesResponse">
     <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/Hugo_LAND.WCF.DTOs" minOccurs="0" name="ReplaceMonsterToBonesResult" nillable="true" type="q24:MonsterDetailsDTO" />
-      </xs:sequence>
+      <xs:sequence />
     </xs:complexType>
   </xs:element>
   <xs:element name="RemoveHealthMonster">

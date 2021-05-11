@@ -50,40 +50,26 @@ namespace Hugo_LAND.WCF.Services
             }
         }
 
-        public MonsterDetailsDTO ReplaceMonsterToBones(int X, int Y, int world, bool force = false)
+        public void ReplaceMonsterToBones(MonsterDetailsDTO monster , int world, bool force = false)
         {
             using (var context = new HugoLANDContext())
             {
                 Monstre currMonstre;
                 Item item;
 
-                currMonstre = context.Monstres.Where(m => m.x == X && m.y == Y).FirstOrDefault();
-
-                MonsterDetailsDTO monster = new MonsterDetailsDTO()
-                {
-                    Nom = currMonstre.Nom,
-                    Niveau = currMonstre.Niveau,
-                    x = currMonstre.x,
-                    y = currMonstre.y,
-                    StatPV = currMonstre.StatPV,
-                    StatDmgMin = currMonstre.StatDmgMin,
-                    StatDmgMax = currMonstre.StatDmgMax,
-                    ImageId = currMonstre.ImageId
-                };
-
-
+                currMonstre = context.Monstres.First(m=>m.Id == monster.Id);
 
                 try
                 {
                     
                     context.Monstres.Remove(currMonstre);
-                    context.Mondes.Find(world).Items.Add(new Item { Nom = "Bones", Description = "Bones", x = X, y = Y, ImageId = 168 });
+                    context.Mondes.Find(world).Items.Add(new Item { Nom = "Bones", Description = "Bones", x = monster.x, y = monster.y, ImageId = 168 });
 
-                    item = context.Items.Where(x => x.Monde.Id == world && x.x == X && x.y == Y).FirstOrDefault();
+                    item = context.Items.Where(x => x.Monde.Id == world && x.x == monster.x && x.y == monster.y).FirstOrDefault();
                 }
                 catch
                 {
-                    return monster;
+                    return;
                 }
 
                 int itr = force ? 5 : 1;
@@ -93,7 +79,7 @@ namespace Hugo_LAND.WCF.Services
                     try
                     {
                         context.SaveChanges();
-                        return monster;
+                        return;
                     }
                     catch (DbUpdateConcurrencyException)
                     {
@@ -106,8 +92,6 @@ namespace Hugo_LAND.WCF.Services
                         }
                     }
                 } while (itr > 0 && currVersion != currMonstre.RowVersion);
-
-                return monster;
             }
         }
 
