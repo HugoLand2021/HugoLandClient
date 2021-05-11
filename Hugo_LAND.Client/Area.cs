@@ -25,7 +25,7 @@ namespace Hugo_LAND.Client
         private List<WorldItemDetailsDTO> _worldObjects = new List<WorldItemDetailsDTO>();
         private List<ItemDetailsDTO> _items = new List<ItemDetailsDTO>();
         private List<MonsterDetailsDTO> _monsters = new List<MonsterDetailsDTO>();
-        private List<HeroDetailsDTO> _heroes = new List<HeroDetailsDTO>();
+        public List<HeroDetailsDTO> _heroes = new List<HeroDetailsDTO>();
 
         private Dictionary<string, Tile> _tiles = new Dictionary<string, Tile>();
         private string _worldName = "";

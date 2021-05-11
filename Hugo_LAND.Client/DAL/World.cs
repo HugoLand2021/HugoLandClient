@@ -3,6 +3,7 @@ using Hugo_LAND.Core.Models;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace Hugo_LAND.Client
@@ -457,6 +458,11 @@ namespace Hugo_LAND.Client
                     _heroSpriteFighting = true;
                     _startFightTime = -1;
 
+                    HeroDetailsDTO heroVs = _currentArea._heroes.Where(h => (h.x % 8) == x && (h.y % 8) == y).FirstOrDefault();
+                    double heroDamage = (_random.NextDouble() * ((double)heroVs.StatDex / 100) * (double)heroVs.StatStr);
+                    HeroService.RemoveHealth(_gameState.Hero, (int)heroDamage, force: false);
+
+                    HeroService.RemoveHealthVSHero(heroVs, false);
 
 
                 }
@@ -497,7 +503,7 @@ namespace Hugo_LAND.Client
                     if (_random.Next(_gameState.Attack + 1) >= (mapTile.ObjectTile.Health / 5))
                     {
 
-                        if (damageMonster(_random.Next(_gameState.Attack * 2) + 1, mapTile, x, y)) // ICI CHANGER DESUITE CALISSS
+                        if (damageMonster((int)(_random.NextDouble() * ((double)_gameState.Hero.StatDex / 100) * (double)_gameState.Hero.StatStr), mapTile, x, y))
                         {
                             //Monster is dead now
                             return true;

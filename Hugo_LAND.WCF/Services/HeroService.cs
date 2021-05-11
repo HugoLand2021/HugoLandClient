@@ -318,7 +318,7 @@ namespace Hugo_LAND.WCF.Services
             }
         }
 
-        public int RemoveHealthVSMonster(HeroDetailsDTO hero, int heroDamage, bool force = false)
+        public int RemoveHealth(HeroDetailsDTO hero, int heroDamage, bool force = false)
         {
             using (var context = new HugoLANDContext())
             {
@@ -331,7 +331,7 @@ namespace Hugo_LAND.WCF.Services
                 }
                 catch
                 {
-                    return hero.StatVitality; //DOES NOT PICK UP ITEM
+                    return heroDamage; //DOES NOT PICK UP ITEM
                 }
 
                 int itr = force ? 5 : 1;
@@ -342,7 +342,7 @@ namespace Hugo_LAND.WCF.Services
                     {
                         context.SaveChanges();
                         hero.StatVitality = currHero.StatVitalite;
-                        return hero.StatVitality;
+                        return heroDamage;
                     }
                     catch (DbUpdateConcurrencyException)
                     {
@@ -355,29 +355,31 @@ namespace Hugo_LAND.WCF.Services
                     }
                 } while (itr > 0 && currVersion != currHero.RowVersion);
 
-                return hero.StatVitality;
+                return heroDamage;
             }
         }
 
-        public int RemoveHealthVSHero(HeroDetailsDTO hero, bool force = false)
+        public int RemoveHealthVSHero(HeroDetailsDTO heroVs, bool force = false)
         {
             using (var context = new HugoLANDContext())
             {
                 Hero currHero;
+                double heroDamage = 0.00;
+
                 // Dommage [pts] = Chance [%] × Dextérité du Héros [%] × Forces du Héros, où la Chance est une valeur aléatoire entre 0 et 1.
                 try
                 {
-                    currHero = context.Heros.Find(hero.Id);
+                    currHero = context.Heros.Find(heroVs.Id);
                     double pourcent = _rnd.NextDouble();
 
-                    double heroDamage = (pourcent * ((double)currHero.StatDex / 100) * (double)currHero.StatStr);
+                    heroDamage = (pourcent * ((double)currHero.StatDex / 100) * (double)currHero.StatStr);
 
 
                     currHero.StatVitalite -= (int)heroDamage;
                 }
                 catch
                 {
-                    return hero.StatVitality;
+                    return (int)heroDamage;
                 }
 
                 int itr = force ? 5 : 1;
@@ -387,8 +389,8 @@ namespace Hugo_LAND.WCF.Services
                     try
                     {
                         context.SaveChanges();
-                        hero.StatVitality = currHero.StatVitalite;
-                        return hero.StatVitality;
+                        heroVs.StatVitality = currHero.StatVitalite;
+                        return (int)heroDamage;
                     }
                     catch (DbUpdateConcurrencyException)
                     {
@@ -401,7 +403,7 @@ namespace Hugo_LAND.WCF.Services
                     }
                 } while (itr > 0 && currVersion != currHero.RowVersion);
 
-                return hero.StatVitality;
+                return (int)heroDamage;
             }
         }
 
