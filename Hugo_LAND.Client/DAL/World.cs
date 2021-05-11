@@ -536,6 +536,7 @@ namespace Hugo_LAND.Client
                             //Monster is dead now
                             return true;
                         }
+
                     }
                     else
                     {
