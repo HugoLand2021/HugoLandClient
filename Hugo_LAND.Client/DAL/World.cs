@@ -87,7 +87,7 @@ namespace Hugo_LAND.Client
                 int damage = _gameState.Health - _currentArea.UpdatedCurrentHero.StatVitality;
                 if (damage != 0)
                 {
-                    _popups.Add(new textPopup(_currentArea.UpdatedCurrentHero.x, _currentArea.UpdatedCurrentHero.y, damage.ToString()));
+                    _popups.Add(new textPopup(_currentArea.UpdatedCurrentHero.x % 8, _currentArea.UpdatedCurrentHero.y % 8, damage.ToString()));
                     _gameState.Health = _currentArea.UpdatedCurrentHero.StatVitality;
                     Sounds.Fight();
                 }
@@ -470,6 +470,15 @@ namespace Hugo_LAND.Client
                     double heroDamageVs = (_random.NextDouble() * ((double)_gameState.Hero.StatDex / 100) * (double)_gameState.Hero.StatStr);
                     HeroService.RemoveHealth(heroVs, (int)heroDamageVs, false);
 
+                    if ((heroVs.StatVitality - heroDamageVs) <= 0)
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
+
 
                 }
                 else
@@ -487,10 +496,6 @@ namespace Hugo_LAND.Client
                         heroDamage = _random.Next(mapTile.ObjectTile.Health) + 1;
                         _gameState.Health -= heroDamage;
                         HeroService.RemoveHealth(_gameState.Hero, heroDamage, force: true);
-
-
-
-
 
                         if (_gameState.Health <= 0)
                         {
