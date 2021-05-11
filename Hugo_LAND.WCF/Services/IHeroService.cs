@@ -43,5 +43,8 @@ namespace Hugo_LAND.WCF.Services
         [OperationContract]
         HeroDetailsDTO ReplaceHeroToBones(HeroDetailsDTO hero, int X, int Y, int world, bool force = false);
 
+        [OperationContract]
+        void AddExp(HeroDetailsDTO hero, int qte, bool force = false);
+
     }
 }

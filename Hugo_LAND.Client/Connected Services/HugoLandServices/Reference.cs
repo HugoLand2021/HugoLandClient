@@ -1287,6 +1287,12 @@ namespace Hugo_LAND.Client.HugoLandServices {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IHeroService/ReplaceHeroToBones", ReplyAction="http://tempuri.org/IHeroService/ReplaceHeroToBonesResponse")]
         System.Threading.Tasks.Task<Hugo_LAND.Client.HugoLandServices.HeroDetailsDTO> ReplaceHeroToBonesAsync(Hugo_LAND.Client.HugoLandServices.HeroDetailsDTO hero, int X, int Y, int world, bool force);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IHeroService/AddExp", ReplyAction="http://tempuri.org/IHeroService/AddExpResponse")]
+        void AddExp(Hugo_LAND.Client.HugoLandServices.HeroDetailsDTO hero, int qte, bool force);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IHeroService/AddExp", ReplyAction="http://tempuri.org/IHeroService/AddExpResponse")]
+        System.Threading.Tasks.Task AddExpAsync(Hugo_LAND.Client.HugoLandServices.HeroDetailsDTO hero, int qte, bool force);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -1410,6 +1416,14 @@ namespace Hugo_LAND.Client.HugoLandServices {
         
         public System.Threading.Tasks.Task<Hugo_LAND.Client.HugoLandServices.HeroDetailsDTO> ReplaceHeroToBonesAsync(Hugo_LAND.Client.HugoLandServices.HeroDetailsDTO hero, int X, int Y, int world, bool force) {
             return base.Channel.ReplaceHeroToBonesAsync(hero, X, Y, world, force);
+        }
+        
+        public void AddExp(Hugo_LAND.Client.HugoLandServices.HeroDetailsDTO hero, int qte, bool force) {
+            base.Channel.AddExp(hero, qte, force);
+        }
+        
+        public System.Threading.Tasks.Task AddExpAsync(Hugo_LAND.Client.HugoLandServices.HeroDetailsDTO hero, int qte, bool force) {
+            return base.Channel.AddExpAsync(hero, qte, force);
         }
     }
     

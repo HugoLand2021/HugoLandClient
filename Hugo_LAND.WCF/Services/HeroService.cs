@@ -427,12 +427,12 @@ namespace Hugo_LAND.WCF.Services
                     currHero.y = 0;
                     currHero.StatVitalite = currHero.Classe.StatBaseVitalite;
 
-                    context.Mondes.Find(world).Items.Add(new Item{ Nom = "Bones", Description = "Bones", x = X, y = Y, ImageId = 168 });
+                    context.Mondes.Find(world).Items.Add(new Item { Nom = "Bones", Description = "Bones", x = X, y = Y, ImageId = 168 });
                     item = context.Items.Where(x => x.Monde.Id == world && x.x == X && x.y == Y).FirstOrDefault();
                 }
                 catch
                 {
-                    return hero; 
+                    return hero;
                 }
 
                 int itr = force ? 5 : 1;
@@ -460,6 +460,43 @@ namespace Hugo_LAND.WCF.Services
             }
         }
 
-        
+        public void AddExp(HeroDetailsDTO hero, int qte, bool force = false)
+        {
+            using (var context = new HugoLANDContext())
+            {
+                Hero currHero;
+                try
+                {
+                    currHero = context.Heros.Find(hero.Id);
+
+                    currHero.Experience += qte;
+                }
+                catch {
+                    return;
+                }
+
+                int itr = force ? 5 : 1;
+                var currVersion = currHero.RowVersion;
+                do
+                {
+                    try
+                    {
+                        context.SaveChanges();
+                    }
+                    catch (DbUpdateConcurrencyException)
+                    {
+                        if (itr > 0)
+                        {
+                            var objContext = ((IObjectContextAdapter)context).ObjectContext;
+                            objContext.Refresh(RefreshMode.ClientWins, currHero);
+                            itr--;
+                        }
+                    }
+                } while (itr > 0 && currVersion != currHero.RowVersion);
+
+            }
+        }
+
+
     }
 }
