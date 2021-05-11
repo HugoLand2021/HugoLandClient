@@ -1247,10 +1247,16 @@ namespace Hugo_LAND.Client.HugoLandServices {
         System.Threading.Tasks.Task<Hugo_LAND.Client.HugoLandServices.HeroDetailsDTO> ReturnHeroAsync(string idhero);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IHeroService/ConnectHero", ReplyAction="http://tempuri.org/IHeroService/ConnectHeroResponse")]
-        string ConnectHero(bool isConnected, int idHero);
+        string ConnectHero(int heroID, int accountID, bool force);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IHeroService/ConnectHero", ReplyAction="http://tempuri.org/IHeroService/ConnectHeroResponse")]
-        System.Threading.Tasks.Task<string> ConnectHeroAsync(bool isConnected, int idHero);
+        System.Threading.Tasks.Task<string> ConnectHeroAsync(int heroID, int accountID, bool force);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IHeroService/DisconnectHero", ReplyAction="http://tempuri.org/IHeroService/DisconnectHeroResponse")]
+        string DisconnectHero(int heroID, bool force);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IHeroService/DisconnectHero", ReplyAction="http://tempuri.org/IHeroService/DisconnectHeroResponse")]
+        System.Threading.Tasks.Task<string> DisconnectHeroAsync(int heroID, bool force);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IHeroService/ReturnHeroes", ReplyAction="http://tempuri.org/IHeroService/ReturnHeroesResponse")]
         Hugo_LAND.Client.HugoLandServices.HeroDetailsDTO[] ReturnHeroes(string world, int mapBeginX, int mapBeginY, int idHero);
@@ -1344,12 +1350,20 @@ namespace Hugo_LAND.Client.HugoLandServices {
             return base.Channel.ReturnHeroAsync(idhero);
         }
         
-        public string ConnectHero(bool isConnected, int idHero) {
-            return base.Channel.ConnectHero(isConnected, idHero);
+        public string ConnectHero(int heroID, int accountID, bool force) {
+            return base.Channel.ConnectHero(heroID, accountID, force);
         }
         
-        public System.Threading.Tasks.Task<string> ConnectHeroAsync(bool isConnected, int idHero) {
-            return base.Channel.ConnectHeroAsync(isConnected, idHero);
+        public System.Threading.Tasks.Task<string> ConnectHeroAsync(int heroID, int accountID, bool force) {
+            return base.Channel.ConnectHeroAsync(heroID, accountID, force);
+        }
+        
+        public string DisconnectHero(int heroID, bool force) {
+            return base.Channel.DisconnectHero(heroID, force);
+        }
+        
+        public System.Threading.Tasks.Task<string> DisconnectHeroAsync(int heroID, bool force) {
+            return base.Channel.DisconnectHeroAsync(heroID, force);
         }
         
         public Hugo_LAND.Client.HugoLandServices.HeroDetailsDTO[] ReturnHeroes(string world, int mapBeginX, int mapBeginY, int idHero) {

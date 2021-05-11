@@ -34,8 +34,6 @@ namespace Hugo_LAND.Client
             {
                 MessageBox.Show("An error has occured while loading the map.", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-
-
         }
 
         private void initialize()
@@ -123,7 +121,7 @@ namespace Hugo_LAND.Client
 
         private bool DisconnectUser()
         {
-            if (hsc.ConnectHero(false, currHero.Id) == "SUCCESS")
+            if (hsc.DisconnectHero(currHero.Id, false) == "SUCCESS")
                 return true;
             else
             {
@@ -137,5 +135,6 @@ namespace Hugo_LAND.Client
             //if bug button is selected
             e.IsInputKey = true;
         }
+
     }
 }

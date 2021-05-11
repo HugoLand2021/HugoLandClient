@@ -50,14 +50,15 @@ namespace Hugo_LAND.Client.Vue
             {
                 if (herosList.Any(h => h.HeroName == cmbNomhero.Text))
                 {
-                    if (!HeroService.IsHeroConnected(cmbNomhero.Text, _main.accountDetails.Id))
+                    selectedHero = herosList[cmbNomhero.SelectedIndex];
+                    if (HeroService.ConnectHero(selectedHero.Id, _main.accountDetails.Id, false) == "SUCCESS")
                     {
-                        selectedHero = herosList[cmbNomhero.SelectedIndex];
                         _HeroSelected = true;
                     }
                     else
                     {
-                        MessageBox.Show("This hero is already in game!", "ERREUR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        selectedHero = null;
+                        MessageBox.Show("This hero is already in game or there has been an error!", "ERREUR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;
 
                     }

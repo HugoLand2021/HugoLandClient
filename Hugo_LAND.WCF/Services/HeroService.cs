@@ -137,22 +137,88 @@ namespace Hugo_LAND.WCF.Services
 
         }
 
-        public string ConnectHero(bool isConnected, int idHero)
+        public string ConnectHero(int heroID, int accountID, bool force = false)
         {
-            try
+            using (var context = new HugoLANDContext())
             {
-                using (var context = new HugoLANDContext())
+                Hero currHero;
+                try
                 {
-                    context.Heros.Find(idHero).EstConnecte = isConnected;
-                    context.SaveChanges();
+                    currHero = context.Heros.First(h => h.Id == heroID && h.CompteJoueur.Id == accountID && h.EstConnecte == false);
                 }
-                return "SUCCESS";
+                catch
+                {
+                    return "ERROR";
+                }
+
+
+                int itr = force ? 5 : 1;
+                currHero.EstConnecte = true;
+                var currVersionHero = currHero.RowVersion;
+
+                do
+                {
+                    try
+                    {
+                        context.SaveChanges();
+                        return "SUCCESS";
+                    }
+                    catch (DbUpdateConcurrencyException)
+                    {
+                        if (itr > 0)
+                        {
+                            var objContext = ((IObjectContextAdapter)context).ObjectContext;
+                            objContext.Refresh(RefreshMode.ClientWins, currHero);
+                            itr--;
+                        }
+                    }
+                } while (itr > 0 && currVersionHero != currHero.RowVersion);
             }
-            catch
-            {
-                return "ERROR";
-            }
+            return "ERROR";
         }
+
+
+        public string DisconnectHero(int heroID, bool force = false)
+        {
+            using (var context = new HugoLANDContext())
+            {
+                Hero currHero;
+                try
+                {
+                    currHero = context.Heros.First(h => h.Id == heroID);
+                }
+                catch
+                {
+                    return "ERROR";
+                }
+
+
+                int itr = force ? 5 : 1;
+                currHero.EstConnecte = false;
+                var currVersionHero = currHero.RowVersion;
+
+                do
+                {
+                    try
+                    {
+                        context.SaveChanges();
+                        return "SUCCESS";
+                    }
+                    catch (DbUpdateConcurrencyException)
+                    {
+                        if (itr > 0)
+                        {
+                            var objContext = ((IObjectContextAdapter)context).ObjectContext;
+                            objContext.Refresh(RefreshMode.ClientWins, currHero);
+                            itr--;
+                        }
+                    }
+                } while (itr > 0 && currVersionHero != currHero.RowVersion);
+            }
+            return "ERROR";
+        }
+
+
 
         public List<HeroDetailsDTO> ReturnHeroes(string world, int mapBeginX, int mapBeginY, int idHero)
         {
@@ -189,27 +255,8 @@ namespace Hugo_LAND.WCF.Services
             }
         }
 
-
-        public bool IsHeroConnected(string HeroName, int AccountID)
+        public HeroDetailsDTO PicksUpItem(string itemType, int world, int X, int Y, HeroDetailsDTO hero, bool force = false)
         {
-            try
-            {
-                using (HugoLANDContext context = new HugoLANDContext())
-                {
-                    return context.Heros.Any(h => h.NomHero == HeroName && h.EstConnecte == true && h.CompteJoueur.Id == AccountID);
-                }
-            }
-            catch
-            {
-                return false;
-            }
-        }
-
-        public HeroDetailsDTO PicksUpItem(string itemType,int world, int X, int Y, HeroDetailsDTO hero, bool force = false)
-        {
-            //RESTE À VERIF C'EST QUOI LE TYPE d'ITEM !! SI DOIT BOOST LA VIE OU QUELQUE CHOSE
-            //heros.StatVitalite = heros.StatVitalite + 10;
-
             using (var context = new HugoLANDContext())
             {
                 Hero currHero;
@@ -219,6 +266,9 @@ namespace Hugo_LAND.WCF.Services
                     currHero = context.Heros.Find(hero.Id);
                     item = context.Mondes.Find(world).Items.FirstOrDefault(i => i.x == X && i.y == Y && i.Hero == null);
                     item.Hero = currHero;
+                    item.x = null;
+                    item.y = null;
+                    item.ImageId = null;
                     switch (itemType)
                     {
                         case "food":
@@ -240,7 +290,8 @@ namespace Hugo_LAND.WCF.Services
                 }
 
                 int itr = force ? 5 : 1;
-                var currVersion = currHero.RowVersion;
+                var currVersionHero = currHero.RowVersion;
+                var currVersionItem = item.RowVersion;
                 do
                 {
                     try
@@ -257,10 +308,11 @@ namespace Hugo_LAND.WCF.Services
                         {
                             var objContext = ((IObjectContextAdapter)context).ObjectContext;
                             objContext.Refresh(RefreshMode.ClientWins, item);
+                            objContext.Refresh(RefreshMode.ClientWins, currHero);
                             itr--;
                         }
                     }
-                } while (itr > 0 && currVersion != currHero.RowVersion);
+                } while (itr > 0 && currVersionHero != currHero.RowVersion && currVersionItem != currHero.RowVersion);
 
                 return hero;
             }

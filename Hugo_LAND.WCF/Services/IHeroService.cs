@@ -24,14 +24,14 @@ namespace Hugo_LAND.WCF.Services
         HeroDetailsDTO ReturnHero(string idhero);
 
         [OperationContract]
-        string ConnectHero(bool isConnected, int idHero);
+        string ConnectHero(int heroID, int accountID, bool force = false);
+
+        [OperationContract]
+        string DisconnectHero(int heroID, bool force = false);
 
         [OperationContract]
         List<HeroDetailsDTO> ReturnHeroes(string world, int mapBeginX, int mapBeginY, int idHero);
 
-        [OperationContract]
-        bool IsHeroConnected(string HeroName, int AccountID);
-		
 		[OperationContract]
         HeroDetailsDTO PicksUpItem(string itemType, int world, int X, int Y, HeroDetailsDTO hero, bool force = false);
 

@@ -45,15 +45,8 @@ namespace Hugo_LAND.Client.Vue
 
             if (hero is object)
             {
-                if (heroService.ConnectHero(true, hero.Id) == "SUCCESS")
-                {
                     HugoWorld hugoWorld = new HugoWorld(hero);
                     hugoWorld.ShowDialog();
-                }
-                else
-                {
-                    MessageBox.Show("The Hero couldn't connect to the server");
-                }
             }
         }
 

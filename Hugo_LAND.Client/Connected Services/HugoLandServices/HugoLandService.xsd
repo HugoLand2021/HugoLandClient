@@ -172,8 +172,9 @@
   <xs:element name="ConnectHero">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="isConnected" type="xs:boolean" />
-        <xs:element minOccurs="0" name="idHero" type="xs:int" />
+        <xs:element minOccurs="0" name="heroID" type="xs:int" />
+        <xs:element minOccurs="0" name="accountID" type="xs:int" />
+        <xs:element minOccurs="0" name="force" type="xs:boolean" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -181,6 +182,21 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="ConnectHeroResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DisconnectHero">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="heroID" type="xs:int" />
+        <xs:element minOccurs="0" name="force" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DisconnectHeroResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="DisconnectHeroResult" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
