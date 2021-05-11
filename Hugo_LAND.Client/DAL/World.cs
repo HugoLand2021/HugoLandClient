@@ -486,6 +486,7 @@ namespace Hugo_LAND.Client
 
                     if ((heroVs.StatVitality - heroDamageVs) <= 0)
                     {
+                        HeroService.AddExp(_gameState.Hero,heroVs.Experience, false);
                         return true;
                     }
                     else
@@ -566,7 +567,7 @@ namespace Hugo_LAND.Client
             {
                 mapTile.ObjectHealth = 0;
                 //Experience is the monsters max health
-                _gameState.Experience += mapTile.ObjectTile.Health;
+                HeroService.AddExp(_gameState.Hero, mapTile.ObjectTile.Health, false);
 
                 //Remove the monster and replace with bones
                 MonsterService.ReplaceMonsterToBones(monster, _currentWorld.ID, force: true);
