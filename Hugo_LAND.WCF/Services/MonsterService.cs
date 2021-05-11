@@ -22,7 +22,7 @@ namespace Hugo_LAND.WCF.Services
                 }
                 catch
                 {
-                    return monster.StatPV; //DOES NOT PICK UP ITEM
+                    return monster.StatPV;
                 }
 
                 int itr = force ? 5 : 1;
