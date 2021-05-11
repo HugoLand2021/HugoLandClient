@@ -531,7 +531,7 @@ namespace Hugo_LAND.Client
                     if (_random.Next(_gameState.Attack + 1) >= (mapTile.ObjectTile.Health / 5))
                     {
 
-                        if (damageMonster((int)(_random.NextDouble() * ((double)_gameState.Hero.StatDex / 100) * (double)_gameState.Hero.StatStr), mapTile, _currentArea._monsters.First(m => m.x % 8 == x && m.y % 8 == y))) ;
+                        if (damageMonster((int)(_random.NextDouble() * ((double)_gameState.Hero.StatDex / 100) * (double)_gameState.Hero.StatStr), mapTile, _currentArea._monsters.First(m => m.x % 8 == x && m.y % 8 == y)))
                         {
                             //Monster is dead now
                             return true;
