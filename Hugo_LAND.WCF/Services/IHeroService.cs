@@ -38,5 +38,8 @@ namespace Hugo_LAND.WCF.Services
         [OperationContract]
         int RemoveHealth(HeroDetailsDTO hero, int heroDamage, bool force = false);
 
+        [OperationContract]
+        HeroDetailsDTO ReplaceHeroToBones(HeroDetailsDTO hero, int X, int Y, int world, bool force = false);
+
     }
 }

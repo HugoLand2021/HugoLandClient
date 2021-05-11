@@ -323,7 +323,7 @@ namespace Hugo_LAND.WCF.Services
             using (var context = new HugoLANDContext())
             {
                 Hero currHero;
-                
+
                 try
                 {
                     currHero = context.Heros.Find(hero.Id);
@@ -358,5 +358,54 @@ namespace Hugo_LAND.WCF.Services
                 return hero.StatVitality;
             }
         }
+        public HeroDetailsDTO ReplaceHeroToBones(HeroDetailsDTO hero, int X, int Y, int world, bool force = false)
+        {
+            using (var context = new HugoLANDContext())
+            {
+                Hero currHero;
+                Item item;
+
+
+                try
+                {
+                    currHero = context.Heros.Find(hero.Id);
+                    currHero.x = 0;
+                    currHero.y = 0;
+                    currHero.StatVitalite = currHero.Classe.StatBaseVitalite;
+
+                    context.Mondes.Find(world).Items.Add(new Item{ Nom = "Bones", Description = "Bones", x = X, y = Y, ImageId = 168 });
+                    item = context.Items.Where(x => x.Monde.Id == world && x.x == X && x.y == Y).FirstOrDefault();
+                }
+                catch
+                {
+                    return hero; 
+                }
+
+                int itr = force ? 5 : 1;
+                var currVersion = currHero.RowVersion;
+                do
+                {
+                    try
+                    {
+                        context.SaveChanges();
+                        return hero;
+                    }
+                    catch (DbUpdateConcurrencyException)
+                    {
+                        if (itr > 0)
+                        {
+                            var objContext = ((IObjectContextAdapter)context).ObjectContext;
+                            objContext.Refresh(RefreshMode.ClientWins, currHero);
+                            objContext.Refresh(RefreshMode.ClientWins, item);
+                            itr--;
+                        }
+                    }
+                } while (itr > 0 && currVersion != currHero.RowVersion);
+
+                return hero;
+            }
+        }
+
+        
     }
 }

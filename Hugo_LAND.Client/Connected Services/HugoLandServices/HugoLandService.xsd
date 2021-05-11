@@ -217,21 +217,6 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="IsHeroConnected">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="HeroName" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="AccountID" type="xs:int" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="IsHeroConnectedResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="IsHeroConnectedResult" type="xs:boolean" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
   <xs:element name="PicksUpItem">
     <xs:complexType>
       <xs:sequence>
@@ -267,6 +252,24 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="ReplaceHeroToBones">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/Hugo_LAND.WCF.DTOs" minOccurs="0" name="hero" nillable="true" type="q17:HeroDetailsDTO" />
+        <xs:element minOccurs="0" name="X" type="xs:int" />
+        <xs:element minOccurs="0" name="Y" type="xs:int" />
+        <xs:element minOccurs="0" name="world" type="xs:int" />
+        <xs:element minOccurs="0" name="force" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ReplaceHeroToBonesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/Hugo_LAND.WCF.DTOs" minOccurs="0" name="ReplaceHeroToBonesResult" nillable="true" type="q18:HeroDetailsDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="GetAllWorldNames">
     <xs:complexType>
       <xs:sequence />
@@ -275,7 +278,7 @@
   <xs:element name="GetAllWorldNamesResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/Hugo_LAND.WCF.DTOs" minOccurs="0" name="GetAllWorldNamesResult" nillable="true" type="q17:ArrayOfWorldDetailsDTO" />
+        <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/Hugo_LAND.WCF.DTOs" minOccurs="0" name="GetAllWorldNamesResult" nillable="true" type="q19:ArrayOfWorldDetailsDTO" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -289,7 +292,7 @@
   <xs:element name="GetWorldByNameResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/Hugo_LAND.WCF.DTOs" minOccurs="0" name="GetWorldByNameResult" nillable="true" type="q18:WorldDetailsDTO" />
+        <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/Hugo_LAND.WCF.DTOs" minOccurs="0" name="GetWorldByNameResult" nillable="true" type="q20:WorldDetailsDTO" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -305,7 +308,7 @@
   <xs:element name="ReturnWorldItemsResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/Hugo_LAND.WCF.DTOs" minOccurs="0" name="ReturnWorldItemsResult" nillable="true" type="q19:ArrayOfWorldItemDetailsDTO" />
+        <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/Hugo_LAND.WCF.DTOs" minOccurs="0" name="ReturnWorldItemsResult" nillable="true" type="q21:ArrayOfWorldItemDetailsDTO" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -321,7 +324,40 @@
   <xs:element name="ReturnMonstersResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/Hugo_LAND.WCF.DTOs" minOccurs="0" name="ReturnMonstersResult" nillable="true" type="q20:ArrayOfMonsterDetailsDTO" />
+        <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/Hugo_LAND.WCF.DTOs" minOccurs="0" name="ReturnMonstersResult" nillable="true" type="q22:ArrayOfMonsterDetailsDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ReplaceMonsterToBones">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="X" type="xs:int" />
+        <xs:element minOccurs="0" name="Y" type="xs:int" />
+        <xs:element minOccurs="0" name="world" type="xs:int" />
+        <xs:element minOccurs="0" name="force" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ReplaceMonsterToBonesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/Hugo_LAND.WCF.DTOs" minOccurs="0" name="ReplaceMonsterToBonesResult" nillable="true" type="q23:MonsterDetailsDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RemoveHealthMonster">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/Hugo_LAND.WCF.DTOs" minOccurs="0" name="monster" nillable="true" type="q24:MonsterDetailsDTO" />
+        <xs:element minOccurs="0" name="heroDamage" type="xs:int" />
+        <xs:element minOccurs="0" name="force" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RemoveHealthMonsterResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="RemoveHealthMonsterResult" type="xs:int" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -337,7 +373,7 @@
   <xs:element name="ReturnItemsResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/Hugo_LAND.WCF.DTOs" minOccurs="0" name="ReturnItemsResult" nillable="true" type="q21:ArrayOfItemDetailsDTO" />
+        <xs:element xmlns:q25="http://schemas.datacontract.org/2004/07/Hugo_LAND.WCF.DTOs" minOccurs="0" name="ReturnItemsResult" nillable="true" type="q25:ArrayOfItemDetailsDTO" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -351,7 +387,7 @@
   <xs:element name="GetPlayerInventoryResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/Hugo_LAND.WCF.DTOs" minOccurs="0" name="GetPlayerInventoryResult" nillable="true" type="q22:ArrayOfItemDetailsDTO" />
+        <xs:element xmlns:q26="http://schemas.datacontract.org/2004/07/Hugo_LAND.WCF.DTOs" minOccurs="0" name="GetPlayerInventoryResult" nillable="true" type="q26:ArrayOfItemDetailsDTO" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

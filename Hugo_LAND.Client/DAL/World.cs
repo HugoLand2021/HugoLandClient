@@ -38,6 +38,7 @@ namespace Hugo_LAND.Client
         private readonly HeroServiceClient HeroService = new HeroServiceClient();
         private readonly WorldItemServiceClient WorldItemService = new WorldItemServiceClient();
         private readonly WorldServiceClient WorldService = new WorldServiceClient();
+        private readonly MonsterServiceClient MonsterService = new MonsterServiceClient();
         private WorldDetailsDTO _currentWorld;
         
 
@@ -468,9 +469,11 @@ namespace Hugo_LAND.Client
                     if (_gameState.Health <= 0)
                     {
                         _gameState.Health = 0;
-                        _heroSprite = new Sprite(null, _heroPosition.X * Tile.TileSizeX + Area.AreaOffsetX,
-                                _heroPosition.Y * Tile.TileSizeY + Area.AreaOffsetY,
-                                _tiles["Bones"].Bitmap, _tiles["Bones"].Rectangle, _tiles["Bones"].NumberOfFrames);
+
+                        //_heroSprite = new Sprite(null, _heroPosition.X * Tile.TileSizeX + Area.AreaOffsetX,
+                        //        _heroPosition.Y * Tile.TileSizeY + Area.AreaOffsetY,
+                        //        _tiles["Bones"].Bitmap, _tiles["Bones"].Rectangle, _tiles["Bones"].NumberOfFrames);
+                        HeroService.ReplaceHeroToBones(_gameState.Hero, _gameState.Hero.x, _gameState.Hero.y, _currentWorld.ID, force: true);
                         _heroSprite.ColorKey = Color.FromArgb(75, 75, 75);
                     }
 
@@ -525,8 +528,9 @@ namespace Hugo_LAND.Client
                 _gameState.Experience += mapTile.ObjectTile.Health;
 
                 //Remove the monster and replace with bones
-                mapTile.ObjectTile = _tiles["Bones"];
-                mapTile.SetObjectSprite(x, y);
+                //mapTile.ObjectTile = _tiles["Bones"];
+                //mapTile.SetObjectSprite(x, y);
+                MonsterService.ReplaceMonsterToBones(x, y, _currentWorld.ID, force: true);
                 returnValue = true; //monster is dead
             }
 

@@ -1264,12 +1264,6 @@ namespace Hugo_LAND.Client.HugoLandServices {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IHeroService/ReturnHeroes", ReplyAction="http://tempuri.org/IHeroService/ReturnHeroesResponse")]
         System.Threading.Tasks.Task<Hugo_LAND.Client.HugoLandServices.HeroDetailsDTO[]> ReturnHeroesAsync(string world, int mapBeginX, int mapBeginY, int idHero);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IHeroService/IsHeroConnected", ReplyAction="http://tempuri.org/IHeroService/IsHeroConnectedResponse")]
-        bool IsHeroConnected(string HeroName, int AccountID);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IHeroService/IsHeroConnected", ReplyAction="http://tempuri.org/IHeroService/IsHeroConnectedResponse")]
-        System.Threading.Tasks.Task<bool> IsHeroConnectedAsync(string HeroName, int AccountID);
-        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IHeroService/PicksUpItem", ReplyAction="http://tempuri.org/IHeroService/PicksUpItemResponse")]
         Hugo_LAND.Client.HugoLandServices.HeroDetailsDTO PicksUpItem(string itemType, int world, int X, int Y, Hugo_LAND.Client.HugoLandServices.HeroDetailsDTO hero, bool force);
         
@@ -1281,6 +1275,12 @@ namespace Hugo_LAND.Client.HugoLandServices {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IHeroService/RemoveHealth", ReplyAction="http://tempuri.org/IHeroService/RemoveHealthResponse")]
         System.Threading.Tasks.Task<int> RemoveHealthAsync(Hugo_LAND.Client.HugoLandServices.HeroDetailsDTO hero, int heroDamage, bool force);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IHeroService/ReplaceHeroToBones", ReplyAction="http://tempuri.org/IHeroService/ReplaceHeroToBonesResponse")]
+        Hugo_LAND.Client.HugoLandServices.HeroDetailsDTO ReplaceHeroToBones(Hugo_LAND.Client.HugoLandServices.HeroDetailsDTO hero, int X, int Y, int world, bool force);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IHeroService/ReplaceHeroToBones", ReplyAction="http://tempuri.org/IHeroService/ReplaceHeroToBonesResponse")]
+        System.Threading.Tasks.Task<Hugo_LAND.Client.HugoLandServices.HeroDetailsDTO> ReplaceHeroToBonesAsync(Hugo_LAND.Client.HugoLandServices.HeroDetailsDTO hero, int X, int Y, int world, bool force);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -1374,14 +1374,6 @@ namespace Hugo_LAND.Client.HugoLandServices {
             return base.Channel.ReturnHeroesAsync(world, mapBeginX, mapBeginY, idHero);
         }
         
-        public bool IsHeroConnected(string HeroName, int AccountID) {
-            return base.Channel.IsHeroConnected(HeroName, AccountID);
-        }
-        
-        public System.Threading.Tasks.Task<bool> IsHeroConnectedAsync(string HeroName, int AccountID) {
-            return base.Channel.IsHeroConnectedAsync(HeroName, AccountID);
-        }
-        
         public Hugo_LAND.Client.HugoLandServices.HeroDetailsDTO PicksUpItem(string itemType, int world, int X, int Y, Hugo_LAND.Client.HugoLandServices.HeroDetailsDTO hero, bool force) {
             return base.Channel.PicksUpItem(itemType, world, X, Y, hero, force);
         }
@@ -1396,6 +1388,14 @@ namespace Hugo_LAND.Client.HugoLandServices {
         
         public System.Threading.Tasks.Task<int> RemoveHealthAsync(Hugo_LAND.Client.HugoLandServices.HeroDetailsDTO hero, int heroDamage, bool force) {
             return base.Channel.RemoveHealthAsync(hero, heroDamage, force);
+        }
+        
+        public Hugo_LAND.Client.HugoLandServices.HeroDetailsDTO ReplaceHeroToBones(Hugo_LAND.Client.HugoLandServices.HeroDetailsDTO hero, int X, int Y, int world, bool force) {
+            return base.Channel.ReplaceHeroToBones(hero, X, Y, world, force);
+        }
+        
+        public System.Threading.Tasks.Task<Hugo_LAND.Client.HugoLandServices.HeroDetailsDTO> ReplaceHeroToBonesAsync(Hugo_LAND.Client.HugoLandServices.HeroDetailsDTO hero, int X, int Y, int world, bool force) {
+            return base.Channel.ReplaceHeroToBonesAsync(hero, X, Y, world, force);
         }
     }
     
@@ -1516,6 +1516,18 @@ namespace Hugo_LAND.Client.HugoLandServices {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMonsterService/ReturnMonsters", ReplyAction="http://tempuri.org/IMonsterService/ReturnMonstersResponse")]
         System.Threading.Tasks.Task<Hugo_LAND.Client.HugoLandServices.MonsterDetailsDTO[]> ReturnMonstersAsync(string world, int mapBeginX, int mapBeginY);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMonsterService/ReplaceMonsterToBones", ReplyAction="http://tempuri.org/IMonsterService/ReplaceMonsterToBonesResponse")]
+        Hugo_LAND.Client.HugoLandServices.MonsterDetailsDTO ReplaceMonsterToBones(int X, int Y, int world, bool force);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMonsterService/ReplaceMonsterToBones", ReplyAction="http://tempuri.org/IMonsterService/ReplaceMonsterToBonesResponse")]
+        System.Threading.Tasks.Task<Hugo_LAND.Client.HugoLandServices.MonsterDetailsDTO> ReplaceMonsterToBonesAsync(int X, int Y, int world, bool force);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMonsterService/RemoveHealthMonster", ReplyAction="http://tempuri.org/IMonsterService/RemoveHealthMonsterResponse")]
+        int RemoveHealthMonster(Hugo_LAND.Client.HugoLandServices.MonsterDetailsDTO monster, int heroDamage, bool force);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IMonsterService/RemoveHealthMonster", ReplyAction="http://tempuri.org/IMonsterService/RemoveHealthMonsterResponse")]
+        System.Threading.Tasks.Task<int> RemoveHealthMonsterAsync(Hugo_LAND.Client.HugoLandServices.MonsterDetailsDTO monster, int heroDamage, bool force);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -1551,6 +1563,22 @@ namespace Hugo_LAND.Client.HugoLandServices {
         
         public System.Threading.Tasks.Task<Hugo_LAND.Client.HugoLandServices.MonsterDetailsDTO[]> ReturnMonstersAsync(string world, int mapBeginX, int mapBeginY) {
             return base.Channel.ReturnMonstersAsync(world, mapBeginX, mapBeginY);
+        }
+        
+        public Hugo_LAND.Client.HugoLandServices.MonsterDetailsDTO ReplaceMonsterToBones(int X, int Y, int world, bool force) {
+            return base.Channel.ReplaceMonsterToBones(X, Y, world, force);
+        }
+        
+        public System.Threading.Tasks.Task<Hugo_LAND.Client.HugoLandServices.MonsterDetailsDTO> ReplaceMonsterToBonesAsync(int X, int Y, int world, bool force) {
+            return base.Channel.ReplaceMonsterToBonesAsync(X, Y, world, force);
+        }
+        
+        public int RemoveHealthMonster(Hugo_LAND.Client.HugoLandServices.MonsterDetailsDTO monster, int heroDamage, bool force) {
+            return base.Channel.RemoveHealthMonster(monster, heroDamage, force);
+        }
+        
+        public System.Threading.Tasks.Task<int> RemoveHealthMonsterAsync(Hugo_LAND.Client.HugoLandServices.MonsterDetailsDTO monster, int heroDamage, bool force) {
+            return base.Channel.RemoveHealthMonsterAsync(monster, heroDamage, force);
         }
     }
     
