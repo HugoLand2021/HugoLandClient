@@ -47,6 +47,7 @@ namespace Hugo_LAND.Client.Vue
             {
                     HugoWorld hugoWorld = new HugoWorld(hero);
                     hugoWorld.ShowDialog();
+                    //heroService.DisconnectHero(hero.Id, false);
             }
         }
 
@@ -69,6 +70,7 @@ namespace Hugo_LAND.Client.Vue
 
         private void frmMain_FormClosed(object sender, FormClosedEventArgs e)
         {
+            heroService.DisconnectHero(33, false);
         }
     }
 }

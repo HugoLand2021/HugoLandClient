@@ -11,7 +11,7 @@ namespace Hugo_LAND.WCF.Services
 {
     public partial class HugoLandService : IHeroService
     {
-
+        Random _rnd = new Random();
         public bool CreateHero(HeroDetailsDTO dto)
         {
             try
@@ -318,7 +318,7 @@ namespace Hugo_LAND.WCF.Services
             }
         }
 
-        public int RemoveHealth(HeroDetailsDTO hero ,int heroDamage, bool force = false)
+        public int RemoveHealthVSMonster(HeroDetailsDTO hero, int heroDamage, bool force = false)
         {
             using (var context = new HugoLANDContext())
             {
@@ -358,6 +358,53 @@ namespace Hugo_LAND.WCF.Services
                 return hero.StatVitality;
             }
         }
+
+        public int RemoveHealthVSHero(HeroDetailsDTO hero, bool force = false)
+        {
+            using (var context = new HugoLANDContext())
+            {
+                Hero currHero;
+                // Dommage [pts] = Chance [%] × Dextérité du Héros [%] × Forces du Héros, où la Chance est une valeur aléatoire entre 0 et 1.
+                try
+                {
+                    currHero = context.Heros.Find(hero.Id);
+                    double pourcent = _rnd.NextDouble();
+
+                    double heroDamage = (pourcent * ((double)currHero.StatDex / 100) * (double)currHero.StatStr);
+
+
+                    currHero.StatVitalite -= (int)heroDamage;
+                }
+                catch
+                {
+                    return hero.StatVitality;
+                }
+
+                int itr = force ? 5 : 1;
+                var currVersion = currHero.RowVersion;
+                do
+                {
+                    try
+                    {
+                        context.SaveChanges();
+                        hero.StatVitality = currHero.StatVitalite;
+                        return hero.StatVitality;
+                    }
+                    catch (DbUpdateConcurrencyException)
+                    {
+                        if (itr > 0)
+                        {
+                            var objContext = ((IObjectContextAdapter)context).ObjectContext;
+                            objContext.Refresh(RefreshMode.ClientWins, currHero);
+                            itr--;
+                        }
+                    }
+                } while (itr > 0 && currVersion != currHero.RowVersion);
+
+                return hero.StatVitality;
+            }
+        }
+
         public HeroDetailsDTO ReplaceHeroToBones(HeroDetailsDTO hero, int X, int Y, int world, bool force = false)
         {
             using (var context = new HugoLANDContext())

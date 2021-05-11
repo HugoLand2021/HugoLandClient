@@ -151,10 +151,8 @@ namespace Hugo_LAND.Client
         {
             //Sounds.Start();
             Random _rnd = new Random();
-            double pourcent = 0.00;
             //Create all the main gameobjects
             World = new World(this, _tiles);
-            pourcent = _rnd.NextDouble();
             //Reset the game state
 
             int CountTreasure = GetAllOneTypeItem("Treasure").Count();
@@ -163,7 +161,7 @@ namespace Hugo_LAND.Client
             bool BrownKey = GetAllOneTypeItem("KeyBrown").Count() > 0;
             bool RedKey = GetAllOneTypeItem("KeyRed").Count() > 0;
 
-            double attack2 = (pourcent * ((double)Hero.StatDex / 100) * (double)Hero.StatStr);
+            //double attack2 = (pourcent * ((double)Hero.StatDex / 100) * (double)Hero.StatStr);
 
 
             Potions = CountPotion; //-------

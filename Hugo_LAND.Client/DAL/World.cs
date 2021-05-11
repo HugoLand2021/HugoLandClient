@@ -452,52 +452,64 @@ namespace Hugo_LAND.Client
 
                 Sounds.Fight();
 
-                _heroSpriteFighting = true;
-                _startFightTime = -1;
-
-                int heroDamage = 0;
-                //A monsters attack ability is 1/2 their max health. Compare that to your armour
-                //If you outclass them then there is still a chance of a lucky hit
-                if (_random.Next((mapTile.ObjectTile.Health / 2) + 1) >= _gameState.Armour
-                    || (mapTile.ObjectTile.Health / 2 < _gameState.Armour && _random.Next(10) == 0))
+                if (mapTile.ObjectTile.Name == "Hero")
                 {
-                    //Monsters do damage up to their max health - if they hit you.
-                    heroDamage = _random.Next(mapTile.ObjectTile.Health) + 1;
-                    _gameState.Health -= heroDamage;
-                    HeroService.RemoveHealth(_gameState.Hero, heroDamage, force: true);
+                    _heroSpriteFighting = true;
+                    _startFightTime = -1;
 
-                    if (_gameState.Health <= 0)
-                    {
-                        _gameState.Health = 0;
 
-                        //_heroSprite = new Sprite(null, _heroPosition.X * Tile.TileSizeX + Area.AreaOffsetX,
-                        //        _heroPosition.Y * Tile.TileSizeY + Area.AreaOffsetY,
-                        //        _tiles["Bones"].Bitmap, _tiles["Bones"].Rectangle, _tiles["Bones"].NumberOfFrames);
-                        HeroService.ReplaceHeroToBones(_gameState.Hero, _gameState.Hero.x, _gameState.Hero.y, _currentWorld.ID, force: true);
-                        _heroSprite.ColorKey = Color.FromArgb(75, 75, 75);
-                    }
 
-                }
-                //Hero
-                _popups.Clear();
-                _popups.Add(new textPopup((int)_heroSprite.Location.X + 40, (int)_heroSprite.Location.Y + 20, (heroDamage != 0) ? heroDamage.ToString() : "miss"));
-
-                //A monsters armour is 1/5 of their max health
-                if (_random.Next(_gameState.Attack + 1) >= (mapTile.ObjectTile.Health / 5))
-                {
-                    //Hero damage is up to twice the attack rating
-                    if (damageMonster(_random.Next(_gameState.Attack * 2) + 1, mapTile, x, y))
-                    {
-                        //Monster is dead now
-                        return true;
-                    }
                 }
                 else
                 {
-                    _popups.Add(new textPopup((int)mapTile.Sprite.Location.X + 40, (int)mapTile.Sprite.Location.Y + 20, "miss"));
+                    _heroSpriteFighting = true;
+                    _startFightTime = -1;
+
+                    int heroDamage = 0;
+                    //A monsters attack ability is 1/2 their max health. Compare that to your armour
+                    //If you outclass them then there is still a chance of a lucky hit
+                    if (_random.Next((mapTile.ObjectTile.Health / 2) + 1) >= _gameState.Armour
+                        || (mapTile.ObjectTile.Health / 2 < _gameState.Armour && _random.Next(10) == 0))
+                    {
+                        //Monsters do damage up to their max health - if they hit you.
+                        heroDamage = _random.Next(mapTile.ObjectTile.Health) + 1;
+                        _gameState.Health -= heroDamage;
+                        HeroService.RemoveHealth(_gameState.Hero, heroDamage, force: true);
+
+
+
+
+
+                        if (_gameState.Health <= 0)
+                        {
+                            _gameState.Health = 0;
+
+                            HeroService.ReplaceHeroToBones(_gameState.Hero, _gameState.Hero.x, _gameState.Hero.y, _currentWorld.ID, force: true);
+                            _heroSprite.ColorKey = Color.FromArgb(75, 75, 75);
+                        }
+
+                    }
+                    //Hero
+                    _popups.Clear();
+                    _popups.Add(new textPopup((int)_heroSprite.Location.X + 40, (int)_heroSprite.Location.Y + 20, (heroDamage != 0) ? heroDamage.ToString() : "miss"));
+
+                    //A monsters armour is 1/5 of their max health
+                    if (_random.Next(_gameState.Attack + 1) >= (mapTile.ObjectTile.Health / 5))
+                    {
+
+                        if (damageMonster(_random.Next(_gameState.Attack * 2) + 1, mapTile, x, y)) // ICI CHANGER DESUITE CALISSS
+                        {
+                            //Monster is dead now
+                            return true;
+                        }
+                    }
+                    else
+                    {
+                        _popups.Add(new textPopup((int)mapTile.Sprite.Location.X + 40, (int)mapTile.Sprite.Location.Y + 20, "miss"));
+                    }
+                    //Monster not dead
+                    return false;
                 }
-                //Monster not dead
-                return false;
             }
 
             //If the next tile is a blocker then we can't move
