@@ -470,6 +470,14 @@ namespace Hugo_LAND.Client
                     double heroDamageVs = (_random.NextDouble() * ((double)_gameState.Hero.StatDex / 100) * (double)_gameState.Hero.StatStr);
                     HeroService.RemoveHealth(heroVs, (int)heroDamageVs, false);
 
+                    if ((_gameState.Hero.StatVitality - heroDamage)<= 0)
+                    {
+                        _gameState.Health = 0;
+                        HeroService.ReplaceHeroToBones(_gameState.Hero, _gameState.Hero.x, _gameState.Hero.y, _currentWorld.ID, force: true);
+                        ResetHero();
+                        _heroSprite.ColorKey = Color.FromArgb(75, 75, 75);
+                    }
+
                     if ((heroVs.StatVitality - heroDamageVs) <= 0)
                     {
                         return true;
@@ -500,8 +508,10 @@ namespace Hugo_LAND.Client
                         if (_gameState.Health <= 0)
                         {
                             _gameState.Health = 0;
-
                             HeroService.ReplaceHeroToBones(_gameState.Hero, _gameState.Hero.x, _gameState.Hero.y, _currentWorld.ID, force: true);
+                            ResetHero();
+
+                            _currentArea.ChangeMap(GetWorldItems(0,0), 0, 0);
                             _heroSprite.ColorKey = Color.FromArgb(75, 75, 75);
                         }
 
@@ -657,6 +667,15 @@ namespace Hugo_LAND.Client
                     }
                 }
             }
+        }
+
+        private void ResetHero()
+        {
+            _currentArea.ChangeMap(GetWorldItems(0, 0), 0, 0);
+            _gameState.Hero.x = 0;
+            _gameState.Hero.y = 0;
+            _heroPosition.X = 0;
+            _heroPosition.Y = 0;
         }
     }
 }
