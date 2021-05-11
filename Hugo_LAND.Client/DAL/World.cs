@@ -41,7 +41,7 @@ namespace Hugo_LAND.Client
         private readonly WorldServiceClient WorldService = new WorldServiceClient();
         private readonly MonsterServiceClient MonsterService = new MonsterServiceClient();
         private WorldDetailsDTO _currentWorld;
-        
+
 
         private double _intervale = 0;
 
@@ -155,31 +155,31 @@ namespace Hugo_LAND.Client
                 case "armour":
 
                     _gameState.Armour++;
-                    _gameState.Hero = HeroService.PicksUpItem("armour",_currentWorld.ID, _gameState.Hero.x, _gameState.Hero.y, _gameState.Hero,  force: true);
+                    _gameState.Hero = HeroService.PicksUpItem("armour", _currentWorld.ID, _gameState.Hero.x, _gameState.Hero.y, _gameState.Hero, force: true);
                     Sounds.Pickup();
                     break;
-                    //Pour augmenté l'attaque
+                //Pour augmenté l'attaque
                 case "attack":
                     _gameState.Attack++;
-                    _gameState.Hero = HeroService.PicksUpItem("attack",_currentWorld.ID, _gameState.Hero.x, _gameState.Hero.y, _gameState.Hero,  force: true);
+                    _gameState.Hero = HeroService.PicksUpItem("attack", _currentWorld.ID, _gameState.Hero.x, _gameState.Hero.y, _gameState.Hero, force: true);
                     Sounds.Pickup();
                     break;
                 //Pour augmenté la vie
                 case "food":
                     _gameState.Health += 10;
-                    _gameState.Hero = HeroService.PicksUpItem("food",_currentWorld.ID, _gameState.Hero.x, _gameState.Hero.y, _gameState.Hero,  force: true);
+                    _gameState.Hero = HeroService.PicksUpItem("food", _currentWorld.ID, _gameState.Hero.x, _gameState.Hero.y, _gameState.Hero, force: true);
                     Sounds.Eat();
                     break;
                 //Pour augmenté le nombre de trésor
                 case "treasure":
                     _gameState.Treasure += 5;
-                    _gameState.Hero = HeroService.PicksUpItem("treasure",_currentWorld.ID, _gameState.Hero.x, _gameState.Hero.y, _gameState.Hero,  force: true);
+                    _gameState.Hero = HeroService.PicksUpItem("treasure", _currentWorld.ID, _gameState.Hero.x, _gameState.Hero.y, _gameState.Hero, force: true);
                     Sounds.Pickup();
                     break;
                 //Pour augmenté le nombre de potion
                 case "potion":
                     _gameState.Potions++;
-                    _gameState.Hero = HeroService.PicksUpItem("potion",_currentWorld.ID, _gameState.Hero.x, _gameState.Hero.y, _gameState.Hero,  force: true);
+                    _gameState.Hero = HeroService.PicksUpItem("potion", _currentWorld.ID, _gameState.Hero.x, _gameState.Hero.y, _gameState.Hero, force: true);
                     Sounds.Pickup();
                     break;
 
@@ -187,17 +187,17 @@ namespace Hugo_LAND.Client
                     if (objectTile.Color == "brown")
                     {
                         _gameState.HasBrownKey = true;
-                    _gameState.Hero = HeroService.PicksUpItem("keybrown",_currentWorld.ID, _gameState.Hero.x, _gameState.Hero.y, _gameState.Hero,  force: true);
+                        _gameState.Hero = HeroService.PicksUpItem("keybrown", _currentWorld.ID, _gameState.Hero.x, _gameState.Hero.y, _gameState.Hero, force: true);
                     }
                     if (objectTile.Color == "green")
                     {
                         _gameState.HasGreenKey = true;
-                    _gameState.Hero = HeroService.PicksUpItem("keygreen",_currentWorld.ID, _gameState.Hero.x, _gameState.Hero.y, _gameState.Hero,  force: true);
+                        _gameState.Hero = HeroService.PicksUpItem("keygreen", _currentWorld.ID, _gameState.Hero.x, _gameState.Hero.y, _gameState.Hero, force: true);
                     }
                     if (objectTile.Color == "red")
                     {
                         _gameState.HasRedKey = true;
-                    _gameState.Hero = HeroService.PicksUpItem("keyred", _currentWorld.ID, _gameState.Hero.x, _gameState.Hero.y, _gameState.Hero,  force: true);
+                        _gameState.Hero = HeroService.PicksUpItem("keyred", _currentWorld.ID, _gameState.Hero.x, _gameState.Hero.y, _gameState.Hero, force: true);
                     }
                     Sounds.Pickup();
                     break;
@@ -428,7 +428,7 @@ namespace Hugo_LAND.Client
                                     MapTile mapTile = _currentArea.Map[i, j];
                                     if (mapTile.ObjectTile != null && mapTile.ObjectTile.Category == "character")
                                     {
-                                        damageMonster(_gameState.Attack * 2, mapTile, i, j);
+                                        damageMonster(_gameState.Attack * 2, mapTile, _currentArea._monsters.First(m => m.x == i && m.y == j));
                                     }
                                 }
                             }
@@ -476,7 +476,7 @@ namespace Hugo_LAND.Client
                     double heroDamageVs = (_random.NextDouble() * ((double)_gameState.Hero.StatDex / 100) * (double)_gameState.Hero.StatStr);
                     HeroService.RemoveHealth(heroVs, (int)heroDamageVs, false);
 
-                    if ((_gameState.Hero.StatVitality - heroDamage)<= 0)
+                    if ((_gameState.Hero.StatVitality - heroDamage) <= 0)
                     {
                         _gameState.Health = 0;
                         HeroService.ReplaceHeroToBones(_gameState.Hero, _gameState.Hero.x, _gameState.Hero.y, _currentWorld.ID, force: true);
@@ -517,8 +517,9 @@ namespace Hugo_LAND.Client
                             HeroService.ReplaceHeroToBones(_gameState.Hero, _gameState.Hero.x, _gameState.Hero.y, _currentWorld.ID, force: true);
                             ResetHero();
 
-                            _currentArea.ChangeMap(GetWorldItems(0,0), 0, 0);
+                            _currentArea.ChangeMap(GetWorldItems(0, 0), 0, 0);
                             _heroSprite.ColorKey = Color.FromArgb(75, 75, 75);
+                            return false;
                         }
 
                     }
@@ -530,7 +531,7 @@ namespace Hugo_LAND.Client
                     if (_random.Next(_gameState.Attack + 1) >= (mapTile.ObjectTile.Health / 5))
                     {
 
-                        if (damageMonster((int)(_random.NextDouble() * ((double)_gameState.Hero.StatDex / 100) * (double)_gameState.Hero.StatStr), mapTile, x, y))
+                        if (damageMonster((int)(_random.NextDouble() * ((double)_gameState.Hero.StatDex / 100) * (double)_gameState.Hero.StatStr), mapTile, _currentArea._monsters.First(m => m.x % 8 == x && m.y % 8 == y))) ;
                         {
                             //Monster is dead now
                             return true;
@@ -552,7 +553,7 @@ namespace Hugo_LAND.Client
             return true;
         }
 
-        private bool damageMonster(int damage, MapTile mapTile, int x, int y)
+        private bool damageMonster(int damage, MapTile mapTile, MonsterDetailsDTO monster)
         {
             //Do some damage, and remove the monster if its dead
             bool returnValue = false; //monster not dead
@@ -575,7 +576,7 @@ namespace Hugo_LAND.Client
                 //Remove the monster and replace with bones
                 //mapTile.ObjectTile = _tiles["Bones"];
                 //mapTile.SetObjectSprite(x, y);
-                MonsterService.ReplaceMonsterToBones(x, y, _currentWorld.ID, force: true);
+                MonsterService.ReplaceMonsterToBones(monster, _currentWorld.ID, force: true);
                 returnValue = true; //monster is dead
             }
 
@@ -682,6 +683,8 @@ namespace Hugo_LAND.Client
             _gameState.Hero.y = 0;
             _heroPosition.X = 0;
             _heroPosition.Y = 0;
+            _heroSprite.Location.X = 30;
+            _heroSprite.Location.Y = 50;
         }
     }
 }
