@@ -466,7 +466,9 @@ namespace Hugo_LAND.Client
                     double heroDamage = (_random.NextDouble() * ((double)heroVs.StatDex / 100) * (double)heroVs.StatStr);
                     HeroService.RemoveHealth(_gameState.Hero, (int)heroDamage, force: false);
 
-                    HeroService.RemoveHealthVSHero(heroVs, false);
+
+                    double heroDamageVs = (_random.NextDouble() * ((double)_gameState.Hero.StatDex / 100) * (double)_gameState.Hero.StatStr);
+                    HeroService.RemoveHealth(heroVs, (int)heroDamageVs, false);
 
 
                 }
