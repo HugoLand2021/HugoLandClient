@@ -90,6 +90,14 @@ namespace Hugo_LAND.Client
                     _popups.Add(new textPopup(_currentArea.UpdatedCurrentHero.x % 8, _currentArea.UpdatedCurrentHero.y % 8, damage.ToString()));
                     _gameState.Health = _currentArea.UpdatedCurrentHero.StatVitality;
                     Sounds.Fight();
+
+                    if (_gameState.Health <= 0)
+                    {
+                        _gameState.Health = 0;
+                        HeroService.ReplaceHeroToBones(_gameState.Hero, _gameState.Hero.x, _gameState.Hero.y, _currentWorld.ID, force: true);
+                        ResetHero();
+                        _heroSprite.ColorKey = Color.FromArgb(75, 75, 75);
+                    }
                 }
                 _gameState.Experience = _currentArea.UpdatedCurrentHero.Experience;
                 _intervale = 0;
