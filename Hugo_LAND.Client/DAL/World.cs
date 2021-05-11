@@ -85,7 +85,7 @@ namespace Hugo_LAND.Client
 
 
                 int damage = _gameState.Health - _currentArea.UpdatedCurrentHero.StatVitality;
-                if (damage > 0)
+                if (damage != 0)
                 {
                     _popups.Add(new textPopup((int)(_heroSprite.Location.X + 40), (int)(_heroSprite.Location.Y + 20), damage.ToString()));
                     _gameState.Health = _currentArea.UpdatedCurrentHero.StatVitality;
@@ -493,8 +493,6 @@ namespace Hugo_LAND.Client
                     {
                         return false;
                     }
-
-
                 }
                 else
                 {
@@ -517,12 +515,9 @@ namespace Hugo_LAND.Client
                             _gameState.Health = 0;
                             HeroService.ReplaceHeroToBones(_gameState.Hero, _gameState.Hero.x, _gameState.Hero.y, _currentWorld.ID, force: true);
                             ResetHero();
-
-                            _currentArea.ChangeMap(GetWorldItems(0, 0), 0, 0);
                             _heroSprite.ColorKey = Color.FromArgb(75, 75, 75);
                             return false;
                         }
-
                     }
                     //Hero
                     _popups.Clear();
@@ -531,13 +526,11 @@ namespace Hugo_LAND.Client
                     //A monsters armour is 1/5 of their max health
                     if (_random.Next(_gameState.Attack + 1) >= (mapTile.ObjectTile.Health / 5))
                     {
-
                         if (damageMonster((int)(_random.NextDouble() * ((double)_gameState.Hero.StatDex / 100) * (double)_gameState.Hero.StatStr), mapTile, _currentArea._monsters.First(m => m.x % 8 == x && m.y % 8 == y)))
                         {
                             //Monster is dead now
                             return true;
                         }
-
                     }
                     else
                     {

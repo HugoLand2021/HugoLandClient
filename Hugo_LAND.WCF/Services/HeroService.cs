@@ -482,6 +482,7 @@ namespace Hugo_LAND.WCF.Services
                     try
                     {
                         context.SaveChanges();
+                        return;
                     }
                     catch (DbUpdateConcurrencyException)
                     {
