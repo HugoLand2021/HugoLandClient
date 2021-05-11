@@ -157,25 +157,19 @@ namespace Hugo_LAND.Client
             pourcent = _rnd.NextDouble();
             //Reset the game state
 
-            //List<ItemDetailsDTO> inventaireSword = GetAllOneTypeItem("Attack");
-            //List<ItemDetailsDTO> inventaireArmour = _serviceInventory.ReturnObject(Hero.Id, 134)?.ToList();
-            //List<ItemDetailsDTO> inventaireTreasure = _serviceInventory.ReturnObject(Hero.Id, 105)?.ToList();
-            //List<ItemDetailsDTO> inventairePotion = _serviceInventory.ReturnObject(Hero.Id, 136)?.ToList();
-            int CountSword = GetAllOneTypeItem("Attack").Count();
-            int CountArmour = GetAllOneTypeItem("Armour").Count();
             int CountTreasure = GetAllOneTypeItem("Treasure").Count();
             int CountPotion = GetAllOneTypeItem("Potion").Count();
             bool GreenKey = GetAllOneTypeItem("KeyGreen").Count() > 0;
             bool BrownKey = GetAllOneTypeItem("KeyBrown").Count() > 0;
             bool RedKey = GetAllOneTypeItem("KeyRed").Count() > 0;
 
-            double attack2 = (pourcent * ((double)Hero.StatDex / 100) * (double)Hero.StatStr) + CountSword;
+            double attack2 = (pourcent * ((double)Hero.StatDex / 100) * (double)Hero.StatStr);
 
 
             Potions = CountPotion; //-------
-            Armour = CountArmour;   // TODO : le lien avec l'inventaire ici du Hero (donc l'inventaire DTO)
+            Armour = Hero.StatReg;   // TODO : le lien avec l'inventaire ici du Hero (donc l'inventaire DTO)
             Treasure = CountTreasure; // ------
-            Attack = (int)attack2; // TODO il faut le mélanger probablement avec le nombre d'épée dans l'inventaire du Héro
+            Attack = Hero.StatStr; // TODO il faut le mélanger probablement avec le nombre d'épée dans l'inventaire du Héro
             Experience = Hero.Experience;
             Level = Hero.Level;
             _nextUpgrade = 20;
@@ -232,5 +226,7 @@ namespace Hugo_LAND.Client
                 return new List<ItemDetailsDTO>();
             }
         }
+
+        
     }
 }

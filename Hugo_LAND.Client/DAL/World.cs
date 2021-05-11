@@ -80,6 +80,7 @@ namespace Hugo_LAND.Client
             if (_intervale >= 1)
             {
                 _currentArea.RefreshMap(GetBeginPos(_gameState.Hero.x), GetBeginPos(_gameState.Hero.y));
+                
                 _intervale = 0;
             }
 

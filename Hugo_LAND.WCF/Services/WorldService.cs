@@ -52,9 +52,5 @@ namespace Hugo_LAND.WCF.Services
             }
         }
 
-        public WorldDetailsDTO KillMonster(int idWorld, int x, int y)
-        {
-            return new WorldDetailsDTO();
-        }
     }
 }
