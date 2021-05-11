@@ -462,6 +462,7 @@ namespace Hugo_LAND.Client
                     //Monsters do damage up to their max health - if they hit you.
                     heroDamage = _random.Next(mapTile.ObjectTile.Health) + 1;
                     _gameState.Health -= heroDamage;
+                    HeroService.RemoveHealth(_gameState.Hero, heroDamage, force: true);
 
                     if (_gameState.Health <= 0)
                     {

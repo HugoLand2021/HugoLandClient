@@ -265,5 +265,46 @@ namespace Hugo_LAND.WCF.Services
                 return hero;
             }
         }
+
+        public int RemoveHealth(HeroDetailsDTO hero ,int heroDamage, bool force = false)
+        {
+            using (var context = new HugoLANDContext())
+            {
+                Hero currHero;
+                
+                try
+                {
+                    currHero = context.Heros.Find(hero.Id);
+                    currHero.StatVitalite -= heroDamage;
+                }
+                catch
+                {
+                    return hero.StatVitality; //DOES NOT PICK UP ITEM
+                }
+
+                int itr = force ? 5 : 1;
+                var currVersion = currHero.RowVersion;
+                do
+                {
+                    try
+                    {
+                        context.SaveChanges();
+                        hero.StatVitality = currHero.StatVitalite;
+                        return hero.StatVitality;
+                    }
+                    catch (DbUpdateConcurrencyException)
+                    {
+                        if (itr > 0)
+                        {
+                            var objContext = ((IObjectContextAdapter)context).ObjectContext;
+                            objContext.Refresh(RefreshMode.ClientWins, currHero);
+                            itr--;
+                        }
+                    }
+                } while (itr > 0 && currVersion != currHero.RowVersion);
+
+                return hero.StatVitality;
+            }
+        }
     }
 }

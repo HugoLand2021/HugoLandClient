@@ -34,5 +34,9 @@ namespace Hugo_LAND.WCF.Services
 		
 		[OperationContract]
         HeroDetailsDTO PicksUpItem(string itemType, int world, int X, int Y, HeroDetailsDTO hero, bool force = false);
+
+        [OperationContract]
+        int RemoveHealth(HeroDetailsDTO hero, int heroDamage, bool force = false);
+
     }
 }
