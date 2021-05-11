@@ -30,6 +30,7 @@ namespace Hugo_LAND.Client
         private Dictionary<string, Tile> _tiles = new Dictionary<string, Tile>();
         private string _worldName = "";
         private int IdHero;
+        public HeroDetailsDTO UpdatedCurrentHero = new HeroDetailsDTO();
         private bool ErrorMessage = false;
         private bool isAlreadyUpdating = false;
 
@@ -159,7 +160,9 @@ namespace Hugo_LAND.Client
         {
             try
             {
-                _heroes = heroService.ReturnHeroes(_worldName, beginX, beginY, IdHero).ToList();
+                _heroes = heroService.ReturnHeroes(_worldName, beginX, beginY).ToList();
+                UpdatedCurrentHero = _heroes.First(h => h.Id == IdHero);
+                _heroes.Remove(UpdatedCurrentHero);
                 foreach (var hero in _heroes)
                 {
                     MapTile mapTile = Map[hero.x % 8, hero.y % 8];

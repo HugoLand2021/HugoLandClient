@@ -206,7 +206,6 @@
         <xs:element minOccurs="0" name="world" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="mapBeginX" type="xs:int" />
         <xs:element minOccurs="0" name="mapBeginY" type="xs:int" />
-        <xs:element minOccurs="0" name="idHero" type="xs:int" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

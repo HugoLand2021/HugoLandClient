@@ -1259,10 +1259,10 @@ namespace Hugo_LAND.Client.HugoLandServices {
         System.Threading.Tasks.Task<string> DisconnectHeroAsync(int heroID, bool force);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IHeroService/ReturnHeroes", ReplyAction="http://tempuri.org/IHeroService/ReturnHeroesResponse")]
-        Hugo_LAND.Client.HugoLandServices.HeroDetailsDTO[] ReturnHeroes(string world, int mapBeginX, int mapBeginY, int idHero);
+        Hugo_LAND.Client.HugoLandServices.HeroDetailsDTO[] ReturnHeroes(string world, int mapBeginX, int mapBeginY);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IHeroService/ReturnHeroes", ReplyAction="http://tempuri.org/IHeroService/ReturnHeroesResponse")]
-        System.Threading.Tasks.Task<Hugo_LAND.Client.HugoLandServices.HeroDetailsDTO[]> ReturnHeroesAsync(string world, int mapBeginX, int mapBeginY, int idHero);
+        System.Threading.Tasks.Task<Hugo_LAND.Client.HugoLandServices.HeroDetailsDTO[]> ReturnHeroesAsync(string world, int mapBeginX, int mapBeginY);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IHeroService/PicksUpItem", ReplyAction="http://tempuri.org/IHeroService/PicksUpItemResponse")]
         Hugo_LAND.Client.HugoLandServices.HeroDetailsDTO PicksUpItem(string itemType, int world, int X, int Y, Hugo_LAND.Client.HugoLandServices.HeroDetailsDTO hero, bool force);
@@ -1372,12 +1372,12 @@ namespace Hugo_LAND.Client.HugoLandServices {
             return base.Channel.DisconnectHeroAsync(heroID, force);
         }
         
-        public Hugo_LAND.Client.HugoLandServices.HeroDetailsDTO[] ReturnHeroes(string world, int mapBeginX, int mapBeginY, int idHero) {
-            return base.Channel.ReturnHeroes(world, mapBeginX, mapBeginY, idHero);
+        public Hugo_LAND.Client.HugoLandServices.HeroDetailsDTO[] ReturnHeroes(string world, int mapBeginX, int mapBeginY) {
+            return base.Channel.ReturnHeroes(world, mapBeginX, mapBeginY);
         }
         
-        public System.Threading.Tasks.Task<Hugo_LAND.Client.HugoLandServices.HeroDetailsDTO[]> ReturnHeroesAsync(string world, int mapBeginX, int mapBeginY, int idHero) {
-            return base.Channel.ReturnHeroesAsync(world, mapBeginX, mapBeginY, idHero);
+        public System.Threading.Tasks.Task<Hugo_LAND.Client.HugoLandServices.HeroDetailsDTO[]> ReturnHeroesAsync(string world, int mapBeginX, int mapBeginY) {
+            return base.Channel.ReturnHeroesAsync(world, mapBeginX, mapBeginY);
         }
         
         public Hugo_LAND.Client.HugoLandServices.HeroDetailsDTO PicksUpItem(string itemType, int world, int X, int Y, Hugo_LAND.Client.HugoLandServices.HeroDetailsDTO hero, bool force) {

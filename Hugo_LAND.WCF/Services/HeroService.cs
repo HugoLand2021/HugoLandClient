@@ -220,7 +220,7 @@ namespace Hugo_LAND.WCF.Services
 
 
 
-        public List<HeroDetailsDTO> ReturnHeroes(string world, int mapBeginX, int mapBeginY, int idHero)
+        public List<HeroDetailsDTO> ReturnHeroes(string world, int mapBeginX, int mapBeginY)
         {
             try
             {
@@ -229,7 +229,7 @@ namespace Hugo_LAND.WCF.Services
 
                     return context.Mondes.First(w => w.Description == world)
                         .Heros
-                        .Where(obj => ((obj.x >= mapBeginX) && (obj.x < mapBeginX + 8)) && ((obj.y >= mapBeginY) && (obj.y < mapBeginY + 8)) && obj.EstConnecte == true && obj.Id != idHero)
+                        .Where(obj => ((obj.x >= mapBeginX) && (obj.x < mapBeginX + 8)) && ((obj.y >= mapBeginY) && (obj.y < mapBeginY + 8)) && obj.EstConnecte == true)
                         .Select(m => new HeroDetailsDTO
                         {
                             Id = m.Id,

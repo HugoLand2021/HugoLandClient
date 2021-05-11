@@ -30,7 +30,7 @@ namespace Hugo_LAND.WCF.Services
         string DisconnectHero(int heroID, bool force = false);
 
         [OperationContract]
-        List<HeroDetailsDTO> ReturnHeroes(string world, int mapBeginX, int mapBeginY, int idHero);
+        List<HeroDetailsDTO> ReturnHeroes(string world, int mapBeginX, int mapBeginY);
 
 		[OperationContract]
         HeroDetailsDTO PicksUpItem(string itemType, int world, int X, int Y, HeroDetailsDTO hero, bool force = false);
